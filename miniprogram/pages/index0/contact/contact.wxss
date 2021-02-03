@@ -1,0 +1,62 @@
+/**about.wxss**/
+
+.contact{
+  font-family: '微软雅黑';
+}
+
+.header{
+  padding: 41rpx;
+  position: relative;
+}
+
+.title{
+  font-size: 54rpx;
+  font-weight: bold;
+  color: #ff9933;
+  margin-bottom: 20rpx;
+}
+
+.des{
+  font-size: 32rpx;
+  color: #aaa;
+  line-height: 67rpx;
+}
+
+.info{
+  padding: 41rpx;
+  border-top: 5rpx #eeeeee solid;
+  border-bottom: 5rpx #eeeeee solid;
+}
+
+.line{
+  margin-bottom: 46rpx;
+  margin-left: 60rpx;
+  position: relative;
+}
+
+.icon{
+  width: 50rpx;
+  height: 50rpx;
+  position: absolute;
+  left: -55rpx;
+  top: -6rpx;
+}
+
+.icon-postion{
+  width: 50rpx;
+  height: 50rpx;
+}
+
+.arrow{
+  width: 50rpx;
+  height: 50px;
+  position: absolute;
+  top: -6rpx;
+  right: 0px;
+}
+
+.text{
+  font-size: 32rpx;
+  color: #666;
+  margin-left: 20rpx;
+}

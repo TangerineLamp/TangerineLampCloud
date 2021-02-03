@@ -1,0 +1,74 @@
+/* pages/index2/editPage/personalEditor.wxss */
+
+/* 子元素居中通用样式设置 */
+.in_mid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*************************************标题部分*************************************/
+/* 顶部装载标题的空白容器 */
+.topcontainer{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid rgb(236, 225, 225);
+}
+/*标题*/
+.case_title{
+  color: #ff7733;
+  font-size: 45rpx;
+	font-weight: bold;
+	font-family: 'Microsoft YaHei';
+}
+/* 发表按钮的容器 */
+.publish_container {
+	position: absolute;
+	width: 20%;
+	height: 100rpx;
+	align-items: center;
+	right: 10rpx;
+}
+/* 发表的按钮 */
+.go_publish {
+	width: 50%;
+	height: 80%;
+	padding: 0;
+	background-color: #ff7733;
+	color: #ffffff;
+	position: relative;
+}
+/*************************************正文编辑部分*************************************/
+/* 编辑正文的容器 */
+.midcontainer {
+	background-color: rgb(236, 225, 225);
+	width: 100%;
+	height: calc( 100vh - 110rpx );
+	display: flex;
+	display: block;
+}
+/* 编辑正文部分 */
+.per_body {
+	width: 100%;
+	height: 40%;
+	background-color: #fff;
+}
+/* 底部容器 */
+.bottomcontainer {
+	display: flex;
+	width: 100%;
+	height: 5%;
+	background-color: #fff;
+	display: block;
+}
+/* 装图片的容器 */
+.piccontainer {
+	display: flex;
+	width: 10%;
+}
+/*首页通用标准图片大小样式*/
+.stdimg{
+  width: 50rpx;
+  height: 50rpx;
+}

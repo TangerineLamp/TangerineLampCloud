@@ -1,0 +1,37 @@
+<!-- pages/index0/passage/passage.wxml -->
+
+
+<!-- 标题 -->
+<view class="header">
+  <view class="title">
+    每日文章
+  </view>
+  <view class="des">
+    每日文章分享。随便写点啥简介吧。
+  </view>
+</view>
+
+<!-- 文章列表 -->
+<scroll-view scroll-top="{{0}}" scroll-y class="passage">
+  <!-- 文章导航 -->
+  <navigator class="passage-item"
+  wx:for="{{passageList}}"
+  wx:key="id"
+  wx:for-index="index0"
+  wx:for-item="item0"
+  url="{{'/pages/index0/passage/passageContent/passageContent?pid='+item0.pid}}">
+    <!-- 文章信息 title/des -->
+    <view class="passage-info">
+      <view class="passage-title">
+        {{item0.title}}
+      </view>
+      <view class="passage-des">
+        {{item0.des}}
+      </view>
+    </view>
+    <!-- 文章图片 预留空间，选择性上传 -->
+    <view class="passage-image">
+      <image src="{{item0.image}}" mode="aspectFill"></image>
+    </view>
+  </navigator>
+</scroll-view>

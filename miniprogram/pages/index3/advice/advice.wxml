@@ -1,0 +1,27 @@
+<!-- pages/index3/advice/advice.wxml -->
+<view>
+    <view class="complaint_content">
+        <view class="complaint">意见反馈</view>
+        <view class="shop_item{{item == shopitem?'active':''}}" wx:for="{{items}}" bindtap='bindshop' data-classify="{{item}}">
+            {{item}}
+        </view>
+        <view class="complaint">反馈描述</view>
+        <view class="described">
+            <view class="page-section described_star">
+                <view class="weui-cells weui-cells_after-title">
+                    <view class="weui-cell weui-cell_input">
+                        <textarea class="weui-input" maxlength="200">
+                            请填写十个字以上的问题描述以便我们为您提供更好 的帮助
+                        </textarea>
+                    </view>
+                </view>
+            </view>
+            <view class="described_end">
+                <text>0</text>
+                /
+                <text>200</text>
+            </view>
+        </view>
+    </view>
+    <button class="submit" bindtap="complaint">提交</button>
+</view>

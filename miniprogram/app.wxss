@@ -1,0 +1,25 @@
+/**app.wxss**/
+@import "./styles/iconfont.wxss";
+.container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-between;
+  padding: 200rpx 0;
+  box-sizing: border-box;
+}
+
+page{
+  /* 自定义颜色 */
+  --orange0:#ff9933;
+  --orange1:#ff8833;
+  --orange2:#ff7733;
+  --orange3:#ff6633;
+  --treehole_work: #5C92F1;
+  --treehole_emotion: #F41010;
+  --treehole_game: #C26BE7;
+  --treehole_life: #AAB20E;
+  --treehole_study: #17AD17;
+  --treehole_exam: #E95BB8;
+}

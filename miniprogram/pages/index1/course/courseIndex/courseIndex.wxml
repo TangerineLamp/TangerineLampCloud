@@ -1,0 +1,28 @@
+<!--pages/courseIndex/courseIndex.wxml-->
+<view class="top">
+  <image class="targetImg" src="/icons/courseIndex.png" alt="/icons/none_img.png"></image>
+  <text class="des">课程目录</text>
+</view>
+<!-- 课程列表 -->
+<scroll-view scroll-y class="bottom">
+  <!-- 课程渲染循环 -->
+  <navigator
+  class="test_item"
+  wx:for="{{courseList}}"
+  wx:for-item="itemCourse"
+  wx:key="idCourse"
+  url="{{'/pages/index1/course/courseDetail/courseDetail?cid='+itemCourse.cid}}">
+    <view class="test_left">
+      <image src="{{itemCourse.img}}" alt="/icons/none_img.png" mode="aspectFill"></image>
+    </view>
+    <view class="test_right">
+      <view class="test_title">
+        {{itemCourse.title}}
+      </view>
+      <view class="test_des">
+        {{itemCourse.des}}
+      </view>
+    </view>
+  </navigator>
+</scroll-view>
+

@@ -1,0 +1,20 @@
+<!--pages/index0/passage/passageContent/passageContent.wxml-->
+
+<!-- 文章内容框架 -->
+<view class="header">
+  <view class="title">
+    {{passage.title}}
+  </view>
+  <view class="author">
+    {{passage.author}}
+  </view>
+  <view class="des">
+    {{passage.des}}
+  </view>
+</view>
+
+<view class="blank"></view>
+
+<view class="body">
+  {{passage.body}}
+</view>

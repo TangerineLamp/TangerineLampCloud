@@ -1,0 +1,37 @@
+<!-- 联系我们 -->
+
+<view class="contact">
+    <view class="header">
+      <view class="title">小橘灯</view>
+      <view class="des">Tangerine Lamp</view>
+      <view class="des">重庆大学心理健康与咨询中心</view>
+    </view>
+
+    <view class="info">
+      <!-- 地址 -->
+      <view class="line">
+         <view class="icon">
+            <image src="{{addressIconSrc}}" class="icon-postion"></image>
+         </view>
+         <view class="text">重庆市大学城南路重庆大学虎溪校区</view>
+      </view>
+      <!-- 时间 -->
+      <view class="line">
+         <view class="icon">
+            <image src="{{clockIconSrc}}" class="icon-postion"></image>
+         </view>
+         <view class="text">8：30 AM ~ 17：30 PM</view>
+      </view>
+      <!-- 电话 -->
+      <view class="line" bindtap="calling">
+         <view class="icon">
+            <image src="{{phoneIconSrc}}" class="icon-postion"></image>
+         </view>
+         <view class="text">131 2345 6789 （点击拨号）</view>
+         <view class="arrow">
+           <image src="{{arrowIconSrc}}" class="icon-postion"></image>
+         </view>
+      </view>
+    </view>
+
+</view>

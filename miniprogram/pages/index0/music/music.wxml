@@ -1,0 +1,48 @@
+<!--pages/index0/music/music.wxml-->
+
+<!-- 治愈歌单 -->
+
+<!-- 轮播图 -->
+<swiper indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" circular>
+  <block wx:for="{{slides}}" wx:for-index="index">
+    <swiper-item>
+      <image src='{{item.url}}' class="slide-image" mode="widthFix"></image>
+    </swiper-item>
+  </block>
+</swiper>
+
+
+<!-- 推荐音乐 -->
+<view class="recommendMusic">
+  <view class="title">推荐音乐 > </view>
+  <!-- 音乐列表 -->
+  <view class="playlist-item" wx:for="{{playlist}}" wx:key="id" bindtap="change" data-index="{{index}}">
+    <image class="playlist-cover" src="{{item.coverImgUrl}}"></image>
+    <view class="playlist-info">
+      <view class="playlist-info-title">{{item.title}}</view>
+      <view class="playlist-info-singer">{{item.singer}}</view>
+    </view>
+    <view class="playlist-controls">
+      <text wx:if="{{index==playIndex}}">正在播放</text>
+    </view>
+  </view>
+</view>
+
+
+<!-- 底部播放器 -->
+<view class="player">
+  <image class="player-cover" src="{{play.coverImgUrl}}" />
+  <view class="player-info">
+    <view class="player-info-title">{{play.title}}</view>
+    <view class="player-info-singer">{{play.singer}}</view>
+  </view>
+  <view class="player-controls1">
+    <!-- 播放或暂停 -->
+    <image wx:if="{{state=='paused'}}" src="/icons/play-icon.jpg" bindtap="play"></image>
+    <image wx:else src="/icons/pause-icon.jpg" bindtap="pause"></image>
+  </view>
+  <view class="player-controls2">
+    <!-- 下一曲 -->
+    <image src="/icons/next-icon.jpg" bindtap="next"></image>
+  </view>
+</view>

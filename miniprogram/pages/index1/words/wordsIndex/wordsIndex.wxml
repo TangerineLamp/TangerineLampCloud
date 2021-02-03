@@ -1,0 +1,11 @@
+<view class="top">
+  <image class="targetImg" src="/icons/target_words.png" alt="/icons/none_img.png"></image>
+  <text class="des">高频词条</text>
+</view>
+<view class="blank"></view>
+<navigator class="words"
+wx:for="{{words}}"
+wx:key="wordskey"
+url="/pages/index1/words/wordsDetail/wordsDetail?wid={{item.wid}}">
+{{item.title}}
+</navigator>

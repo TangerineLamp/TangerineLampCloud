@@ -1,0 +1,48 @@
+/* pages/index0/passage/passageContent/passageContent.wxss */
+
+.page{
+  background: white;
+}
+
+.header{
+  width: 100%;
+  /* text-align: center; */
+  background-color: white;
+}
+
+.header .title{
+  font-weight: bold;
+  font-size: 50rpx;
+  margin-top: 60rpx;
+  margin-left: 40rpx;
+  margin-bottom: 35rpx;
+  letter-spacing: 1rpx;
+}
+
+.header .author{
+  color:#aaaaaa;
+  font-size: 32rpx;
+  margin-top: 0rpx;
+  margin-left: 40rpx;
+  margin-bottom: 35rpx;
+}
+
+.header .des{
+  color:#aaaaaa;
+  font-size: 24rpx;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  margin-bottom: 35rpx;
+}
+
+.blank{
+  width: 100%;
+  height: 20rpx;
+  background-color: #f7f7f7;
+}
+
+.body{
+  margin-left: 40rpx;
+  margin-right: 40rpx;
+  margin-bottom: 300rpx;
+}

@@ -1,0 +1,29 @@
+<!--pages/paidTestDetail/paidTestDetail.wxml-->
+<view class="top">
+  <image class="topImg" src="{{testDetail.img}}" alt="/icons/none_img.png" mode="aspectFill"></image>
+</view>
+<view class="description">
+  <view class="title">
+    {{testDetail.title}}
+  </view>
+  <view class="des">
+    {{testDetail.des}}
+  </view>
+</view>
+<view class="blank"></view>
+<view class="center">
+  <view class="introduce">
+    <view class="side"></view>
+    <view class="words">测评详情</view>
+    <view class="side"></view>
+  </view>
+  <view class="detail">
+    {{testDetail.introduce_words}}
+  </view>
+</view>
+<!-- 底部固定栏 -->
+<view class="bottom">
+  <view class="price">¥ {{testDetail.price}}</view>
+  <view class="side"></view>
+  <view class="test"><text>立即测试</text></view>
+</view>

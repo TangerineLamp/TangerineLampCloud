@@ -1,0 +1,29 @@
+<!--pages/index1/courseDetail/courseDetail.wxml-->
+<view class="top">
+  <image class="topImg" src="{{courseDetail.img}}" alt="/icons/none_img.png" mode="aspectFill"></image>
+</view>
+<view class="description">
+  <view class="title">
+    {{courseDetail.title}}
+  </view>
+  <view class="des">
+    {{courseDetail.des}}
+  </view>
+</view>
+<view class="blank"></view>
+<view class="center">
+  <view class="introduce">
+    <view class="side"></view>
+    <view class="words">课程详情</view>
+    <view class="side"></view>
+  </view>
+  <view class="detail">
+    {{courseDetail.introduce_words}}
+  </view>
+</view>
+<!-- 底部固定栏 -->
+<view class="bottom">
+  <view class="price">¥ {{courseDetail.price}}</view>
+  <view class="side"></view>
+  <view class="test"><text>立即学习</text></view>
+</view>

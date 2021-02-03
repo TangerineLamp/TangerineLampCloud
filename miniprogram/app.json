@@ -1,0 +1,75 @@
+{
+  "pages": [
+    "pages/index0/index0",
+    "pages/index1/index1/index1",
+    "pages/index2/index2",
+    "pages/index2/treeHole/1/work",
+    "pages/index2/treeHole/2/life",
+    "pages/index2/treeHole/3/emotion",
+    "pages/index2/treeHole/4/study",
+    "pages/index2/treeHole/5/game",
+    "pages/index2/treeHole/6/exam",
+    "pages/index2/editPage/personalEditor",
+    "pages/index2/detailPage/detailPage",
+    "pages/index3/index3",
+    "pages/login/login",
+    "pages/index1/advice/adviceIndex/adviceiIndex",
+    "pages/index1/course/courseIndex/courseIndex",
+    "pages/index1/test1/paidTestDetail/paidTestDetail",
+    "pages/index1/test1/freeTestDetail/freeTestDetail",
+    "pages/index1/words/wordsIndex/wordsIndex",
+    "pages/index1/words/wordsDetail/wordsDetail",
+    "pages/index1/course/courseDetail/courseDetail",
+    "pages/index3/advice/advice",
+    "pages/index3/about/about",
+    "pages/index3/share/share",
+    "pages/index3/stars/stars", 
+    "pages/index3/collection/collection",
+    "pages/index3/treeroles/treeroles",
+    "pages/index3/plan/plan",
+    "pages/index3/list/list",
+    "pages/index3/exam/exam",
+    "pages/index3/trace/trace",
+    "pages/index3/diary/diary",
+    "pages/index0/passage/passageContent/passageContent"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#ff9933",
+    "navigationBarTitleText": "小橘灯",
+    "navigationBarTextStyle": "white"
+  },
+  "tabBar": {
+    "borderStyle": "black",
+    "color": "#8a8a8a",
+    "selectedColor": "#ff9933",
+    "list": [
+      {
+        "pagePath": "pages/index0/index0",
+        "text": "每日分享",
+        "iconPath": "icons/planet.png",
+        "selectedIconPath": "icons/planet_active.png"
+      },
+      {
+        "pagePath": "pages/index1/index1/index1",
+        "text": "心理专攻",
+        "iconPath": "icons/heart.png",
+        "selectedIconPath": "icons/heart_active.png"
+      },
+      {
+        "pagePath": "pages/index2/index2",
+        "text": "树洞广场",
+        "iconPath": "icons/comminity.png",
+        "selectedIconPath": "icons/comminity_active.png"
+      },
+      {
+        "pagePath": "pages/index3/index3",
+        "text": "个人中心",
+        "iconPath": "icons/user.png",
+        "selectedIconPath": "icons/user_active.png"
+      }
+    ]
+  },
+  "style": "v2",
+  "sitemapLocation": "sitemap.json"
+}

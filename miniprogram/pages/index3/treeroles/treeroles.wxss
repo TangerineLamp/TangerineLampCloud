@@ -1,0 +1,22 @@
+/* pages/index3/treeroles/treeroles.wxss */
+.bottom {
+    background-color: orange;
+    height: 10vh;
+    width: 100%;
+    position: relative;
+  }
+  .bottom .title .pic{
+      position: relative;
+      width: 50rpx;
+      height: 50rpx;
+      margin-left: 30rpx;
+  }
+  .bottom .title {
+    text-align: center;
+    font-weight: bold;
+    position: relative;
+    font-size: 50rpx;
+    color: whitesmoke;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  

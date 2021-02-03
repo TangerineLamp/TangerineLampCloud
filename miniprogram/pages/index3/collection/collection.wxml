@@ -1,0 +1,31 @@
+<!--pages/index3/collection/collection.wxml-->
+<view class="bottom" hover-class="none" hover-stop-propagation="false">
+   <view class="title" hover-class="none" hover-stop-propagation="false">
+       收藏列表
+   </view>
+    
+</view>
+<scroll-view scroll-top="{{0}}" scroll-y class="passage">
+  <!-- 文章导航 -->
+  <navigator class="passage-item"
+  wx:for="{{passageList}}"
+  wx:key="id"
+  wx:for-index="index0"
+  wx:for-item="item0"
+  url="{{'/pages/index0/passage/passageContent/passageContent?pid='+item0.pid}}">
+    <!-- 这里的url要修改一下 这只是为了测试使用 -->
+    <!-- 文章信息 title/des -->
+    <view class="passage-info">
+      <view class="passage-title">
+        {{item0.title}}
+      </view>
+      <view class="passage-des">
+        {{item0.des}}
+      </view>
+    </view>
+    <!-- 文章图片 预留空间，选择性上传 -->
+    <view class="passage-image">
+      <image src="{{item0.image}}" mode="aspectFill"></image>
+    </view>
+  </navigator>
+</scroll-view>

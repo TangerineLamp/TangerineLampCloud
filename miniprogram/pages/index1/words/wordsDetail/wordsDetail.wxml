@@ -1,0 +1,8 @@
+<view class="title">{{wordsDetail.title}}</view>
+<view class="blank"></view>
+<view class="content"
+wx:for="{{wordsDetail.content}}"
+wx:key="wordsDetailContent">
+<view class="topic">{{item.topic}}</view>
+<view class="paragraph"><text user-select="true">{{item.paragraph}}</text></view>
+</view>

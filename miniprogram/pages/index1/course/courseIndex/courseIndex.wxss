@@ -1,0 +1,71 @@
+/* pages/courseIndex/courseIndex.wxss */
+.top {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+
+.top .targetImg{
+  height: 80rpx;
+  width: 80rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+}
+
+.top .des{
+  margin-left: 20rpx;
+  color: var(--orange1);
+}
+
+.bottom {
+  background-color:#f7f7f7;
+  height: calc( 100vh - 120rpx );
+}
+
+.test_item{
+  background-color: #fff;
+  display: flex;
+  height: 222rpx;
+  border-bottom: 3rpx solid var(--orange0);
+  border-radius: 10rpx;
+  margin: 20rpx;
+  align-items: center;
+}
+.test_left{
+  position: relative;
+  flex:1;
+  height: 75%;
+  margin-left:25rpx;
+}
+.test_left image{
+  width: 100%;
+  height: 100%;
+  border-radius: 10rpx;
+}
+.test_right{
+  flex:2;
+  height: 90%;
+  /* background-color: #000; */
+  margin:10rpx;
+  margin-left: 30rpx;
+}
+.test_title{
+  margin: 15rpx 0rpx 0rpx 0rpx;
+  font-family: 'Microsoft YaHei','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+  font-weight: bold;
+  font-size: 33rpx;
+  overflow: hidden;
+}
+
+.test_des{
+  margin:18rpx 15rpx 0rpx 0rpx;
+  display: -webkit-box;
+  color:#666666;
+  font-size:25rpx;
+  overflow: hidden;
+  white-space:normal;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+}

@@ -1,0 +1,131 @@
+/* pages/index0/index0.wxss */
+page{
+  background: #eeeeee;
+}
+
+.slide{
+  height: 450rpx;
+}
+
+.slide-image{
+  width: 100%;
+}
+
+.daily{
+  height: 240rpx;
+  /* background: #f9f9f9; */
+}
+
+/* 每日分享四大组件样式 */
+.daily-item1{
+  display: flex;
+  float: left;
+  position: relative;
+  width: 342rpx;
+  height: 175rpx;
+  margin-top: 50rpx; 
+  margin-left: 25rpx;
+  margin-right: 10rpx;
+  background: white;
+}
+
+.daily-item2{
+  display: flex;
+  float: right;
+  position: relative;
+  width: 342rpx;
+  height: 175rpx;
+  margin-top: 50rpx; 
+  margin-right: 25rpx;
+  background: white;
+}
+
+.daily-item3{
+  display: flex;
+  float: left;
+  position: relative;
+  width: 342rpx;
+  height: 175rpx;
+  margin-top: 5rpx; 
+  margin-left: 25rpx;
+  background: white;
+}
+
+.daily-item4{
+  display: flex;
+  float: right;
+  position: relative;
+  width: 342rpx;
+  height: 175rpx;
+  margin-top: 5rpx; 
+  margin-right: 25rpx;
+  background: white;
+}
+
+.contact-item{
+  display: flex;
+  float: left;
+  position: relative;
+  width: 700rpx;
+  height: 175rpx;
+  margin-top: 20rpx; 
+  margin-left: 25rpx;
+  background: white;
+}
+
+.daily-icon image{
+  width: 135rpx;
+  height: 135rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 15rpx;
+}
+
+.contact-icon image{
+  width: 135rpx;
+  height: 135rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 155rpx;
+}
+
+.daily-info{
+  /* position: absolute; */
+  height: 35rpx;
+  font-size: 35rpx;
+  position: relative;
+  color: black;
+  font-family: '微软雅黑';
+  font-weight: bold;
+  bottom: 10rpx;
+  left: -10rpx;
+  margin-left: 20rpx;
+  margin-top: 55rpx;
+}
+
+.daily-des{
+  color: #797676;
+  font-size: 22rpx;
+  margin-top: 15rpx;
+  margin-left: 15rpx;
+}
+
+.contact-info{
+  height: 50rpx;
+  font-size: 55rpx;
+  position: relative;
+  color: black;
+  font-family: '微软雅黑';
+  font-weight: bold;
+  bottom: 10rpx;
+  left: -10rpx;
+  margin-left: 30rpx;
+  margin-top: 40rpx;
+}
+
+.contact-des{
+  color: #797676;
+  font-size: 25rpx;
+  margin-top: 15rpx;
+  margin-left: 30rpx;
+}

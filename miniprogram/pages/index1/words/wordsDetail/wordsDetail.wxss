@@ -1,0 +1,31 @@
+/* pages/index1/wordsDetail/wordsDetail.wxss */
+.title {
+  margin: 30rpx;
+  font-size: 60rpx;
+}
+
+.blank {
+  height: 20rpx;
+  background-color: #f7f7f7;
+}
+
+/* content列表样式 */
+.content {
+  margin:20rpx 0rpx 60rpx 0rpx;
+}
+
+.content .topic{
+  font-size:40rpx;
+  margin-top:30rpx;
+  padding-left: 25rpx;
+  border-left: var(--orange1) solid 15rpx;
+}
+
+.content .paragraph{
+  margin-top:20rpx;
+  margin-left:35rpx;
+  margin-right:35rpx;
+  font-size: 35rpx;
+  line-height: 45rpx;
+  color:#333333;
+}

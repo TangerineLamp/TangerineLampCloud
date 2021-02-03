@@ -1,0 +1,97 @@
+<!--pages/index0/index0.wxml-->
+
+
+<!-- 轮播图 -->
+<swiper class="slide" indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" circular>
+  <block wx:for="{{picList}}" wx:key="index">
+    <swiper-item>
+      <image src="{{item}}" class="slide-image" mode="aspectFill" bindtap='previewImg' data-previewurl='{{picList}}'
+      data-currenturl='{{item}}'/>
+    </swiper-item>
+  </block>  
+</swiper>
+
+
+<!-- 每日分享：小文章，治愈歌单/书目，心理漫画，心理电台 -->
+<view class="daily">
+  <!-- 文章 -->
+  <navigator url="/pages/index0/passage/passage" hover-class="navigator-hover" class="daily-item1">
+    <view class="daily-icon">
+      <image src="{{passageIconSrc}}"></image>
+    </view>
+    <view>
+      <view class="daily-info">
+        每日文章
+      </view>
+      <view class="daily-des">
+        <text>写些啥呢，哈哈</text>
+      </view>
+    </view>
+  </navigator>
+
+  <!-- 治愈歌单、书目 -->
+  <navigator url="/pages/index0/music/music" hover-class="navigator-hover" class="daily-item2">
+    <view class="daily-icon">
+      <image src="{{musicIconSrc}}"></image>
+    </view>
+    <view>
+      <view class="daily-info">
+        治愈歌单
+      </view>
+      <view class="daily-des">
+        <text>写些啥呢，哈哈</text>
+      </view>
+    </view>
+  </navigator>
+</view>
+
+<view class="daily">
+  <!-- 心理漫画 -->
+  <navigator url="/pages/index0/comic/comic" hover-class="navigator-hover" class="daily-item3">
+    <view class="daily-icon">
+      <image src="{{comicIconSrc}}"></image>
+    </view>
+    <view>
+      <view class="daily-info">
+        心理漫画
+      </view>
+      <view class="daily-des">
+        <text>写些啥呢，哈哈</text>
+      </view>
+    </view>
+  </navigator>
+  
+  <!-- 心理电台 -->
+  <navigator url="/pages/index0/radio/radio" hover-class="navigator-hover" class="daily-item4">
+    <view class="daily-icon">
+      <image src="{{radioIconSrc}}"></image>
+    </view>
+    <view>
+      <view class="daily-info">
+        心理电台
+      </view>
+      <view class="daily-des">
+        <text>写些啥呢，哈哈</text>
+      </view>
+    </view>
+  </navigator>
+
+  <!-- 联系我们 -->
+  <view>
+    <navigator url="/pages/index0/contact/contact" hover-class="navigator-hover" class="contact-item">
+      <view class="contact-icon">
+        <image src="{{contactIconSrc}}"></image>
+      </view>
+      <view>
+        <view class="contact-info">
+          联 系 我 们
+        </view>
+        <view class="contact-des">
+          <text>Tel: 135XXXXXXXX</text>
+        </view>
+      </view>
+    </navigator>
+  </view>
+</view>
+
+

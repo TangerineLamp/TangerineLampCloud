@@ -1,0 +1,91 @@
+<!-- pages/index3/index3.wxml -->
+<!-- <navigator url="/pages/login/login">
+    登录页
+</navigator> -->
+<!-- <view class="user_info_wrap">
+    <view wx:if="{{userinfo.avatarUrl}}" class="user_img_wrap">
+        <image class="user_bg" src="{{userinfo.avatarUrl}}"></image>
+        <view class="user_info">
+        <image class="user_icon" src="{{userinfo.avatarUrl}}"></image>
+        <view class="user_name">{{userinfo.nickName}}</view>
+        </view>
+    </view>
+    <view wx:else class="user_btn">
+        <navigator url="/pages/login/login">
+            登录
+        </navigator>
+          
+    </view>
+</view> -->
+<view class="user_info_wrap">
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="user_btn">
+    登陆
+  </button>
+  <!-- <block wx:else> -->
+  <view wx:else class="user_img_wrap">
+    <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
+    <view class="user_info">
+      <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user_name">{{userInfo.nickName}}</view>
+    </view>
+    <!-- <image src="/icons/planet_active.png"></image> -->
+  </view>
+  <!-- </block> -->
+</view>
+<view class="user_content">
+  <view class="user_main">
+    <!-- 我的旅程 -->
+    <view class="history_wrap">
+      <navigator url="/pages/index3/stars/stars">
+        <view class="his_num">0</view>
+        <view class="his_name">签到</view>
+      </navigator>
+      <navigator url="/pages/index3/collection/collection">
+        <view class="his_num">0</view>
+        <view class="his_name">收藏</view>
+      </navigator>
+      <navigator url="/pages/index3/treeroles/treeroles">
+        <view class="his_num">0</view>
+        <view class="his_name">树洞</view>
+      </navigator>
+      <navigator url="/pages/index3/trace/trace">
+        <view class="his_num">0</view>
+        <view class="his_name">消息</view>
+      </navigator>
+    </view>
+    <view class="orders_wrap">
+      <view class="orders_title">我的</view>
+      <view class="order_content">
+        <navigator url="/pages/index3/plan/plan">
+          <view class="order_icon iconfont icon-yuyue"></view>
+          <view class="order_name">预约</view>
+        </navigator>
+        <navigator url="/pages/index3/list/list">
+          <view class="iconfont icon-fukuan"></view>
+          <view class="order_name">订单</view>
+        </navigator>
+        <navigator url="/pages/index3/exam/exam">
+          <view class="iconfont icon-xinliceping"></view>
+          <view class="order_name">测评</view>
+        </navigator>
+        <navigator url="/pages/index3/diary/diary">
+          <view class="iconfont icon-shouhou"></view>
+          <view class="order_name">日志</view>
+        </navigator>
+      </view>
+    </view>
+    <!-- 收货地址管理 -->
+    <view class="address_wrap">设置</view>
+    <!-- 应用信息相关 -->
+    <view class="app_info_wrap">
+      <view class="app_info_item app_info_contact">
+        <text>联系客服</text>
+        <text>8888888888888</text>
+      </view>
+      <navigator url="/pages/index3/advice/advice" class="app_info_item">意见反馈</navigator>
+      <navigator class="app_info_item" url="/pages/index3/about/about">关于我们</navigator>
+    </view>
+    <!-- 推荐 -->
+    <navigator class="recommend_wrap" url="/pages/index3/share/share">把应用推荐给其他人</navigator>
+  </view>
+</view>

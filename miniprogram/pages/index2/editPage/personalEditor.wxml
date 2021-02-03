@@ -1,0 +1,27 @@
+<!--pages/index2/editPage/personalEditor.wxml-->
+
+<view class='topcontainer in_mid'>
+	<text class='case_title in_mid'>写 帖 子</text>
+	<view class="publish_container in_mid">
+		<button class="go_publish in_mid">
+			发表
+		</button>
+	</view>
+</view>
+<view class="midcontainer">
+	<!--用户多行输入的内容-->
+	<textarea class="per_body" 
+						maxlength="-1" 
+						auto-focus="true"
+						placeholder="来说点什么吧~~"
+						bindblur="bindTextAreaBlur"
+						value="{{details}}">
+	</textarea>
+	<!--输入图片-->
+	<view class="bottomcontainer">
+		<view class="piccontainer in_mid">
+			<image src="/pages/index2/logo/pic.svg" class="stdimg" mode="aspectFit"></image>
+		</view>
+	</view>
+</view>
+

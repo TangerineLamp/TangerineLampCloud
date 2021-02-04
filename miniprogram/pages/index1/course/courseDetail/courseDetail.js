@@ -1,4 +1,5 @@
-// pages/index1/courseDetail/courseDetail.js
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -8,24 +9,15 @@ Page({
     courseDetail:{}
   },
 
-  //云端获取的数据
-  clouddata:{
-    cid:0,
-    title:"强迫症",
-    price:8,
-    img:"https://bkimg.cdn.bcebos.com/pic/b2de9c82d158ccbf484c03131bd8bc3eb1354122?x-bce-process=image/resize,m_lfit,w_268,limit_1/format,f_jpg",
-    des:"它是指以反复出现强迫观念和强迫动作为基础特征的一类神经强迫症性障碍。观念是以刻板形成反复进入患者意识领域的思想，表象或意向。",
-    introduce_words:"课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情课程详情"
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const {_id} = options;
     wx.showLoading({
       title: '加载中',
     })
-    this.getDetail();
+    this.getDetail(_id);
     wx.hideLoading();
   },
 
@@ -39,10 +31,11 @@ Page({
   /**
    * 从云端获取课程详情
   */
-  getDetail() {
-    let courseDetail = this.clouddata;
-    this.setData({
-      courseDetail
+  getDetail(_id) {
+    db.collection("index1_courseList").doc(_id).get().then(res=>{
+      this.setData({
+        courseDetail:res.data
+      })
     })
   },
 

@@ -11,7 +11,7 @@
   wx:for="{{courseList}}"
   wx:for-item="itemCourse"
   wx:key="idCourse"
-  url="{{'/pages/index1/course/courseDetail/courseDetail?cid='+itemCourse.cid}}">
+  url="{{'/pages/index1/course/courseDetail/courseDetail?_id='+itemCourse._id}}">
     <view class="test_left">
       <image src="{{itemCourse.img}}" alt="/icons/none_img.png" mode="aspectFill"></image>
     </view>

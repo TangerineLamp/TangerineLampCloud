@@ -1,3 +1,7 @@
+const db = wx.cloud.database();
+//index1_paidTestList
+//index1_freeTestList
+
 Page({
   data: {
     currentIndex:0,
@@ -6,183 +10,32 @@ Page({
     rightTestList:[],
   },
 
-  newListPaid:[
-    {
-      tid:6,
-      title:"专业触底加载1",
-      img:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1622435809,957750092&fm=15&gp=0.jpg",
-      type:"能力",
-      des:"溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试"
-    },
-    {
-      tid:7,
-      title:"专业触底加载2",
-      img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=395487156,3062274823&fm=26&gp=0.jpg",
-      type:"情感",
-      des:"测测你是哪种恋爱体质？"
-    },
-    {
-      tid:8,
-      title:"专业触底加载3",
-      img:"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3840350717,2210481427&fm=26&gp=0.jpg",
-      type:"情感",
-      des:"从颜色透视你的爱情观"
-    }
-  ],
-
-  newListFree:[
-    {
-      tid:6,
-      title:"娱乐触底加载1",
-      img:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1622435809,957750092&fm=15&gp=0.jpg",
-      type:"能力",
-      des:"溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试"
-    },
-    {
-      tid:7,
-      title:"娱乐触底加载2",
-      img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=395487156,3062274823&fm=26&gp=0.jpg",
-      type:"情感",
-      des:"测测你是哪种恋爱体质？"
-    },
-    {
-      tid:8,
-      title:"娱乐触底加载3",
-      img:"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3840350717,2210481427&fm=26&gp=0.jpg",
-      type:"情感",
-      des:"从颜色透视你的爱情观"
-    }
-  ],
-
-  //从云端获取的数据
-  Cates:{
-    testList:[
-      [
-        {
-          tid:0,
-          title:"童年阴影测试",
-          img:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3812393301,2329645096&fm=26&gp=0.jpg",
-          type:"情感",
-          des:"童年受到的伤害，改变了你什么？"
-        },
-        {
-          tid:1,
-          title:"抑郁测试",
-          img:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=405757228,3196131689&fm=26&gp=0.jpg",
-          type:"健康",
-          des:"测测你的抑郁有多深？"
-        },
-        {
-          tid:2,
-          title:"影子人格测试",
-          img:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=333358049,3511313393&fm=26&gp=0.jpg",
-          type:"性格",
-          des:"你的背后隐藏着哪些影子人格？"
-        },
-        {
-          tid:3,
-          title:"大脑优势评估",
-          img:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1622435809,957750092&fm=15&gp=0.jpg",
-          type:"能力",
-          des:"溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试"
-        },
-        {
-          tid:4,
-          title:"恋爱体质测试",
-          img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=395487156,3062274823&fm=26&gp=0.jpg",
-          type:"情感",
-          des:"测测你是哪种恋爱体质？"
-        },
-        {
-          tid:5,
-          title:"爱情底色测试",
-          img:"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3840350717,2210481427&fm=26&gp=0.jpg",
-          type:"情感",
-          des:"从颜色透视你的爱情观"
-        },
-        {
-          tid:3,
-          title:"大脑优势评估",
-          img:"https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=1622435809,957750092&fm=15&gp=0.jpg",
-          type:"能力",
-          des:"溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试溢出测试"
-        },
-        {
-          tid:4,
-          title:"恋爱体质测试",
-          img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=395487156,3062274823&fm=26&gp=0.jpg",
-          type:"情感",
-          des:"测测你是哪种恋爱体质？"
-        },
-        {
-          tid:5,
-          title:"爱情底色测试",
-          img:"https://ss2.bdstatic.com/70cFvnSh_Q1YnxGkpoWK1HF6hhy/it/u=3840350717,2210481427&fm=26&gp=0.jpg",
-          type:"情感",
-          des:"从颜色透视你的爱情观"
-        }
-      ],
-      [
-        {
-          tid:500,
-          title:"假面人格测试",
-          img:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4112329300,1871547202&fm=26&gp=0.jpg",
-          type:"人际",
-          des:"测测你隐藏了哪些人格？"
-        },
-        {
-          tid:501,
-          title:"原生家庭边界评估",
-          img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1060753041,4225328984&fm=26&gp=0.jpg",
-          type:"亲子",
-          des:"父母缺乏边界感，该怎么办？"
-        },
-        {
-          tid:500,
-          title:"假面人格测试",
-          img:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4112329300,1871547202&fm=26&gp=0.jpg",
-          type:"人际",
-          des:"测测你隐藏了哪些人格？"
-        },
-        {
-          tid:501,
-          title:"原生家庭边界评估",
-          img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1060753041,4225328984&fm=26&gp=0.jpg",
-          type:"亲子",
-          des:"父母缺乏边界感，该怎么办？"
-        },
-        {
-          tid:500,
-          title:"假面人格测试",
-          img:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4112329300,1871547202&fm=26&gp=0.jpg",
-          type:"人际",
-          des:"测测你隐藏了哪些人格？"
-        },
-        {
-          tid:501,
-          title:"原生家庭边界评估",
-          img:"https://ss1.bdstatic.com/70cFvXSh_Q1YnxGkpoWK1HF6hhy/it/u=1060753041,4225328984&fm=26&gp=0.jpg",
-          type:"亲子",
-          des:"父母缺乏边界感，该怎么办？"
-        }
-      ]
-    ]
-  },
-
   //首次加载页面时，调用onload
   onLoad: function(options){
     wx.showLoading({
-      title: '加载中',
+      title: '加载中'
     })
-    this.getCates();
+    this.getIndex0();
     wx.hideLoading();
   },
 
-  //接口返回的数据
-  getCates(){
-    let right = this.Cates.testList[0];
-    this.setData({
-      rightTestList:right
+  //获取专业测评列表
+  getIndex0(){
+    db.collection("index1_paidTestList").limit(8).get().then(res=>{
+      this.setData({
+        rightTestList:res.data,
+        currentIndex:0
+      })
+    })
+  },
+
+  //获取娱乐测评列表
+  getIndex1() {
+    db.collection("index1_freeTestList").limit(8).get().then(res=>{
+      this.setData({
+        rightTestList:res.data,
+        currentIndex:1
+      })
     })
   },
 
@@ -190,17 +43,18 @@ Page({
    * 页面上拉触底事件的处理函数
    */
   bottomRefresh: function () {
-    let oldData = this.data.rightTestList;
-    let newList = [];
-    if(this.data.currentIndex==0){
-      newList = this.newListPaid;
-    }else{
-      newList = this.newListFree;
-    }
-    let newData = oldData.concat(newList);
-    this.setData({
-      rightTestList:newData
-    })
+    // let oldData = this.data.rightTestList;
+    // let newList = [];
+    // if(this.data.currentIndex==0){
+    //   newList = this.newListPaid;
+    // }else{
+    //   newList = this.newListFree;
+    // }
+    // let newData = oldData.concat(newList);
+    // this.setData({
+    //   rightTestList:newData
+    // })
+    console.log("触底");
   },
   
   //导航至词条检索
@@ -230,13 +84,15 @@ Page({
   //左侧菜单点击事件,重新渲染右侧列表
   switchRightTab(e){
     const {index}=e.currentTarget.dataset;
-    let right = this.Cates.testList[index];
-    this.setData({
-      currentIndex:index,
-      rightTestList:right,
-      //重新设置，右侧内容的scroll-view标签距离顶部的距离
-      scrollTop:0
+    wx.showLoading({
+      title: '加载中',
     })
+    if(index===0){
+      this.getIndex0();
+    }else{
+      this.getIndex1();
+    }
+    wx.hideLoading();
   },
 
 

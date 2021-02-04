@@ -1,4 +1,5 @@
-// pages/freeTestDetail/freeTestDetail.js
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -8,36 +9,23 @@ Page({
     testDetail:{},
   },
 
-  //模拟云端返回数据
-  clouddata:{
-    tid:0,
-    title:"假面人格测试",
-    img:"https://ss0.bdstatic.com/70cFuHSh_Q1YnxGkpoWK1HF6hhy/it/u=4112329300,1871547202&fm=26&gp=0.jpg",
-    type:"情感",
-    des:"测测你隐藏了哪些人格？测测你隐藏了哪些人格？",
-    introduce_img:"",
-    introduce_words:"测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情测评详情",
-    price:10
-  },
-
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {tid} = options;
+    const {_id} = options;
     wx.showLoading({
       title: '加载中',
     })
-    this.getTestDetail(tid);
+    this.getTestDetail(_id);
     wx.hideLoading();
   },
 
-  //async???
-  getTestDetail(tid) {
-    // const res = await request({url:"",data:{tid}});
-    let testDetail = this.clouddata;
-    this.setData({
-      testDetail
+  getTestDetail(_id) {
+    db.collection("index1_freeTestList").doc(_id).get().then(res=>{
+      this.setData({
+        testDetail:res.data
+      })
     })
   },
 

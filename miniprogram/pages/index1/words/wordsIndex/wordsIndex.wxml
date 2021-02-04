@@ -6,6 +6,6 @@
 <navigator class="words"
 wx:for="{{words}}"
 wx:key="wordskey"
-url="/pages/index1/words/wordsDetail/wordsDetail?wid={{item.wid}}">
+url="/pages/index1/words/wordsDetail/wordsDetail?_id={{item._id}}">
 {{item.title}}
 </navigator>

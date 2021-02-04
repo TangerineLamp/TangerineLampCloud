@@ -1,4 +1,5 @@
-// pages/index1/wordsIndex/wordsIndex.js
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -6,35 +7,6 @@ Page({
    */
   data: {
     words:[]
-  },
-
-  clouddata:{
-    words:[
-      {
-        wid:0,
-        title:"抑郁症"
-      },
-      {
-        wid:1,
-        title:"双相障碍"
-      },
-      {
-        wid:2,
-        title:"恋爱挫折综合征"
-      },
-      {
-        wid:3,
-        title:"学习逃避症"
-      },
-      {
-        wid:4,
-        title:"网络综合症"
-      },
-      {
-        wid:5,
-        title:"考试综合征"
-      }
-    ]
   },
 
   /**
@@ -52,9 +24,10 @@ Page({
    * 从云数据库获取数据
    */
   getWords() {
-    let words = this.clouddata.words;
-    this.setData({
-      words
+    db.collection("index1_wordsList").get().then(res=>{
+      this.setData({
+        words:res.data
+      })
     })
   },
 

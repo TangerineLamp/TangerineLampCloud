@@ -22,7 +22,7 @@
 .description .des{
   padding-left:100rpx;
   padding-right:100rpx;
-  text-align: left;
+  text-align: center;
   color:#aaaaaa;
   font-size:28rpx;
   margin-bottom: 35rpx

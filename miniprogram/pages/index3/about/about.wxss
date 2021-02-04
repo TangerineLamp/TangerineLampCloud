@@ -11,6 +11,7 @@
   }
   
   .title{
+    color: orange;
     font-size: 46rpx;
     font-weight: bold;
   }

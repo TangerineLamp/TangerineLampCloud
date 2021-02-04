@@ -1,4 +1,4 @@
-// pages/index3/advice/advice.js
+const db = wx.cloud.database()
 Page({
 
   /**
@@ -24,5 +24,15 @@ Page({
 
     })
 
+  },
+  btnSub(res){
+    var content=res.detail.value.content;
+    db.collection("index3_feedback").add({
+      data:{
+        content:content
+      }
+    }).then(res=>{
+      console.log(res)
+    })
   }
 })

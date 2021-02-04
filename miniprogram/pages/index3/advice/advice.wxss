@@ -186,6 +186,29 @@
     margin-top: 80rpx;
     
     }
+    .reset{
+    width: 710rpx;
+    
+    height: 80rpx;
+    
+    margin: 0 auto;
+    
+    background: #ff9933;
+    /* rgba(255, 198, 60, 1); */
+    border-radius: 10rpx;
+    
+    font-size: 34rpx;
+    
+    outline: none;
+    
+    font-family: PingFang-SC-Medium;
+    
+    font-weight: 500;
+    
+    color: rgba(255, 255, 255, 1);
+    
+    margin-top: 30rpx;
+    }
     .weui-cell_input .weui-input {
     display: inline-block;
     
@@ -194,7 +217,9 @@
     height: 125rpx;
     
     font-size: 24rpx;
-    
-    color: rgba(204, 204, 204, 1);
+    font-family: "微软雅黑";
+    /* color: rgba(204, 204, 204, 1); */
+    color: black;
     
     }
+    

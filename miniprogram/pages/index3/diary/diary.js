@@ -1,4 +1,5 @@
 // pages/index3/diary/diary.js
+const db=wx.cloud.database()
 Page({
 
   /**
@@ -7,10 +8,25 @@ Page({
   data: {
 
   },
-
+  sendNewMood(res){
+    var title=res.detail.value.title;
+    //var mood=res.detail.value.mood;
+    var content=res.detail.value.content;
+    var is_hide=res.detail.value.is_hide;
+    db.collection("index3_diary").add({
+      data:{
+        title:title,
+        content:content,
+        is_hide:is_hide
+      }
+    }).then(res=>{
+      console.log(res)
+    })
+  }
   /**
    * 生命周期函数--监听页面加载
    */
+  ,
   onLoad: function (options) {
 
   },

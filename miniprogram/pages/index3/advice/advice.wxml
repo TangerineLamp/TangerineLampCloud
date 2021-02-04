@@ -1,5 +1,6 @@
 <!-- pages/index3/advice/advice.wxml -->
 <view>
+    <form bindsubmit="btnSub">
     <view class="complaint_content">
         <view class="complaint">意见反馈</view>
         <view class="shop_item{{item == shopitem?'active':''}}" wx:for="{{items}}" bindtap='bindshop' data-classify="{{item}}">
@@ -10,18 +11,20 @@
             <view class="page-section described_star">
                 <view class="weui-cells weui-cells_after-title">
                     <view class="weui-cell weui-cell_input">
-                        <textarea class="weui-input" maxlength="200">
-                            请填写十个字以上的问题描述以便我们为您提供更好 的帮助
-                        </textarea>
+                        <textarea name="content" class="weui-input" maxlength="500" 
+    placeholder="请填写十个字以上的问题描述以便我们为您提供更好的帮助"></textarea>
                     </view>
                 </view>
             </view>
+            <!-- 下面那个字数实时调整可以取舍 -->
             <view class="described_end">
                 <text>0</text>
                 /
-                <text>200</text>
+                <text>500</text>
             </view>
         </view>
     </view>
-    <button class="submit" bindtap="complaint">提交</button>
+    <button class="submit" form-type="submit">提交</button>
+    <button class="reset" form-type="reset">重置</button>
+    </form>
 </view>

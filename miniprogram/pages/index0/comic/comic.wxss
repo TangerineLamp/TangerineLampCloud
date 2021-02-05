@@ -1,1 +1,79 @@
 /* pages/index0/comic/comic.wxss */
+
+page{
+  background: #eeeeee;
+}
+
+.slide{
+  height: 450rpx;
+}
+
+.slide-image{
+  width: 100%;
+}
+
+.recommendComic{
+  margin-top: 30rpx;
+  margin-bottom: 200rpx;
+}
+
+.recommendComic .title{
+  font-size: 44rpx;
+  /* font-weight: bold; */
+  margin-left: 30rpx;
+  margin-bottom: 20rpx;
+  /* background: white; */
+}
+
+.comic-area{
+  background: #eeeeee;
+}
+
+.comic-list{
+  display: inline-flex;
+  flex-wrap: wrap;
+  /* justify-content: space-around; */
+  height: 550rpx;
+  width: 320rpx;
+  margin-top: 10rpx;
+  /* width: 32%; */
+  margin-left: 40rpx;
+  margin-right: 10rpx;
+  margin-bottom: 20rpx;
+  background: white;
+}
+
+.comic-item{
+  height: 400rpx;
+  width: 380rpx;
+  margin-top: 10rpx;
+  /* width: 30%; */
+  margin-left: 10rpx;
+  /* background: white; */
+  border-radius: 15rpx;
+}
+
+.comic-item image{
+  height: 400rpx;
+  width: 300rpx;
+  border-radius: 15rpx;
+  margin-top: 10rpx;
+  /* margin-left: 50rpx; */
+}
+
+.comic-info{
+  margin-bottom: 60rpx;
+}
+
+.comic-title{
+  font-size: 36rpx;
+  color: black;
+  margin-left: 10rpx;
+  font-weight: bold;
+}
+
+.comic-des{
+  font-size: 25rpx;
+  color: #888;
+  margin-left: 10rpx;
+}

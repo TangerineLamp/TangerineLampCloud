@@ -23,7 +23,7 @@
     "pages/index3/advice/advice",
     "pages/index3/about/about",
     "pages/index3/share/share",
-    "pages/index3/stars/stars", 
+    "pages/index3/stars/stars",
     "pages/index3/collection/collection",
     "pages/index3/treeroles/treeroles",
     "pages/index3/plan/plan",
@@ -32,8 +32,13 @@
     "pages/index3/trace/trace",
     "pages/index3/diary/diary_edit/diary",
     "pages/index3/diary/diary",
+<<<<<<< Updated upstream
     "pages/index3/diary/diary_detail/diary_detail",
     "pages/index0/passage/passageContent/passageContent"
+=======
+    "pages/index0/passage/passageContent/passageContent",
+    "pages/index0/comic/comicIntro/comicIntro"
+>>>>>>> Stashed changes
   ],
   "window": {
     "backgroundTextStyle": "light",

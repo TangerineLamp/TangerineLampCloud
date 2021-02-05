@@ -1,23 +1,27 @@
-<!-- <loading hidden="{{loading}}">页面初始化中...</loading> -->
-<form bindsubmit="sendNewMood">
-    <view class="add_pic" bindtap="uploadPic" wx-if="{{!isSrc}}">
-        <view>添加图片（选择）</view>
+<view class="topmenu">
+    日志列表
+</view>
+<scroll-view scroll-top="{{0}}" scroll-y class="passage">
+  <navigator class="passage-item"
+  wx:for="{{diary_list}}"
+  wx:key="id"
+  wx:for-index="index3"
+  wx:for-item="item3"
+  url="{{'/pages/index3/diary/diary_detail/diary_detail?pid='+item3._id}}">
+    <view class="passage-info">
+      <view class="passage-title">
+        {{item3.title}}
+      </view>
+      <view class="passage-des">
+        {{item3.content}}
+      </view>
     </view>
-    <view wx:if="{{isSrc}}" class="image_box">
-        <view class="picPre">
-            <image src="{{src}}" mode="aspectFill"></image>
-            <view bindtap="clearPic"></view>
-        </view>
+    <view class="passage-image">
+      <!-- <image src="{{item3.image}}" mode="aspectFill"></image> -->
     </view>
-    <input placeholder="输入标题（选择）" class="add_title" value="" bindinput="setTitle" name="title" />
-    <view class="addConent">
-        <textarea placeholder="记下这一刻的想法与心情" maxlength="1000" value="" name="content" />
-    </view>
-    <label for="changePublic">
-        <switch checked="{{isPublic}}" bindchange="changePublic" type="checkbox" name="is_hide" />
-        <text>匿名发表</text>
-    </label>
-    <button loading="{{isLoading}}" hover-start-time="200" disabled="{{isdisabled}}" formType="submit">
-        发布
-    </button>
-</form>
+  </navigator>
+</scroll-view>
+
+<button class="new_submit" bindtap="go_to_edit">
+        +
+</button>

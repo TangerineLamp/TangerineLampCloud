@@ -1,0 +1,4 @@
+<!--pages/index3/diary/diary_detail/diary_detail.wxml-->
+<view class="title" hover-class="none" hover-stop-propagation="false">
+    {{}}
+</view>

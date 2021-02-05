@@ -30,7 +30,9 @@
     "pages/index3/list/list",
     "pages/index3/exam/exam",
     "pages/index3/trace/trace",
+    "pages/index3/diary/diary_edit/diary",
     "pages/index3/diary/diary",
+    "pages/index3/diary/diary_detail/diary_detail",
     "pages/index0/passage/passageContent/passageContent"
   ],
   "window": {

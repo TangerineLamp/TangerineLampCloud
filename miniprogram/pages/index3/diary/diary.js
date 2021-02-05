@@ -6,29 +6,49 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+      diary_list:[]
   },
-  sendNewMood(res){
-    var title=res.detail.value.title;
-    //var mood=res.detail.value.mood;
-    var content=res.detail.value.content;
-    var is_hide=res.detail.value.is_hide;
-    db.collection("index3_diary").add({
-      data:{
-        title:title,
-        content:content,
-        is_hide:is_hide
-      }
-    }).then(res=>{
-      console.log(res)
-    })
-  }
+  // sendNewMood(res){
+  //   var title=res.detail.value.title;
+  //   //var mood=res.detail.value.mood;
+  //   var content=res.detail.value.content;
+  //   var is_hide=res.detail.value.is_hide;
+  //   db.collection("index3_diary").add({
+  //     data:{
+  //       title:title,
+  //       content:content,
+  //       is_hide:is_hide
+  //     }
+  //   }).then(res=>{
+  //     console.log(res)
+  //   })
+  // }
   /**
    * 生命周期函数--监听页面加载
    */
-  ,
-  onLoad: function (options) {
 
+  //跳转页面
+  go_to_edit(){
+    wx.navigateTo({
+      url: "/pages/index3/diary/diary_edit/diary"
+    });
+      
+  },
+  //  数据库获取最新的20条日志(参数可修改)
+  getData(){
+    db.collection("index3_diary").limit(20).get()
+    .then(res=>{
+      this.setData({
+          diary_list:res.data
+      })
+    })
+  },
+  onLoad: function (options) {
+    wx.showLoading({
+      title: 'loading'
+    })
+    this.getData();
+    wx.hideLoading();
   },
 
   /**
@@ -42,7 +62,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-
+    this.getData();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
   },
 
   /**

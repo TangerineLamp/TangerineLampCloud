@@ -6,7 +6,9 @@ Page({
    */data: {
     items: ['异常闪退', '加载迟缓', '界面错位', '其他'],
 
-    shopitem: '默认排序' //默认显示的
+    shopitem: '默认排序' ,//默认显示的
+
+    content:""
 
   },
 
@@ -25,6 +27,12 @@ Page({
     })
 
   },
+  go_back_index3(){
+      wx.navigateBack({
+        delta: 1
+      });
+        
+  },
   btnSub(res){
     var content=res.detail.value.content;
     db.collection("index3_feedback").add({
@@ -34,5 +42,14 @@ Page({
     }).then(res=>{
       console.log(res)
     })
+
+    wx.showToast({
+      title: '提交成功',
+      icon: 'success',  
+      duration: 1000    
+    })
+   // this.go_back_index3();
+   
+      
   }
 })

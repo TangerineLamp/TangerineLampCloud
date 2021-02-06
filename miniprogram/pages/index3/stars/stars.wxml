@@ -25,3 +25,7 @@
         </view>
     </view>
 </view>
+
+<button class="submit" bindtap="sign_in">
+        每日签到
+</button>

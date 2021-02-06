@@ -103,3 +103,9 @@
     border-radius: 50%;
     background-color: blue;
 }
+.submit{
+    color: white;
+    background-color: orange;
+    font-size: 40rpx;
+    align-content: center;
+}

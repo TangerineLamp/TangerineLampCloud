@@ -1,1 +1,14 @@
 /* pages/index3/diary/diary_detail/diary_detail.wxss */
+.id{
+    font-size: 20rpx;
+}
+.title{
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    font-size: 140rpx;
+    color: orange;
+    display: block;
+}
+.content{
+    font-size: 130rpx;
+    color: black;
+}

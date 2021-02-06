@@ -7,7 +7,7 @@
   wx:key="id"
   wx:for-index="index3"
   wx:for-item="item3"
-  url="{{'/pages/index3/diary/diary_detail/diary_detail?pid='+item3._id}}">
+  url="{{'/pages/index3/diary/diary_detail/diary_detail?_id='+item3._id}}">
     <view class="passage-info">
       <view class="passage-title">
         {{item3.title}}

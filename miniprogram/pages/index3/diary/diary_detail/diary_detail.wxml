@@ -1,4 +1,13 @@
 <!--pages/index3/diary/diary_detail/diary_detail.wxml-->
-<view class="title" hover-class="none" hover-stop-propagation="false">
-    {{}}
+<view class="id" hover-class="none" hover-stop-propagation="false">
+    {{diary_detail._id}}
+    <view class="title" hover-class="none" hover-stop-propagation="false">
+        {{diary_detail.title}}
+    </view>
+</view>
+<view class="content" hover-class="none" hover-stop-propagation="false">
+    {{diary_detail.content}}
+</view>
+<view class="is_hide" hover-class="none" hover-stop-propagation="false">
+    {{diary_detail.is_hide}}
 </view>

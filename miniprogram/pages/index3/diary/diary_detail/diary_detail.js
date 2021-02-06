@@ -1,17 +1,32 @@
 // pages/index3/diary/diary_detail/diary_detail.js
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    diary_detail: {}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
+  getData(_id) {
+    db.collection("index3_diary").doc(_id).get()
+      .then(res => {
+        this.setData({
+          diary_detail: res.data
+        })
+      })
+  },
   onLoad: function (options) {
+    const { _id } = options;
+    wx.showLoading({
+      title: '加载中',
+    })
+    this.getData(_id);
+    wx.hideLoading();
 
   },
 

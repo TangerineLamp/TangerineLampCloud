@@ -32,7 +32,7 @@
   </scroll-view>
   <!-- 右侧心理测试列表 -->
   <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right_content"
-  bindscrolltolower="bottomRefresh" lower-threshold="50">
+  bindscrolltolower="bottomRefresh" lower-threshold="20">
     <!-- 右侧渲染循环 -->
     <navigator
     class="test_item"

@@ -4,7 +4,8 @@
   <text class="des">课程目录</text>
 </view>
 <!-- 课程列表 -->
-<scroll-view scroll-y class="bottom">
+<scroll-view scroll-y class="bottom"
+bindscrolltolower="bottomRefresh" lower-threshold="20">
   <!-- 课程渲染循环 -->
   <navigator
   class="test_item"

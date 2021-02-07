@@ -61,6 +61,12 @@
         {
           "name": "心理专攻编译模式",
           "pathName": "pages/index1/index1/index1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "心理课程目录编译模式",
+          "pathName": "pages/index1/course/courseIndex/courseIndex",
           "scene": null
         }
       ]

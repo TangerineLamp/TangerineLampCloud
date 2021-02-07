@@ -1,5 +1,5 @@
 const db = wx.cloud.database();
-
+var maxCourse;
 Page({
 
   /**
@@ -17,14 +17,24 @@ Page({
       title: '加载中',
     })
     this.getCourse();
+    this.getCount();
     wx.hideLoading();
+  },
+
+  /**
+   * 从云端获取最大课程数量
+   */
+  getCount(){
+    db.collection("index1_courseList").count().then(res=>{
+      maxCourse = res.total
+    })
   },
 
   /**
    * 从云端获取课程数据
    */
   getCourse() {
-    db.collection("index1_courseList").get().then(res=>{
+    db.collection("index1_courseList").limit(8).get().then(res=>{
       this.setData({
         courseList:res.data
       })
@@ -69,8 +79,27 @@ Page({
   /**
    * 页面上拉触底事件的处理函数
    */
-  onReachBottom: function () {
-
+  bottomRefresh: function () {
+    if(this.data.courseList.length<maxCourse){
+      let oldData = this.data.courseList;
+      wx.showLoading({
+        title: '加载中',
+      })
+      db.collection("index1_courseList").skip(oldData.length).limit(8).get().then(res=>{
+        let newList = res.data;
+        let newData = oldData.concat(newList);
+        this.setData({
+          courseList:newData
+        })
+      })
+      wx.hideLoading();
+    }else{
+      wx.showToast({
+        title: '到底了哦',
+        icon: 'success',
+        duration: 1000
+      })
+    }
   },
 
   /**

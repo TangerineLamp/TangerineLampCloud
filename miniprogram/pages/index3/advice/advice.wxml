@@ -8,7 +8,7 @@
         </view>
         <view class="complaint">反馈描述</view>
         <view class="described">
-            <view class="page-section described_star">
+            <view class="described_star">
                 <view class="weui-cells weui-cells_after-title">
                     <view class="weui-cell weui-cell_input">
                         <textarea name="content" class="weui-input" maxlength="500" 

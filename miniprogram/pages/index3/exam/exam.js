@@ -20,6 +20,7 @@ Page({
     var that=this;
     console.log(calendarSignData); 
    // var _id = app.globalData._id;
+   //问题出在这里，_id的值没有get到显示是空的
     var _id = app.globalData._id;
     db.collection('sign_in_test').doc(_id).update({
       data: {

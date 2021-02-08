@@ -21,7 +21,9 @@ Page({
       })
   },
   onLoad: function (options) {
+    console.log(options);
     const { _id } = options;
+    //也可以使用options.id
     wx.showLoading({
       title: '加载中',
     })

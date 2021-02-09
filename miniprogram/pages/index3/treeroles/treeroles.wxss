@@ -5,15 +5,19 @@
     width: 100%;
     position: relative;
   }
-  .bottom .title .pic{
+  .bottom .pic{
+    top: 20%;
+    padding: 5rpx 5rpx;
       position: relative;
-      width: 50rpx;
-      height: 50rpx;
+      width: 80rpx;
+      height: 80rpx;
       margin-left: 30rpx;
   }
   .bottom .title {
+    padding: 5rpx 5rpx;
     text-align: center;
     font-weight: bold;
+    top: 20%;
     position: relative;
     font-size: 50rpx;
     color: whitesmoke;

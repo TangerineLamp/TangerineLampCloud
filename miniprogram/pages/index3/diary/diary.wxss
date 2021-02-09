@@ -11,6 +11,7 @@ page {
 }
 .passage {
   display: flex;
+  margin-bottom: 20rpx;
 }
 .passage-item {
   display: flex;
@@ -61,14 +62,19 @@ page {
   -webkit-box-orient: vertical;
 }
 .new_submit {
+  display: flex;
+  justify-content: center;
+  align-items: center; 
+  font-size: 90rpx;
+  border-radius: 50%;
   background-color: #ff9933;
   border: 0 solid #ffffff;
-  box-shadow: 6rpx 1rpx 1rpx #cccccc;
+  box-shadow: 1rpx 1rpx 1rpx #cccccc;
   position: fixed;
-  left: 50%;
+  left: 85%;
   transform: translateX(-50%);
   bottom: 1%;
   color: #fff;
-  font-size: 60rpx;
-  border-radius: 50%;
+ 
+  
 }

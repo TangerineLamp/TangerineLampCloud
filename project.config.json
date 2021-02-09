@@ -40,6 +40,9 @@
   "appid": "wx72920a312942dcc0",
   "projectname": "TangerineLamp",
   "libVersion": "2.15.0",
+  "compileType": "miniprogram",
+  "simulatorType": "wechat",
+  "simulatorPluginLibVersion": {},
   "condition": {
     "plugin": {
       "list": []

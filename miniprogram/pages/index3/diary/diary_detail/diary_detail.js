@@ -19,6 +19,15 @@ Page({
       .then(res => {
         console.log("删除成功")
       })
+      wx.navigateTo({
+        url: '/pages/index3/diary/diary',
+        success: (result)=>{
+          
+        },
+        fail: ()=>{},
+        complete: ()=>{}
+      });
+        
   },
   getData(_id) {
     db.collection("index3_diary").doc(_id).get()

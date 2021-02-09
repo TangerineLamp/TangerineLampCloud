@@ -1,27 +1,15 @@
-<view class="topmenu">
-    日志列表
-</view>
+<view class="topmenu">日志列表</view>
 <scroll-view scroll-top="{{0}}" scroll-y class="passage">
-  <navigator class="passage-item"
-  wx:for="{{diary_list}}"
-  wx:key="id"
-  wx:for-index="index3"
-  wx:for-item="item3"
-  url="{{'/pages/index3/diary/diary_detail/diary_detail?_id='+item3._id}}">
+  <navigator class="passage-item" wx:for="{{diary_list}}" wx:key="id" wx:for-index="index3" wx:for-item="item3" url="{{'/pages/index3/diary/diary_detail/diary_detail?_id='+item3._id}}">
     <view class="passage-info">
-      <view class="passage-title">
-        {{item3.title}}
-      </view>
-      <view class="passage-des">
-        {{item3.content}}
-      </view>
+      <view class="passage-title">{{item3.title}}</view>
+      <view class="passage-des">{{item3.content}}</view>
     </view>
     <view class="passage-image">
       <!-- <image src="{{item3.image}}" mode="aspectFill"></image> -->
     </view>
   </navigator>
 </scroll-view>
-
-<button class="new_submit" bindtap="go_to_edit">
-        +
-</button>
+<button class="new_submit" bindtap="go_to_edit" style="width:120rpx;height: 120rpx;padding:0;">
+  +
+  </button>

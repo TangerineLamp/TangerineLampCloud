@@ -9,8 +9,16 @@ Page({
 
   },
   go_back_diary(){
-    wx.navigateBack({
-      delta: 1
+    // wx.navigateBack({
+    //   delta: 1
+    // });
+    wx.navigateTo({
+      url: '/pages/index3/diary/diary',
+      success: (result)=>{
+        
+      },
+      fail: ()=>{},
+      complete: ()=>{}
     });
       
   },

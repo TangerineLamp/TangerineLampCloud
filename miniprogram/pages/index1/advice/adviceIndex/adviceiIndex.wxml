@@ -1,2 +1,17 @@
 <!--pages/adviceIndex/adviceiIndex.wxml-->
-<text>pages/index1/adviceIndex/adviceiIndex.wxml</text>
+<view class="advice" bindtap="navToAppointment">
+  <view class="aImg">
+    <image src="/icons/index1_appointment.png" alt=""></image>
+  </view>
+  <view class="des">
+    预约咨询
+  </view>
+</view>
+<view class="advice" bindtap="navToAdvice">
+  <view class="aImg">
+    <image src="/icons/index1_enterAdvice.png"></image>
+  </view>
+  <view class="des">
+    咨询入口
+  </view>
+</view>

@@ -110,13 +110,8 @@ Page({
   },
   //导航至心理咨询
   bindViewTap2() {
-    // wx.navigateTo({
-    //   url: "/pages/index1/advice/adviceIndex/adviceiIndex"
-    // })  
-    wx.showToast({
-      title: '敬请期待', //弹框内容
-      icon: 'success',  //弹框模式
-      duration: 1000    //弹框显示时间
+    wx.navigateTo({
+      url: "/pages/index1/advice/adviceIndex/adviceiIndex"
     })
   },
   //导航至心理课程

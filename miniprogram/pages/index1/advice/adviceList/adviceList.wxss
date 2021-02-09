@@ -1,0 +1,25 @@
+/* pages/index1/advice/adviceList/adviceList.wxss */
+
+.top {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+
+.top .targetImg{
+  height: 80rpx;
+  width: 80rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+}
+
+.top .des{
+  margin-left: 20rpx;
+  color: var(--orange1);
+}
+
+.none{
+  text-align: center;
+  padding-top: 400rpx;
+  color:#dddddd;
+}

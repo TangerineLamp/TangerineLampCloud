@@ -1,1 +1,21 @@
 /* pages/adviceIndex/adviceiIndex.wxss */
+
+.advice {
+  margin:20rpx;
+  display: flex;
+  height: 100rpx;
+  align-items: center;
+  border-bottom:solid var(--orange1) 1rpx;
+  border-radius: 10rpx;
+}
+
+.aImg image{
+  margin: 20rpx;
+  height:50rpx;
+  width:50rpx;
+}
+
+.des {
+  color: var(--orange1);
+  padding-bottom: 10rpx;
+}

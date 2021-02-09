@@ -1,0 +1,38 @@
+<!--pages/index1/advice/appointment/appointment.wxml-->
+<view class="top">
+  <view class="title">*预约注意事项*</view>
+  <view class="detail">
+    　　这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了<text class="red">这就说来话长了</text>这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了<text class="green">这就说来话长了</text>这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了这就说来话长了
+  </view>
+</view>
+<view class='wrap'>
+    <view>
+        <view class='date-show'>
+            <view class='lt-arrow' bindtap='lastMonth'>
+                <image src='/pages/images/左箭头.png' mode='aspectFit'></image>
+            </view>
+            {{year}}年{{month}}月
+            <view class='rt-arrow' bindtap='nextMonth'>
+                <image src='/pages/images/右箭头.png' mode='aspectFit'></image>
+            </view>
+        </view>
+    </view>
+    <view class='header'>
+        <view wx:for='{{date}}' wx:key="headerKey" class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
+            {{item}}
+            <view></view>
+        </view>
+    </view>
+    <view class='date-box'>
+        <view wx:for='{{dateArr}}'
+        wx:key = "dataKey"
+        class='{{isToday == item.isToday ? "nowDay" : ""}}'
+        data-date='{{item.isToday}}'
+        bindtap="navToDetail">
+            <view class='date-head'>
+                <view>{{item.dateNum}}</view>
+            </view>
+            <!-- <view class='date-weight'>{{item.weight}}</view> -->
+        </view>
+    </view>
+</view>

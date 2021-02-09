@@ -34,7 +34,9 @@
     "pages/index3/diary/diary",
     "pages/index3/diary/diary_detail/diary_detail",
     "pages/index0/passage/passageContent/passageContent",
-    "pages/index0/comic/comicIntro/comicIntro"
+    "pages/index0/comic/comicIntro/comicIntro",
+    "pages/index1/advice/appointment/appointment",
+    "pages/index1/advice/adviceList/adviceList"
   ],
   "window": {
     "backgroundTextStyle": "light",

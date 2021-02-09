@@ -39,7 +39,7 @@
   },
   "appid": "wx72920a312942dcc0",
   "projectname": "TangerineLamp",
-  "libVersion": "2.14.1",
+  "libVersion": "2.15.0",
   "condition": {
     "plugin": {
       "list": []

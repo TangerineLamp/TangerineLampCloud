@@ -12,3 +12,6 @@
 <view class="is_hide" hover-class="none" hover-stop-propagation="false">
     {{diary_detail.is_hide}}
 </view>
+<button type="primary" bindtap="delete">
+删除
+</button>

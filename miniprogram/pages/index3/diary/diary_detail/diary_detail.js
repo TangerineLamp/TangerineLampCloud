@@ -1,5 +1,6 @@
 // pages/index3/diary/diary_detail/diary_detail.js
 const db = wx.cloud.database()
+let ID = ''
 Page({
 
   /**
@@ -12,6 +13,13 @@ Page({
   /**
    * 生命周期函数--监听页面加载
    */
+  delete() {
+    console.log(ID)
+    db.collection("index3_diary").doc(ID).remove()
+      .then(res => {
+        console.log("删除成功")
+      })
+  },
   getData(_id) {
     db.collection("index3_diary").doc(_id).get()
       .then(res => {
@@ -21,6 +29,7 @@ Page({
       })
   },
   onLoad: function (options) {
+    ID = options._id;
     console.log(options);
     const { _id } = options;
     //也可以使用options.id

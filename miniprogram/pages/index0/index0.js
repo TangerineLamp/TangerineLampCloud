@@ -13,9 +13,10 @@ Page({
   onLoad: function() {
     var that = this
     var picList = []
-    picList.push("http://huxi.cqu.edu.cn/static/upfiles/202101/20210105145014986.jpg")
-    picList.push("http://huxi.cqu.edu.cn/static/upfiles/202012/20201223153007606.jpg")
-    picList.push("http://huxi.cqu.edu.cn/static/upfiles/202101/20210105144631101.jpg")
+    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide0.jpg")
+    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide1.jpg")
+    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide2.jpg")
+    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide3.jpg")
     that.setData({
       picList: picList,
     })

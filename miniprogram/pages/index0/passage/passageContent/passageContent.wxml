@@ -1,20 +1,34 @@
 <!--pages/index0/passage/passageContent/passageContent.wxml-->
 
-<!-- 文章内容框架 -->
-<view class="header">
-  <view class="title">
-    {{passage.title}}
-  </view>
-  <view class="author">
-    {{passage.author}}
-  </view>
-  <view class="des">
-    {{passage.des}}
-  </view>
-</view>
+<view class="passage-container">
 
-<view class="blank"></view>
+  <!-- 文章内容框架 -->
+  <view class="header">
+    <view class="title">
+      {{passage.title}}
+    </view>
+    <view class="author">
+      {{passage.author}}
+    </view>
+    <view class="des">
+      {{passage.des}}
+    </view>
+  </view>
 
-<view class="body">
-  {{passage.body}}
+  <view class="blank"></view>
+
+  <!-- 文章内容 -->
+
+  <view class="body"
+  wx:for="{{passage.body}}"
+  wx:key="{{passage}}">
+    <view class="subtitle">
+      {{item.subtitle}}
+    </view>
+    <view class="para">
+      <text user-select="true">{{item.para}}</text>
+    </view>
+    <image src="{{item.image}}" class="sub-image" mode="aspectFit" wx:if="{{item.src.length != 0}}"></image>
+  </view>
+
 </view>

@@ -9,9 +9,13 @@
   </block>
 </swiper>
 
+<view class="title">
+  <view class="title-text">精选漫画 ></view>
+</view>
+
 <!-- 精选漫画 -->
 <view class="recommendComic">
-  <view class="title">精选漫画 > </view>
+  <!-- <view class="title-view"><text class="title">精选漫画 > </text></view> -->
   <view class="comic-area">
     <!-- 漫画列表 -->
     <navigator class="comic-list"

@@ -19,14 +19,14 @@
   wx:key="id"
   wx:for-index="index0"
   wx:for-item="item0"
-  url="{{'/pages/index0/passage/passageContent/passageContent?pid='+item0.pid}}">
+  url="{{'/pages/index0/passage/passageContent/passageContent?_id='+item0._id}}">
     <!-- 文章信息 title/des -->
     <view class="passage-info">
       <view class="passage-title">
         {{item0.title}}
       </view>
       <view class="passage-des">
-        {{item0.des}}
+        {{item0.author}}
       </view>
     </view>
     <!-- 文章图片 预留空间，选择性上传 -->

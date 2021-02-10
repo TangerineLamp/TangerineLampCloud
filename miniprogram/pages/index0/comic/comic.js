@@ -7,10 +7,11 @@ Page({
   data: {
     //轮播图
     slides: [
-      { url: 'http://p1.music.126.net/3iGnkiIwi5-Aa56TVg_Zww==/109951165678592787.jpg?imageView&quality=89' },
-      { url: 'http://p1.music.126.net/H5DfakDPIQHoAKbQ5XC3Fg==/109951165679165117.jpg?imageView&quality=89' },
-      { url: 'http://p1.music.126.net/n3VNGm9bW12JUkg1QEUy3A==/109951165679781345.jpg?imageView&quality=89' },
-      { url: 'http://p1.music.126.net/qyGARhouAcu4s-IqKyXURw==/109951165679120218.jpg?imageView&quality=89' }
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/comic/slide0.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/comic/slide1.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/comic/slide2.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/comic/slide3.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/comic/slide4.jpg' }
     ],
     item: 0,
     tab: 0,

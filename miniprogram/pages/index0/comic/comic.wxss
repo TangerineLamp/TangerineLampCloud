@@ -1,7 +1,7 @@
 /* pages/index0/comic/comic.wxss */
 
 page{
-  background: #eeeeee;
+  background: white;
 }
 
 .slide{
@@ -13,20 +13,31 @@ page{
 }
 
 .recommendComic{
-  margin-top: 30rpx;
+  margin-top: 0rpx;
   margin-bottom: 200rpx;
 }
 
-.recommendComic .title{
-  font-size: 44rpx;
+.title{
+  font-size: 40rpx;
   /* font-weight: bold; */
-  margin-left: 30rpx;
-  margin-bottom: 20rpx;
+  margin-top: 40rpx;
   /* background: white; */
+  background: white;
+  height: 70rpx;
+  margin-top: 0rpx;
+  margin-bottom: 0rpx;
+}
+
+.title-text{
+  margin-left: 30rpx;
+  margin-bottom: 10rpx;
+  margin-top: 20rpx;
+  background: white;
 }
 
 .comic-area{
   background: #eeeeee;
+  margin-top: 10rpx;
 }
 
 .comic-list{
@@ -34,13 +45,13 @@ page{
   flex-wrap: wrap;
   /* justify-content: space-around; */
   height: 550rpx;
-  width: 320rpx;
+  width: 300rpx;
   margin-top: 10rpx;
   /* width: 32%; */
   margin-left: 40rpx;
   margin-right: 10rpx;
   margin-bottom: 20rpx;
-  background: white;
+  /* background: white; */
 }
 
 .comic-item{

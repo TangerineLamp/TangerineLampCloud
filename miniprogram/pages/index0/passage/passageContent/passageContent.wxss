@@ -2,6 +2,11 @@
 
 .page{
   background: white;
+  margin-bottom: 200rpx;
+}
+
+.passage-container{
+  margin-bottom: 300rpx;
 }
 
 .header{
@@ -12,7 +17,7 @@
 
 .header .title{
   font-weight: bold;
-  font-size: 50rpx;
+  font-size: 52rpx;
   margin-top: 60rpx;
   margin-left: 40rpx;
   margin-bottom: 35rpx;
@@ -21,7 +26,7 @@
 
 .header .author{
   color:#aaaaaa;
-  font-size: 32rpx;
+  font-size: 34rpx;
   margin-top: 0rpx;
   margin-left: 40rpx;
   margin-bottom: 35rpx;
@@ -29,8 +34,8 @@
 
 .header .des{
   color:#aaaaaa;
-  font-size: 24rpx;
-  margin-left: 30rpx;
+  font-size: 30rpx;
+  margin-left: 40rpx;
   margin-right: 30rpx;
   margin-bottom: 35rpx;
 }
@@ -42,7 +47,28 @@
 }
 
 .body{
-  margin-left: 40rpx;
-  margin-right: 40rpx;
-  margin-bottom: 300rpx;
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  margin-bottom: 10rpx;
+}
+
+.subtitle{
+  font-size:40rpx;
+  margin-top:20rpx;
+  padding-left: 25rpx;
+  border-left: var(--orange1) solid 15rpx;
+}
+
+.para{
+  margin-top:20rpx;
+  margin-left:35rpx;
+  margin-right:35rpx;
+  font-size: 32rpx;
+  line-height: 45rpx;
+  color:#333333;
+}
+
+.sub-image{
+  margin-left: 25rpx;
+  /* height: auto; */
 }

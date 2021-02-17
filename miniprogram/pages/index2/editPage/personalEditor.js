@@ -6,20 +6,32 @@ Page({
    * 页面的初始数据
    */
   data: {
-
+    details: ""
   },
 
+  /**
+   * textArea失去焦点后会将内容传到暂存的数据details里去
+   * @param {失去焦点事件} e 
+   */
   bindTextAreaBlur: function(e) {
-    console.log(e.detail.value);
-    var that = this;
-    that.setData({
-      details: e.detail.value
+    this.setData({
+      details: e.detail.value,
     });
+    console.log(this.data.details);
   },
 
-  // //提交订单或支付订单时清空备注
-  // var that = this,
-  // that.setData({
-  //               details: '',
-  //             })
+  /**
+   * 点击这个button后会展现一个发送的标志
+   * @param {点击事件} e 
+   */
+  sendMsg: function(e){
+    wx.showLoading({
+      title: '加载中...',
+    });
+
+    // 显示发送成功
+    setTimeout(function (){
+      wx.hideLoading()
+    }, 2000);
+  }
 })

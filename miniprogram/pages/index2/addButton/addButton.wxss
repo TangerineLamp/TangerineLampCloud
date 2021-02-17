@@ -1,0 +1,18 @@
+/* 子元素居中通用样式设置 */
+.in_mid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 圆形按钮的样式 */
+.circle{
+  border: 0 solid #ffffff;
+  box-shadow: 6rpx 1rpx 1rpx #cccccc;
+  position: fixed;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 1%;
+  color: #fff;
+  font-size: 60rpx;
+  border-radius: 50%;
+}

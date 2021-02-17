@@ -13,7 +13,8 @@
   width: 100%;
   height: 100rpx;
   background-color: #fff;
-  border-bottom: 10rpx solid rgb(236, 225, 225);
+	border-bottom: 10rpx solid rgb(236, 225, 225);
+
 }
 /*标题*/
 .case_title{
@@ -56,11 +57,11 @@
 }
 /* 底部容器 */
 .bottomcontainer {
-	display: flex;
 	width: 100%;
 	height: 5%;
 	background-color: #fff;
 	display: block;
+	flex-wrap: nowrap;
 }
 /* 装图片的容器 */
 .piccontainer {

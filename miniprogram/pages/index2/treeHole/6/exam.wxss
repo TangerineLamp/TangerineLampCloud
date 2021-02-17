@@ -1,5 +1,4 @@
 /* pages/index2/treeHole/6/exam.wxss */
-
 /* 子元素居中通用样式设置 */
 .in_mid{
   display: flex;
@@ -23,24 +22,9 @@
   height: 100%;
 }
 /***********************************编辑入口***********************************/
-/* 按钮的容器 */
-.editbuttoncontainer .in_mid{
-  display: flex;
-  width: 100%;
-  height: 40rpx;
-}
-/* 圆形按钮的样式 */
-.circle{
+@import "/pages/index2/addButton/addButton";
+.color{
   background-color: #E95BB8;
-  border: 0 solid #ffffff;
-  box-shadow: 6rpx 1rpx 1rpx #cccccc;
-  position: fixed;
-  left: 50%;
-  transform: translateX(-50%);
-  bottom: 1%;
-  color: #fff;
-  font-size: 60rpx;
-  border-radius: 50%;
 }
 /***********************************正文部分***********************************/
 /* 单个树洞的容器 */
@@ -97,7 +81,7 @@
 /* 单个树洞的预览内容容器 */
 .single_body_container {
   width: 100%;
-  height: 65%;
+  height: 75%;
 }
 /* 单个树洞的预览内容 */
 .single_body {

@@ -59,6 +59,4 @@
    <text class="single_agree" space="ensp">1,749 人点赞  </text>
   </view>
 </view>
-<button class="circle in_mid" bindtap="gotoPersonalEditor" style="width:80rpx;height: 80rpx;padding:0;">
-  + <!--这个“+”是圆形按钮里面的内容-->
-</button>
+<include src="/pages/index2/addButton/addButton" />

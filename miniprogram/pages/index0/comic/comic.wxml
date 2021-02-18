@@ -2,7 +2,7 @@
 
 <!-- 轮播图 -->
 <swiper indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" circular>
-  <block wx:for="{{slides}}" wx:for-index="index">
+  <block wx:for="{{slides}}">
     <swiper-item>
       <image src='{{item.url}}' class="slide-image" mode="widthFix"></image>
     </swiper-item>
@@ -15,30 +15,29 @@
 
 <!-- 精选漫画 -->
 <view class="recommendComic">
-  <!-- <view class="title-view"><text class="title">精选漫画 > </text></view> -->
   <view class="comic-area">
     <!-- 漫画列表 -->
     <navigator class="comic-list"
     wx:for="{{comicList}}"
     wx:key="id"
-    wx:for-index="index"
-    wx:for-item="item"
-    url="{{'/pages/index0/comic/comiIntro/comicIntro?id='+item.id}}">
+    wx:for-index="index0"
+    wx:for-item="item0"
+    url="{{'/pages/index0/comic/comicIntro/comicIntro?_id='+item0._id}}">
       <view class="comic-item">
         <!-- 图片 -->
         <view class="comic-image">
-          <image src="{{item.image}}" mode="aspectFill"></image>
+          <image src="{{item0.image}}" mode="aspectFill"></image>
         </view>
         <!-- 漫画信息 title/des -->
         <view class="comic-info">
           <view class="comic-title">
-            {{item.title}}
+            {{item0.title}}
           </view>
           <view class="comic-des">
-            {{item.author}}
+            {{item0.author}}
           </view>
           <view class="comic-des">
-            {{item.des}}
+            {{item0.des}}
           </view>
         </view>
       </view>

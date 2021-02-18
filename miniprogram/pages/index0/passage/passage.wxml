@@ -29,9 +29,9 @@
         {{item0.author}}
       </view>
     </view>
-    <!-- 文章图片 预留空间，选择性上传 -->
-    <view class="passage-image">
-      <image src="{{item0.image}}" mode="aspectFill"></image>
+    <!--  introImage -->
+    <view class="passage-introImage">
+      <image src="{{item0.introImage}}" mode="aspectFill"></image>
     </view>
   </navigator>
 </scroll-view>

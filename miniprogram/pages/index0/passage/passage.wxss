@@ -27,7 +27,7 @@ page{
 
 .passage-item{
   display: flex;
-  height: 180rpx;
+  height: 190rpx;
   background-color: #eeeeee;
   border-top: 7rpx solid white;
   border-bottom: 7rpx solid white;
@@ -41,26 +41,26 @@ page{
 
 .passage-info{
   flex:2;
-  margin: 10rpx;
+  margin-top: 0rpx;
   margin-left: 30rpx;
   height: 90%;
 }
 
-.passage-image{
+.passage-introImage{
   position: relative;
   flex: 1.2;
   height: 75%;
   margin-left: 25rpx;
 }
 
-.passage-image image{
+.passage-introImage image{
   width: 200rpx;
   height: 150rpx;
   border-radius: 10rpx;
 }
 
 .passage-title{
-  margin-top: 30rpx;
+  margin-top: 25rpx;
   margin-left: 5rpx;
   font-family: '微软雅黑';
   font-size: 40rpx;
@@ -70,7 +70,7 @@ page{
 
 .passage-des{
   color: #797676;
-  font-size: 25rpx;
+  font-size: 28rpx;
   margin-top: 15rpx;
   margin-left: 5rpx;
 }

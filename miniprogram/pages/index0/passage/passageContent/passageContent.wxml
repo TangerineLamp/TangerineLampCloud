@@ -18,7 +18,6 @@
   <view class="blank"></view>
 
   <!-- 文章内容 -->
-
   <view class="body"
   wx:for="{{passage.body}}"
   wx:key="{{passage}}">
@@ -28,7 +27,11 @@
     <view class="para">
       <text user-select="true">{{item.para}}</text>
     </view>
-    <image src="{{item.image}}" class="sub-image" mode="aspectFit" wx:if="{{item.src.length != 0}}"></image>
+    <!-- <image src="{{item.image}}" class="sub-image" mode="aspectFit" wx:if="{{item.src.length != 0}}"></image> -->
   </view>
 
+  <!-- image -->
+  <view class="passage-image">
+    <image src="{{passage.image}}"  mode="aspectFit" wx:if="{{passage.src.length != 0}}"></image>
+  </view>
 </view>

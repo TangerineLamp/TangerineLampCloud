@@ -1,4 +1,7 @@
 // pages/index/index.js
+
+const db = wx.cloud.database();
+
 Page({
 
   /**
@@ -15,56 +18,7 @@ Page({
     item: 0,
     tab: 0,
     // 播放列表数据
-    playlist: [{
-      id: 1,
-      title: '起风了',
-      singer: '吴青峰 - 《加油，你是最棒的》主题曲',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music1.mp3',
-      coverImgUrl: 'http://d.musicapp.migu.cn/prod/file-service/file-down/b1899d500dda5db2da11df3efc89cba6/cd14cd06952e28d46932975798f5b904/c0c269244d5c7f8d52e80480f3581052'
-    }, 
-    {
-      id: 2,
-      title: 'TimeAfterTime-花舞う街で-',
-      singer: '仓木麻衣 - 《名侦探柯南-迷宫的十字路口》',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music2.mp3',
-      coverImgUrl: 'https://p3.music.126.net/XbDlX1f7r0cgY42O2yyoaw==/109951163049831563.jpg?param=300y300'
-    }, 
-    {
-      id: 3,
-      title: '成都',
-      singer: '赵雷 - 成都',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music3.mp3',
-      coverImgUrl: 'https://p3.music.126.net/34YW1QtKxJ_3YnX9ZzKhzw==/2946691234868155.jpg'
-    }, 
-    {
-      id: 4,
-      title: 'Five Hundred Miles',
-      singer: 'Stark Sands,Carey Mulligan,Justin Timberlake 电影《醉乡民谣》插曲',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music4.mp3',
-      coverImgUrl: 'http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/2d89e1a347eac64744e3c58e3890c5eb/f821406fe35639f0f43c1d8b99449c4f'
-    },
-    {
-      id: 5,
-      title: '纸短情长',
-      singer: '烟把儿 - 纸短情长',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music5.mp3',
-      coverImgUrl: 'http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/1742b689b7eafcb8c647639d4fd1eba3/6b78d7d40b5e0fd532060f0a9b7c6322'
-    },
-    {
-      id: 6,
-      title: '莫扎特C大调K.265/300e 小星星变奏曲',
-      singer: 'Various Artists',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music6.mp3',
-      coverImgUrl: 'http://d.musicapp.migu.cn/prod/file-service/file-down/8121e8df41a5c12f48b69aea89b71dab/193a5da7dc388408ef0a27e080d901e2/a89fa4de781d47c26ae8620f4ab7d58d'
-    },
-    {
-      id: 7,
-      title: '光の旋律',
-      singer: 'Kalafina - 《空の音》主题曲',
-      src: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/music7.mp3',
-      coverImgUrl: 'https://p3.music.126.net/FE6EgJVto9hkiYNKMMyAMA==/109951163576996866.jpg?param=300y300'
-    }
-  ],
+    playlist: [],
     state: 'paused',
     playIndex: 0,
     play: {
@@ -77,11 +31,39 @@ Page({
     }
   },
 
-  // 轮播图
+  audioCtx: null,
   
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad: function (options) {
+    wx.showLoading({
+      title: '加载中'
+    })
+    this.getPlayList();
+    wx.hideLoading();
+  },
+
+  // 获取音乐列表
+  getPlayList() {
+    db.collection("index0_music").get().then(res=>{
+      this.setData({
+        playlist:res.data
+      })
+    })
+  },
+
+  // 页面从前台变为后台时执行
+  onHide: function() {
+    this.audioCtx = wx.createInnerAudioContext()
+    this.audioCtx.pause()
+    this.setData({
+      state: 'paused'
+    })
+  },
 
   // 实现播放器播放功能
-  audioCtx: null,
+  // 页面首次渲染完毕时执行
   onReady: function() {
     this.audioCtx = wx.createInnerAudioContext()
     // 默认选择第1曲
@@ -111,6 +93,7 @@ Page({
       return (minute < 10 ? '0' + minute : minute) + ':' + (second < 10 ? '0' + second : second)
     }
   },
+
   // 音乐播放
   setMusic: function(index) {
     var music = this.data.playlist[index]

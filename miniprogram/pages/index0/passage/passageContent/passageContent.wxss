@@ -49,12 +49,13 @@
 .body{
   margin-left: 25rpx;
   margin-right: 25rpx;
-  margin-bottom: 10rpx;
+  margin-bottom: 40rpx;
 }
 
 .subtitle{
-  font-size:40rpx;
-  margin-top:20rpx;
+  font-size:44rpx;
+  margin-top:30rpx;
+  margin-top: 20rpx;
   padding-left: 25rpx;
   border-left: var(--orange1) solid 15rpx;
 }
@@ -63,12 +64,12 @@
   margin-top:20rpx;
   margin-left:35rpx;
   margin-right:35rpx;
-  font-size: 32rpx;
+  font-size: 36rpx;
   line-height: 45rpx;
   color:#333333;
 }
 
-.sub-image{
-  margin-left: 25rpx;
-  /* height: auto; */
+.passage-image{
+  /* margin: 0 auto; */
+  text-align: center;
 }

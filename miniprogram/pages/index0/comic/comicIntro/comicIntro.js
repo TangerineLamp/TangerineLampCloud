@@ -1,18 +1,36 @@
-// pages/index0/comic/comicIntro/comicIntro.js
+// miniprogram/pages/index0/comic/comicContent/comicIntro.js
+
+// 漫画内容
+const db = wx.cloud.database();
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-
+    comic:{}
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    const {_id} = options;
+    wx.showLoading({
+      title: '加载中',
+    })
+    this.getComic(_id);
+    wx.hideLoading();
+  },
 
+  //获取文章内容
+  getComic(_id) {
+    db.collection("index0_comic").doc(_id).get().then(res=>{
+      this.setData({
+        comic:res.data
+      })
+    })
   },
 
   /**

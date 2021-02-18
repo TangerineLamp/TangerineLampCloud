@@ -1,2 +1,5 @@
 <!--pages/index0/radio/radio.wxml-->
-<text>pages/index0/radio/radio.wxml</text>
+<!-- <text>pages/index0/radio/radio.wxml</text> -->
+
+<!-- 微信小程序关联微信公众号尝试 -->
+<web-view src="https://mp.weixin.qq.com/s/Zn958Zv-RuJxnZjhE8n2Lg"></web-view>

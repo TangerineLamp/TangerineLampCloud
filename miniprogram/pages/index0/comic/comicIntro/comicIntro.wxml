@@ -1,2 +1,8 @@
-<!--pages/index0/comic/comicIntro/comicIntro.wxml-->
-<text>pages/index0/comic/comicIntro/comicIntro.wxml</text>
+<!--miniprogram/pages/index0/comic/comicContent/comicIntro.wxml-->
+
+<!-- 漫画内容框架 -->
+<view class="body"
+wx:for="{{comic.content}}"
+wx:key="{{comic}}">
+  <image src="{{item}}" class="comic-image" mode="widthFix"></image>
+</view>

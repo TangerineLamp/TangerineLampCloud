@@ -10,7 +10,7 @@
         <text class="case_info">游戏</text>
       </button>
       <button class="singleimg">
-        <image src="/pages/index2/logo/study.svg" class='stdimg' mode='aspectFill' bindtap='gotoTreehole_4'></image>
+        <image src="/pages/index2/logo/study.png" class='stdimg' mode='aspectFill' bindtap='gotoTreehole_4'></image>
         <text class="case_info">学习</text>
       </button>
       <button class="singleimg">
@@ -24,11 +24,11 @@
         <text class="case_info">工作</text>
       </button>
       <button class="singleimg">
-         <image src="/pages/index2/logo/life.svg" class='stdimg' mode='aspectFill' bindtap='gotoTreehole_2'></image>
+         <image src="/pages/index2/logo/life.png" class='stdimg' mode='aspectFill' bindtap='gotoTreehole_2'></image>
          <text class="case_info">生活</text>
       </button>
       <button class="singleimg">
-        <image src="/pages/index2/logo/exam.svg" class='stdimg' mode='aspectFill' bindtap='gotoTreehole_6'></image>
+        <image src="/pages/index2/logo/exam.png" class='stdimg' mode='aspectFill' bindtap='gotoTreehole_6'></image>
         <text class="case_info">考研</text>
       </button>
     </view>

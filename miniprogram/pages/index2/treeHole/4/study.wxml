@@ -1,62 +1,7 @@
-<!--pages/index2/treeHole/4/study.wxml-->
+<!--pages/index2/treeHole/6/exam.wxml-->
+
 <view class='topcontainer in_mid'>
-  <text class='case_title in_mid'>树洞广场 | 学习区</text>
+  <text class='case_title in_mid color'>树洞广场 | 学习区</text>
 </view>
-<view class='singleBlock'>
-  <view class="single_top_container in_mid">
-    <!--用户的头像-->
-    <image src="/pages/index2/logo/people_g.svg" mode='aspectFill' class="host_head_img"></image>
-    <view class="host_info_container">
-      <text class="nick_name" space="ensp"> 绿色的人</text>
-      <text class="time_info" space="ensp"> 2021-01-31</text>
-    </view>
-  </view>
-  <view class="single_title">
-    这是一个标题
-  </view>
-  <view class="single_body_container">
-   <text class="single_body">
-    这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）
-   </text>
-   <text class="single_agree" space="ensp">1,749 人点赞  </text>
-  </view>
-</view>
-<view class='singleBlock'>
-  <view class="single_top_container in_mid">
-    <!--用户的头像-->
-    <image src="/pages/index2/logo/people_g.svg" mode='aspectFill' class="host_head_img"></image>
-    <view class="host_info_container">
-      <text class="nick_name" space="ensp"> 绿色的人</text>
-      <text class="time_info" space="ensp"> 2021-01-31</text>
-    </view>
-  </view>
-  <view class="single_title">
-    这是一个标题
-  </view>
-  <view class="single_body_container">
-   <text class="single_body">
-    这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）
-   </text>
-   <text class="single_agree" space="ensp">1,749 人点赞  </text>
-  </view>
-</view>
-<view class='singleBlock'>
-  <view class="single_top_container in_mid">
-    <!--用户的头像-->
-    <image src="/pages/index2/logo/people_g.svg" mode='aspectFill' class="host_head_img"></image>
-    <view class="host_info_container">
-      <text class="nick_name" space="ensp"> 绿色的人</text>
-      <text class="time_info" space="ensp"> 2021-01-31</text>
-    </view>
-  </view>
-  <view class="single_title">
-    这是一个标题
-  </view>
-  <view class="single_body_container">
-   <text class="single_body">
-    这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）
-   </text>
-   <text class="single_agree" space="ensp">1,749 人点赞  </text>
-  </view>
-</view>
+<include src="/pages/index2/treeHole/treeHole" />
 <include src="/pages/index2/addButton/addButton" />

@@ -1,0 +1,115 @@
+/* pages/index2/treeHole/treeHole.wxss */
+
+/* 子元素居中通用样式设置 */
+.in_mid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/*************************************滚动页面设计*************************************/
+.theScoll{
+  background-color: #efefef;
+  width: 100%;
+  height: calc( 100vh - 100rpx );
+  left: 0rpx;
+  right: 0rpx;
+  top: 100rpx;
+  position: absolute;
+}
+/*************************************标题部分*************************************/
+/* 顶部装载标题的空白容器 */
+.topcontainer{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #efefef;
+}
+/*标题*/
+.case_title{
+  font-size: 50rpx;
+  font-weight: bold;
+  height: 100%;
+}
+/***********************************编辑入口***********************************/
+@import "/pages/index2/addButton/addButton";
+/***********************************正文部分***********************************/
+/* 单个树洞的容器 */
+.singleBlock {
+  border-bottom: 30rpx solid #efefef;
+  direction: block;
+  width: 100%;
+  height: 400rpx;
+}
+/* 单个树洞的顶层容器 */
+.single_top_container {
+  width: 100%;
+  height: 25%;
+  margin-top: 10rpx;
+  direction: flex;
+  justify-content: start;
+}
+/* 树洞主人的头像 */
+.host_head_img {
+  width: 13%;
+  height: 100%;
+}
+/* 树洞主人的一些信息 */
+.host_info_container {
+  width: 88%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+/* 树洞主人的昵称 */
+.nick_name{
+  font-family: '微软雅黑';
+  font-weight: bold;
+  display: flex;
+  font-size: 28rpx;
+  margin-bottom: 20rpx;
+}
+/* 树洞发布的时间信息 */
+.time_info {
+  color: #666666;
+  display: flex;
+  font-size: 25rpx;
+}
+/* 单个树洞的标题 */
+.single_title {
+  width: 100%;
+  height: 10%;
+  font-size: 100%;
+  position: relative;
+  color: black;
+  font-family: '微软雅黑';
+  font-weight: bold;
+}
+/* 单个树洞的预览内容容器 */
+.single_body_container {
+  width: 100%;
+  height: 75%;
+}
+/* 单个树洞的预览内容 */
+.single_body {
+  color: rgb(32, 27, 27);
+  font-size: 26rpx;
+  text-overflow:ellipsis;
+  display: -webkit-box;
+  word-break: break-all;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 7;
+  margin-left: 1%;
+  margin-right: 1%;
+  overflow: hidden;
+}
+/* 树洞内容的点赞数量 */
+.single_agree {
+  color: #666666;
+  font-size: 20rpx;
+  float: right;
+  margin-top: 30rpx;
+  margin-bottom: 0rpx;
+  margin-right: 2%;
+}

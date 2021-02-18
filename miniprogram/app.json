@@ -37,7 +37,8 @@
     "pages/index0/passage/passageContent/passageContent",
     "pages/index0/comic/comicIntro/comicIntro",
     "pages/index1/advice/appointment/appointment",
-    "pages/index1/advice/adviceList/adviceList"
+    "pages/index1/advice/adviceList/adviceList",
+    "pages/index1/course/courseImg/courseImg"
   ],
   "window": {
     "backgroundTextStyle": "light",

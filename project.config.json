@@ -68,8 +68,14 @@
           "scene": null
         },
         {
-          "name": "预约咨询编译模式",
-          "pathName": "pages/index1/advice/appointment/appointment",
+          "name": "课程图片编译模式",
+          "pathName": "pages/index1/course/courseImg/courseImg",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "心理课程编译模式",
+          "pathName": "pages/index1/course/courseIndex/courseIndex",
           "query": "",
           "scene": null
         }

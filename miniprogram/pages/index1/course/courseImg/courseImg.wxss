@@ -1,0 +1,5 @@
+/* pages/index1/course/courseImg/courseImg.wxss */
+
+.content {
+  width: 100%;
+}

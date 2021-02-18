@@ -1,0 +1,3 @@
+<!--pages/index1/course/courseImg/courseImg.wxml-->
+
+<image class="content" src="{{courseDetail.content}}" mode="widthFix"></image>

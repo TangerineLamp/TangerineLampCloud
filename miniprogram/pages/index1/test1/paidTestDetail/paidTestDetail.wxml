@@ -23,7 +23,8 @@
 </view>
 <!-- 底部固定栏 -->
 <view class="bottom">
-  <view class="price">¥ {{testDetail.price}}</view>
+  <!-- <view class="price">¥ {{testDetail.price}}</view> -->
+  <view class="price">免费</view>
   <view class="side"></view>
   <view class="test"><text>立即测试</text></view>
 </view>

@@ -22,13 +22,6 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
    * 从云端获取课程详情
   */
   getDetail(_id) {
@@ -40,12 +33,10 @@ Page({
   },
 
   /**
-   * 生命周期函数--监听页面显示
+   * 生命周期函数--监听页面初次渲染完成
    */
-  navTo() {
-    wx.navigateTo({
-      url: '/pages/index1/course/courseImg/courseImg?_id='+this.data.courseDetail._id,
-    })
+  onReady: function () {
+
   },
 
   /**

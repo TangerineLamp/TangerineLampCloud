@@ -1,5 +1,17 @@
 /* pages/index0/passage/passageContent/passageContent.wxss */
 
+/* 以下为文章按长图模式展示之样式 */
+
+.page{
+  background: white;
+}
+
+.passage-longPicture{
+  width: 100%;
+}
+
+/* 以下为文章按数据库模式展示之样式 */
+/* 
 .page{
   background: white;
   margin-bottom: 200rpx;
@@ -11,7 +23,6 @@
 
 .header{
   width: 100%;
-  /* text-align: center; */
   background-color: white;
 }
 
@@ -70,6 +81,5 @@
 }
 
 .passage-image{
-  /* margin: 0 auto; */
   text-align: center;
-}
+} */

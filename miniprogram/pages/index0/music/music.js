@@ -10,10 +10,10 @@ Page({
   data: {
     //轮播图
     slides: [
-      { url: 'http://p1.music.126.net/3iGnkiIwi5-Aa56TVg_Zww==/109951165678592787.jpg?imageView&quality=89' },
-      { url: 'http://p1.music.126.net/H5DfakDPIQHoAKbQ5XC3Fg==/109951165679165117.jpg?imageView&quality=89' },
-      { url: 'http://p1.music.126.net/n3VNGm9bW12JUkg1QEUy3A==/109951165679781345.jpg?imageView&quality=89' },
-      { url: 'http://p1.music.126.net/qyGARhouAcu4s-IqKyXURw==/109951165679120218.jpg?imageView&quality=89' }
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide1.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide2.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide3.jpg' },
+      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide4.jpg' }
     ],
     item: 0,
     tab: 0,
@@ -21,13 +21,14 @@ Page({
     playlist: [],
     state: 'paused',
     playIndex: 0,
+    // 默认设置
     play: {
       currentTime: '00:00',
       duration: '00:00',
       percent: 0,
-      title: '',
-      singer: '',
-      coverImgUrl: 'https://ss3.bdstatic.com/70cFv8Sh_Q1YnxGkpoWK1HF6hhy/it/u=3812393301,2329645096&fm=26&gp=0.jpg',
+      title: '请点击选择播放音乐',
+      singer: 'Please choose a song',
+      coverImgUrl: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/icon/music-default-icon.jpg',
     }
   },
 
@@ -46,7 +47,8 @@ Page({
 
   // 获取音乐列表
   getPlayList() {
-    db.collection("index0_music").get().then(res=>{
+    // 降序，越新的音乐排在越前面
+    db.collection("index0_music").orderBy('no','desc').get().then(res=>{
       this.setData({
         playlist:res.data
       })
@@ -132,6 +134,10 @@ Page({
     if (this.data.state === 'running') {
       this.play()
     }
+    // 切换后当前状态为暂停
+    // this.setData({
+    //   state: 'paused'
+    // })
   },
   
   // 滚动条调节歌曲进度
@@ -144,6 +150,10 @@ Page({
   change: function(e) {
     this.setMusic(e.currentTarget.dataset.index)
     this.play()
+    // 切换后当前状态为暂停
+    // this.setData({
+    //   state: 'paused'
+    // })
   }
 })
 

@@ -21,11 +21,11 @@ page {
   margin-bottom: 200rpx;
 }
 
-.recommendMusic .title{
+.title{
   font-size: 40rpx;
   /* font-weight: bold; */
   margin-left: 30rpx;
-  margin-bottom: 30rpx;
+  margin-top: 30rpx;
 }
 
 

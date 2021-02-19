@@ -11,10 +11,10 @@
   </block>
 </swiper>
 
+<view class="title">推荐音乐 > </view>
 
 <!-- 推荐音乐 -->
 <view class="recommendMusic">
-  <view class="title">推荐音乐 > </view>
   <!-- 音乐列表 -->
   <view class="playlist-item" wx:for="{{playlist}}" wx:key="_id" bindtap="change" data-index="{{index}}">
     <image class="playlist-cover" src="{{item.coverImgUrl}}"></image>

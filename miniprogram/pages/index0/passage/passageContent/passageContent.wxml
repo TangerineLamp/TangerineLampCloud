@@ -1,8 +1,18 @@
 <!--pages/index0/passage/passageContent/passageContent.wxml-->
 
-<view class="passage-container">
+<!-- 以下为文章按长图模式展示 -->
+<view class="body"
+wx:for="{{passage.body}}"
+wx:key="{{passage}}">
+  <image src="{{item}}" class="passage-longPicture" mode="widthFix"></image>
+</view>
 
-  <!-- 文章内容框架 -->
+
+
+<!-- 以下为文章按数据库模式展示 -->
+
+<!-- <view class="passage-container">
+
   <view class="header">
     <view class="title">
       {{passage.title}}
@@ -17,7 +27,6 @@
 
   <view class="blank"></view>
 
-  <!-- 文章内容 -->
   <view class="body"
   wx:for="{{passage.body}}"
   wx:key="{{passage}}">
@@ -27,11 +36,9 @@
     <view class="para">
       <text user-select="true">{{item.para}}</text>
     </view>
-    <!-- <image src="{{item.image}}" class="sub-image" mode="aspectFit" wx:if="{{item.src.length != 0}}"></image> -->
   </view>
 
-  <!-- image -->
   <view class="passage-image">
     <image src="{{passage.image}}"  mode="aspectFit" wx:if="{{passage.src.length != 0}}"></image>
   </view>
-</view>
+</view> -->

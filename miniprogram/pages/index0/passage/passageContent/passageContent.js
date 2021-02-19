@@ -25,7 +25,8 @@ Page({
 
   //获取文章内容
   getPassage(_id) {
-    db.collection("index0_passage").doc(_id).get().then(res=>{
+    // 文章使用长图模式展示，从passageLongPicture集合获取，数据库模式从passage集合获取
+    db.collection("index0_passageLongPicture").doc(_id).get().then(res=>{
       this.setData({
         passage:res.data
       })

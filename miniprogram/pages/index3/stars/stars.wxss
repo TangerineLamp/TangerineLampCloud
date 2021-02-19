@@ -75,6 +75,7 @@
     border-radius: 50%;
     text-align: center;
     color: #fff;
+    /* background-color: orange; */
     background-color: #22A7F6;
     margin: 0 auto;
 }
@@ -84,6 +85,7 @@
 }
 .nowDay .date-weight{
     color: #22A7F6;
+    /* color: #22A7F6; */
 }
 .one{
     position: absolute;

@@ -1,5 +1,9 @@
+const db = wx.cloud.database()
 Page({
   data: {
+    content: "每日签到",
+    nowdaycolor: "",
+    alreadylist: [],
     year: 0,
     month: 0,
     date: ['日', '一', '二', '三', '四', '五', '六'],
@@ -17,6 +21,57 @@ Page({
       year: year,
       month: month,
       isToday: '' + year + month + now.getDate()
+    })
+    this.getData()
+  },
+
+  checkDate(date) {
+    let flag = false
+    console.log(flag)
+    for (i = 0; i < alreadylist.arrLen(); i++) {
+      if (alreadylist[i].isToday == date) {
+        flag = true
+        break
+      }
+    }
+    console.log(flag)
+    return flag
+  },
+  getData() {
+    db.collection("index3_qiandao_daily").get()
+      .then(res => {
+        this.setData({
+          alreadylist: res.data
+        })
+      })
+  },
+  sign_in() {
+    wx.showLoading({
+      title: "签到中",
+      mask: true,
+      success: (result) => {
+
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+    this.setData({
+      content: "今日已签到",
+      nowdaycolor: "nowDay"
+    })
+    wx.hideLoading();
+
+    db.collection("index3_qiandao_daily").add({
+      data: {
+        year: this.data.year,
+        month: this.data.month,
+        date: new Date().getDate(),
+        nowdaycolor: "nowDay",
+        isToday: this.data.isToday
+
+      }
+    }).then(res => {
+      console.log(res)
     })
   },
   dateInit: function (setYear, setMonth) {

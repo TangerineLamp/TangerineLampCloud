@@ -17,15 +17,17 @@
         </view>
     </view>
     <view class='date-box'>
-        <view wx:for='{{dateArr}}' class='{{isToday == item.isToday ? "nowDay" : ""}}' data-date='{{item.isToday}}'>
+        <!-- 渲染的时候用数据库里的数据，同一月份的数据，有数据样式就改变 -->
+        <!-- <view wx:for='{{dateArr}}' wx:for-item="item1" class='{{isToday == item1.isToday ? nowdaycolor : ""}}' data-date='{{item1.isToday}}'> -->
+        <view wx:for='{{dateArr}}' wx:for-item="item1" 
+    class='{{ checkDate(item1.isToday)? "nowDay" : ""}}'>
+    <!-- ((isToday == item1.isToday) || -->
+            <!-- <view wx:for='{{alreadylist}}' wx:for-item="item2" 
+            class='{{item1.isToday == item2.isToday ? "nowDay" : ""}}'> -->
             <view class='date-head'>
-                <view>{{item.dateNum}}</view>
+                <view>{{item1.dateNum}}</view>
             </view>
-            <!-- <view class='date-weight'>{{item.weight}}</view> -->
         </view>
     </view>
 </view>
-
-<button class="submit" bindtap="sign_in">
-        每日签到
-</button>
+<button class="submit" bindtap="sign_in">{{content}}</button>

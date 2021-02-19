@@ -1,48 +1,22 @@
 <!--pages/index2/treeHole/treeHole.wxml-->
 <scroll-view class='theBackground'>
-  <view class='singleBlock'>
-    <view class="single_top_container in_mid">
-      <image src="/pages/index2/logo/people.svg" mode='aspectFill' class="host_head_img"></image>
-      <view class="host_info_container">
-        <text class="nick_name color" space="ensp"> 粉色的人</text>
-        <text class="time_info" space="ensp"> 2021-01-31</text>
+  <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item.tag==treeHoleType}}">
+    <view class='singleBlock'>
+      <view class="single_top_container in_mid">
+        <image src="/pages/index2/logo/people.svg" mode='aspectFill' class="host_head_img"></image>
+        <view class="host_info_container">
+          <view class="nick_name color" space="ensp"> {{item.name}}</view>
+          <view class="time_info" space="ensp">
+         {{treeHoleDate[index]}}
+          </view>
+        </view>
+      </view>
+      <view class="single_body_container">
+        <text class="single_body">
+          {{item.mainBody}}
+        </text>
+        <view class="single_agree" space="ensp" style="position:relative; bottom:0">{{item.goodCount}} 人点赞 </view>
       </view>
     </view>
-    <view class="single_body_container">
-      <text class="single_body">
-        这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）
-      </text>
-      <text class="single_agree" space="ensp">1,749 人点赞 </text>
-    </view>
-  </view>
-  <view class='singleBlock'>
-    <view class="single_top_container in_mid">
-      <image src="/pages/index2/logo/people.svg" mode='aspectFill' class="host_head_img"></image>
-      <view class="host_info_container">
-        <text class="nick_name color" space="ensp"> 粉色的人</text>
-        <text class="time_info" space="ensp"> 2021-01-31</text>
-      </view>
-    </view>
-    <view class="single_body_container">
-      <text class="single_body">
-        这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）
-      </text>
-      <text class="single_agree" space="ensp">1,749 人点赞 </text>
-    </view>
-  </view>
-  <view class='singleBlock'>
-    <view class="single_top_container in_mid">
-      <image src="/pages/index2/logo/people.svg" mode='aspectFill' class="host_head_img"></image>
-      <view class="host_info_container">
-        <text class="nick_name color" space="ensp"> 粉色的人</text>
-        <text class="time_info" space="ensp"> 2021-01-31</text>
-      </view>
-    </view>
-    <view class="single_body_container">
-      <text class="single_body">
-        这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）这是正文预览部分的内容、。，！@#￥%……&*（）
-      </text>
-      <text class="single_agree" space="ensp">1,749 人点赞 </text>
-    </view>
-  </view>
+  </block>
 </scroll-view>

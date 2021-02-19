@@ -1,5 +1,6 @@
-/* pages/index2/treeHole/treeHole.wxss */
-
+page{
+  background: #efefef;
+}
 /* 子元素居中通用样式设置 */
 .in_mid{
   display: flex;
@@ -36,16 +37,17 @@
 /***********************************正文部分***********************************/
 /* 单个树洞的容器 */
 .singleBlock {
+  background-color: #fff;
   border-bottom: 30rpx solid #efefef;
   direction: block;
   width: 100%;
-  height: 400rpx;
+  /* height: 400rpx; */
 }
 /* 单个树洞的顶层容器 */
 .single_top_container {
   width: 100%;
-  height: 25%;
-  margin-top: 10rpx;
+  height: 100rpx;
+  padding-top: 10rpx;
   direction: flex;
   justify-content: start;
 }
@@ -61,6 +63,7 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  margin-left: 10rpx;
 }
 /* 树洞主人的昵称 */
 .nick_name{
@@ -68,7 +71,7 @@
   font-weight: bold;
   display: flex;
   font-size: 28rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 25rpx;
 }
 /* 树洞发布的时间信息 */
 .time_info {
@@ -89,7 +92,10 @@
 /* 单个树洞的预览内容容器 */
 .single_body_container {
   width: 100%;
-  height: 75%;
+  /* height: 75%; */
+  direction: flex;
+  flex-wrap: wrap;
+  justify-content: start;
 }
 /* 单个树洞的预览内容 */
 .single_body {
@@ -100,16 +106,22 @@
   word-break: break-all;
   -webkit-box-orient: vertical;
   -webkit-line-clamp: 7;
-  margin-left: 1%;
-  margin-right: 1%;
+  padding-left: 1%;
+  padding-right: 1%;
   overflow: hidden;
 }
 /* 树洞内容的点赞数量 */
 .single_agree {
+  height: 30rpx;
   color: #666666;
   font-size: 20rpx;
-  float: right;
-  margin-top: 30rpx;
-  margin-bottom: 0rpx;
-  margin-right: 2%;
+  /* float: right; */
+  width: 96%;
+  direction: flex;
+  justify-content: end;
+  padding-top: 30rpx;
+  padding-bottom: 1%;
+  padding-right: 2%;
+  padding-left: 2%;
+  text-align: right;
 }

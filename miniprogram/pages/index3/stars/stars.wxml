@@ -20,7 +20,7 @@
         <!-- 渲染的时候用数据库里的数据，同一月份的数据，有数据样式就改变 -->
         <!-- <view wx:for='{{dateArr}}' wx:for-item="item1" class='{{isToday == item1.isToday ? nowdaycolor : ""}}' data-date='{{item1.isToday}}'> -->
         <view wx:for='{{dateArr}}' wx:for-item="item1" 
-    class='{{ checkDate(item1.isToday)? "nowDay" : ""}}'>
+    class='{{item1.isColor? "nowDay" : ""}}'>
     <!-- ((isToday == item1.isToday) || -->
             <!-- <view wx:for='{{alreadylist}}' wx:for-item="item2" 
             class='{{item1.isToday == item2.isToday ? "nowDay" : ""}}'> -->

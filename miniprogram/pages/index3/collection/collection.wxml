@@ -12,7 +12,7 @@
   wx:key="id"
   wx:for-index="index0"
   wx:for-item="item0"
-  url="{{'/pages/index0/passage/passageContent/passageContent?pid='+item0.pid}}">
+  url="{{'/pages/index0/passage/passageContent/passageContent?_id='+item0._id}}">
     <!-- 这里的url要修改一下 这只是为了测试使用 -->
     <!-- 文章信息 title/des -->
     <view class="passage-info">
@@ -20,12 +20,12 @@
         {{item0.title}}
       </view>
       <view class="passage-des">
-        {{item0.des}}
+        {{item0.author}}
       </view>
     </view>
     <!-- 文章图片 预留空间，选择性上传 -->
-    <view class="passage-image">
-      <image src="{{item0.image}}" mode="aspectFill"></image>
+    <view class="passage-introImage">
+      <image src="{{item0.introImage}}" mode="aspectFill"></image>
     </view>
   </navigator>
 </scroll-view>

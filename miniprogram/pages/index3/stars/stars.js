@@ -22,14 +22,16 @@ Page({
       month: month,
       isToday: '' + year + month + now.getDate()
     })
-    this.getData()
+    this.getData();
+    //this.isColor();
+
   },
 
   checkDate(date) {
     let flag = false
     console.log(flag)
-    for (i = 0; i < alreadylist.arrLen(); i++) {
-      if (alreadylist[i].isToday == date) {
+    for (let i = 0; i < alreadylist.arrLen(); i++) {
+      if (this.data.alreadylist[i].isToday == date) {
         flag = true
         break
       }
@@ -37,13 +39,45 @@ Page({
     console.log(flag)
     return flag
   },
+  // getData() {
+  //   db.collection("index3_qiandao_daily").get()
+  //     .then(res => {
+  //       this.setData({
+  //         alreadylist: res.data
+  //       })
+  //     })
+  // },
   getData() {
     db.collection("index3_qiandao_daily").get()
       .then(res => {
+        let alreadylist = res.data;
+        let dateArr = this.data.dateArr;
+        for (let i = 0; i < alreadylist.length; i++) {
+          for (let j = 0; j < dateArr.length; j++) {
+            if (alreadylist[i].isToday == dateArr[j].isToday) {
+              dateArr[j].isColor = true;
+            }
+          }
+        }
         this.setData({
-          alreadylist: res.data
+          dateArr
         })
       })
+  },
+  isColor() {
+    let copy = []
+    copy = this.data.dateArr
+    for (let i = 0; i < this.data.alreadylist.arrLen; i++) {
+      for (let j = 0; j < this.data.dateArr.arrLen; j++) {
+        if (this.data.alreadylist[i].isToday == this.data.dateArr[j].isToday)
+          // this.data.dateArr[j].isColor=true
+          copy[j].isColor = true
+        // console.log(copy[j].isToday)
+      }
+    }
+    this.setData({
+      dateArr: copy
+    })
   },
   sign_in() {
     wx.showLoading({
@@ -67,8 +101,8 @@ Page({
         month: this.data.month,
         date: new Date().getDate(),
         nowdaycolor: "nowDay",
-        isToday: this.data.isToday
-
+        isToday: this.data.isToday,
+        isColor: true
       }
     }).then(res => {
       console.log(res)
@@ -100,7 +134,9 @@ Page({
         obj = {
           isToday: '' + year + (month + 1) + num,
           dateNum: num,
-          weight: 5
+          weight: 5,
+          isColor: false
+
         }
       } else {
         obj = {};

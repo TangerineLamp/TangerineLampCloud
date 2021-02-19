@@ -1,75 +1,31 @@
 // pages/index0/passage/passage.js
+const db=wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    passageList:[
-      {
-        pid:0,
-        title:"岳阳楼记",
-        des:"宋·范仲淹",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:1,
-        title:"滕王阁记",
-        des:"唐·王勃",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:2,
-        title:"醉翁亭记",
-        des:"宋·欧阳修",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:3,
-        title:"岳阳楼记",
-        des:"宋·范仲淹",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:4,
-        title:"滕王阁记",
-        des:"唐·王勃",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:5,
-        title:"醉翁亭记",
-        des:"宋·欧阳修",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:6,
-        title:"岳阳楼记",
-        des:"宋·范仲淹",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:7,
-        title:"滕王阁记",
-        des:"唐·王勃",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      },
-      {
-        pid:8,
-        title:"醉翁亭记",
-        des:"宋·欧阳修",
-        image:"https://bkimg.cdn.bcebos.com/pic/1c950a7b02087bf461fac9a8ffd3572c11dfcf59?x-bce-process=image/watermark,image_d2F0ZXIvYmFpa2UxNTA=,g_7,xp_5,yp_5"
-      }
-    ],
+    collectionlist:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    wx.showLoading({
+      title: '加载中'
+    })
+    this.getData();
+    wx.hideLoading();
   },
-
+  getData(){
+    db.collection("index0_passageLongPicture").orderBy('no','desc').get().then(res=>{
+      this.setData({
+        passageList:res.data
+      })
+    })
+  },
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

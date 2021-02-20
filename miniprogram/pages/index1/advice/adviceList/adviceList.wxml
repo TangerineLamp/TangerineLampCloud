@@ -1,10 +1,20 @@
 <!--pages/index1/advice/adviceList/adviceList.wxml-->
+<wxs src="/utils/datefilter.wxs" module="filters"/>
 <view class="top">
   <image class="targetImg" src="/icons/index1_appointmentList.png" alt="/icons/none_img.png"></image>
   <text class="des">已预约咨询</text>
 </view>
+<view class="none"></view>
 <block wx:if="{{adviceList.length===0}}">
   <view class="none">
     暂无预约记录
   </view>
+</block>
+<block wx:else>
+  <navigator class="adviceList"
+  wx:for="{{adviceList}}"
+  wx:key="advicekey"
+  url="/pages/index1/advice/room/room">
+    {{filters.formatDate(item.startTime)}}
+  </navigator>
 </block>

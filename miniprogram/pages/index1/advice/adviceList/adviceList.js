@@ -1,11 +1,17 @@
-// pages/index1/advice/adviceList/adviceList.js
+const app = getApp()
+
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    adviceList:[]
+    adviceList:[
+      {
+        startTime:"",
+        chatRoomGroupId:"demo"
+      }
+    ]
   },
 
   /**
@@ -13,6 +19,21 @@ Page({
    */
   onLoad: function (options) {
 
+    if (app.globalData.openid) {
+      this.setData({
+        openid: app.globalData.openid
+      })
+    }
+
+    let date = Date.parse('2021/02/20 12:00:0')
+    this.setData({
+      adviceList:[
+      {
+        startTime:date,
+        chatRoomGroupId:"demo"
+      }
+    ]
+    })
   },
 
   /**

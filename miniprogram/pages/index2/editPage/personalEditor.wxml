@@ -1,32 +1,32 @@
 <!--pages/index2/editPage/personalEditor.wxml-->
 
 <!-- <form> -->
-	<view class='topcontainer in_mid'>
-		<text class='case_title in_mid'>写 树 洞</text>
-		<view class="publish_container in_mid">
-			<button class="go_publish in_mid"
-							bindtap="sendMsg">
-				发表
-			</button>
-		</view>
+<view class='topcontainer in_mid'>
+	<text class='case_title in_mid'>写 树 洞</text>
+	<view class="publish_container in_mid">
+		<button class="go_publish in_mid" bindtap="sendMsg">
+			发表
+		</button>
 	</view>
-	<view class="midcontainer">
-		<!--用户多行输入的内容-->
-		<textarea class="per_body" 
-							maxlength="-1" 
-							auto-focus="true"
-							placeholder="来说点什么吧~~"
-							bindblur="bindTextAreaBlur"
-							value="{{details}}">
+</view>
+<view class="midcontainer">
+	<!--用户多行输入的内容-->
+	<textarea class="per_body" maxlength="-1" auto-focus="true" placeholder="来说点什么吧~~" bindblur="bindTextAreaBlur"
+		value="{{details}}">
 		</textarea>
-		<!--输入图片-->
-		<view class="bottomcontainer" style="display: flex">
-			<!-- <view class="piccontainer in_mid">
-				<image src="/pages/index2/logo/pic.svg" class="stdimg" mode="aspectFit"></image>
-			</view> -->
-			<view class="piccontainer in_mid">
-				<image src="/pages/index2/logo/phiz.svg" class="stdimg" mode="aspectFit"></image>
-			</view>
+	<picker mode="selector" range="{{chooseRegion}}" bindchange="bindPickerChange" value="{{chooseIndex}}">
+		<view class="viewInPicker in_mid viewInPickerBackground" wx:if="{{!isChose}}">"点我"选择分区</view>
+		<view class="viewInPicker in_mid {{chooseRegionColor[chooseIndex]}}" wx:if="{{isChose}}">
+			{{chooseRegion[chooseIndex]}}
 		</view>
+	</picker>
+	<view class="bottomcontainer">
+		<view class="piccontainer in_mid">
+			<image src="/pages/index2/logo/phiz.svg" class="stdimg" mode="aspectFit"></image>
+		</view>
+		<radio-group class="theRGroup">
+			<radio class="theRadio" color="#ff7733" checked="{{isAnonymous}}" bindtap = "radioBindtap">匿名发布</radio>
+		</radio-group>
 	</view>
+</view>
 <!-- </form> -->

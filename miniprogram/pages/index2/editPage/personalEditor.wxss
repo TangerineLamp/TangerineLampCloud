@@ -1,5 +1,7 @@
 /* pages/index2/editPage/personalEditor.wxss */
-
+page{
+	background-color: rgb(236, 225, 225);
+}
 /* 子元素居中通用样式设置 */
 .in_mid{
   display: flex;
@@ -45,23 +47,68 @@
 .midcontainer {
 	background-color: rgb(236, 225, 225);
 	width: 100%;
-	height: calc( 100vh - 110rpx );
+	height: 600rpx;
 	display: flex;
 	display: block;
 }
 /* 编辑正文部分 */
 .per_body {
 	width: 100%;
-	height: 40%;
+	height: 89%;
 	background-color: #fff;
+	border-bottom: 5rpx solid rgb(236, 225, 225);
 }
+/*************************************选择条编辑*************************************/
+/*选择条picker的样式*/
+.thePicker{
+	display: flex;
+	align-items: center;
+	font-size: 40rpx;
+	font-weight: bold;
+	padding-right: 1%;
+	padding-left: 1%;
+}
+.viewInPicker{
+	width: 100%;
+	height: 100%;
+	color: #fff;
+	display: flex;
+	align-items: center;
+	font-size: 40rpx;
+	font-weight: bold;
+	padding-right: 1%;
+	padding-left: 1%;
+}
+.viewInPickerBackground{
+	background-color: #ff7733;
+}
+.theWork{
+	background-color: #5C92F1;
+}
+.theLife{
+	background-color: #AAB20E;
+}
+.theExam{
+	background-color: #E95BB8;
+}
+.theEmotion{
+	background-color: #F41010;
+}
+.theGame{
+	background-color: #C26BE7;
+}
+.theStudy{
+	background-color: #17AD17;
+}
+/*************************************页面底部*************************************/
 /* 底部容器 */
 .bottomcontainer {
 	width: 100%;
-	height: 5%;
+	height: 11%;
 	background-color: #fff;
-	display: block;
+	display: flex;
 	flex-wrap: nowrap;
+	justify-content: space-between;
 }
 /* 装图片的容器 */
 .piccontainer {
@@ -72,4 +119,17 @@
 .stdimg{
   width: 50rpx;
   height: 50rpx;
+}
+/*调整radio-group的样式*/
+.theRGroup{
+	color: #ff7733;
+	display: flex;
+	align-items: center;
+	margin-right: 1%;
+}
+/*调整radio的样式*/
+.theRadio{
+	font-size: 40rpx;
+	color: #473a31;
+	font-weight: bold;
 }

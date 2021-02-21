@@ -6,7 +6,26 @@ Page({
    * 页面的初始数据
    */
   data: {
-    details: ""
+    details: "", // textArea里面的细节
+    chooseIndex: "", // 选择分区时各个区域的位置指数
+    isChose: false, // 判断是否选择了分区
+    isAnonymous: false, // 判断是否匿名, 默认不匿
+    chooseRegionColor: [ // 和选择分区对应的颜色
+      "theWork",
+      "theExam",
+      "theEmotion",
+      "theLife",
+      "theStudy",
+      "theGame"
+    ],
+    chooseRegion: [
+      "工作区",
+      "考研区",
+      "情感区",
+      "生活区", 
+      "学习区",  
+      "游戏区",  
+    ]
   },
 
   /**
@@ -33,5 +52,22 @@ Page({
     setTimeout(function (){
       wx.hideLoading()
     }, 2000);
+  },
+
+  /**
+   * 更换选择条的样式和内容
+   */
+  bindPickerChange: function(e) {
+    console.log('picker发送选择改变，携带值为', e.detail.value)
+    this.setData({
+      chooseIndex: e.detail.value,
+      isChose: true
+    })
+  },
+
+  radioBindtap: function(e) {
+    this.setData({
+      isAnonymous: ~this.data.isAnonymous
+    })
   }
 })

@@ -4,11 +4,26 @@ const app = getApp()
 
 Page({
   data: {
+    messageCount:0,
+    treeholesCount:0,
+    collectionCount:0,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
+  goToAddress(){
+      wx.navigateTo({
+        url: '/pages/index3/editor/editor',
+        success: (result) => {
+          console.log("跳转到设置页面")
+        },
+        fail: () => {},
+        complete: () => {}
+      });
+        
+  }
+  ,
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData({

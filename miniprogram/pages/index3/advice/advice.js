@@ -20,7 +20,7 @@ Page({
     var that = this;
 
     console.log(classify) //输出的结果就是你点击的
-
+    
     this.setData({
       shopitem: classify, //更新
 
@@ -37,7 +37,10 @@ Page({
     var content=res.detail.value.content;
     db.collection("index3_feedback").add({
       data:{
-        content:content
+        content:content,
+        shopitem:shopitem
+
+
       }
     }).then(res=>{
       console.log(res)

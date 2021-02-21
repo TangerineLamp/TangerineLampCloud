@@ -34,6 +34,7 @@
     "pages/index3/trace/trace",
     "pages/index3/diary/diary_edit/diary",
     "pages/index3/diary/diary",
+    "pages/index3/editor/editor",
     "pages/index3/diary/diary_detail/diary_detail",
     "pages/index0/passage/passageContent/passageContent",
     "pages/index0/comic/comicIntro/comicIntro",

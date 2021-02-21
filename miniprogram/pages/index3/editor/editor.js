@@ -1,4 +1,4 @@
-// pages/index3/plan/plan.js
+// pages/index3/editor/editor.js
 Page({
 
   /**
@@ -12,34 +12,12 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.jumpTo()
+
   },
 
-  jumpTo() {
-    wx.showLoading({
-      title: "加载中",
-      mask: true,
-      success: (result) => {
-        
-      },
-      fail: () => {},
-      complete: () => {}
-    });
-      
-    wx.navigateTo({
-      url: '/pages/index1/advice/adviceList/adviceList',
-      success: (result) => {
-        console.log("跳转成功")
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-    wx.hideLoading();
-  }
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  ,
   onReady: function () {
 
   },

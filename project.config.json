@@ -78,6 +78,12 @@
           "pathName": "pages/index1/advice/room/room",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "房间列表测试模式",
+          "pathName": "pages/index1/advice/room_list_test/room_list_test",
+          "query": "",
+          "scene": null
         }
       ]
     }

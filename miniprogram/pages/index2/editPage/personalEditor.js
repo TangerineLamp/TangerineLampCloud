@@ -1,4 +1,4 @@
-// pages/index2/editPage/personalEditor.js
+const db = wx.cloud.database(); // 获取后台的数据库
 
 Page({
 
@@ -6,7 +6,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    details: "", // textArea里面的细节
+    // PersonalEditor: "/pages/index2/editPage/personalEditor",
+    // index2: "/pages/index2",
+    treeholeDetails: "", // textArea里面的细节
     chooseIndex: "", // 选择分区时各个区域的位置指数
     isChose: false, // 判断是否选择了分区
     isAnonymous: false, // 判断是否匿名, 默认不匿
@@ -29,30 +31,107 @@ Page({
   },
 
   /**
-   * textArea失去焦点后会将内容传到暂存的数据details里去
-   * @param {失去焦点事件} e 
+   * 在textArea中写入后会将内容传到暂存的数据treeholeDetails里去
    */
-  bindTextAreaBlur: function(e) {
+  bindTextAreaInput: function(e) {
     this.setData({
-      details: e.detail.value,
+      treeholeDetails: e.detail.value,
     });
-    console.log(this.data.details);
+    // console.log("树洞内容：", this.data.treeholeDetails);
   },
 
   /**
-   * 点击这个button后会展现一个发送的标志
+   * 点击按钮发送树洞
+   * 在此进行了延迟的模拟以提高用户体验和避免用户多次提交
+   * 并且此动作对用户树洞的规范性进行了检查，包括：
+   * 1.用户树洞有无内容以及内容是否太短
+   * 2.用户是否没有选择树洞的分区
    * @param {点击事件} e 
    */
   sendMsg: function(e){
-    wx.showLoading({
-      title: '加载中...',
-    });
+    // 首先获取用户的微信名和微信号
+    // this.setData({
+    //   userName: this.data.isAnonymous? "一个匿名小可爱": "", // 用户名字
+    //   // userWxId: 微信号
+    // })
+    console.log("目前树洞的长度是", this.data.treeholeDetails.length)
+    // 树洞如果什么都没有写则会提示写内容
+    if (this.data.treeholeDetails.length == 0) {
+      wx.showToast({
+        title: '树洞不能为空呢',
+        image: '/icons/failForVoidTreehole.png',
+        duration: 2000//持续的时间
+      })
 
-    // 显示发送成功
-    setTimeout(function (){
-      wx.hideLoading()
-    }, 2000);
-  },
+    // 限制树洞字数不小于20字，否则提示内容太少
+    } else if (this.data.treeholeDetails.length < 20) {
+      wx.showToast({
+        title: '树洞长度小于20',
+        image: '/icons/failForShortContent.png',
+        duration: 2000//持续的时间
+      })
+
+    // 内容字数比较符合，进入发布前检查的下一步
+    } else {
+      // 如果没有选择分区将会提示，该
+      if (!this.data.isChose) {
+        wx.showToast({
+          title: '亲，未选分区',
+          image: '/icons/failForNoChooseRegin.png',
+          duration: 2000//持续的时间
+        })
+      }
+      else {
+        // 显示正在发送
+        wx.showLoading({
+          title: '发布中...',
+        });
+
+        // 正式发送，内容包括
+        // 对应的分区chooseRegin[chooseIndex]
+        // 是否匿名isAnonymous
+        // 正文内容treeholeDetails
+        // 点赞数(初始都为0)
+        // 发布时间
+        var now = new Date();
+        db.collection("index2_treeholes").add({
+          data: {
+            goodCount: 0,
+            mainBody: this.data.treeholeDetails,
+            tag: this.data.chooseRegion[this.data.chooseIndex],
+            time: now,
+            isAnonymous: this.data.isAnonymous
+          }
+        }).then(res =>{
+          // 显示发送成功
+          setTimeout(function (){
+            wx.hideLoading()
+            // 发布成功，引导用户离开编辑页面
+            wx.showModal({
+              title: '发布成功！',
+              content: '再写一个树洞？',
+              success: function (res) {
+                // 点击了确定以后会重新进入编辑页面界面
+                if (res.confirm) { 
+                  console.log('用户点击确定')
+                  wx.navigateTo({
+                    url: "/pages/index2/editPage/personalEditor",
+                  })
+                // 点击了取消以后会转换进入树洞广场界面
+                } else { 
+                  console.log('用户点击取消')
+                  wx.switchTab({
+                    url: "/pages/index2/index2",
+                  })
+                }
+              }
+            }) // end wx.showModal
+          }, 2000);
+        }) // end then
+        console.log('储存树洞成功')
+      } // end else in if(!Chose)
+    } // end else in if(this.data.treeholeDetails.length)
+  }, // end function senMsg
 
   /**
    * 更换选择条的样式和内容
@@ -65,9 +144,12 @@ Page({
     })
   },
 
+  /**
+   * 使匿名选项可以被自由地取消(之前的不可以自由取消)
+   */
   radioBindtap: function(e) {
     this.setData({
-      isAnonymous: ~this.data.isAnonymous
+      isAnonymous: !this.data.isAnonymous
     })
   }
 })

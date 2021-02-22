@@ -17,7 +17,7 @@ Page({
      minTimeCritical: 100,
     margintop:  0,
      currentTarget: null,
-    treeHoleType: "情感"
+    treeHoleType: "情感区"
   },
 
   /**
@@ -89,7 +89,7 @@ Page({
    * 获得数据库里面的树洞数据
    */
   getTreeHoleData(){
-    db.collection("demo_hrxBaseTest").get()
+    db.collection("index2_treeholes").get()
     .then(res => {
       // console.log(res)
       this.setData({

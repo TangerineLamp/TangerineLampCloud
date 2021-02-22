@@ -18,14 +18,15 @@
     </view>
 </view> -->
 <view class="user_info_wrap">
-  
-  <button wx:if="{{!hasUserInfo && canIUse}}" 
+  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="getUserInfo" class="user_btn">
+    登陆
+  </button>
+  <!-- <button wx:if="{{!hasUserInfo && canIUse}}" 
   open-type="getUserInfo" 
   bindgetuserinfo="getUserInfo" 
   class="user_btn">
     登陆
-  </button>
-
+  </button> -->
   <!-- <block wx:else> -->
   <view wx:else class="user_img_wrap">
     <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
@@ -42,7 +43,7 @@
     <!-- 我的旅程 -->
     <view class="history_wrap">
       <navigator url="/pages/index3/stars/stars">
-        <view class="his_num">0</view>
+        <view class="his_num">{{dailyQianDaoCount}}</view>
         <view class="his_name">签到</view>
       </navigator>
       <navigator url="/pages/index3/collection/collection">
@@ -63,7 +64,7 @@
       <view class="order_content">
         <navigator url="/pages/index3/plan/plan">
           <view class="order_icon iconfont icon-yuyue"></view>
-          <view class="order_name">预约</view>
+          <view class="order_name" bindtap="jumpToAppointment">预约</view>
         </navigator>
         <navigator url="/pages/index3/list/list">
           <view class="iconfont icon-fukuan"></view>

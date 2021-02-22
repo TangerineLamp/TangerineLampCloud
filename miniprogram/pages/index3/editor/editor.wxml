@@ -1,2 +1,8 @@
-<!--pages/index3/editor/editor.wxml-->
-<text>pages/index3/editor/editor.wxml</text>
+<!-- pages/index3/editor/editor.wxml -->
+<view class="background">
+    <view>绑定电话<text>11111111111</text></view>
+    <view>清空缓存</view>
+    <view>树洞昵称</view>
+    <view>个性签名</view>
+    <view>版本号 1.00001</view>
+</view>

@@ -1,4 +1,4 @@
-// pages/index3/plan/plan.js
+// pages/index1/advice/appointmentDetail/appointmentDetail.js
 Page({
 
   /**
@@ -7,39 +7,22 @@ Page({
   data: {
 
   },
+  //预约成功的话，如果可以的话，还要重新渲染签到的日期，日期上显示已预约
 
+
+  makeAnAppointment() {
+
+  },
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-   
+
   },
 
-  jumpTo() {
-    wx.showLoading({
-      title: "加载中",
-      mask: true,
-      success: (result) => {
-        
-      },
-      fail: () => {},
-      complete: () => {}
-    });
-      
-    wx.navigateTo({
-      url: '/pages/index1/advice/adviceList/adviceList',
-      success: (result) => {
-        console.log("跳转成功")
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-    wx.hideLoading();
-  }
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  ,
   onReady: function () {
 
   },

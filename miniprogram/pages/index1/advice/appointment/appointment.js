@@ -1,11 +1,13 @@
 // pages/index1/advice/appointment/appointment.js
 Page({
   data: {
+    capableDate: [],
     year: 0,
     month: 0,
     date: ['日', '一', '二', '三', '四', '五', '六'],
     dateArr: [],
     isToday: 0,
+    standardTime: 0,
     isTodayWeek: false,
     todayIndex: 0
   },
@@ -17,7 +19,8 @@ Page({
     this.setData({
       year: year,
       month: month,
-      isToday: '' + year + month + now.getDate()
+      isToday: '' + year + '/' + month + '/' + now.getDate(),
+      standardTime: '' + year + '/' + month + '/' + now.getDate()
     })
   },
   dateInit: function (setYear, setMonth) {
@@ -44,7 +47,8 @@ Page({
       if (i >= startWeek) {
         num = i - startWeek + 1;
         obj = {
-          isToday: '' + year + (month + 1) + num,
+          isToday: '' + year + '/' + (month + 1) + '/' + num,
+          standardTime: '' + year + '/' + (month + 1) + '/' + num,
           dateNum: num,
           weight: 5
         }
@@ -98,11 +102,81 @@ Page({
   },
 
   //导航至详情页
-  navToDetail() {
-    wx.showToast({
-      title: '敬请期待',
-      icon: 'success',
-      duration: 500
-    })
+  navToDetail(e) {
+    //得进行判断，如果传入的时间戳大于今日1-7天，就可以跳转具体页面（字符串比较）
+    //不然显示请提前一天预约 
+    console.log(e.currentTarget.dataset)
+    var Today = e.currentTarget.dataset.date
+    var time = e.currentTarget.dataset.standardtime
+    console.log(Today)
+    console.log(time)
+    var newToday = new Date(Today)
+    var newtime = new Date(time)
+    console.log(newToday)
+    console.log(newtime)
+    // var repTime = newtime.replace(/-/g, '/');
+    //用正则主要是把“2020-04-01 00:00:00'”转换成“2020/04/01 00:00:00'”兼容ios
+    // console.log("返回时间：" + newtime);
+    var timeToday = Date.parse(newToday);
+    var timeBindtap = Date.parse(newtime);
+    console.log("返回今日时间戳：" + timeToday)
+    console.log("返回点击时间戳：" + timeBindtap)
+    
+    if (timeBindtap - timeToday < 86400000) {
+      wx.showToast({
+        title: '请预约1天之后的日期',
+        icon: 'none',
+        image: '',
+        duration: 3000,
+        mask: false,
+        success: (result) => {
+            console.log("预约失败")
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+
+    }
+    else if (timeBindtap - timeToday > 7 * 86400000) {
+      wx.showToast({
+        title: '请预约7天之内的日期',
+        icon: 'none',
+        image: '',
+        duration: 3000,
+        mask: false,
+        success: (result) => {
+          console.log("预约失败")
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+
+    }
+    else {
+      wx.navigateTo({
+        url: '/pages/index1/advice/appointmentDetail/appointmentDetail',
+        success: (result) => {
+          console.log("进入预约界面")
+        },
+        fail: () => { },
+        complete: () => { }
+
+
+
+        //下面填写是否预约
+        //如果预约将数据加入数据库，并且显示预约成功
+      });
+      wx.showToast({
+        title: '进入预约界面',
+        icon: 'success',
+        duration: 1000
+      })
+
+    }
+
+
+
   }
+
+
 })

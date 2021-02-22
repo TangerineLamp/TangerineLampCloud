@@ -4,26 +4,50 @@ const app = getApp()
 
 Page({
   data: {
-    messageCount:0,
-    treeholesCount:0,
-    collectionCount:0,
+    dailyQianDaoCount:0,
+    messageCount: 0,
+    treeholesCount: 0,
+    collectionCount: 0,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo')
   },
-  goToAddress(){
-      wx.navigateTo({
-        url: '/pages/index3/editor/editor',
-        success: (result) => {
-          console.log("跳转到设置页面")
-        },
-        fail: () => {},
-        complete: () => {}
-      });
-        
+  // 跳转设置页面
+  goToAddress() {
+    wx.navigateTo({
+      url: '/pages/index3/editor/editor',
+      success: (result) => {
+        console.log("跳转到设置页面")
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+
   }
   ,
+  //跳转到预约时间的界面
+  jumpToAppointment() {
+    wx.showLoading({
+      title: "加载中",
+      mask: true,
+      success: (result) => {
+
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+
+    wx.navigateTo({
+      url: '/pages/index1/advice/adviceList/adviceList',
+      success: (result) => {
+        console.log("跳转成功")
+      },
+      fail: () => { },
+      complete: () => { }
+    });
+    wx.hideLoading();
+  },
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData({

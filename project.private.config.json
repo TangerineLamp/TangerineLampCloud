@@ -1,4 +1,5 @@
 {
+  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -20,6 +21,12 @@
         {
           "name": "pages/index3/index3",
           "pathName": "pages/index3/index3",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "预约咨询 排时间表",
+          "pathName": "pages/index1/advice/appointment/appointment",
           "scene": null
         }
       ]

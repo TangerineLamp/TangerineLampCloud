@@ -5,16 +5,16 @@
   <text class="des">已预约咨询</text>
 </view>
 <view class="none"></view>
-<block wx:if="{{adviceList.length===0}}">
-  <view class="none">
+<block wx:if="{{roomList.length===0}}">
+  <view class="noneAppointment">
     暂无预约记录
   </view>
 </block>
 <block wx:else>
   <navigator class="adviceList"
-  wx:for="{{adviceList}}"
+  wx:for="{{roomList}}"
   wx:key="advicekey"
-  url="/pages/index1/advice/room/room">
-    {{filters.formatDate(item.startTime)}}
+  url="/pages/index1/advice/room/room?groupId={{item.groupId}}">
+    {{filters.formatDate(item.timeCount)}}
   </navigator>
 </block>

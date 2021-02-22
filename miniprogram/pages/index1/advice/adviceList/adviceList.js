@@ -1,4 +1,6 @@
-const app = getApp()
+const app = getApp();
+const db = wx.cloud.database();
+const _ = db.command
 
 Page({
 
@@ -6,70 +8,60 @@ Page({
    * 页面的初始数据
    */
   data: {
-    adviceList:[
-      {
-        startTime:"",
-        chatRoomGroupId:"demo"
-      }
-    ]
+    roomList:[]
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    this.initOpenID();
+  },
 
-    if (app.globalData.openid) {
-      this.setData({
-        openid: app.globalData.openid
+    //从云端获取房间信息
+    async getRooms(openID) {
+      db.collection("chatroom_group").where({
+        members: _.all([openID])
       })
-    }
-
-    let date = Date.parse('2021/02/20 12:00:0')
-    this.setData({
-      adviceList:[
-      {
-        startTime:date,
-        chatRoomGroupId:"demo"
+      .get().then(res=>{
+        console.log(res)
+        this.setData({
+          roomList:res.data
+        })
+      })
+    },
+  
+    getOpenID: async function() {
+      if (this.openid) {
+        return this.openid
       }
-    ]
-    })
-  },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
+  
+      const { result } = await wx.cloud.callFunction({
+        name: 'login',
+      })
+  
+      this.getRooms(result.openid);
+  
+      return result.openid
+    },
+  
+    async try(fn, title) {
+      try {
+        await fn()
+      } catch (e) {
+        this.showError(title, e)
+      }
+    },
+  
+    async initOpenID() {
+      return this.try(async () => {
+        const openId = await this.getOpenID()
+  
+        this.setData({
+          openId,
+        })
+      }, '初始化 openId 失败')
+    },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -77,11 +69,4 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

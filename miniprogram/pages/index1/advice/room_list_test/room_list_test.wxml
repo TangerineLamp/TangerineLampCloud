@@ -1,13 +1,3 @@
 <view class="footer">
-    <view class="message-sender" wx:if="{{userInfo}}">
-      有咯都有咯
-    </view>
-
-    <view class="message-sender" wx:if="{{!userInfo}}">
-      <button 
-        open-type="getUserInfo" 
-        bindgetuserinfo="onGetUserInfo"
-        class="userinfo"
-      >请先登录后参与聊天</button>
-    </view>
-  </view>
+    <button bindtap="hhh">获取openID</button>
+</view>

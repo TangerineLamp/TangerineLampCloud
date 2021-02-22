@@ -9,7 +9,7 @@ Page({
     requestResult: '',
     // chatRoomEnvId: 'release-f8415a',
     chatRoomCollection: 'chatroom',
-    chatRoomGroupId: 'demo',
+    chatRoomGroupId: '',
     chatRoomGroupName: '心理咨询',
 
     // functions for used in chatroom components
@@ -17,7 +17,12 @@ Page({
     getOpenID: null,
   },
 
-  onLoad: function() {
+  onLoad: function(options) {
+    const {groupId} = options;
+    this.setData({
+      chatRoomGroupId:groupId
+    })
+
     // 获取用户信息
     wx.getSetting({
       success: res => {

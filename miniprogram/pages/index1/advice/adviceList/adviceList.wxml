@@ -11,10 +11,13 @@
   </view>
 </block>
 <block wx:else>
-  <navigator class="adviceList"
+  <view class="adviceList"
   wx:for="{{roomList}}"
   wx:key="advicekey"
-  url="/pages/index1/advice/room/room?groupId={{item.groupId}}">
+  data-timeCount="{{item.timeCount}}"
+  data-groupId="{{item.groupId}}"
+  bindtap="navTo"
+  >
     {{filters.formatDate(item.timeCount)}}
-  </navigator>
+</view>
 </block>

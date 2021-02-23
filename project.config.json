@@ -76,7 +76,7 @@
         {
           "name": "心理咨询房间编译模式",
           "pathName": "pages/index1/advice/room/room",
-          "query": "",
+          "query": "groupId=demo3&timeCount=1613966400000",
           "scene": null
         },
         {

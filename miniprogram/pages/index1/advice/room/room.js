@@ -18,7 +18,8 @@ Page({
   },
 
   onLoad: function(options) {
-    const {groupId} = options;
+    console.log(options);
+    const {groupId, timeCount} = options;
     this.setData({
       chatRoomGroupId:groupId
     })
@@ -47,15 +48,26 @@ Page({
 
     wx.getSystemInfo({
       success: res => {
-        console.log('system info', res)
         if (res.safeArea) {
           const { top, bottom } = res.safeArea
           this.setData({
-            containerStyle: `padding-top: ${(/ios/i.test(res.system) ? 10 : 20) + top}px; padding-bottom: ${20 + res.windowHeight - bottom}px`,
+            containerStyle: `padding-bottom: ${20 + res.windowHeight - bottom}px`,
           })
         }
       },
     })
+
+    let timeNow = Date.now();
+    let timeCountNumber = parseInt(timeCount)
+    console.log(timeCountNumber)
+    if(timeNow>(timeCountNumber+3000000)){
+      wx.showToast({
+        title: '咨询已结束',
+        icon:"error",
+        duration:1000
+      })
+    }
+    
   },
 
   getOpenID: async function() {

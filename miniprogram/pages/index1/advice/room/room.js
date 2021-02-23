@@ -64,7 +64,7 @@ Page({
       wx.showToast({
         title: '咨询已结束',
         icon:"error",
-        duration:1000
+        duration:1500
       })
     }
     

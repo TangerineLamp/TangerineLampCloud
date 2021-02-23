@@ -70,7 +70,8 @@
 }
 
 .body .message .nickname {
-  font-size: 24rpx;
+  /* font-size: 24rpx; */
+  padding-top: 24rpx;
   color: #444;
 }
 

@@ -18,7 +18,14 @@ Page({
     item: 0,
     tab: 0,
     // 播放列表数据
-    playlist: [],
+    // playlist: [],
+    playlist: [{
+      id: -1,
+      title: '请点击选择播放音乐',
+      singer: 'Please choose a song',
+      src: '',
+      coverImgUrl: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/icon/music-default-icon.jpg'
+    }], 
     state: 'paused',
     playIndex: 0,
     // 默认设置
@@ -29,6 +36,7 @@ Page({
       title: '请点击选择播放音乐',
       singer: 'Please choose a song',
       coverImgUrl: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/icon/music-default-icon.jpg',
+      src: ''
     }
   },
 
@@ -100,6 +108,9 @@ Page({
   setMusic: function(index) {
     var music = this.data.playlist[index]
     this.audioCtx.src = music.src
+    // if(music.src != undefined) {
+    //   this.audioCtx.src = music.src
+    // }
     this.setData({
       playIndex: index,
       'play.title': music.title,
@@ -109,6 +120,7 @@ Page({
       'play.duration': '00:00',
       'play.percent': 0
     })
+    // this.audioCtx.src = music.src
   },
 
   // 播放按钮

@@ -3,7 +3,10 @@
     <form bindsubmit="btnSub">
     <view class="complaint_content">
         <view class="complaint">意见反馈</view>
-        <view class="shop_item{{item == shopitem?'active':''}}" wx:for="{{items}}" bindtap='bindshop' data-classify="{{item}}">
+        <view class="shop_item{{item == shopitem?'active':''}}" 
+        wx:for="{{items}}" 
+        bindtap='bindshop' 
+        data-classify="{{item}}">
             {{item}}
         </view>
         <view class="complaint">反馈描述</view>
@@ -11,8 +14,10 @@
             <view class="described_star">
                 <view class="weui-cells weui-cells_after-title">
                     <view class="weui-cell weui-cell_input">
-                        <textarea name="content" class="weui-input" maxlength="500" 
-    placeholder="请填写十个字以上的问题描述以便我们为您提供更好的帮助"></textarea>
+                        <textarea name="content" 
+                        class="weui-input" 
+                        maxlength="500" 
+                        placeholder="请填写十个字以上的问题描述以便我们为您提供更好的帮助"></textarea>
                     </view>
                 </view>
             </view>

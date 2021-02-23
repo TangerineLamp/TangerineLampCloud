@@ -9,10 +9,14 @@ Page({
   data: {
     intentDay: "",
     timeSchedule: "",
+    newTimeCount: 0,
+    exactTime: 0,
+    click:0,
     scheduleList: ["am 9:00-10:00",
       "am 10:00-11:00",
       "pm 14:00-15:00",
-      "pm 15:00-16:00",]
+      "pm 15:00-16:00"],
+    hoursAndMinutes: [9, 10, 11, 12, 13, 14, 15]
     // 注意单双引号的情况
   },
   //预约成功的话，如果可以的话，还要重新渲染签到的日期，日期上显示已预约
@@ -25,7 +29,15 @@ Page({
     console.log("这是具体的时间段", this.data.timeSchedule)
     //这个数据库提交情况应该给某个具体的规范
 
-
+  },
+  chosenTime(e) {
+    console.log(e.currentTarget.dataset)
+    let click=e.currentTarget.dataset.classify
+    let exactTime = e.currentTarget.dataset.time
+    this.setData({
+      exactTime: exactTime,
+      click:click
+    })
   },
   //整合在一起，并进行提交到数据库表单
   makeAnAppointment() {
@@ -35,12 +47,12 @@ Page({
     console.log(this.data.intentDay)
     console.log(this.data.intentDay._futureDay)
     var timeCount = Date.parse(this.data.intentDay._futureDay);
-
+    var exactTime = timeCount + this.data.exactTime * 60 * 60 * 1000
     db.collection("chatroom_group").add({
       //要提交一下时间戳 格林威治时间
       //预约的时间 统一格式
       data: {
-        
+        exactTime: exactTime,
         standardTime: this.data.intentDay._futureDay,
         timeCount: timeCount,
         timeSchedule: this.data.timeSchedule

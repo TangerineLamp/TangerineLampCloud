@@ -43,66 +43,35 @@
     
     .complaint_content .shop_item {
     display: inline-block;
-    
     width: 150rpx;
-    
     height: 50rpx;
-    
     text-align: center;
-    
     line-height: 50rpx;
-    
     border: 1rpx solid rgba(153, 153, 153, 1);
-    
     border-radius: 5rpx;
-    
     font-size: 24rpx;
-    
     background: none;
-    
     outline: none;
-    
     font-family: PingFang-SC-Medium;
-    
     font-weight: 500;
-    
     margin: 28rpx 0rpx 20rpx 25rpx;
-    
     color: rgba(153, 153, 153, 1);
-    
     }
-    
-     
-    
     .shop_itemactive {
     display: inline-block;
-    
     width: 150rpx;
-    
     height: 50rpx;
-    
     text-align: center;
-    
     line-height: 50rpx;
-    
     border-radius: 5rpx;
-    
     font-size: 24rpx;
-    
     background: none;
-    
     outline: none;
-    
     font-family: PingFang-SC-Medium;
-    
     font-weight: 500;
-    
     margin: 28rpx 0rpx 20rpx 25rpx;
-    
     border: 1rpx solid rgba(255, 198, 60, 1);
-    
     color: rgba(255, 198, 60, 1);
-    
     }
     
      

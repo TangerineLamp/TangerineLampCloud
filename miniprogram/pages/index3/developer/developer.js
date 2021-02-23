@@ -7,16 +7,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    avatarUrl: '/icons/none_img.png',
-    userInfo: null,
     openId: null,
-    roomList:[]
+    isDeveloper:false
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
-  onLoad: function (options) {
+  onLoad: function () {
     this.initOpenID();
   },
 
@@ -44,14 +42,24 @@ Page({
     return this.try(async () => {
       const openId = await this.getOpenID()
 
+      this.getAuthority(openId);
+
       this.setData({
         openId,
       })
     }, '初始化 openId 失败')
   },
 
-  hhh() {
-    console.log(this.data.openId)
+  getAuthority(openId){
+    db.collection("developer").where({
+      developer:openId
+    }).count().then(res=>{
+      if(res.total>0){
+        this.setData({
+          isDeveloper:true
+        })
+      }
+    })
   }
 
 })

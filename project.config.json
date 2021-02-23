@@ -84,6 +84,12 @@
           "pathName": "pages/index1/advice/room_list_test/room_list_test",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "开发通道",
+          "pathName": "pages/index3/developer/developer",
+          "query": "",
+          "scene": null
         }
       ]
     }

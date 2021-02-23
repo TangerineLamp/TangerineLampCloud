@@ -1,0 +1,21 @@
+<!--pages/index3/developer/developer.wxml-->
+<view class="header">
+  <view class="line1">openID:</view>
+  <view class="line2"><text user-select="true">{{openId}}</text></view>
+</view>
+<view class="none"></view>
+<block wx:if="{{!isDeveloper}}">
+  <view class="notDeveloper">
+    无开发权限
+  </view>
+</block>
+<block wx:else>
+  <navigator url="">每日文章</navigator>
+  <navigator url="">治愈歌单</navigator>
+  <navigator url="">心理漫画</navigator>
+  <navigator url="">心理电台</navigator>
+  <navigator url="">词条检索</navigator>
+  <navigator url="">心理课程</navigator>
+  <navigator url="">专业测评</navigator>
+  <navigator url="">娱乐测评</navigator>
+</block>

@@ -38,7 +38,7 @@ Page({
     db.collection("index3_feedback").add({
       data:{
         content:content,
-        shopitem:shopitem
+        shopitem:this.data.shopitem
 
 
       }

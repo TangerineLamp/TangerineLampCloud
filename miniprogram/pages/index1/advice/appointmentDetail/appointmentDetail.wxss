@@ -1,1 +1,23 @@
 /* pages/index1/advice/appointmentDetail/appointmentDetail.wxss */
+.choice{
+    margin-top: 30rpx;
+    background-color: #fff;
+    text-align: center;
+    font-size: 60rpx;
+    border-bottom: 1rpx solid #ccc;
+    display: flex;
+}
+.background{
+    font-size: 40rpx;
+    margin-top: 40rpx;
+    background-color: #fff;
+    padding: 30rpx ;
+    border-bottom: 2rpx solid #ccc;
+    display: flex;
+    justify-content: space-between;
+}
+.button{
+    font-size: 40rpx;
+    background-color: orange;
+    color: whitesmoke;
+}

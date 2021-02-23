@@ -1,4 +1,6 @@
 // pages/index1/advice/appointment/appointment.js
+const db = wx.cloud.database();
+const _ = db.command
 Page({
   data: {
     capableDate: [],
@@ -121,7 +123,7 @@ Page({
     var timeBindtap = Date.parse(newtime);
     console.log("返回今日时间戳：" + timeToday)
     console.log("返回点击时间戳：" + timeBindtap)
-    
+
     if (timeBindtap - timeToday < 86400000) {
       wx.showToast({
         title: '请预约1天之后的日期',
@@ -154,7 +156,7 @@ Page({
     }
     else {
       wx.navigateTo({
-        url: '/pages/index1/advice/appointmentDetail/appointmentDetail',
+        url: '/pages/index1/advice/appointmentDetail/appointmentDetail?_futureDay='+this.data.standardTime,
         success: (result) => {
           console.log("进入预约界面")
         },

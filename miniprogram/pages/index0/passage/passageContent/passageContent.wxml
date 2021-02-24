@@ -7,6 +7,12 @@ wx:key="{{passage}}">
   <image src="{{item}}" class="passage-longPicture" mode="widthFix"></image>
 </view>
 
+<view class="collect">
+  <view class="collect-image" ><image src="{{collect_img_src}}" bindtap="collectClick"></image></view>
+  <view class="collect-text">收藏此文章</view>
+</view>
+
+
 
 
 <!-- 以下为文章按数据库模式展示 -->

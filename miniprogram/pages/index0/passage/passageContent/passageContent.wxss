@@ -8,6 +8,31 @@
 
 .passage-longPicture{
   width: 100%;
+  margin: 0 0 0 0;
+}
+
+.collect{
+  background: white;
+  display: inline-flex;
+  flex-wrap: wrap;
+}
+
+.collect-image image{
+  width: 80rpx;
+  height: 80rpx;
+  margin-top: 40rpx;
+  margin-left: 220rpx;
+  margin-right: 20rpx;
+}
+
+.collect-text{
+  margin-top: 55rpx;
+  margin-bottom: 300rpx;
+  width: 200rpx;
+  height: 80rpx;
+  font-size: 40rpx;
+  color: #ff9933;
+  font-weight: bold;
 }
 
 /* 以下为文章按数据库模式展示之样式 */

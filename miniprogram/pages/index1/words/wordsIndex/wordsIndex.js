@@ -24,7 +24,7 @@ Page({
    * 从云数据库获取数据
    */
   getWords() {
-    db.collection("index1_wordsList").limit(20).get().then(res=>{
+    db.collection("index1_wordsList").limit(20).orderBy('pushTime', 'desc').get().then(res=>{
       this.setData({
         words:res.data
       })

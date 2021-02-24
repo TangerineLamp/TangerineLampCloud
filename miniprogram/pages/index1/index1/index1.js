@@ -34,7 +34,7 @@ Page({
 
   //获取专业测评列表
   getIndex0(){
-    db.collection("index1_paidTestList").limit(8).get().then(res=>{
+    db.collection("index1_paidTestList").orderBy('pushTime', 'desc').limit(8).get().then(res=>{
       this.setData({
         rightTestList:res.data,
         currentIndex:0,
@@ -45,7 +45,7 @@ Page({
 
   //获取娱乐测评列表
   getIndex1() {
-    db.collection("index1_freeTestList").limit(8).get().then(res=>{
+    db.collection("index1_freeTestList").orderBy('pushTime', 'desc').limit(8).get().then(res=>{
       this.setData({
         rightTestList:res.data,
         currentIndex:1,
@@ -64,7 +64,7 @@ Page({
         wx.showLoading({
           title: '加载中',
         })
-        db.collection("index1_paidTestList").skip(oldData.length).limit(8).get().then(res=>{
+        db.collection("index1_paidTestList").orderBy('pushTime', 'desc').skip(oldData.length).limit(8).get().then(res=>{
           let newList = res.data;
           let newData = oldData.concat(newList);
           this.setData({
@@ -84,7 +84,7 @@ Page({
         wx.showLoading({
           title: '加载中',
         })
-        db.collection("index1_freeTestList").skip(oldData.length).limit(8).get().then(res=>{
+        db.collection("index1_freeTestList").orderBy('pushTime', 'desc').skip(oldData.length).limit(8).get().then(res=>{
           let newList = res.data;
           let newData = oldData.concat(newList);
           this.setData({

@@ -26,8 +26,10 @@ Page({
 
     //从云端获取房间信息
     async getRooms(openId) {
+      let nowDate = this.getNowDate();
       db.collection("chatroom_group").orderBy('timeCount','asc').limit(13).where({
-        members: _.all([openId])
+        members: _.all([openId]),
+        timeCount: _.gt(nowDate)
       })
       .get().then(res=>{
         this.setData({
@@ -38,8 +40,10 @@ Page({
 
     //获取预约条数
     getCount(openId){
+      let nowDate = this.getNowDate();
       db.collection("chatroom_group").where({
-        members: _.all([openId])
+        members: _.all([openId]),
+        timeCount: _.gt(nowDate)
       }).count().then(res=>{
         maxRoom = res.total
       })
@@ -86,8 +90,10 @@ Page({
       wx.showLoading({
         title: '加载中',
       })
+      let nowDate = this.getNowDate();
       db.collection("chatroom_group").orderBy('timeCount','asc').skip(oldData.length).limit(8).where({
-        members: _.all([this.data.openId])
+        members: _.all([this.data.openId]),
+        timeCount: _.gt(nowDate)
       })
       .get().then(res=>{
         let newList = res.data;
@@ -123,5 +129,20 @@ Page({
         duration:1000
       })
     }
+  },
+
+  getNowDate(){
+    let timestamp = Date.parse(new Date());
+    let nowTime = new Date(timestamp);
+    let year = nowTime.getFullYear();
+    let month = nowTime.getMonth();
+    let date = nowTime.getDate();
+    month = month + 1;
+    if (month < 10) month = "0" + month;
+    if (date < 10) date = "0" + date;
+    let time = year + "/" + month + "/" + date;
+    let nowDate = Date.parse(new Date(time));
+    return nowDate;
   }
+
 })

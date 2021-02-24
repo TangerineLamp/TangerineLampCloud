@@ -34,7 +34,7 @@ Page({
    * 从云端获取课程数据
    */
   getCourse() {
-    db.collection("index1_courseList").limit(8).get().then(res=>{
+    db.collection("index1_courseList").orderBy('pushTime', 'desc').limit(8).get().then(res=>{
       this.setData({
         courseList:res.data
       })
@@ -85,7 +85,7 @@ Page({
       wx.showLoading({
         title: '加载中',
       })
-      db.collection("index1_courseList").skip(oldData.length).limit(8).get().then(res=>{
+      db.collection("index1_courseList").orderBy('pushTime','desc').skip(oldData.length).limit(8).get().then(res=>{
         let newList = res.data;
         let newData = oldData.concat(newList);
         this.setData({

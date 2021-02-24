@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    openId:"",
     intentDay: "",
     timeSchedule: "",
     newTimeCount: 0,
@@ -47,7 +48,8 @@ Page({
     console.log(this.data.intentDay)
     console.log(this.data.intentDay._futureDay)
     var startTimeCount = Date.parse(this.data.intentDay._futureDay);
-    var exactTime = startTimeCount + this.data.exactTime * 60 * 60 * 1000
+    var exactTime = startTimeCount + this.data.exactTime * 60 * 60 * 1000;
+    var groupId = this.data.openId+Date.now();
     db.collection("chatroom_group").add({
       //要提交一下时间戳 格林威治时间
       //预约的时间 统一格式
@@ -56,7 +58,9 @@ Page({
         standardTime: this.data.intentDay._futureDay,
         startTimeCount: startTimeCount,
         timeSchedule: this.data.timeSchedule,
-        hours:this.data.exactTime
+        hours:this.data.exactTime,
+        groupId: groupId,
+        members:["oRKwI5p-MekyCkEb8fTvlUntbZKw",this.data.openId]
       }
     }).then(res => {
       console.log("添加成功")
@@ -90,54 +94,34 @@ Page({
       intentDay: options
     })
     console.log("这是预约的日期", this.data.intentDay)
+    this.initOpenID();
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
+  // 第二层，用云函数获取openId
+  getOpenID: async function() {
+    const { result } = await wx.cloud.callFunction({
+      name: 'login',
+    })
+    return result.openid
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
+  //try方法
+  async try(fn, title) {
+    try {
+      await fn()
+    } catch (e) {
+      this.showError(title, e)
+    }
   },
 
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
+  //第一层，初始化openID
+  async initOpenID() {
+    return this.try(async () => {
+      const openId = await this.getOpenID()
+      this.setData({
+        openId,
+      })
+    }, '初始化 openId 失败')
   }
+
 })

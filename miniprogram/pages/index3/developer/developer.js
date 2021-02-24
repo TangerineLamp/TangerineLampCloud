@@ -19,14 +19,9 @@ Page({
   },
 
   getOpenID: async function() {
-    if (this.openid) {
-      return this.openid
-    }
-
     const { result } = await wx.cloud.callFunction({
       name: 'login',
     })
-
     return result.openid
   },
 

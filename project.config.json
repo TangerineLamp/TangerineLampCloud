@@ -74,20 +74,14 @@
           "scene": null
         },
         {
-          "name": "心理咨询房间编译模式",
-          "pathName": "pages/index1/advice/room/room",
-          "query": "groupId=demo3&timeCount=1613966400000",
-          "scene": null
-        },
-        {
-          "name": "房间测试模式",
-          "pathName": "pages/index1/advice/room_list_test/room_list_test",
+          "name": "开发通道",
+          "pathName": "pages/index3/developer/developer",
           "query": "",
           "scene": null
         },
         {
-          "name": "开发通道",
-          "pathName": "pages/index3/developer/developer",
+          "name": "预约咨询编译模式",
+          "pathName": "pages/index1/advice/appointment/appointment",
           "query": "",
           "scene": null
         }

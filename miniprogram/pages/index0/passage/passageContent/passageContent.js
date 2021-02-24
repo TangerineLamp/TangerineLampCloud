@@ -15,23 +15,21 @@ Page({
   data: {
     passage:{},
     // 默认是未收藏
-    collect_img_src:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg"
+    collect_img_src:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
+    collect_text:"点击收藏文章"
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    console.log(options)
-    // const {_id} = options;
-     _id= options._id
-     console.log(_id)
+    _id = options._id
     wx.showLoading({
       title: '加载中',
     })
-    //console.log({_id})
     this.getPassage(_id);
     wx.hideLoading();
+    console.log(options)
   },
 
   // 获取文章内容
@@ -41,7 +39,8 @@ Page({
       isCollected = res.data.isCollected
       this.setData({
         passage:res.data,
-        collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg"
+        collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
+        collect_text: isCollected ? "已收藏此文章" : "点击收藏此文"
       })
     })
   },
@@ -50,9 +49,11 @@ Page({
   collectClick() {
     this.setData({
       // 已收藏，再点一下取消收藏；未收藏，点击收藏
-      collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg"
+      collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg",
+      collect_text: isCollected ? "已收藏此文章" :  "点击收藏此文" 
     })
     isCollected = !isCollected
+    // 用云函数
     wx.cloud.callFunction({
       name: "collect",
       data:{

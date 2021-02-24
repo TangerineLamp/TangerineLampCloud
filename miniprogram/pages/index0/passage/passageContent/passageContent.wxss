@@ -28,11 +28,12 @@
 .collect-text{
   margin-top: 55rpx;
   margin-bottom: 300rpx;
-  width: 200rpx;
+  width: 250rpx;
   height: 80rpx;
   font-size: 40rpx;
-  color: #ff9933;
-  font-weight: bold;
+  /* color: #ff9933;
+  font-weight: bold; */
+  color: black;
 }
 
 /* 以下为文章按数据库模式展示之样式 */

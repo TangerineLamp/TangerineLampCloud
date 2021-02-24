@@ -8,8 +8,8 @@ wx:key="{{passage}}">
 </view>
 
 <view class="collect">
-  <view class="collect-image" ><image src="{{collect_img_src}}" bindtap="collectClick"></image></view>
-  <view class="collect-text">收藏此文章</view>
+  <view class="collect-image" bindtap="collectClick"><image src="{{collect_img_src}}" ></image></view>
+  <view class="collect-text">{{collect_text}}</view>
 </view>
 
 

@@ -1,5 +1,6 @@
 // pages/index0/passage/passage.js
 const db=wx.cloud.database()
+let flag=true
 Page({
 
   /**
@@ -20,7 +21,11 @@ Page({
     wx.hideLoading();
   },
   getData(){
-    db.collection("index0_passageLongPicture").orderBy('no','desc').get().then(res=>{
+    db.collection("index0_passageLongPicture")
+    .where({
+        isCollected:flag
+    })
+    .orderBy('no','desc').get().then(res=>{
       this.setData({
         passageList:res.data
       })

@@ -22,11 +22,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    const {_id} = options;
-    // _id= options.id
+    console.log(options)
+    // const {_id} = options;
+     _id= options._id
+     console.log(_id)
     wx.showLoading({
       title: '加载中',
     })
+    //console.log({_id})
     this.getPassage(_id);
     wx.hideLoading();
   },

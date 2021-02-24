@@ -50,34 +50,47 @@ Page({
     var startTimeCount = Date.parse(this.data.intentDay._futureDay);
     var exactTime = startTimeCount + this.data.exactTime * 60 * 60 * 1000;
     var groupId = this.data.openId+Date.now();
-    db.collection("chatroom_group").add({
-      //要提交一下时间戳 格林威治时间
-      //预约的时间 统一格式
-      data: {
-        timeCount: exactTime,
-        standardTime: this.data.intentDay._futureDay,
-        startTimeCount: startTimeCount,
-        timeSchedule: this.data.timeSchedule,
-        hours:this.data.exactTime,
-        groupId: groupId,
-        members:["oRKwI5p-MekyCkEb8fTvlUntbZKw",this.data.openId]
+
+    db.collection("chatroom_group").where({
+      timeCount:exactTime
+    }).count().then(res=>{
+      if(res.total>0){
+        wx.showToast({
+          title: '预约失败，已被预约',
+          icon:"none",
+          duration:1500
+        })
+      }else{
+        db.collection("chatroom_group").add({
+          //要提交一下时间戳 格林威治时间
+          //预约的时间 统一格式
+          data: {
+            timeCount: exactTime,
+            standardTime: this.data.intentDay._futureDay,
+            startTimeCount: startTimeCount,
+            timeSchedule: this.data.timeSchedule,
+            hours:this.data.exactTime,
+            groupId: groupId,
+            members:["oRKwI5p-MekyCkEb8fTvlUntbZKw",this.data.openId]
+          }
+        }).then(res => {
+          console.log("添加成功")
+        })
+    
+        wx.showToast({
+          title: '预约成功',
+          icon: "success",
+          image: '',
+          duration: 1500,
+          mask: false,
+          success: (result) => {
+    
+          },
+          fail: () => { },
+          complete: () => { }
+        })
       }
-    }).then(res => {
-      console.log("添加成功")
     })
-
-    wx.showToast({
-      title: '预约成功',
-      icon: 'none',
-      image: '',
-      duration: 1500,
-      mask: false,
-      success: (result) => {
-
-      },
-      fail: () => { },
-      complete: () => { }
-    });
 
   },
   /**

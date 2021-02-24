@@ -46,17 +46,17 @@ Page({
 
     console.log(this.data.intentDay)
     console.log(this.data.intentDay._futureDay)
-    var timeCount = Date.parse(this.data.intentDay._futureDay);
-    var exactTime = timeCount + this.data.exactTime * 60 * 60 * 1000
+    var startTimeCount = Date.parse(this.data.intentDay._futureDay);
+    var exactTime = startTimeCount + this.data.exactTime * 60 * 60 * 1000
     db.collection("chatroom_group").add({
       //要提交一下时间戳 格林威治时间
       //预约的时间 统一格式
       data: {
-        exactTime: exactTime,
+        timeCount: exactTime,
         standardTime: this.data.intentDay._futureDay,
-        timeCount: timeCount,
-        timeSchedule: this.data.timeSchedule
-
+        startTimeCount: startTimeCount,
+        timeSchedule: this.data.timeSchedule,
+        hours:this.data.exactTime
       }
     }).then(res => {
       console.log("添加成功")

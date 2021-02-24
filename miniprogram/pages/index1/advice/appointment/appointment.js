@@ -116,8 +116,6 @@ Page({
     var newtime = new Date(time)
     console.log(newToday)
     console.log(newtime)
-    // var repTime = newtime.replace(/-/g, '/');
-    //用正则主要是把“2020-04-01 00:00:00'”转换成“2020/04/01 00:00:00'”兼容ios
     // console.log("返回时间：" + newtime);
     var timeToday = Date.parse(newToday);
     var timeBindtap = Date.parse(newtime);
@@ -156,7 +154,7 @@ Page({
     }
     else {
       wx.navigateTo({
-        url: '/pages/index1/advice/appointmentDetail/appointmentDetail?_futureDay='+this.data.standardTime,
+        url: '/pages/index1/advice/appointmentDetail/appointmentDetail?_futureDay='+time,
         success: (result) => {
           console.log("进入预约界面")
         },

@@ -17,7 +17,8 @@ Page({
      minTimeCritical: 100,
     margintop:  0,
      currentTarget: null,
-    treeHoleType: "工作区"
+    treeHoleType: "工作区",
+    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_b.svg"
   },
 
   /**
@@ -97,9 +98,10 @@ Page({
       this.setData({
         treeHoleData: res.data
       })
-      //以下是计算时间
-      var thd = []
+      // 获取正确的时间格式
+      var thd = [] // 暂时储存时间的列表
       for (var i=0;i<res.data.length;i++){
+        // 处理时间使其按照我们的标准显示
         var year = res.data[i].time.getFullYear()
         var month = res.data[i].time.getMonth() + 1
         var day = res.data[i].time.getDate()

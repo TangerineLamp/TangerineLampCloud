@@ -17,7 +17,8 @@ Page({
      minTimeCritical: 100,
     margintop:  0,
      currentTarget: null,
-    treeHoleType: "学习区"
+    treeHoleType: "学习区",
+    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_g.svg"
   },
 
   /**

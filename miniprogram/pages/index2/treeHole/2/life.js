@@ -17,7 +17,8 @@ Page({
      minTimeCritical: 100,
     margintop:  0,
      currentTarget: null,
-    treeHoleType: "生活区"
+    treeHoleType: "生活区",
+    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_o.svg"
   },
 
   /**

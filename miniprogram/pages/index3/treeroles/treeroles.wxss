@@ -23,4 +23,149 @@
     color: whitesmoke;
     font-family: 'Courier New', Courier, monospace;
   }
+
+  page{
+    background: #efefef;
+  }
+  /* 子元素居中通用样式设置 */
+  .in_mid{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  /*************************************滚动页面设计*************************************/
+  .theScoll{
+    background-color: #efefef;
+    width: 100%;
+    height: calc( 100vh - 100rpx );
+    left: 0rpx;
+    right: 0rpx;
+    top: 100rpx;
+    position: absolute;
+  }
+  /*************************************标题部分*************************************/
+  /* 顶部装载标题的空白容器 */
+  .topcontainer{
+    display: flex;
+    width: 100%;
+    height: 100rpx;
+    background-color: #fff;
+    border-bottom: 10rpx solid #efefef;
+  }
+  /*标题*/
+  .case_title{
+    font-size: 50rpx;
+    font-weight: bold;
+    height: 100%;
+  }
+  /***********************************正文部分***********************************/
+  /* 单个树洞的容器 */
+  .singleBlock {
+    background-color: #fff;
+    border-bottom: 30rpx solid #efefef;
+    direction: block;
+    width: 100%;
+    /* height: 400rpx; */
+  }
+  /* 单个树洞的顶层容器 */
+  .single_top_container {
+    width: 100%;
+    height: 100rpx;
+    padding-top: 10rpx;
+    direction: flex;
+    justify-content: start;
+  }
+  /* 树洞主人的头像 */
+  .host_head_img {
+    width: 13%;
+    height: 100%;
+    margin-left: 10rpx;
+  }
+  /* 树洞主人的一些信息 */
+  .host_info_container {
+    width: 68%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    margin-left: 10rpx;
+  }
+  /* 树洞主人的昵称 */
+  .nick_name{
+    font-family: '微软雅黑';
+    font-weight: bold;
+    display: flex;
+    font-size: 28rpx;
+    /* margin-bottom: 2rpx; */
+  }
+  /* 树洞发布的时间信息 */
+  .time_info {
+    color: #666666;
+    display: flex;
+    font-size: 25rpx;
+  }
+  /* 单个树洞的标题 */
+  .single_title {
+    width: 100%;
+    height: 10%;
+    font-size: 100%;
+    position: relative;
+    color: black;
+    font-family: '微软雅黑';
+    font-weight: bold;
+  }
+  /* 单个树洞的预览内容容器 */
+  .single_body_container {
+    width: 100%;
+    /* height: 75%; */
+    direction: flex;
+    flex-wrap: wrap;
+    justify-content: start;
+  }
+  /* 单个树洞的预览内容 */
+  .single_body {
+    color: rgb(32, 27, 27);
+    font-size: 26rpx;
+    text-overflow:ellipsis;
+    display: -webkit-box;
+    word-break: break-all;
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 7;
+    padding-left: 1%;
+    padding-right: 1%;
+    overflow: hidden;
+  }
+  /* 树洞内容的点赞数量 */
+  .single_agree {
+    height: 30rpx;
+    color: #666666;
+    font-size: 20rpx;
+    /* float: right; */
+    width: 96%;
+    direction: flex;
+    justify-content: end;
+    padding-top: 30rpx;
+    padding-bottom: 1%;
+    padding-right: 2%;
+    padding-left: 2%;
+    text-align: right;
+  }
+  /* 调节每个模块颜色为橙色 */
+  .color{
+    color: #ff9933;
+  }
+  /* 删除按钮容器的样式 */
+  .deleteImg_container{
+    width: 19%;
+    height: 100%;
+    display: flex; 
+    flex-direction: row-reverse;
+  }
+  /* 删除按钮的标准样式 */
+  .deleteImg{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+  }
+
   

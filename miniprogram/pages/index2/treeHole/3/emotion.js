@@ -17,7 +17,8 @@ Page({
      minTimeCritical: 100,
     margintop:  0,
      currentTarget: null,
-    treeHoleType: "情感区"
+    treeHoleType: "情感区",
+    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_r.svg"
   },
 
   /**

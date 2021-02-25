@@ -55,6 +55,7 @@ page{
 .host_head_img {
   width: 13%;
   height: 100%;
+  margin-left: 10rpx;
 }
 /* 树洞主人的一些信息 */
 .host_info_container {

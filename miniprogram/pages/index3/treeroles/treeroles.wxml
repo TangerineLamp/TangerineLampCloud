@@ -1,9 +1,36 @@
 <!-- pages/index3/treeroles/treeroles.wxml -->
 <view class="bottom" hover-class="none" hover-stop-propagation="false">
     <view class="" hover-class="none" hover-stop-propagation="false">
-        <view class="title" hover-class="none" 
-        hover-stop-propagation="false">
-        <image class="pic" src="/icons/树洞.png"></image>
-        树洞列表</view>
+        <view class="title" hover-class="none" hover-stop-propagation="false">
+            <image class="pic" src="/icons/树洞.png"></image>
+            树洞列表
+        </view>
     </view>
 </view>
+<scroll-view class='theBackground'>
+    <!-- 这里只要判断是本人的openid就会显示 -->
+    <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item._openid==theHostOpenId}}">
+        <view class='singleBlock'>
+            <view class="single_top_container in_mid">
+                <open-data type="userAvatarUrl" mode='aspectFill' class="host_head_img"></open-data>
+                <view class="host_info_container">
+                    <open-data type="userNickName" class="nick_name color" space="ensp"></open-data>
+                    <view class="time_info" space="ensp">
+                        {{treeHoleDate[index]}}
+                    </view>
+                    <view class="time_info" space="ensp">所在分区：{{item.tag}}</view>
+                </view>
+                <view class="deleteImg_container">
+                    <image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill"></image>
+                </view>
+            </view>
+            <view class="single_body_container">
+                <text class="single_body">
+                    {{item.mainBody}}
+                </text>
+                <view class="single_agree" space="ensp" style="position:relative; bottom:0">{{item.goodCount}} 人点赞
+                </view>
+            </view>
+        </view>
+    </block>
+</scroll-view>

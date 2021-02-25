@@ -7,6 +7,7 @@ Page({
    * 页面的初始数据
    */
   data: {
+    masterList:[],
     openId:"",
     intentDay: "",
     timeSchedule: "",
@@ -50,6 +51,7 @@ Page({
     var startTimeCount = Date.parse(this.data.intentDay._futureDay);
     var exactTime = startTimeCount + this.data.exactTime * 60 * 60 * 1000;
     var groupId = this.data.openId+Date.now();
+    var members = [this.data.openId].concat(this.data.masterList);
 
     db.collection("chatroom_group").where({
       timeCount:exactTime
@@ -71,7 +73,7 @@ Page({
             timeSchedule: this.data.timeSchedule,
             hours:this.data.exactTime,
             groupId: groupId,
-            members:["oRKwI5p-MekyCkEb8fTvlUntbZKw",this.data.openId]
+            members:members
           }
         }).then(res => {
           console.log("添加成功")
@@ -107,7 +109,10 @@ Page({
       intentDay: options
     })
     console.log("这是预约的日期", this.data.intentDay)
+    //↓获取openID
     this.initOpenID();
+    //↓获取心理咨询老师列表
+    this.getMaster();
   },
 
   // 第二层，用云函数获取openId
@@ -135,6 +140,15 @@ Page({
         openId,
       })
     }, '初始化 openId 失败')
-  }
+  },
+
+    //获取心理咨询老师的openid列表
+    getMaster() {
+      db.collection("developer_master").doc("28ee4e3e603780be078d689725425801").get().then(res=>{
+        this.setData({
+          masterList:res.data.master
+        })
+      })
+    }
 
 })

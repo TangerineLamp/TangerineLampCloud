@@ -11,16 +11,17 @@ Page({
     content:[]
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-
-  },
-
-  onReady: function(){
-    // 获取popup组件
-    this.popup = this.selectComponent("#popup");
+  //添加小标题
+  addTitle(){
+    let newObj = {
+      topic:"",
+      paragraph:""
+    }
+    let newList = this.data.content;
+    newList[newList.length] = newObj;
+    this.setData({
+      content:newList
+    })
   },
 
   //获取并set词条大标题输入内容
@@ -30,24 +31,60 @@ Page({
     })
   },
 
+  //获取小标题
+  handleSmallTitle(e){
+    let index = e.target.dataset.index;
+    let newList = this.data.content;
+    newList[index].topic = e.detail.value;
+    this.setData({
+      content:newList
+    })
+  },
+
+  //获取小标题对应内容
+  handleContent(e){
+    let index = e.target.dataset.index;
+    let newList = this.data.content;
+    newList[index].paragraph = e.detail.value;
+    this.setData({
+      content:newList
+    })
+  },
+
   //展示提交窗口
   showPopup() {
-    this.popup.showPopup();
-  },
- 
-  //取消事件
-  _error() {
-    this.popup.hidePopup();
-  },
-  //确认事件
-  _success() {
-    this.commit();
-    this.popup.hidePopup();
+    var that = this;
+    wx.showModal({
+      title:"录入数据",
+      content:"确定提交数据？",
+      cancelColor: 'cancelColor',
+      success(res){
+        if(res.confirm){
+          that.commit1();
+        }else if(res.cancel){}
+      }
+    })
   },
 
   //提交数据至数据库
-  commit(){
-    console.log("提交数据")
+  commit1(){
+    let pushTime = new Date();
+    db.collection("index1_wordsList").add({
+      data:{
+        title:this.data.bigTitle,
+        content:this.data.content,
+        pushTime:pushTime
+      }
+    })
+    this.setData({
+      bigTitle:"",
+      content:[]
+    })
+    wx.showToast({
+      title: '提交成功',
+      duration:1500,
+      mask:true
+    })
   }
 
 })

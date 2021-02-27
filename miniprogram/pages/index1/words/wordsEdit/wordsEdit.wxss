@@ -14,28 +14,37 @@
   height: 60rpx;
 }
 
+.content {
+  padding-top:20rpx;
+}
+
+.detailContent {
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  border: 1rpx solid #888;
+}
+
 .add {
   height: 60rpx;
   width: 60rpx;
 }
 
 /* 列表外框 */
-.content {
-  margin-bottom: 120rpx;
+.blank {
+  margin-bottom: 130rpx;
+  z-index: 1;
 }
 
 /* 底部提交栏 */
 .bottom {
   border-top: solid 1rpx #bbbbbb;
-  position: fixed;
-  left:0;
-  bottom:0;
   width: 100%;
   height:110rpx;
   background-color: #fff;
   display: flex;
   align-items: center;
   justify-content: center;
+  
 }
 
 /* 底部三剑客 */

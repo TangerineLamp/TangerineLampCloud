@@ -1,6 +1,4 @@
 {
-  "usingComponents": {
-    "popup": "/components/popup/popup"
-  },
+  "usingComponents": {},
   "navigationBarTitleText":"词条编辑"
 }

@@ -44,7 +44,8 @@
     "pages/index1/course/courseImg/courseImg",
     "pages/index1/advice/room/room",
     "pages/index1/advice/room_list_test/room_list_test",
-    "pages/index3/developer/developer"
+    "pages/index3/developer/developer",
+    "pages/index1/words/wordsEdit/wordsEdit"
   ],
   "window": {
     "backgroundTextStyle": "light",

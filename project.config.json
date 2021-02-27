@@ -68,20 +68,14 @@
           "scene": null
         },
         {
-          "name": "预约入口编译模式",
-          "pathName": "pages/index1/advice/adviceList/adviceList",
-          "query": "",
-          "scene": null
-        },
-        {
           "name": "开发通道",
           "pathName": "pages/index3/developer/developer",
           "query": "",
           "scene": null
         },
         {
-          "name": "预约咨询编译模式",
-          "pathName": "pages/index1/advice/appointment/appointment",
+          "name": "词条检索编译模式",
+          "pathName": "pages/index1/words/wordsEdit/wordsEdit",
           "query": "",
           "scene": null
         }

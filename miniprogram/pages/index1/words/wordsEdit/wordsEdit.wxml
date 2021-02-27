@@ -1,0 +1,25 @@
+<!--miniprogram/pages/index1/words/wordsEdit/wordsEdit.wxml-->
+<view class="whole">
+  <view class="bigTitle">词条标题</view>
+  <view><textarea class="titleInput" value="{{bigTitle}}" bindinput="handleBigTitle" placeholder="请输入该词条的标题" maxlength="-1"></textarea></view>
+  <view class="bigTitle">详细内容</view>
+  
+  <view class="content">
+
+
+  </view>
+
+  <view class="bottom">
+    <view class="addTitle"><image class="add" src="/icons/index1_add.png"></image>小标题</view>
+    <view class="side"></view>
+    <view class="test" bindtap="showPopup"><text>提交</text></view>
+  </view>
+  <popup id='popup' 
+      title='数据入库' 
+      content='确认录入数据？' 
+      btn_no='取消' 
+      btn_ok='确认'
+      bind:error="_error"  
+      bind:success="_success">
+  </popup>
+</view>

@@ -122,6 +122,18 @@ Page({
         pushTime:pushTime
       }
     })
+    this.setData({
+      bigTitle:"",
+      des:"",
+      introduce_words:"",
+      cover:"/icons/none_img.png",
+      content:"/icons/none_img.png"
+    })
+    wx.showToast({
+      title: '提交成功',
+      duration:1500,
+      mask:true
+    })
   },
 
   // 储存图片至云端

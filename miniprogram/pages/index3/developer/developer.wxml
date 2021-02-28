@@ -15,7 +15,7 @@
   <navigator url="">心理漫画</navigator>
   <navigator url="">心理电台</navigator>
   <navigator url="/pages/index1/words/wordsEdit/wordsEdit">词条检索</navigator>
-  <navigator url="">心理课程</navigator>
+  <navigator url="/pages/index1/course/courseEdit/courseEdit">心理课程</navigator>
   <navigator url="">专业测评</navigator>
   <navigator url="">娱乐测评</navigator>
 </block>

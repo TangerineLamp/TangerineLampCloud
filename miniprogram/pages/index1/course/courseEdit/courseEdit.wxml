@@ -1,0 +1,16 @@
+<view class="whole">
+  <view class="bigTitle">课程题目</view>
+  <view><textarea class="titleInput" value="{{bigTitle}}" bindinput="handleBigTitle" placeholder="请输入该课程的标题" maxlength="-1"></textarea></view>
+  <view class="bigTitle">简介</view>
+  <textarea class="detailContent0" value="{{des}}" bindinput="handleDes" placeholder="请输入课程简介" maxlength="-1"></textarea>
+  <view class="bigTitle">详情介绍</view>
+  <textarea class="detailContent1" value="{{introduce_words}}" bindinput="handleIntroduce" placeholder="请输入课程详情介绍" maxlength="-1"></textarea>
+  <view class="bigTitle0">课程封面<image class="add" src="/icons/index1_add.png" bindtap="chooseCover"></image><text class="explain">(支持格式:jpg,png,svg)</text></view>
+  <view class="image0"><image src="{{cover}}" mode="aspectFill"></image></view>
+  <view class="bigTitle0">课程内容长图<image class="add" src="/icons/index1_add.png" bindtap="chooseContent"></image><text class="explain">(仅预览，可完整上传)</text></view>
+  <view class="image1"><image src="{{content}}" mode="aspectFill"></image></view>
+  <view class="bottom">
+    <view class="side"></view>
+    <view class="test" bindtap="showPopup"><text>提交</text></view>
+  </view>
+</view>

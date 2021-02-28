@@ -44,7 +44,6 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  
 }
 
 /* 底部三剑客 */

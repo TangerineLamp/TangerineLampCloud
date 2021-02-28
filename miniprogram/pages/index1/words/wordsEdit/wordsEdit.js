@@ -22,6 +22,18 @@ Page({
     this.setData({
       content:newList
     })
+    //使页面滚动到容器底部
+    this.pageScrollToBottom();
+  },
+
+  // 获取容器高度，使页面滚动到容器底部
+  pageScrollToBottom: function() {
+    wx.createSelectorQuery().select('#j_page').boundingClientRect(function(rect){
+      // 使页面滚动到底部
+      wx.pageScrollTo({
+        scrollTop: rect.height
+      })
+    }).exec()
   },
 
   //获取并set词条大标题输入内容
@@ -60,14 +72,14 @@ Page({
       cancelColor: 'cancelColor',
       success(res){
         if(res.confirm){
-          that.commit1();
+          that.commit();
         }else if(res.cancel){}
       }
     })
   },
 
   //提交数据至数据库
-  commit1(){
+  commit(){
     let pushTime = new Date();
     db.collection("index1_wordsList").add({
       data:{

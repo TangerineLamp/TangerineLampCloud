@@ -20,7 +20,8 @@
                     </view>
                     <view class="time_info" space="ensp">所在分区：{{item.tag}}</view>
                 </view>
-                <view class="deleteImg_container">
+                <!--删除图片-->
+                <view class="deleteImg_container" data-thistreeholeid="{{item._id}}" bindtap="deleteMe">
                     <image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill"></image>
                 </view>
             </view>

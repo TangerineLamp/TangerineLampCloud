@@ -67,13 +67,6 @@ Page({
     .catch(res => {
       console.log("改变收藏状态失败", res)
     })
-    // // 获取openid
-    // wx.cloud.callFunction({
-    //   name: "login",
-    //   data:{}
-    // }).then(res=>{
-    //   console.log(res)
-    // })
   },
 
   /**

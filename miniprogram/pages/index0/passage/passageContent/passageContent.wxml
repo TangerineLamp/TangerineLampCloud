@@ -1,10 +1,16 @@
 <!--pages/index0/passage/passageContent/passageContent.wxml-->
 
 <!-- 以下为文章按长图模式展示 -->
-<view class="body"
+<!-- <view class="body"
 wx:for="{{passage.body}}"
 wx:key="{{passage}}">
   <image src="{{item}}" class="passage-longPicture" mode="widthFix"></image>
+</view> -->
+
+<!-- 文章只能上传一张长图 -->
+<view class="body"
+wx:key="{{passage}}">
+  <image src="{{passage.body}}" class="passage-longPicture" mode="widthFix"></image>
 </view>
 
 <view class="collect">

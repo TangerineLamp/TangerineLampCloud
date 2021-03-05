@@ -46,7 +46,9 @@
     "pages/index1/advice/room_list_test/room_list_test",
     "pages/index3/developer/developer",
     "pages/index1/words/wordsEdit/wordsEdit",
-    "pages/index1/course/courseEdit/courseEdit"
+    "pages/index1/course/courseEdit/courseEdit",
+    "pages/index0/passage/developPassage/developPassage",
+    "pages/index0/music/developMusic/developMusic"
   ],
   "window": {
     "backgroundTextStyle": "light",

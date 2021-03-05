@@ -10,8 +10,8 @@
   </view>
 </block>
 <block wx:else>
-  <navigator url="">每日文章</navigator>
-  <navigator url="">治愈歌单</navigator>
+  <navigator url="/pages/index0/passage/developPassage/developPassage">每日文章</navigator>
+  <navigator url="/pages/index0/music/developMusic/developMusic">治愈歌单</navigator>
   <navigator url="">心理漫画</navigator>
   <navigator url="">心理电台</navigator>
   <navigator url="/pages/index1/words/wordsEdit/wordsEdit">词条检索</navigator>

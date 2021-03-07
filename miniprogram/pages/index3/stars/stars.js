@@ -1,6 +1,7 @@
 const db = wx.cloud.database()
 Page({
   data: {
+    isQianDao: false,
     content: "每日签到",
     nowdaycolor: "",
     alreadylist: [],
@@ -23,10 +24,23 @@ Page({
       isToday: '' + year + month + now.getDate()
     })
     this.getData();
+    this.checkIsQianDao();
     //this.isColor();
 
   },
-
+  checkIsQianDao() {
+    //查询今天是否已经签到
+    db.collection("index3_qiandao_daily")
+      .where({
+        isToday: this.data.isToday
+      })
+      .get().then(res => {
+        this.setData({
+          isQianDao: true,
+          content: "今日已签到"
+        })
+      })
+  },
   checkDate(date) {
     let flag = false
     console.log(flag)
@@ -80,33 +94,54 @@ Page({
     })
   },
   sign_in() {
-    wx.showLoading({
-      title: "签到中",
-      mask: true,
-      success: (result) => {
+    if (this.isQianDao == true) {
+      wx.showToast({
+        title: '您今日已经签到，请勿重复签到',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result) => {
+              
+        },
+        fail: () => { },
+        complete: () => { }
+      });
 
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-    this.setData({
-      content: "今日已签到",
-      nowdaycolor: "nowDay"
-    })
-    wx.hideLoading();
+    }
+    else {
 
-    db.collection("index3_qiandao_daily").add({
-      data: {
-        year: this.data.year,
-        month: this.data.month,
-        date: new Date().getDate(),
-        nowdaycolor: "nowDay",
-        isToday: this.data.isToday,
-        isColor: true
-      }
-    }).then(res => {
-      console.log(res)
-    })
+
+      wx.showLoading({
+        title: "签到中",
+        mask: true,
+        success: (result) => {
+
+        },
+        fail: () => { },
+        complete: () => { }
+      });
+      this.setData({
+        content: "今日已签到",
+        nowdaycolor: "nowDay"
+      })
+      wx.hideLoading();
+
+      db.collection("index3_qiandao_daily").add({
+        data: {
+          year: this.data.year,
+          month: this.data.month,
+          date: new Date().getDate(),
+          nowdaycolor: "nowDay",
+          isToday: this.data.isToday,
+          isColor: true,
+          isQianDao: true
+        }
+      }).then(res => {
+        console.log(res)
+      })
+
+    }
   },
   dateInit: function (setYear, setMonth) {
     //全部时间的月份都是按0~11基准，显示月份才+1

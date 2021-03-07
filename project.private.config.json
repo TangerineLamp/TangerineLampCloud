@@ -33,6 +33,12 @@
         {
           "name": "预约细节",
           "pathName": "pages/index1/advice/appointmentDetail/appointmentDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index3/diary/diary_edit/diary",
+          "pathName": "pages/index3/diary/diary_edit/diary",
           "scene": null
         }
       ]

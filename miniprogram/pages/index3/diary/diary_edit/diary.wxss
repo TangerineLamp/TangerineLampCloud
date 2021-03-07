@@ -78,7 +78,6 @@ button {
   top: -20rpx;
   width: 15px;
   height: 15px;
-  background: url(http://bmob-cdn-7744.b0.upaiyun.com/2016/11/23/23e708d8401db28080a47d384712f765.png) no-repeat;
   background-size: cover;
 }
 .hidden {

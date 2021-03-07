@@ -41,6 +41,7 @@ Page({
         passage:res.data,
         collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
         collect_text: isCollected ? "已收藏此文章" : "点击收藏此文"
+        
       })
     })
   },

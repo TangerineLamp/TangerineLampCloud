@@ -1,8 +1,16 @@
 <!--miniprogram/pages/index0/comic/comicContent/comicIntro.wxml-->
 
 <!-- 漫画内容框架 -->
-<view class="body"
+<!-- <view class="body"
 wx:for="{{comic.content}}"
 wx:key="{{comic}}">
   <image src="{{item}}" class="comic-image" mode="widthFix"></image>
+</view> -->
+
+<!-- 漫画只支持上传一张长图 -->
+<view class="body"
+wx:key="{{comic}}">
+  <image src="{{comic.content}}" class="comic-image" mode="widthFix"></image>
 </view>
+
+

@@ -1,2 +1,28 @@
 <!--miniprogram/pages/index0/music/developMusic/developMusic.wxml-->
-<text>miniprogram/pages/index0/music/developMusic/developMusic.wxml</text>
+<!--miniprogram/pages/index0/passage/developPassage/developPassage.wxml-->
+<view class="whole">
+
+<!-- <view>【微信API暂时未找到类似chooseImage的支持上传音频文件的接口，本通道暂不支持！】</view> -->
+
+<view class="bigTitle">音乐标题</view>
+<view><textarea class="titleInput" value="{{title}}" bindinput="handleTitle" placeholder="请输入标题，如：起风了" maxlength="-1"></textarea></view>
+
+<view class="bigTitle">作者及说明</view>
+<textarea class="detailContent0" value="{{singer}}" bindinput="handleSinger" placeholder="请输入作者及说明，如：吴青峰 - 《加油，你是最棒的》主题曲" maxlength="-1"></textarea>
+
+<view class="bigTitle">云仓库链接</view>
+<textarea class="detailContent1" value="{{src}}" bindinput="handleSrc" placeholder="由于微信API不支持选择上传mp3音频文件，请管理员自行将音频文件上传至云仓库index0目录下music内的musicList文件夹里，并复制其地址链接，粘贴到此处。注意不要有多余空格。" maxlength="-1"></textarea>
+
+<view class="bigTitle0">封面图<image class="add" src="/icons/index1_add.png" bindtap="chooseCover"></image><text class="explain">(用于缩略展示.支持格式:jpg,png,svg)</text></view>
+<view class="image0"><image src="{{coverImg}}" mode="aspectFill"></image></view>
+
+<!-- <view class="bigTitle0">文章内容长图<image class="add" src="/icons/index1_add.png" bindtap="chooseContent"></image><text class="explain">(仅预览，可完整上传)</text></view>
+<view class="image1"><image src="{{music}}" mode="aspectFill"></image></view> -->
+
+<view class="bottom">
+  <view class="side"></view>
+  <view class="test" bindtap="showPopup"><text>提交</text></view>
+</view>
+</view>
+
+

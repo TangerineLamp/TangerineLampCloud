@@ -1,6 +1,5 @@
-/* miniprogram/pages/index0/music/developMusic/developMusic.wxss */
+/* miniprogram/pages/index0/comic/developComic/developComic.wxss */
 
-/* miniprogram/pages/index0/passage/developPassage/developPassage.wxss */
 
 .whole {
   padding-left:20rpx;
@@ -33,6 +32,7 @@
   margin-top:20rpx;
   margin-bottom:20rpx;
   border: 1rpx solid #888;
+  height: 100rpx;
 }
 
 /* introImage */

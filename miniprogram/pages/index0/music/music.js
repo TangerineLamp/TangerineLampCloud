@@ -56,7 +56,7 @@ Page({
   // 获取音乐列表
   getPlayList() {
     // 降序，越新的音乐排在越前面
-    db.collection("index0_music").orderBy('no','desc').get().then(res=>{
+    db.collection("index0_music").orderBy('pushTime','desc').get().then(res=>{
       this.setData({
         playlist:res.data
       })

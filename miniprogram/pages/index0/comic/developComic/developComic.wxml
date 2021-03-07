@@ -1,0 +1,24 @@
+<!--miniprogram/pages/index0/comic/developComic/developComic.wxml-->
+<view class="whole">
+
+<view class="bigTitle">漫画标题</view>
+<view><textarea class="titleInput" value="{{title}}" bindinput="handleTitle" placeholder="请输入漫画标题，如：名侦探柯南" maxlength="-1"></textarea></view>
+
+<view class="bigTitle">作者</view>
+<textarea class="detailContent0" value="{{author}}" bindinput="handleAuthor" placeholder="请输入漫画作者，如：青山刚昌" maxlength="-1"></textarea>
+
+<view class="bigTitle">漫画tag</view>
+<textarea class="detailContent1" value="{{des}}" bindinput="handleDes" placeholder="请输入漫画tag，如：推理/悬疑/搞笑" maxlength="-1"></textarea>
+
+<view class="bigTitle0">介绍图<image class="add" src="/icons/index1_add.png" bindtap="chooseCover"></image><text class="explain">(缩略展示，支持格式:jpg/png/svg)</text></view>
+<view class="image0"><image src="{{image}}" mode="aspectFill"></image></view>
+
+<view class="bigTitle0">漫画内容长图<image class="add" src="/icons/index1_add.png" bindtap="chooseContent"></image><text class="explain">(仅支持上传一张长图)</text></view>
+<view class="image1"><image src="{{content}}" mode="aspectFill"></image></view>
+
+<view class="bottom">
+  <view class="side"></view>
+  <view class="test" bindtap="showPopup"><text>提交</text></view>
+</view>
+</view>
+

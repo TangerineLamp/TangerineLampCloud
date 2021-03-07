@@ -37,7 +37,7 @@ Page({
   // 获取漫画列表
   getComicList() {
     // 降序，越新的漫画排在越前面
-    db.collection("index0_comic").orderBy('no','desc').get().then(res=>{
+    db.collection("index0_comic").orderBy('pushTime','desc').get().then(res=>{
       this.setData({
         comicList:res.data
       })

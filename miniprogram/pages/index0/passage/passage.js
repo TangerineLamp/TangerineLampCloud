@@ -26,7 +26,7 @@ Page({
   getPassageList() {
     // 文章使用长图模式展示，从passageLongPicture集合获取，数据库模式从passage集合获取
     // 降序，越新的文章排在越前面
-    db.collection("index0_passageLongPicture").orderBy('no','desc').get().then(res=>{
+    db.collection("index0_passageLongPicture").orderBy('pushTime','desc').get().then(res=>{
       this.setData({
         passageList:res.data
       })

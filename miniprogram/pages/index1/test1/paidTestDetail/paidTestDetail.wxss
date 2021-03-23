@@ -15,8 +15,8 @@
 }
 .description .title{
   font-weight: 550;
-  margin-top: 35rpx;
-  margin-bottom: 35rpx;
+  margin-top: 40rpx;
+  margin-bottom: 40rpx;
   letter-spacing:1rpx;
 }
 .description .des{

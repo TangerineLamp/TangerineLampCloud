@@ -1,1 +1,39 @@
-/* miniprogram/pages/index1/test1/testlists/pcl-5/pcl-5.wxss */
+.bigTitle {
+  margin:20rpx;
+  color :#999999;
+  font-size:35rpx;
+}
+
+.orange {
+  color:var(--orange0);
+}
+
+.active{
+  background-color:#ffcc33;
+  color:#fff;
+}
+
+.questionTitle {
+  margin: 0rpx 15rpx 0rpx 15rpx;
+}
+
+.question {
+  margin:30rpx;
+  padding:15rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid var(--orange0);
+}
+
+.bottom {
+  margin-top:80rpx;
+  text-align: center;
+}
+
+.nextquestion {
+  padding:20rpx;
+  margin-left:80rpx;
+  margin-right:80rpx;
+  border-radius: 10rpx;
+  color:#fff;
+  background-color: #00cc00;
+}

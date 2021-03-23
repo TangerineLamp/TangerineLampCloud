@@ -25,5 +25,5 @@
 <view class="bottom">
   <view class="price">免费</view>
   <view class="side"></view>
-  <view class="test"><text>立即测试</text></view>
+  <view class="test" bindtap="navTo"><text>立即测试</text></view>
 </view>

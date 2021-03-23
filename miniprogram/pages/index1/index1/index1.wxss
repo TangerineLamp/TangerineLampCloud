@@ -76,7 +76,7 @@
   margin: 15rpx 0rpx 0rpx 0rpx;
   font-family: 'Microsoft YaHei','Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
   font-weight: bold;
-  font-size: 33rpx;
+  font-size: 32rpx;
   overflow: hidden;
 }
 .test_type{

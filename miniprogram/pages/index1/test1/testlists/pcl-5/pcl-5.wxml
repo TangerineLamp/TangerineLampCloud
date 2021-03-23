@@ -1,2 +1,17 @@
 <!--miniprogram/pages/index1/test1/testlists/pcl-5/pcl-5.wxml-->
-<text>miniprogram/pages/index1/test1/testlists/pcl-5/pcl-5.wxml</text>
+<view class="bigTitle">过去一个月中，以下方面带给您多少困扰:</view>
+<!-- 注意nowIndex是从1开始的 -->
+<view class="questionTitle"><text class="orange">{{nowIndex}}/20</text>{{". "+questions[nowIndex]}}</view>
+<view class="chooseBox">
+  <view class="question {{0===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{0}}">完全没有</view>
+  <view class="question {{1===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{1}}">一点</view>
+  <view class="question {{2===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{2}}">中等</view>
+  <view class="question {{3===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{3}}">较多</view>
+  <view class="question {{4===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{4}}">很多</view>
+</view>
+<view class="bottom">
+  <text wx:if="{{nowIndex!==1}}" class="nextquestion" bindtap="tapPrev">上一题</text>
+  <text class="nextquestion" bindtap="tapNext">{{nowIndex===20?"查看结果":"下一题"}}</text>
+</view>
+
+

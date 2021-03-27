@@ -5,6 +5,10 @@ Page({
    * 页面的初始数据
    */
   data: {
+    totalScores:0,
+    Parts_Scores:[], //各部分分数
+    Parts_numbers:[[1,2,3,4,5], [6,7],[8,9,10,11,12,13,14],[15,16,17,18,19,20]],  //各部分题目序号
+    showCalculation:false,
     currentChosen:-1,
     nowIndex:1,
     chosenAnswers:[0], //第0位仅用来占位，真正的index从1开始
@@ -68,7 +72,10 @@ Page({
       })
     }else{
       if(this.data.nowIndex===20){     //当前index为最后一个题目，准备跳转到结果分析页面
-        console.log("溜溜球")
+        this.calculate();
+        this.setData({
+          showCalculation:true
+        })
       }else{                           //当前index为中间题目,继续在本页面渲染
         //从未问答过下一题
         if(this.data.nowIndex>=this.data.chosenAnswersLength){
@@ -89,6 +96,25 @@ Page({
         }
       }
     }
+  },
+
+  //计算得分
+  calculate(){
+    let totalScores = 0;
+    let Parts_Scores = new Array(this.data.Parts_numbers.length).fill(0);    //根据各部分总数创建各部分的scores数组
+    for(var i=1;i<=20;i++){                     //计算各部分得分
+      for(var j=0;j<4;j++){
+        if(this.data.Parts_numbers[j].indexOf(i)>=0){
+          Parts_Scores[j] += this.data.chosenAnswers[i];
+          break;
+        }
+      }
+      totalScores += this.data.chosenAnswers[i];
+    }
+    this.setData({
+      Parts_Scores,
+      totalScores
+    })
   },
 
 })

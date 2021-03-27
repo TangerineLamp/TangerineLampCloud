@@ -18,7 +18,11 @@
 <block wx:if="{{showCalculation}}">
   <view class="top">总得分：{{totalScores}}</view>
   <view>部分得分：</view>
-  <view>{{Parts_Scores[0]}} {{Parts_Scores[1]}} {{Parts_Scores[2]}} {{Parts_Scores[3]}}</view>
+  <view wx:for="{{Parts_Scores}}"
+  wx:for-item="item"
+  wx:key="pcl5key">
+    {{item}}
+  </view>
 </block>
 
 

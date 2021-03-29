@@ -1,0 +1,26 @@
+<!--miniprogram/pages/index1/test1/testlists/phq-9/phq-9.wxml-->
+<block wx:if="{{!showCalculation}}">
+  <view class="bigTitle">过去两个星期中，以下症状在您生活中出现的频率有多少？请凭第一印象，选出与您的情况最符合的答案:</view>
+  <!-- 注意nowIndex是从1开始的 -->
+  <view class="questionTitle"><text class="orange">{{nowIndex}}/9</text>{{". "+questions[nowIndex]}}</view>
+  <view class="chooseBox">
+    <view class="question {{0===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{0}}">完全没有</view>
+    <view class="question {{1===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{1}}">几天</view>
+    <view class="question {{2===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{2}}">一半以上天数</view>
+    <view class="question {{3===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{3}}">几乎每天</view>
+    <!-- <view class="question {{4===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{4}}">很多</view> -->
+  </view>
+  <view class="bottom">
+    <text wx:if="{{nowIndex!==1}}" class="nextquestion" bindtap="tapPrev">上一题</text>
+    <text class="nextquestion" bindtap="tapNext">{{nowIndex===9?"查看结果":"下一题"}}</text>
+  </view>
+</block>
+<block wx:if="{{showCalculation}}">
+  <view class="top">总得分：{{totalScores}}</view>
+  <view>部分得分：</view>
+  <view wx:for="{{Parts_Scores}}"
+  wx:for-item="item"
+  wx:key="pcl5key">
+    {{item}}
+  </view>
+</block>

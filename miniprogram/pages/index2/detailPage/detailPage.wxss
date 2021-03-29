@@ -1,42 +1,239 @@
-/* pages/index2/detailPage/detailPage.wxss */
-
-.container-fill{
-	height: 100%;
-	overflow: hidden;
+/**************************全局页面设置**************************/
+/* 整个页面的设置 */
+.allPage{
+  color: #efefef;
+  border-bottom: #efefef 100rpx solid;
 }
-.scroll-fullpage{
-	height: 100%;
-	transition: all 0.3s;
+/**************************正文部分**************************/
+/* 储存正文内容的一级容器 */
+/* 大小会随着正文内容的多少而转变 */
+.hostArticleContainer{
+  width: 100%;
 }
-.section{
-	height: 100%;
+/* 关于树洞主人的信息的二级容器 */
+.treeholeInfoContainer{
+  width: 100%;
+  height: 150rpx;
+  display: flex;
+  flex-wrap: nowrap;
 }
-.section-maintitle{
-	display: block;
-	text-align: center;
-	font-size: 50rpx;
-	color: #fff;
-	font-weight: bold;
-	letter-spacing: 10rpx;
-	padding-top: 140rpx;
+/* 树树洞主人头像 */
+.hostHeadImg{
+  width: 12%;
+  height: 100rpx;
+  padding-top: 25rpx;
+  padding-left: 10rpx;
 }
-.section-subtitle{
-	display: block;
-	text-align: center;
-	font-size: 40rpx;
-	color: #fff;
-	font-weight: bold;
-	letter-spacing: 10rpx;
+/* 树洞主人信息的三级容器 */
+.hostInfo{
+  width: 88%;
+  height: 100rpx;
+  display: flex;
+  flex-direction: column;
+  margin-top: 25rpx;
+  margin-left: 5rpx;
 }
-.active .section-maintitle,
-.active .section-subtitle{
-	animation: mymove 0.8s;
+/* 树洞主人昵称 */
+.hostNickname{
+  width: 50%;
+  height: 50rpx;
+  font-weight: bold;
+  color: #5C92F1
 }
-@keyframes mymove{
-	from {
-		transform: translateY(-400rpx) scale(0.5) rotateY(90deg);
-	}
-	to {
-		transform: translateY(0) scale(1) rotateY(0);
-	}
+/* 上传时间 */
+.postTime{
+  width: 50%;
+  color: rgb(88, 88, 88);
+  height: 50rpx;
+  font-weight: bold;
+  margin-top: 35rpx;
+  padding-bottom: 0rpx;
+  font-size: 20rpx;
+}
+.line1{
+  width: 98%;
+  height: 2rpx;
+  background-color: #000;
+}
+/* 点赞人数 */
+.likeCount{
+  width: 98%;
+  height: 30rpx;
+  font-size: 20rpx;
+  color: #525252;
+  padding-top: 5rpx;
+  padding-left: 2%;
+}
+/* 正文内容 */
+.article{
+  width: 96%;
+  margin-left: 2%;
+  margin-right: 2%;
+  margin-top: 5%;
+  /* background-color: #efefef; */
+  color: #3a3a3a;
+  font-size: 30rpx;
+  font-family: "宋体";
+}
+/**************************中间分隔按钮**************************/
+/* 点赞按钮的二级容器 */
+.likeButtonContainer{
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 15rpx;
+}
+/* 点赞按钮 */
+.likeButton{
+  width: 50%;
+  height: 90rpx;
+  background-color: #efefef;
+  display: flex;
+  flex-direction: row;
+}
+/* 点赞 */
+.like{
+  width: 50rpx;
+  height: 50rpx;
+  margin-left: 2%;
+  margin-right: 2%;
+  display: flex;
+  align-items: center;
+}
+/* 点赞的数量 */
+.theLikeCount{
+  width: 80%;
+  height: 50rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+/* 用户喜欢时数量颜色会变成红色 */
+.colorIfUserLike{
+  color: #d81e06;
+}
+/* 评论分隔条的容器 */
+.devContainer{
+  width: 100%;
+  height: 90rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding-bottom: 10rpx;
+}
+/* 分隔条的一个颜色样式 */
+.dev1{
+  width: 2%;
+  height: 65rpx;
+  background: #ff9933;
+  margin-left: 2%;
+}
+/* 评论分隔条具体内容 */
+.dev2{
+  width: 94%;
+  height: 80rpx;
+  font-size: 50rpx;
+  font-weight: bolder;
+  font-family: "微软雅黑";
+  color: #000;
+  padding-left: 2%;
+}
+/* 分割线 */
+.line2{
+  width: 96%;
+  height: 3rpx;
+  background-color: #868585;
+}
+/**************************评论部分**************************/
+/* 整个评论区 */
+.commentContainer{
+  width: 100%;
+}
+/* 单独的一个评论 */
+/* 是一个一级容器 */
+.singleComment{
+  width: 100%;
+  display: flex;
+  padding-bottom: 5rpx;
+  padding-top: 5rpx;
+}
+/* 该条评论的主人的头像 */
+.commentHeadImg{
+  margin-left: 2%;
+  margin-top: 10rpx;
+  width: 75rpx;
+  height: 75rpx;
+}
+/* 该条评论的主人的信息二级容器 */
+.commentInfoContainer{
+  width: 80%;
+  margin-left: 2%;
+}
+/* 该条评论的主人的昵称 */
+.commentNickname{
+  color: #ff9933;
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+/* 该条评论的具体内容 */
+.commentDetail{
+  color: #3d3a3a;
+  font-size: 35rpx;
+  font-family: "楷体";
+  margin-bottom: 10rpx;
+}
+/* 该条评论的上传时间 */
+.commentPostTime{
+  color: #868585;
+  font-size: 20rpx;
+}
+/* 每个评论之间的分割线 */
+.line3{
+  background-color:#7c7c7c;
+  width:96%;
+  height:3rpx;
+}
+/**************************底部部分**************************/
+.bottomPrompt{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  color: #7c7c7c;
+  justify-content: center;
+  align-items: center;
+}
+/**************************我的评论部分**************************/
+/* 评论一级容器 */
+.iCommentContainer{
+  position: fixed;
+  bottom: 0%;
+  background-color: #efefef;
+  width: 100%;
+  height: 100rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+/* 评论样式 */
+.iComment{
+  width: 80%;
+  height: 60rpx;
+  background-color: #fff;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+}
+.send{
+  width: 12%;
+  height: 60rpx;
+  background-color: #ff9933;
+  margin-right: 10rpx;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: #fff;
+  font-weight: bold;
 }

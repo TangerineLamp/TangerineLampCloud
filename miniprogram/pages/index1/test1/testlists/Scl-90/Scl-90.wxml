@@ -1,0 +1,14 @@
+<!-- Scl-90自评做题界面 -->
+<!-- 顶部提示语 -->
+<view class="topTips"></view>
+<!-- 具体的内容——由数据库导出 -->
+<scroll-view class="mainBody">
+  <!--具体每一道题-->
+  <view class="singleTopic" wx:for="{{items}}">
+    <view class="topicName"></view>
+    <radio-group radioGroup wx:for="{{radios}}">
+      <radio class="radio"></radio>
+      <view class="radioContent"></view>
+    </radio-group>
+  </view>
+</scroll-view>

@@ -1,14 +1,33 @@
 <!-- Scl-90自评做题界面 -->
-<!-- 顶部提示语 -->
-<view class="topTips"></view>
-<!-- 具体的内容——由数据库导出 -->
-<scroll-view class="mainBody">
-  <!--具体每一道题-->
-  <view class="singleTopic" wx:for="{{items}}">
-    <view class="topicName"></view>
-    <radio-group radioGroup wx:for="{{radios}}">
-      <radio class="radio"></radio>
-      <view class="radioContent"></view>
-    </radio-group>
+<block wx:if="{{!isShowResult}}">
+  <!-- 顶部提示语 -->
+  <view class="topTips" wx:if="{{!isShowResult}}">
+    Scl-90自评
   </view>
-</scroll-view>
+  <!-- 具体的内容——由数据库导出 -->
+  <scroll-view class="mainBody">
+    <!--具体每一道题-->
+    <view class="singleTopic" wx:for="{{topicData}}" wx:for-item="items" wx:for-index="index">
+      <view class="topicName">
+        {{index+1}}/90. {{items.topic}}
+      </view>
+      <!--具体每一个选项选项-->
+      <radio-group class="radioGroup" bindchange="radioChange">
+        <label class="label" wx:for="{{selectButton}}" wx:for-item="buttonNum" wx:for-index="buttionInd">
+          <view class="radio">
+            <radio value="{{(index+1) * 10 + buttonNum.value}}" checked="{{false}}" color="#ff6633"/>
+          </view>
+          <view class=radioContent">{{buttonNum.name}}</view>
+        </label>
+      </radio-group>
+    </view>
+    <button class="submit" bindtap="toSubmit" wx:if="{{isShowSubmit}}">提 交</button>
+  </scroll-view>
+</block>
+<!--查看结果-->
+<block wx:if="{{isShowResult}}">
+  <view class="topTips">
+  自评结果
+  </view>
+  <view class="resultMainBody">总得分：{{totalScores}}</view>
+</block>

@@ -17,6 +17,32 @@
           "pathName": "pages/index1/test1/testlists/pcl-5/pcl-5",
           "query": "",
           "scene": null
+<<<<<<< Updated upstream
+=======
+        },
+        {
+          "name": "预约咨询 排时间表",
+          "pathName": "pages/index1/advice/appointment/appointment",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "预约细节",
+          "pathName": "pages/index1/advice/appointmentDetail/appointmentDetail",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index3/diary/diary_edit/diary",
+          "pathName": "pages/index3/diary/diary_edit/diary",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index3/stars/stars",
+          "pathName": "pages/index3/stars/stars",
+          "scene": null
+>>>>>>> Stashed changes
         }
       ]
     }

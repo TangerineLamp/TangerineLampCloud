@@ -34,12 +34,30 @@ Page({
       .where({
         isToday: this.data.isToday
       })
-      .get().then(res => {
-        this.setData({
-          isQianDao: true,
-          content: "今日已签到"
-        })
+      .get({
+        success: res => {
+           console.log(res)
+          if (res.data.length == 0) {
+            this.setData({
+              isQianDao: false,
+              content: "每日签到"
+            })
+          }
+          else {
+            this.setData({
+              isQianDao: true,
+              content: "今日已签到"
+            })
+          }
+        }
       })
+    // .get().then(res => {
+    //   this.setData({
+    //     isQianDao: true,
+    //     content: "今日已签到"
+    //   })
+    // })
+
   },
   checkDate(date) {
     let flag = false
@@ -94,7 +112,7 @@ Page({
     })
   },
   sign_in() {
-    if (this.isQianDao == true) {
+    if (this.data.isQianDao == true) {
       wx.showToast({
         title: '您今日已经签到，请勿重复签到',
         icon: 'none',
@@ -102,7 +120,7 @@ Page({
         duration: 1500,
         mask: false,
         success: (result) => {
-              
+
         },
         fail: () => { },
         complete: () => { }
@@ -110,8 +128,6 @@ Page({
 
     }
     else {
-
-
       wx.showLoading({
         title: "签到中",
         mask: true,
@@ -122,6 +138,7 @@ Page({
         complete: () => { }
       });
       this.setData({
+        isQianDao:true,
         content: "今日已签到",
         nowdaycolor: "nowDay"
       })
@@ -138,9 +155,10 @@ Page({
           isQianDao: true
         }
       }).then(res => {
-        console.log(res)
+        console.log(res);
       })
-
+     
+      this.getData();
     }
   },
   dateInit: function (setYear, setMonth) {

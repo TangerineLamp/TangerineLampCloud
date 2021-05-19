@@ -48,6 +48,7 @@ Page({
     });
     wx.hideLoading();
   },
+
   onLoad() {
     if (app.globalData.userInfo) {
       this.setData({
@@ -68,6 +69,7 @@ Page({
       wx.getUserInfo({
         success: res => {
           app.globalData.userInfo = res.userInfo
+          app.globalData.isLogin = true
           this.setData({
             userInfo: res.userInfo,
             hasUserInfo: true
@@ -76,9 +78,11 @@ Page({
       })
     }
   },
+  
   getUserInfo(e) {
     console.log(e)
     app.globalData.userInfo = e.detail.userInfo
+    app.globalData.isLogin = true
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: true

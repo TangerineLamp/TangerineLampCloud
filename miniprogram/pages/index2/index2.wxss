@@ -32,11 +32,23 @@
   font-weight: bold;
   height: 100%;
 }
+/***********************************轮播图部分***********************************/
+.slide{
+  height: 450rpx;
+  width: 96%;
+  border-radius: 10rpx;
+  overflow:hidden;
+  margin-left: 2%;
+  margin-right: 2%;
+}
+.slide-image{
+  width: 100%;
+}
 /***********************************选择图标部分***********************************/
 /* 装载树洞首页的空白容器 */
 .bottomcontainer{
   width: 100%;
-  height: calc( 100vh - 200rpx );
+  height: auto;
   display: flex;
 }
 /* 图标容器 */
@@ -46,8 +58,8 @@
 }
 /*首页通用标准图片大小样式*/
 .stdimg{
-  width: 100rpx;
-  height: 100rpx;
+  width: 80rpx;
+  height: 80rpx;
 }
 /* 图片容器中的一级子容器 */
 .imghalf{

@@ -5,7 +5,6 @@ Page({
    * 页面的初始数据
    */
   data: {
-    PersonalEditor: "/pages/index2/editPage/personalEditor",
     scrollindex: 0,
     totalnum:  4,
     starty: 0,  
@@ -53,9 +52,20 @@ Page({
    * 跳转到树洞编辑页面
    */
   gotoPersonalEditor: function() {
-    wx.navigateTo({
-      url: this.data.PersonalEditor,
+    // 提示如果已经登录了就可以发树洞
+    if (app.globalData.isLogin){
+      wx.navigateTo({
+        url: app.globalData.toPersonalEditPage
+      })
+    }
+    // 如果没有登录则提醒先登录
+    else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1500
     })
+    }
   },
 
   /**
@@ -100,9 +110,11 @@ Page({
       currentTarget: currentTarget
     })
   },
+
   scrollTouchMove(e) {
     //  console.log(e);
   },
+
  scrollTouchEnd: function (e) {
   let py =  e.changedTouches[0].pageY,
     stamp =  e.timeStamp,

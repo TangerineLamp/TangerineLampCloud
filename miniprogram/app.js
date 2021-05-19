@@ -16,7 +16,9 @@ App({
 
     this.globalData = {
       userInfo: null, // 用户的昵称和头像信息
-      hasUserInfo: false // 用户是否已经登录
+      isLogin: false, // 用户是否已经登录
+      toPersonalEditPage: "/pages/index2/editPage/personalEditor", //  前往用户编辑区的全局连接
+      openid: null, //  用户的openid
     }
   }
 })

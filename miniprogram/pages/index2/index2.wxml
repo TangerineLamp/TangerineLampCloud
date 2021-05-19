@@ -1,8 +1,10 @@
 <!--pages/index2/index2.wxml-->
-<view class='topcontainer in_mid'>
-  <text class='case_title in_mid'>树洞广场</text>
+<view class='topcontainer'>
+  树洞广场
+  <!-- <text class='case_title in_mid'>树洞广场</text> -->
 </view>
 <!-- 轮播图 -->
+<view class="swipercontainer">
 <swiper class="slide" indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" circular>
   <block wx:for="{{picList}}" wx:key="index">
     <swiper-item>
@@ -11,6 +13,7 @@
     </swiper-item>
   </block>  
 </swiper>
+</view>
 <!--主体-->
 <view class='bottomcontainer in_mid'>
   <view class='imgcontainer'>

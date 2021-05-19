@@ -1,4 +1,5 @@
 // pages/login/login.js
+var app = getApp();
 Page({
 
   handleGetUserInfo(e){
@@ -8,7 +9,8 @@ Page({
      wx.navigateBack({
        delta: 1
      });
-       
+    // 将登录后的内容放在全局变量中
+    
   }
 
 })

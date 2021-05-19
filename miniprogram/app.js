@@ -14,6 +14,9 @@ App({
       })
     }
 
-    this.globalData = {}
+    this.globalData = {
+      userInfo: null, // 用户的昵称和头像信息
+      hasUserInfo: false // 用户是否已经登录
+    }
   }
 })

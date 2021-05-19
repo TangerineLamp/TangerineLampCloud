@@ -1,4 +1,5 @@
 const db = wx.cloud.database(); // 获取后台的数据库
+const app = getApp(); //  获得全局变量
 
 Page({
 
@@ -13,13 +14,14 @@ Page({
    * 页面的初始数据
    */
   data: {
-    userName: "", // 用户的昵称
-    userAvatar: "", // 用户的头像
-    treeholeDetails: "", // textArea里面的细节
-    chooseIndex: "", // 选择分区时各个区域的位置指数
-    isChose: false, // 判断是否选择了分区
-    isAnonymous: true, // 判断是否匿名, 默认不匿
-    chooseRegionColor: [ // 和选择分区对应的颜色
+    userName: "",         // 用户的昵称
+    userAvatar: "",       // 用户的头像
+    treeholeDetails: "",  // textArea里面的细节
+    chooseIndex: "",      // 选择分区时各个区域的位置指数
+    isChose: false,       // 判断是否选择了分区
+    isAnonymous: true,    // 判断是否匿名, 默认不匿
+    chooseRegionColor:    // 和选择分区对应的颜色
+    [ 
       "theWork",
       "theExam",
       "theEmotion",
@@ -168,24 +170,29 @@ Page({
     })
   },
 
-  // 首先获取用户的微信名和微信头像
+  // 从全局变量中获取用户的微信名和微信头像
   getInfo: function(){
-    wx.getSetting({
-      success: res => {
-        if (res.authSetting['scope.userInfo']){
-          wx.getUserInfo({
-            success: res => {
-              console.log('用户信息返回成功')
-              console.log('用户名称：', res.userInfo.nickName)
-              console.log('用户头像地址：', res.userInfo.avatarUrl)
-              this.setData({
-                userName: res.userInfo.nickName,
-                userAvatar: res.userInfo.avatarUrl
-              });
-            }
-          })
-        }
-      }
+    // wx.getSetting({
+    //   success: res => {
+    //     if (res.authSetting['scope.userInfo']){
+    //       console.log(res.authSetting)
+    //       wx.getUserInfo({
+    //         success: res => {
+    //           console.log('用户信息返回成功')
+    //           console.log(res.userInfo)
+    //           this.setData({
+    //             userName: res.userInfo.nickName,
+    //             userAvatar: res.userInfo.avatarUrl
+    //           });
+    //         }
+    //       })
+    //     }
+    //   }
+    // })
+    console.log("用户信息返回成功",app.globalData.userInfo)
+    this.setData({
+      userName: app.globalData.userInfo.nickName,
+      userAvatar: app.globalData.userInfo.avatarUrl
     })
   }
 })

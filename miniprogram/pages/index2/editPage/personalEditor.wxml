@@ -1,6 +1,5 @@
 <!--pages/index2/editPage/personalEditor.wxml-->
 
-<!-- <form> -->
 <view class='topcontainer in_mid'>
 	<text class='case_title in_mid'>写 树 洞</text>
 	<view class="publish_container in_mid">
@@ -29,4 +28,3 @@
 		</radio-group>
 	</view>
 </view>
-<!-- </form> -->

@@ -1,12 +1,13 @@
 // pages/index3/treeroles/treeroles.js
 const db = wx.cloud.database()
+const app = getApp()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    theHostOpenId: "oRKwI5j_JXmNzEkwHVj5IoLmgHZc",  // 未来可换成登录者的openid，目前先用我的openid(——hrx)
+    theHostOpenId: null,  // 在加载页面时从登录界面获取openid
     tempid: "" // 临时用来储存要删除的id
   },
 
@@ -14,7 +15,9 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-
+    this.setData({
+      theHostOpenId:  app.globalData.openid
+    })
   },
 
   /**

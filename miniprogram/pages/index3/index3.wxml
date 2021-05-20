@@ -87,7 +87,7 @@
         <text>8888888888888</text>
       </view>
       <navigator url="/pages/index3/advice/advice" class="app_info_item">意见反馈</navigator>
-      <navigator class="app_info_item" url="/pages/index3/developer/developer">开发通道</navigator>
+      <navigator class="app_info_item" url="/pages/index3/developer/developer" wx:if="{{isDeveloper}}">开发通道</navigator>
       <navigator class="app_info_item" url="/pages/index3/about/about">关于我们</navigator>
     </view>
     <navigator class="recommend_wrap" url="/pages/index3/share/share">把应用推荐给其他人</navigator>

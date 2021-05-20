@@ -19,6 +19,7 @@ App({
       isLogin: false, // 用户是否已经登录
       toPersonalEditPage: "/pages/index2/editPage/personalEditor", //  前往用户编辑区的全局连接
       openid: null, //  用户的openid
+      isDeveloper: false, //  是否是开发人员
     }
   }
 })

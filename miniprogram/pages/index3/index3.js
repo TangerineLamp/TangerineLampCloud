@@ -7,13 +7,16 @@ Page({
   data: {
     dailyQianDaoCount:0,
     messageCount: 0,
-    treeholesCount: 0,
+    treeholesCount: null,  //  需要展示的树洞数量
     collectionCount: 0,
     motto: 'Hello World',
     userInfo: {},
     hasUserInfo: false,
     canIUse: wx.canIUse('button.open-type.getUserInfo'),
-    isDeveloper: null
+    // 为了保持解耦性，这两个只能从全局变量里面获得
+    openid: null, //  用户的openid
+    isDeveloper: null,  //  用户的权限
+    isLogin: false,  //  用户是否登录
   },
   // 跳转设置页面
   goToAddress() {
@@ -55,20 +58,22 @@ Page({
    * 加载需要页面的各种信息和内容，包括可能的用户信息和权限
    */
   onLoad() {
+    //  已经登录过了
     if (app.globalData.userInfo) {
       this.setData({
         userInfo: app.globalData.userInfo,
-        hasUserInfo: true,
-        isDeveloper: app.globalData.isDeveloper
+        hasUserInfo: app.globalData.isLogin,
+        isDeveloper: app.globalData.isDeveloper,
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
+      app.globalData.isLogin = true //  设置用户的登录状态
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
-          hasUserInfo: true,
-          isDeveloper: app.globalData.isDeveloper
+          hasUserInfo: app.globalData.isLogin,
+          isDeveloper: app.globalData.isDeveloper,
         })
       }
     } else {
@@ -80,25 +85,43 @@ Page({
           this.initOpenID()
           this.setData({
             userInfo: res.userInfo,
-            hasUserInfo: true,
-            isDeveloper: app.globalData.isDeveloper
+            hasUserInfo: app.globalData.isLogin,
+            isDeveloper: app.globalData.isDeveloper,
           })
         }
       })
     }
+    this.getUserTreeholeCount() //  取用树洞信息
   },
   
   /**
    * 获取用户的昵称、头像信息
    */
-  getUserInfo(e) {
-    console.log(e)
+  toBeLogin(e) {
     app.globalData.userInfo = e.detail.userInfo
     app.globalData.isLogin = true
     this.initOpenID()
     this.setData({
       userInfo: e.detail.userInfo,
-      hasUserInfo: true
+      hasUserInfo: app.globalData.isLogin,
+      isLogin: app.globalData.isLogin
+    })
+  },
+
+  /**
+   * 获取自己的树洞数量
+   */
+  getUserTreeholeCount(){
+    const that = this
+    db.collection("developer")
+    .where({
+      _openid: that.openid
+    })
+    .count()
+    .then(res=>{
+      this.setData({
+        treeholesCount: res.total
+      })
     })
   },
 
@@ -138,7 +161,7 @@ Page({
     }).count().then(res=>{
       if(res.total>0){
         app.globalData.isDeveloper = true
-        console.log(app.globalData.isDeveloper)
+        // console.log(app.globalData.isDeveloper)
         this.setData({
           isDeveloper:app.globalData.isDeveloper
         })

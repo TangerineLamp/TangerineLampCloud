@@ -31,10 +31,6 @@ Page({
     })
   },
 
-  onReady: function(){
-    console.log(app.globalData.isDeveloper)
-    console.log(app.globalData.openid)
-  },
 
   /**
    * 跳转到对应分区

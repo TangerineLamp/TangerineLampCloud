@@ -172,6 +172,7 @@ Page({
 
   // 从全局变量中获取用户的微信名和微信头像
   getInfo: function(){
+    // 此部分内容暂时不用
     // wx.getSetting({
     //   success: res => {
     //     if (res.authSetting['scope.userInfo']){

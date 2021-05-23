@@ -1,4 +1,5 @@
 const db = wx.cloud.database();
+const app = getApp()
 Page({
 
   /**
@@ -40,14 +41,6 @@ Page({
   onReachBottom: function () {
 
   },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-  
   /**
    * 跳转到树洞编辑页面
    */

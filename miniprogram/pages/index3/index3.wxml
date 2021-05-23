@@ -18,9 +18,15 @@
     </view>
 </view> -->
 <view class="user_info_wrap">
-  <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="toBeLogin" class="user_btn">
+  
+  <block wx:if="{{!hasUserInfo}}">
+    <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="user_btn">
+      登录
+    </button>
+  </block>
+  <!-- <button wx:if="{{!hasUserInfo && canIUse}}" open-type="getUserInfo" bindgetuserinfo="toBeLogin" class="user_btn">
     登陆
-  </button>
+  </button> -->
   <!-- <button wx:if="{{!hasUserInfo && canIUse}}" 
   open-type="getUserInfo" 
   bindgetuserinfo="getUserInfo" 
@@ -28,7 +34,8 @@
     登陆
   </button> -->
   <!-- <block wx:else> -->
-  <view wx:else class="user_img_wrap">
+    <block wx:else>
+  <view class="user_img_wrap">
     <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
     <view class="user_info">
       <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
@@ -36,6 +43,7 @@
     </view>
     <!-- <image src="/icons/planet_active.png"></image> -->
   </view>
+</block>
   <!-- </block> -->
 </view>
 <view class="user_content">

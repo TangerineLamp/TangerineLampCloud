@@ -8,13 +8,13 @@
     </view>
 </view>
 <scroll-view class='theBackground'>
-    <!-- 这里只要判断是本人的openid就会显示 -->
-    <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item._openid==theHostOpenId}}">
+
+    <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
         <view class='singleBlock'>
             <view class="single_top_container in_mid">
-                <open-data type="userAvatarUrl" mode='aspectFill' class="host_head_img"></open-data>
+                <image src="{{item.avatar}}" mode='aspectFill' class="host_head_img"></image>
                 <view class="host_info_container">
-                    <open-data type="userNickName" class="nick_name color" space="ensp"></open-data>
+                    <view type="userNickName" class="nick_name color" space="ensp"></view>
                     <view class="time_info" space="ensp">
                         {{treeHoleDate[index]}}
                     </view>

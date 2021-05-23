@@ -8,7 +8,8 @@ Page({
    */
   data: {
     theHostOpenId: null,  // 在加载页面时从登录界面获取openid
-    tempid: "" // 临时用来储存要删除的id
+    tempid: "", // 临时用来储存要删除的id
+    _: null,  //  垃圾
   },
 
   /**
@@ -23,37 +24,11 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onShow: function () {
     this.getTreeHoleData()
   },
 
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
 
   /**
    * 页面上拉触底事件的处理函数
@@ -63,17 +38,14 @@ Page({
   },
 
   /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  },
-
-  /**
    * 获得数据库里面的树洞数据
    */
   getTreeHoleData(){
-    db.collection("index2_treeholes").get()
+    db.collection("index2_treeholes")
+    .where({
+      _openid: this.data.theHostOpenId
+    })
+    .get()
     .then(res => {
       // console.log(res)
       this.setData({
@@ -118,10 +90,11 @@ Page({
         if (e.confirm) { 
           console.log('用户点击确定')
           db.collection('index2_treeholes')
-          .doc(that.data.tempid).remove()
+          .doc(that.data.tempid)
+          .remove()
           console.log('成功删除树洞: ', that.data.tempid)
           // 显示删除的提示界面
-          that.onReady() // 删除后重新渲染界面
+          that.getTreeHoleData()
           wx.showToast({
             title: '删除成功',
           })

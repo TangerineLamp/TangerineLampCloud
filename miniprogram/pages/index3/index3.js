@@ -17,6 +17,7 @@ Page({
     openid: null, //  用户的openid
     isDeveloper: null,  //  用户的权限
     isLogin: false,  //  用户是否登录
+    canIUseGetUserProfile: true,
   },
   // 跳转设置页面
   goToAddress() {
@@ -58,6 +59,7 @@ Page({
    * 加载需要页面的各种信息和内容，包括可能的用户信息和权限
    */
   onLoad() {
+    this.initOpenID() //  获得openid
     //  已经登录过了
     if (app.globalData.userInfo) {
       this.setData({
@@ -76,22 +78,21 @@ Page({
           isDeveloper: app.globalData.isDeveloper,
         })
       }
-    } else {
-      // 在没有 open-type=getUserInfo 版本的兼容处理
-      wx.getUserInfo({
-        success: res => {
-          app.globalData.userInfo = res.userInfo  //  将用户信息变为全局变量
-          app.globalData.isLogin = true //  设置用户的登录状态
-          this.initOpenID()
-          this.setData({
-            userInfo: res.userInfo,
-            hasUserInfo: app.globalData.isLogin,
-            isDeveloper: app.globalData.isDeveloper,
-          })
-        }
-      })
-    }
-    this.getUserTreeholeCount() //  取用树洞信息
+    } 
+    // else {
+    //   // 在没有 open-type=getUserInfo 版本的兼容处理
+    //   wx.getUserProfile({
+    //     success: res => {
+    //       app.globalData.userInfo = res.userInfo  //  将用户信息变为全局变量
+    //       app.globalData.isLogin = true //  设置用户的登录状态
+    //       this.setData({
+    //         userInfo: res.userInfo,
+    //         hasUserInfo: app.globalData.isLogin,
+    //         isDeveloper: app.globalData.isDeveloper,
+    //       })
+    //     }
+    //   })
+    // }
   },
   
   /**
@@ -100,22 +101,49 @@ Page({
   toBeLogin(e) {
     app.globalData.userInfo = e.detail.userInfo
     app.globalData.isLogin = true
-    this.initOpenID()
+    this.getUserTreeholeCount()
     this.setData({
       userInfo: e.detail.userInfo,
       hasUserInfo: app.globalData.isLogin,
-      isLogin: app.globalData.isLogin
+      isLogin: app.globalData.isLogin,
     })
+    console.log("胜多负少的范德萨富士达",this.data.userInfo)
+  },
+
+  getUserProfile(e) {
+    // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
+    // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
+    wx.getUserProfile({
+      desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
+      success: (res) => {
+        this.setData({
+          userInfo: res.userInfo,
+          hasUserInfo: true
+        })
+        console.log("sdfdsfsdf",this.data.userInfo)
+        app.globalData.userInfo = res.userInfo
+        app.globalData.isLogin = true
+        this.getUserTreeholeCount()
+        this.setData({
+        userInfo: app.globalData.userInfo,
+        hasUserInfo: app.globalData.isLogin,
+        isLogin: app.globalData.isLogin,
+        })
+      }
+    })
+  },
+
+  onShow(){
+    this.getUserTreeholeCount()
   },
 
   /**
    * 获取自己的树洞数量
    */
   getUserTreeholeCount(){
-    const that = this
-    db.collection("developer")
+    db.collection("index2_treeholes")
     .where({
-      _openid: that.openid
+      _openid: app.globalData.openid
     })
     .count()
     .then(res=>{
@@ -148,17 +176,20 @@ Page({
       this.getAuthority(openId);
 
       app.globalData.openid = openId
-      console.log(app.globalData.openid)
       // this.setData({
-      //   openId,
+      //   openid: app.globalData.openid
       // })
+      console.log(this.data.openid)
     }, '初始化 openId 失败')
   },
 
   getAuthority(openId){
-    db.collection("developer").where({
+    db.collection("developer")
+    .where({
       developer:openId
-    }).count().then(res=>{
+    })
+    .count()
+    .then(res=>{
       if(res.total>0){
         app.globalData.isDeveloper = true
         // console.log(app.globalData.isDeveloper)

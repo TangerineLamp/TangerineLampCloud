@@ -41,6 +41,10 @@ Page({
     })
   },
 
+  onLoad(){
+    console.log(app.globalData.userInfo)
+  },
+
   /**
    * 前往1~6号树洞
    */

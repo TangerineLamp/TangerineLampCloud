@@ -36,9 +36,9 @@
   font-weight: bold;
 }
 /*标题*/
-.case_title{
+/* .case_title{
   
-}
+} */
 /***********************************轮播图部分***********************************/
 .swipercontainer{
   border-bottom: 20rpx solid #efefef;

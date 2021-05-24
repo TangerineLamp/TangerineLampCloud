@@ -5,7 +5,7 @@
 </view>
 <!-- 轮播图 -->
 <view class="swipercontainer">
-<swiper class="slide" indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" circular>
+  <swiper class="slide" indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff" autoplay="true" interval="5000" duration="1000" circular>
   <block wx:for="{{picList}}" wx:key="index">
     <swiper-item>
       <image src="{{item}}" class="slide-image" mode="aspectFill" bindtap='previewImg' data-previewurl='{{picList}}'

@@ -117,5 +117,11 @@ Page({
     endy:  py,
     endTime:  stamp
     })
-}
+  },
+
+  toDetail(){
+    wx.navigateTo({
+      url: "/pages/index2/detailPage/detailPage?title=" + 0.40097377901293796_1614865024690,
+    })
+  }
 })

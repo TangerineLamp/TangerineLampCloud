@@ -1,7 +1,8 @@
 <!--pages/index2/treeHole/treeHole.wxml-->
 <scroll-view class='theBackground'>
   <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item.tag==treeHoleType}}">
-    <view class='singleBlock'>
+    <!-- <view class='singleBlock' value="{{item._id}}" bindtap=""> -->
+    <view class='singleBlock' value="{{item._id}}">
       <view class="single_top_container in_mid">
         <image wx:if="{{item.isAnonymous}}" src="{{avatarPath}}" mode='aspectFill' class="host_head_img"></image>
         <image wx:if="{{!item.isAnonymous}}" src="{{item.avatar}}? {{item.avatar}} : cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/pictureLoadFail.svg" mode='aspectFill' class="host_head_img"></image>

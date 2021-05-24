@@ -18,7 +18,7 @@
     </view>
 </view> -->
 <view class="user_info_wrap">
-  
+
   <block wx:if="{{!hasUserInfo}}">
     <button wx:if="{{canIUseGetUserProfile}}" bindtap="getUserProfile" class="user_btn">
       登录
@@ -34,16 +34,16 @@
     登陆
   </button> -->
   <!-- <block wx:else> -->
-    <block wx:else>
-  <view class="user_img_wrap">
-    <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
-    <view class="user_info">
-      <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
-      <view class="user_name">{{userInfo.nickName}}</view>
+  <block wx:else>
+    <view class="user_img_wrap">
+      <image class="user_bg" src="{{userInfo.avatarUrl}}"></image>
+      <view class="user_info">
+        <image class="user_icon" src="{{userInfo.avatarUrl}}"></image>
+        <view class="user_name">{{userInfo.nickName}}</view>
+      </view>
+      <!-- <image src="/icons/planet_active.png"></image> -->
     </view>
-    <!-- <image src="/icons/planet_active.png"></image> -->
-  </view>
-</block>
+  </block>
   <!-- </block> -->
 </view>
 <view class="user_content">

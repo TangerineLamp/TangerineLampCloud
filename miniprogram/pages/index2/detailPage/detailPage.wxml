@@ -4,9 +4,9 @@
 	<!-- 正文部分 -->
 	<view class="hostArticleContainer">
 		<view class="treeholeInfoContainer">
-			<image class="hostHeadImg" mode="aspectFill" src="{{headImg}}"></image>
+			<image class="hostHeadImg" mode="aspectFill" src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/exam.png"></image>
 			<view class="hostInfo">
-				<view class="hostNickname">{{hostNickname}}</view>
+				<view class="hostNickname">safsdfsafas</view>
 				<view class="postTime" space="ensp">2021-3-4 16:36</view>
 			</view>
 		</view>
@@ -14,9 +14,9 @@
 		<view style="display:flex;justify-content:center;">
 			<view class="line1"></view>
 		</view>
-		<view class="likeCount" space="ensp">有{{likeCount}}人觉得很赞 </view>
+		<view class="likeCount" space="ensp">有145人觉得很赞 </view>
 		<view class="article">
-			{{articleDetail}}
+			好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江
 		</view>
 	</view>
 	<!-- 中间的分隔条部分 -->

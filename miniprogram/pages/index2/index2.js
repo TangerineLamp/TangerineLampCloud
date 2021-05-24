@@ -28,7 +28,7 @@ Page({
     this.setData({
       picList: picList,
     })
-    console.log('图片列表',picList)
+    // console.log('图片列表',picList)
   },
 
 

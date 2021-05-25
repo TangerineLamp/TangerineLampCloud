@@ -1,5 +1,4 @@
 {
-  "setting": {},
   "condition": {
     "plugin": {
       "list": []
@@ -13,36 +12,46 @@
     "miniprogram": {
       "list": [
         {
-          "name": "PCL-5问卷",
-          "pathName": "pages/index1/test1/testlists/pcl-5/pcl-5",
-          "query": "",
-          "scene": null
-<<<<<<< Updated upstream
-=======
+          "id": -1,
+          "name": "db guide",
+          "pathName": "pages/databaseGuide/databaseGuide",
+          "query": ""
         },
         {
-          "name": "预约咨询 排时间表",
+          "name": "心理专攻编译模式",
+          "pathName": "pages/index1/index1/index1",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "开发通道",
+          "pathName": "pages/index3/developer/developer",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "词条检索编译模式",
+          "pathName": "pages/index1/words/wordsEdit/wordsEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "课程编辑",
+          "pathName": "pages/index1/course/courseEdit/courseEdit",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "pages/index1/advice/appointment/appointment",
           "pathName": "pages/index1/advice/appointment/appointment",
           "query": "",
           "scene": null
         },
         {
-          "name": "预约细节",
-          "pathName": "pages/index1/advice/appointmentDetail/appointmentDetail",
+          "name": "预约咨询",
+          "pathName": "pages/index1/advice/appointment/appointment",
           "query": "",
           "scene": null
-        },
-        {
-          "name": "pages/index3/diary/diary_edit/diary",
-          "pathName": "pages/index3/diary/diary_edit/diary",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index3/stars/stars",
-          "pathName": "pages/index3/stars/stars",
-          "scene": null
->>>>>>> Stashed changes
         }
       ]
     }

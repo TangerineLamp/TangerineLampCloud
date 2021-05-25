@@ -104,9 +104,11 @@ Page({
       desc: '用于完善会员资料', // 声明获取用户个人信息后的用途，后续会展示在弹窗中，请谨慎填写
       success: (res) => {
         console.log("从getUserProfile里面获得信息",this.data.userInfo)
+        // 先将所有的信息传到全局变量里面
         app.globalData.userInfo = res.userInfo
         app.globalData.isLogin = true
-        this.getUserTreeholeCount()
+        this.getUserTreeholeCount() //  获取树洞数量
+        // 将全局变量中的内容获取到本页
         this.setData({
           userInfo: app.globalData.userInfo,
           hasUserInfo: app.globalData.isLogin,

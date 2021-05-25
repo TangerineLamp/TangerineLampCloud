@@ -1,11 +1,11 @@
-<!--pages/index2/index2.wxml-->
 <view class="page">
-  <view style="width:100%;height:100rpx;background-color:#ffffff;">
-    <view class='topcontainer'>
+  <!-- 顶层“树洞广场模块” -->
+  <view class="topcontainer">
+    <view class='.case_title'>
       树洞广场
-      <!-- <text class='case_title in_mid'>树洞广场</text> -->
     </view>
   </view>
+  <!-- <view class="blank"></view> -->
   <!-- 轮播图 -->
   <view class="swipercontainer">
     <swiper class="slide" indicator-dots="true" indicator-color="rgba(255,255,255,0.5)" indicator-active-color="#fff"
@@ -19,45 +19,45 @@
     </swiper>
   </view>
   <!--主体-->
-  <view class='bottomcontainer in_mid'>
+  <view class='bodycontainer'>
     <view class='imgcontainer'>
       <view class='imghalf in_mid'>
         <button class="singleimg">
           <image
-            src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/game.svg"
-            class='stdimg' mode='aspectFill' bindtap='gotoTreehole_5'></image>
+            src="{{game}}"
+            class='stdimg' mode='aspectFill' data-treeholename="game" bindtap='gotoTreehole' value="game"></image>
           <text class="case_info">游戏</text>
         </button>
         <button class="singleimg">
           <image
-            src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/study.png"
-            class='stdimg' mode='aspectFill' bindtap='gotoTreehole_4'></image>
+            src="{{study}}"
+            class='stdimg' mode='aspectFill' data-treeholename="study" bindtap='gotoTreehole'></image>
           <text class="case_info">学习</text>
         </button>
         <button class="singleimg">
           <image
-            src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/emotion.svg"
-            class='stdimg' mode='aspectFill' bindtap='gotoTreehole_3'></image>
+            src="{{emotion}}"
+            class='stdimg' mode='aspectFill' data-treeholename="emotion" bindtap='gotoTreehole'></image>
           <text class="case_info">情感</text>
         </button>
       </view>
       <view class='imghalf in_top'>
         <button class="singleimg">
           <image
-            src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/work.svg"
-            class='stdimg' mode='aspectFill' bindtap='gotoTreehole_1'></image>
+            src="{{work}}"
+            class='stdimg' mode='aspectFill' data-treeholename="work" bindtap='gotoTreehole'></image>
           <text class="case_info">工作</text>
         </button>
         <button class="singleimg">
           <image
-            src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/life.png"
-            class='stdimg' mode='aspectFill' bindtap='gotoTreehole_2'></image>
+            src="{{life}}"
+            class='stdimg' mode='aspectFill' data-treeholename="life" bindtap='gotoTreehole'></image>
           <text class="case_info">生活</text>
         </button>
         <button class="singleimg">
           <image
-            src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/exam.png"
-            class='stdimg' mode='aspectFill' bindtap='gotoTreehole_6'></image>
+            src="{{exam}}"
+            class='stdimg' mode='aspectFill' data-treeholename="exam" bindtap='gotoTreehole'></image>
           <text class="case_info">考研</text>
         </button>
       </view>

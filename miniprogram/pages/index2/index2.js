@@ -6,61 +6,40 @@ Page({
    * 页面的初始数据
    */
   data: {
-    TreeholeAddress: [  //  树洞位置
-      "/pages/index2/treeHole/1/work",
-      "/pages/index2/treeHole/2/life",
-      "/pages/index2/treeHole/3/emotion",
-      "/pages/index2/treeHole/4/study",
-      "/pages/index2/treeHole/5/game",
-      "/pages/index2/treeHole/6/exam"],
-    picLsit: null
+    // 树洞位置
+    TreeholeAddress: {
+      work: "/pages/index2/treeHole/1/work",
+      life: "/pages/index2/treeHole/2/life",
+      emotion: "/pages/index2/treeHole/3/emotion",
+      study: "/pages/index2/treeHole/4/study",
+      game: "/pages/index2/treeHole/5/game",
+      exam: "/pages/index2/treeHole/6/exam"},
+    // 各个子树洞的图片
+    work: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/work.svg",
+    game: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/game.svg",
+    emotion:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/emotion.svg",
+    exam:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/exam.png",
+    life: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/life.png",
+    study:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/study.png",
+    // 轮播图
+    picList: [
+      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide0.jpg",
+      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide1.jpg",
+      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide2.jpg",
+      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide3.jpg",
+    ],
+    tempTreeholeName: null, // 临时存放树洞名称的地方
   },
-
-  /**
-   * 生命周期函数--监听页面加载
-   */
-  onLoad: function (options) {
-    var picList = []
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide0.jpg")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide1.jpg")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide2.jpg")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide3.jpg")
-    this.setData({
-      picList: picList,
-    })
-    // console.log('图片列表',picList)
-  },
-
 
   /**
    * 跳转到对应分区
    */
-  gotoTreehole: function(temp) {
+  gotoTreehole: function(res) {
+    let temp = res.currentTarget.dataset.treeholename
+    // console.log("即将前往树洞：",temp, this.data.TreeholeAddress[temp])
     wx.navigateTo({
       url: this.data.TreeholeAddress[temp],
     })
-  },
-
-  /**
-   * 前往1~6号树洞
-   */
-  gotoTreehole_1: function() {
-    this.gotoTreehole(0)
-  },
-  gotoTreehole_2: function() {
-    this.gotoTreehole(1)
-  },
-  gotoTreehole_3: function() {
-    this.gotoTreehole(2)
-  },
-  gotoTreehole_4: function() {
-    this.gotoTreehole(3)
-  },
-  gotoTreehole_5: function() {
-    this.gotoTreehole(4)
-  },
-  gotoTreehole_6: function() {
-    this.gotoTreehole(5)
   },
 
   /**
@@ -79,7 +58,7 @@ Page({
         title: '请先登录',
         icon: 'none',
         duration: 1500
-    })
+      })
     }
   }
 })

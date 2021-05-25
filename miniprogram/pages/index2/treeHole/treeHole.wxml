@@ -1,16 +1,19 @@
-<!--pages/index2/treeHole/treeHole.wxml-->
+
+<!-- 整个树洞的滚条界面 -->
 <scroll-view class='theBackground'>
   <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item.tag==treeHoleType}}">
-    <!-- <view class='singleBlock' value="{{item._id}}" bindtap=""> -->
+    <!-- 单个树洞条目 -->
     <view class='singleBlock' value="{{item._id}}">
       <view class="single_top_container in_mid">
         <image wx:if="{{item.isAnonymous}}" src="{{avatarPath}}" mode='aspectFill' class="host_head_img"></image>
-        <image wx:if="{{!item.isAnonymous}}" src="{{item.avatar}}? {{item.avatar}} : cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/pictureLoadFail.svg" mode='aspectFill' class="host_head_img"></image>
+        <image wx:if="{{!item.isAnonymous}}"
+          src="{{item.avatar}}? {{item.avatar}} : cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/pictureLoadFail.svg"
+          mode='aspectFill' class="host_head_img"></image>
         <view class="host_info_container">
           <view wx:if="{{item.isAnonymous}}" class="nick_name color" space="ensp">一个匿名的小可爱</view>
           <view wx:if="{{!item.isAnonymous}}" class="nick_name color" space="ensp">{{item.nickName}}</view>
           <view class="time_info" space="ensp">
-         {{treeHoleDate[index]}}
+            {{treeHoleDate[index]}}
           </view>
         </view>
       </view>

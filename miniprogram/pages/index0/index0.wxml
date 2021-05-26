@@ -11,87 +11,152 @@
   </block>  
 </swiper>
 
-
-<!-- 每日分享：小文章，治愈歌单/书目，心理漫画，心理电台 -->
-<view class="daily">
-  <!-- 文章 -->
-  <navigator url="/pages/index0/passage/passage" hover-class="navigator-hover" class="daily-item1">
-    <view class="daily-icon">
-      <image src="{{passageIconSrc}}"></image>
-    </view>
-    <view>
-      <view class="daily-info">
-        每日文章
-      </view>
-      <view class="daily-des">
-        <text>写些啥呢，哈哈</text>
-      </view>
-    </view>
-  </navigator>
-
-  <!-- 治愈歌单、书目 -->
-  <navigator url="/pages/index0/music/music" hover-class="navigator-hover" class="daily-item2">
-    <view class="daily-icon">
-      <image src="{{musicIconSrc}}"></image>
-    </view>
-    <view>
-      <view class="daily-info">
-        治愈歌单
-      </view>
-      <view class="daily-des">
-        <text>写些啥呢，哈哈</text>
-      </view>
-    </view>
-  </navigator>
-</view>
-
-<view class="daily">
-  <!-- 心理漫画 -->
-  <navigator url="/pages/index0/comic/comic" hover-class="navigator-hover" class="daily-item3">
-    <view class="daily-icon">
-      <image src="{{comicIconSrc}}"></image>
-    </view>
-    <view>
-      <view class="daily-info">
-        心理漫画
-      </view>
-      <view class="daily-des">
-        <text>写些啥呢，哈哈</text>
-      </view>
-    </view>
-  </navigator>
-  
-  <!-- 心理电台 -->
-  <navigator url="/pages/index0/radio/radio" hover-class="navigator-hover" class="daily-item4">
-    <view class="daily-icon">
-      <image src="{{radioIconSrc}}"></image>
-    </view>
-    <view>
-      <view class="daily-info">
-        心理电台
-      </view>
-      <view class="daily-des">
-        <text>写些啥呢，哈哈</text>
-      </view>
-    </view>
-  </navigator>
-
-  <!-- 联系我们 -->
-  <view>
-    <navigator url="/pages/index0/contact/contact" hover-class="navigator-hover" class="contact-item">
-      <view class="contact-icon">
-        <image src="{{contactIconSrc}}"></image>
+<view class="dailyMain">
+  <!-- 每日分享：小文章，治愈歌单/书目，心理漫画，心理电台 -->
+  <view class="daily">
+    <!-- 文章 -->
+    <navigator url="/pages/index0/passage/passage" hover-class="navigator-hover" class="daily-item1">
+      <view class="daily-icon">
+        <image src="{{passageIconSrc}}"></image>
       </view>
       <view>
-        <view class="contact-info">
-          联 系 我 们
+        <view class="daily-info">
+          每日文章
         </view>
-        <view class="contact-des">
-          <text>Tel: 135XXXXXXXX</text>
+        <view class="daily-des">
+          <text>写些啥呢，哈哈</text>
+        </view>
+      </view>
+    </navigator>
+
+    <!-- 治愈歌单、书目 -->
+    <navigator url="/pages/index0/music/music" hover-class="navigator-hover" class="daily-item2">
+      <view class="daily-icon">
+        <image src="{{musicIconSrc}}"></image>
+      </view>
+      <view>
+        <view class="daily-info">
+          治愈歌单
+        </view>
+        <view class="daily-des">
+          <text>写些啥呢，哈哈</text>
         </view>
       </view>
     </navigator>
   </view>
+
+  <view class="daily">
+    <!-- 心理漫画 -->
+    <navigator url="/pages/index0/comic/comic" hover-class="navigator-hover" class="daily-item3">
+      <view class="daily-icon">
+        <image src="{{comicIconSrc}}"></image>
+      </view>
+      <view>
+        <view class="daily-info">
+          心理漫画
+        </view>
+        <view class="daily-des">
+          <text>写些啥呢，哈哈</text>
+        </view>
+      </view>
+    </navigator>
+    
+    <!-- 心理电台 -->
+    <navigator url="/pages/index0/radio/radio" hover-class="navigator-hover" class="daily-item4">
+      <view class="daily-icon">
+        <image src="{{radioIconSrc}}"></image>
+      </view>
+      <view>
+        <view class="daily-info">
+          心理电台
+        </view>
+        <view class="daily-des">
+          <text>写些啥呢，哈哈</text>
+        </view>
+      </view>
+    </navigator>
+
+    <!-- 联系我们 -->
+    <!-- <view>
+      <navigator url="/pages/index0/contact/contact" hover-class="navigator-hover" class="contact-item">
+        <view class="contact-icon">
+          <image src="{{contactIconSrc}}"></image>
+        </view>
+        <view>
+          <view class="contact-info">
+            联 系 我 们
+          </view>
+          <view class="contact-des">
+            <text>Tel: 135XXXXXXXX</text>
+          </view>
+        </view>
+      </navigator>
+    </view> -->
+  </view>
 </view>
 
 
+
+<!-- 热门内容展示 -->
+
+<!-- 热门文章 -->
+<view class="contentShow">
+  <!-- <view class="container"> -->
+    <!-- 标题 -->
+    <view class="title">
+      <view class="titleTxt">热门文章</view>
+      <navigator class="more" url="/pages/index0/passage/passage">更多 > </navigator>
+    </view>
+    <!-- 展示内容主体 -->
+    <view class="contentContainer">
+      <navigator class="contentBody" 
+      wx:for="{{passageList}}"
+      wx:key="id"
+      wx:if="{{index0<6}}"
+      wx:for-index="index0"
+      wx:for-item="item0"
+      url="{{'/pages/index0/passage/passageContent/passageContent?_id='+item0._id}}">
+        <image class="introPic" src="{{item0.introImage}}"></image>
+        <view class="text">
+          <view class="contentTitle">
+            {{item0.title}}
+          </view>
+          <!-- <view class="contentDes">
+            {{item0.author}}
+          </view> -->
+        </view>
+      </navigator>
+    </view>
+  <!-- </view> -->
+</view>
+
+<!-- 热门漫画 -->
+<view class="contentShow">
+  <!-- <view class="container"> -->
+    <!-- 标题 -->
+    <view class="title">
+      <view class="titleTxt">热门漫画</view>
+      <navigator class="more" url="/pages/index0/comic/comic">更多 > </navigator>
+    </view>
+    <!-- 展示内容主体 -->
+    <view class="contentContainer">
+      <navigator class="comicBody" 
+      wx:for="{{comicList}}"
+      wx:key="id"
+      wx:if="{{index0<4}}"
+      wx:for-index="index0"
+      wx:for-item="item0"
+      url="{{'/pages/index0/comic/comicIntro/comicIntro?_id='+item0._id}}">
+        <image class="comicPic" src="{{item0.image}}"></image>
+        <view class="comicBackground">
+          <view class="comicTitle">
+            《{{item0.title}}》
+          </view>
+          <!-- <view class="comicAuthor">
+            {{item0.author}}
+          </view> -->
+        </view>
+      </navigator>
+    </view>
+  <!-- </view> -->
+</view>

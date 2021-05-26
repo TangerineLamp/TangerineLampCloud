@@ -146,7 +146,7 @@ Component({
           chats: chats.sort((x, y) => x.sendTimeTS - y.sendTimeTS),
         })
         if (hasOthersMessage || hasNewMessage) {
-          this.scrollToBottom()
+          this.scrollToBottom(true)
         }
       }
     },
@@ -278,33 +278,11 @@ Component({
     scrollToBottom(force) {
       if (force) {
         console.log('force scroll to bottom')
-        this.setData(SETDATA_SCROLL_TO_BOTTOM)
-        return
-      }
-
-      this.createSelectorQuery().select('.body').boundingClientRect(bodyRect => {
-        this.createSelectorQuery().select(`.body`).scrollOffset(scroll => {
-          if (scroll.scrollTop + bodyRect.height * 3 > scroll.scrollHeight) {
-            console.log('should scroll to bottom')
-            this.setData(SETDATA_SCROLL_TO_BOTTOM)
-          }
-        }).exec()
-      }).exec()
-    },
-
-    async onScrollToUpper() {
-      if (this.db && this.data.chats.length) {
-        const { collection } = this.properties
-        const _ = this.db.command
-        const { data } = await this.db.collection(collection).where(this.mergeCommonCriteria({
-          sendTimeTS: _.lt(this.data.chats[0].sendTimeTS),
-        })).orderBy('sendTimeTS', 'desc').get()
-        this.data.chats.unshift(...data.reverse())
-        this.setData({
-          chats: this.data.chats,
-          scrollToMessage: `item-${data.length}`,
-          scrollWithAnimation: false,
+        wx.pageScrollTo({
+          scrollTop: 50000, // 滚动到的位置（距离顶部 px）
+          duration: 500 //滚动所需时间 如果不需要滚动过渡动画，设为0（ms）
         })
+        return
       }
     },
 
@@ -334,5 +312,9 @@ Component({
     global.chatroom = this
     this.initRoom()
     this.fatalRebuildCount = 0
+    wx.pageScrollTo({
+      scrollTop: 50000, // 滚动到的位置（距离顶部 px）
+      duration: 500 //滚动所需时间 如果不需要滚动过渡动画，设为0（ms）
+    })
   },
 })

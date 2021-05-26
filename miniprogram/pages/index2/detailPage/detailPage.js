@@ -26,18 +26,8 @@ Page({
     this.setData({
       treeholeid: options.title, //  获取对应的树洞的id
       visiterOpenid: app.globalData.openid, //  获取游客的openid
-      isLogin: app.globalData.isLogin,
+      isLogin: app.globalData.isLogin,  //  获取登录状态
     })
-    // 获取登录状态
-    // const that = this
-    // wx.checkSession({
-    //   success(){
-    //     that.setData({
-    //       isLogin: true
-    //     })
-    //   }
-    // })
-    // console.log('用户当前登录状态为', this.data.isLogin)
   },
 
   onShow(){

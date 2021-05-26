@@ -55,7 +55,7 @@
 
   <!-- message sender -->
   <view class="footer">
-    <view class="message-sender" wx:if="{{userInfo}}">
+    <view class="message-sender">
       <input 
         class="text-input"
         type="text"
@@ -73,13 +73,13 @@
       ></image>
     </view>
 
-    <view class="message-sender" wx:if="{{!userInfo}}">
+    <!-- <view class="message-sender" wx:if="{{!userInfo}}">
       <button 
         open-type="getUserInfo" 
         bindgetuserinfo="onGetUserInfo"
         class="userinfo"
       >请先登录后进行咨询</button>
-    </view>
+    </view> -->
   </view>
 
 </view>

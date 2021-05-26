@@ -164,7 +164,8 @@ Component({
         const doc = {
           _id: `${Math.random()}_${Date.now()}`,
           groupId: this.data.groupId,
-          avatar: this.data.userInfo.avatarUrl,
+          //avatar: this.data.userInfo.avatarUrl,
+          avatar:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index1/advice/小橘子.jpg",
           nickName: this.data.userInfo.nickName,
           msgType: 'text',
           textContent: e.detail.value,

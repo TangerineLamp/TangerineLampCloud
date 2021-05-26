@@ -30,29 +30,6 @@ Page({
       complete: () => { }
     });
 
-  }
-  ,
-  //跳转到预约时间的界面
-  jumpToAppointment() {
-    wx.showLoading({
-      title: "加载中",
-      mask: true,
-      success: (result) => {
-
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-
-    wx.navigateTo({
-      url: '/pages/index1/advice/adviceList/adviceList',
-      success: (result) => {
-        console.log("跳转成功")
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-    wx.hideLoading();
   },
 
   /**

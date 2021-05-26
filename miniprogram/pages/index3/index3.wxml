@@ -71,9 +71,9 @@
     <view class="orders_wrap">
       <view class="orders_title">我的</view>
       <view class="order_content">
-        <navigator url="/pages/index3/plan/plan">
+        <navigator url="/pages/index1/advice/adviceList/adviceList">
           <view class="order_icon iconfont icon-yuyue"></view>
-          <view class="order_name" bindtap="jumpToAppointment">预约</view>
+          <view class="order_name">预约</view>
         </navigator>
         <navigator url="/pages/index3/list/list">
           <view class="iconfont icon-fukuan"></view>

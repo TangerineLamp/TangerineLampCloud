@@ -47,6 +47,20 @@ Page({
    */
   gotoPersonalEditor: function() {
     // 提示如果已经登录了就可以发树洞
+    // wx.checkSession({
+    //   success() {
+    //     wx.navigateTo({
+    //       url: app.globalData.toPersonalEditPage
+    //     })
+    //   },
+    //   fail(){
+    //     wx.showToast({
+    //       title: '请先登录',
+    //       icon: 'none',
+    //       duration: 1500
+    //     })
+    //   }
+    // })
     if (app.globalData.isLogin){
       wx.navigateTo({
         url: app.globalData.toPersonalEditPage
@@ -60,5 +74,9 @@ Page({
         duration: 1500
       })
     }
+  },
+
+  onLoad(){
+    console.log('是否登录',app.globalData.isLogin)
   }
 })

@@ -10,7 +10,7 @@
 </view>
 <view class="midcontainer">
 	<!--用户多行输入的内容-->
-	<textarea class="per_body" maxlength="-1" auto-focus="true" placeholder="来说点什么吧~~" bindinput="bindTextAreaInput"
+	<textarea class="per_body" maxlength="-1" focus="true" placeholder="来说点什么吧~~" bindinput="bindTextAreaInput"
 		value="{{details}}">
 		</textarea>
 	<picker mode="selector" range="{{chooseRegion}}" bindchange="bindPickerChange" value="{{chooseIndex}}">

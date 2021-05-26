@@ -7,7 +7,7 @@ Page({
    */
   gotoPersonalEditor: function() {
     // 提示如果已经登录了就可以发树洞
-    if (app.globalData.hasUserInfo){
+    if (app.globalData.isLogin){
       wx.navigateTo({
         url: app.globalData.toPersonalEditPage
       })
@@ -18,7 +18,7 @@ Page({
         title: '请先登录',
         icon: 'none',
         duration: 1500
-    })
+      })
     }
   }
 })

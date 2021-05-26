@@ -61,7 +61,7 @@ Page({
   onLoad() {
     this.initOpenID() //  获得openid
     //  已经登录过了
-    if (app.globalData.userInfo) {
+    if (app.globalData.isLogin) {
       this.setData({
         userInfo: app.globalData.userInfo,
         hasUserInfo: app.globalData.isLogin,
@@ -69,7 +69,7 @@ Page({
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
       // 所以此处加入 callback 以防止这种情况
-      app.globalData.isLogin = true //  设置用户的登录状态
+      // app.globalData.isLogin = true
       app.userInfoReadyCallback = res => {
         this.setData({
           userInfo: res.userInfo,
@@ -165,7 +165,7 @@ Page({
       // this.setData({
       //   openid: app.globalData.openid
       // })
-      console.log(this.data.openid)
+      console.log("当前用户的openid为",app.globalData.openid)
     }, '初始化 openId 失败')
   },
 

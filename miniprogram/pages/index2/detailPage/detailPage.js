@@ -11,7 +11,7 @@ Page({
     isAnonymous: true, //  匿名
     time: 0,  //  发布时间
     treeholeid: null, //  树洞id
-    isHost: true, //  是否是树洞的主人
+    isHost: false, //  是否是树洞的主人
     visiterOpenid: null,  //  访问者的openid
     comments: [], //  评论区
     isLogin: false, //  是否登录
@@ -34,12 +34,8 @@ Page({
     this.getTreeholeData()
   },
 
-  onReady(){
-    this.getComments()
-  },
-
   /**
-   * 获取树洞的内容
+   * 获取树洞的内容和评论
    */
   getTreeholeData(){
     db.collection("index2_treeholes")
@@ -47,6 +43,7 @@ Page({
     .get()
     .then(res=>{
       console.log("树洞的详细内容:",res.data)
+      let judgeTemp = (res.data._openid == this.data.visiterOpenid)
       this.setData({
         headImg: res.data.avatar,
         likeCount: res.data.goodCount,
@@ -55,14 +52,17 @@ Page({
         aritleDetail: res.data.mainBody,
         isAnonymous: res.data.isAnonymous,
         time: res.data.time,
-        isHost: (res.data._openid == this.data.visiterOpenid),
+        isHost: judgeTemp,
       })
       console.log("它是主人吗",this.data.isHost)
+    })
+    .then(res=>{  //  在获取树洞结束后获取评论用.then实现顺序执行
+      this.getComments()  //  获取评论
     })
   },
 
   /**
-   * 获取回复内容
+   * 获取评论内容
    */
   getComments(){
     console.log('是否登录',this.data.isLogin)
@@ -86,7 +86,7 @@ Page({
     }
     // 如果是游客访问别人的树洞
     // 则只能看到自己的回复内容
-    else if (this.data.isLogin && !this.data.isHost){
+    else if (this.data.isLogin && (!this.data.isHost)){
       db.collection("index2_comments")
       .where({
         treeholeid: this.data.treeholeid,
@@ -115,43 +115,53 @@ Page({
    * 发送回复
    */
   send(e){
-    // 如果登录，则可以写回复
-    if (this.data.isLogin){
-      // 显示正在发送
-      wx.showLoading({
-        title: '发布中...',
-      });
-      // 正式开始发送
-      let dateTemp = new Date().getTime()
-      db.collection("index2_comments")
-      .add({
-        data: {
-          treeholeid: this.data.treeholeid,
-          comment: this.data.commentDetails,
-          time: dateTemp,
-          commenterNickname: app.globalData.userInfo.nickName,
-          commenterAvatar: app.globalData.userInfo.avatarUrl,
-        }
-      })
-      .then(res=>{
-        // 成功存储后撤回内容,让用户重新进入这个树洞
-        this.setData({
-          commentDetails: ""
-        })
-        const that = this
-        setTimeout(function (){
-          wx.hideLoading()
-          that.getComments()
-        }, 2000)
-      })
-    }
-    // 要登录后才能评论
-    else{
+    // 如果未登录，则提醒登录
+    if (!this.data.isLogin){
       wx.showToast({
         title: '请先登录',
         icon: 'none',
         duration: 1500
       })
+    }
+    // 如果登录了,则可以写评论
+    else{
+      // 评论不可以为空
+      if (this.data.commentDetails.length == 0) {
+        wx.showToast({
+          title: '评论不能为空呢',
+          image: "/pages/index2/logo/failForVoidTreehole.png",// 这个是提示文件的本地路径
+          duration: 2000//持续的时间
+        })
+      }
+      else{
+        // 显示正在发送
+        wx.showLoading({
+          title: '发布中...',
+        });
+        // 正式开始发送
+        let dateTemp = new Date().getTime()
+        db.collection("index2_comments")
+        .add({
+          data: {
+            treeholeid: this.data.treeholeid,
+            comment: this.data.commentDetails,
+            time: dateTemp,
+            commenterNickname: app.globalData.userInfo.nickName,
+            commenterAvatar: app.globalData.userInfo.avatarUrl,
+          }
+        })
+        .then(res=>{
+          // 成功存储后撤回内容,让用户重新进入这个树洞
+          this.setData({
+            commentDetails: ""
+          })
+          const that = this
+          setTimeout(function (){
+            wx.hideLoading()
+            that.getComments()
+          }, 2000)
+        })
+      }
     }
   },
 

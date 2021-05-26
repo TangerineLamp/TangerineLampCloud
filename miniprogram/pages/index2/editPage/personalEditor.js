@@ -173,24 +173,6 @@ Page({
 
   // 从全局变量中获取用户的微信名和微信头像
   getInfo: function(){
-    // 此部分内容暂时不用
-    // wx.getSetting({
-    //   success: res => {
-    //     if (res.authSetting['scope.userInfo']){
-    //       console.log(res.authSetting)
-    //       wx.getUserInfo({
-    //         success: res => {
-    //           console.log('用户信息返回成功')
-    //           console.log(res.userInfo)
-    //           this.setData({
-    //             userName: res.userInfo.nickName,
-    //             userAvatar: res.userInfo.avatarUrl
-    //           });
-    //         }
-    //       })
-    //     }
-    //   }
-    // })
     console.log("用户信息返回成功",app.globalData.userInfo)
     this.setData({
       userName: app.globalData.userInfo.nickName,

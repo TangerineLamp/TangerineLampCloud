@@ -18,7 +18,8 @@ Page({
     margintop:  0,
      currentTarget: null,
     treeHoleType: "工作区",
-    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_b.svg"
+    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_b.svg",
+    treeHoleData: null,
   },
 
   /**
@@ -67,25 +68,9 @@ Page({
   getTreeHoleData(){
     db.collection("index2_treeholes").get()
     .then(res => {
-      // console.log(res)
+      console.log(res)
       this.setData({
         treeHoleData: res.data
-      })
-      // 获取正确的时间格式
-      var thd = [] // 暂时储存时间的列表
-      for (var i=0;i<res.data.length;i++){
-        // 处理时间使其按照我们的标准显示
-        var year = res.data[i].time.getFullYear()
-        var month = res.data[i].time.getMonth() + 1
-        var day = res.data[i].time.getDate()
-        var hour = res.data[i].time.getHours()
-        var minu = res.data[i].time.getMinutes()
-        var second = res.data[i].time.getSeconds()
-        var temp = year+'-'+month+'-'+day+" "+hour+":"+minu+":"+second
-        thd.push(temp)
-      }
-        this.setData({
-        treeHoleDate: thd
       })
     }).catch(err => {
       console.log(err)
@@ -119,9 +104,14 @@ Page({
     })
   },
 
-  toDetail(){
+  /**
+   * 携带树洞信息id跳转到详细数据界面里面
+   */
+  toDetailPage(res){
+    let tempid = res.currentTarget.dataset.treeholeid
+    let tempurl = "/pages/index2/detailPage/detailPage?title=" + tempid
     wx.navigateTo({
-      url: "/pages/index2/detailPage/detailPage?title=" + 0.40097377901293796_1614865024690,
+      url: tempurl,
     })
   }
 })

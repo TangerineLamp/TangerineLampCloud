@@ -21,8 +21,9 @@
 .hostHeadImg{
   width: 12%;
   height: 100rpx;
-  padding-top: 25rpx;
-  padding-left: 10rpx;
+  margin-top: 20rpx;
+  margin-left: 10rpx;
+  border-radius: 2%;
 }
 /* 树洞主人信息的三级容器 */
 .hostInfo{
@@ -38,7 +39,7 @@
   width: 50%;
   height: 50rpx;
   font-weight: bold;
-  color: #5C92F1
+  color: #ff9933
 }
 /* 上传时间 */
 .postTime{

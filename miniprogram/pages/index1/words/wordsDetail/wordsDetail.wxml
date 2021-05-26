@@ -4,5 +4,5 @@
 wx:for="{{wordsDetail.content}}"
 wx:key="wordsDetailContent">
 <view class="topic">{{item.topic}}</view>
-<view class="paragraph"><text user-select="true">{{item.paragraph}}</text></view>
+<view class="paragraph"><text user-select="true" space="ensp">{{item.paragraph}}</text></view>
 </view>

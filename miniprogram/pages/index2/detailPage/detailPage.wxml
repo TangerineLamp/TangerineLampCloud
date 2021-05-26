@@ -1,29 +1,36 @@
 <!--这部分内容渲染的是用户点进了具体的树洞界面-->
-
+<!-- 日期转字符串的wxs函数 -->
+<wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
 <scroll-view class="allPage">
 	<!-- 正文部分 -->
 	<view class="hostArticleContainer">
 		<view class="treeholeInfoContainer">
-			<image class="hostHeadImg" mode="aspectFill" src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/exam.png"></image>
+			<image wx:if="{{!isAnonymous}}" class="hostHeadImg" mode="aspectFill" src="{{headImg}}"></image>
+			<image wx:if="{{isAnonymous}}" class="hostHeadImg" mode="aspectFill" src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/normalAnonymous.png"></image>
 			<view class="hostInfo">
-				<view class="hostNickname">safsdfsafas</view>
-				<view class="postTime" space="ensp">2021-3-4 16:36</view>
+				<view wx:if="{{!isAnonymous}}" class="hostNickname">{{hostNickname}}</view>
+				<view wx:if="{{isAnonymous}}" class="hostNickname">一个匿名的小可爱</view>
+				<view class="postTime" space="ensp">{{filter.dateToStr(time)}}</view>
 			</view>
 		</view>
 		<!-- 分割线 -->
 		<view style="display:flex;justify-content:center;">
 			<view class="line1"></view>
 		</view>
-		<view class="likeCount" space="ensp">有145人觉得很赞 </view>
-		<view class="article">
-			好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江
+		<!-- 显示点赞的人 -->
+		<view class="likeCount" space="ensp">有{{likeCount}}人觉得很赞 </view>
+		<!-- 主体部分 -->
+		<view>
+			<text class="article" space="ensp">
+				{{aritleDetail}}
+			</text>
 		</view>
 	</view>
 	<!-- 中间的分隔条部分 -->
 	<view class="likeButtonContainer">
 		<button class="likeButton" bindtap="iLike">
 			<image class="like" src="/pages/index2/logo/Like.svg" mode="aspectFill"></image>
-			<view class="theLikeCount colorIfUserLike">145</view>
+			<view class="theLikeCount colorIfUserLike">{{likeCount}}</view>
 		</button>
 	</view>
 	<view class="devContainer">
@@ -39,9 +46,9 @@
 		<view class="singleComment">
 			<image class="commentHeadImg" src="/pages/index2/logo/people.svg" mode="aspectFill"></image>
 			<view class="commentInfoContainer">
-					<view class="commentNickname">啦啦啦</view>
-					<view class="commentDetail">好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江</view>
-					<view class="commentPostTime">回复时间：2021-3-4 16:36</view>
+				<view class="commentNickname">啦啦啦</view>
+				<view class="commentDetail">好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江</view>
+				<view class="commentPostTime">回复时间：2021-3-4 16:36</view>
 			</view>
 		</view>
 		<!-- 评论与评论之间的分割线 -->
@@ -51,9 +58,9 @@
 		<view class="singleComment">
 			<image class="commentHeadImg" src="/pages/index2/logo/people.svg" mode="aspectFill"></image>
 			<view class="commentInfoContainer">
-					<view class="commentNickname">啊这这这</view>
-					<view class="commentDetail">我方将围殴范围见覅偶微积分IE为见覅我就</view>
-					<view class="commentPostTime">回复时间：2021-3-4 16:26</view>
+				<view class="commentNickname">啊这这这</view>
+				<view class="commentDetail">我方将围殴范围见覅偶微积分IE为见覅我就</view>
+				<view class="commentPostTime">回复时间：2021-3-4 16:26</view>
 			</view>
 		</view>
 		<view style="display:flex;justify-content:center;">

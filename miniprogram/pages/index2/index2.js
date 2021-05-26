@@ -36,7 +36,7 @@ Page({
    */
   gotoTreehole: function(res) {
     let temp = res.currentTarget.dataset.treeholename
-    // console.log("即将前往树洞：",temp, this.data.TreeholeAddress[temp])
+    console.log("即将前往树洞：",temp, this.data.TreeholeAddress[temp])
     wx.navigateTo({
       url: this.data.TreeholeAddress[temp],
     })

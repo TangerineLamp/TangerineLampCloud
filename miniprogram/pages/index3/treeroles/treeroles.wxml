@@ -7,8 +7,7 @@
         </view>
     </view>
 </view>
-<scroll-view class='theBackground'>
-
+<scroll-view wx:if="{{isLogin}}" class="theScoll">
     <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
         <view class='singleBlock'>
             <view class="single_top_container in_mid">

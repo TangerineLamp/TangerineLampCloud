@@ -1,9 +1,11 @@
+<!-- 日期转字符串的wxs函数 -->
+<wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
 
 <!-- 整个树洞的滚条界面 -->
 <scroll-view class='theBackground'>
   <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item.tag==treeHoleType}}">
     <!-- 单个树洞条目 -->
-    <view class='singleBlock' value="{{item._id}}">
+    <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage">
       <view class="single_top_container in_mid">
         <image wx:if="{{item.isAnonymous}}" src="{{avatarPath}}" mode='aspectFill' class="host_head_img"></image>
         <image wx:if="{{!item.isAnonymous}}"
@@ -13,14 +15,12 @@
           <view wx:if="{{item.isAnonymous}}" class="nick_name color" space="ensp">一个匿名的小可爱</view>
           <view wx:if="{{!item.isAnonymous}}" class="nick_name color" space="ensp">{{item.nickName}}</view>
           <view class="time_info" space="ensp">
-            {{treeHoleDate[index]}}
+            {{filter.dateToStr(item.time)}}
           </view>
         </view>
       </view>
       <view class="single_body_container">
-        <text class="single_body">
-          {{item.mainBody}}
-        </text>
+        <text class="single_body" space="ensp">{{item.mainBody}}</text>
         <view class="single_agree" space="ensp" style="position:relative; bottom:0">{{item.goodCount}} 人点赞 </view>
       </view>
     </view>

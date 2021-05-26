@@ -102,24 +102,9 @@ Page({
   getTreeHoleData(){
     db.collection("index2_treeholes").get()
     .then(res => {
-      // console.log(res)
+      console.log(res)
       this.setData({
         treeHoleData: res.data
-      })
-      //以下是计算时间
-      var thd = []
-      for (var i=0;i<res.data.length;i++){
-        var year = res.data[i].time.getFullYear()
-        var month = res.data[i].time.getMonth() + 1
-        var day = res.data[i].time.getDate()
-        var hour = res.data[i].time.getHours()
-        var minu = res.data[i].time.getMinutes()
-        var second = res.data[i].time.getSeconds()
-        var temp = year+'-'+month+'-'+day+" "+hour+":"+minu+":"+second
-        thd.push(temp)
-      }
-        this.setData({
-        treeHoleDate: thd
       })
     }).catch(err => {
       console.log(err)
@@ -149,5 +134,16 @@ Page({
     endy:  py,
     endTime:  stamp
     })
-}
+  },
+
+  /**
+   * 携带树洞信息id跳转到详细数据界面里面
+   */
+  toDetailPage(res){
+    let tempid = res.currentTarget.dataset.treeholeid
+    let tempurl = "/pages/index2/detailPage/detailPage?title=" + tempid
+    wx.navigateTo({
+      url: tempurl,
+    })
+  }
 })

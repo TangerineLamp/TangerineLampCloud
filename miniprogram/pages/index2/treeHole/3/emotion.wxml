@@ -1,4 +1,5 @@
-<!--pages/index2/treeHole/6/exam.wxml-->
+<!-- 日期转字符串的wxs函数 -->
+<wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
 
 <view class='topcontainer in_mid'>
   <text class='case_title in_mid color'>树洞广场 | 情感区</text>

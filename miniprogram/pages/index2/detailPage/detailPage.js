@@ -2,11 +2,13 @@ const db = wx.cloud.database()
 
 Page({
   data: {
-    headImg: "",
-    likeCount: 0,
-    hostNickname: "",
-    hostPostTime: "",
-    aritleDetail: "",
+    headImg: "", // 头像
+    likeCount: 0, // 喜欢的数量
+    hostNickname: "", // 树洞主人昵称
+    hostPostTime: "", //  树洞主人发布时间
+    aritleDetail: "", //  树洞详细内容
+    isAnonymous: true, //  匿名
+    time: 0,  //  发布时间
     comments: [],
   },
 
@@ -16,14 +18,15 @@ Page({
     .doc(treeHoleID)
     .get()
     .then(res=>{
-      console.log(res)
-      let temp = res.detail
+      console.log("树洞的详细内容:",res.data)
       this.setData({
-        headImg: temp.avatar,
-        likeCount: temp.goodCount,
-        hostNickname: temp.nickName,
-        hostPostTime: temp.time,
-        aritleDetail: mainBody
+        headImg: res.data.avatar,
+        likeCount: res.data.goodCount,
+        hostNickname: res.data.nickName,
+        hostPostTime: res.data.time,
+        aritleDetail: res.data.mainBody,
+        isAnonymous: res.data.isAnonymous,
+        time: res.data.time,
       })
     })
   }

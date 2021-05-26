@@ -8,46 +8,34 @@ Page({
    */
   data: {
     theHostOpenId: null,  // 在加载页面时从登录界面获取openid
-    tempid: "", // 临时用来储存要删除的id
     _: null,  //  垃圾
+    isLogin: false, // 记录是否登录
   },
 
-  /**
-   * 生命周期函数--监听页面加载
-   */
   onLoad: function (options) {
     this.setData({
-      theHostOpenId:  app.globalData.openid
+      theHostOpenId:  app.globalData.openid,
+      isLogin: app.globalData.isLogin
     })
+    console.log("此时全局变量里面的openid为", app.globalData.openid)
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onShow: function () {
+  onShow(){
     this.getTreeHoleData()
-  },
-
-
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
   },
 
   /**
    * 获得数据库里面的树洞数据
    */
   getTreeHoleData(){
+    console.log("检测该用户openid",this.data.theHostOpenId)
     db.collection("index2_treeholes")
     .where({
       _openid: this.data.theHostOpenId
     })
     .get()
     .then(res => {
-      // console.log(res)
+      console.log("从数据库中根据openid返回的结果",res)
       this.setData({
         treeHoleData: res.data
       })
@@ -76,11 +64,9 @@ Page({
    * 处理删除树洞事件
    */
   deleteMe(res){
-    console.log("用户选中树洞名: ", res.currentTarget.dataset.thistreeholeid);
-    this.setData({
-      tempid : res.currentTarget.dataset.thistreeholeid,
-    });
-    const that = this;
+    console.log("用户选中树洞的id: ", res.currentTarget.dataset.thistreeholeid)
+    let tempid = res.currentTarget.dataset.thistreeholeid
+    const that = this
     // 提醒用户是否要删除树洞
     wx.showModal({
       title: '',
@@ -90,16 +76,16 @@ Page({
         if (e.confirm) { 
           console.log('用户点击确定')
           db.collection('index2_treeholes')
-          .doc(that.data.tempid)
+          .doc(tempid)
           .remove()
-          console.log('成功删除树洞: ', that.data.tempid)
+          console.log('成功删除树洞: ', tempid)
           // 显示删除的提示界面
           that.getTreeHoleData()
           wx.showToast({
             title: '删除成功',
           })
-        } // ene if(e.confirm)
-      } // end function success
-    }) // end wx.showModal
+        } 
+      } 
+    })
   }
 })

@@ -1,0 +1,13 @@
+// 这个是用于树洞界面将时间对象转换成字符串对象的处理函数
+var dateToStr = function(n){
+      var d = getDate(n)
+      var year = d.getFullYear()
+      var month = d.getMonth() + 1
+      var day = d.getDate()
+      var hour = d.getHours()
+      var minu = d.getMinutes()
+      var second = d.getSeconds()
+      var formatDate = year+'-'+month+'-'+day+" "+hour+":"+minu+":"+second
+      return formatDate
+  }
+  module.exports.dateToStr = dateToStr

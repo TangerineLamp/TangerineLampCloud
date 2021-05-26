@@ -62,9 +62,10 @@
   /* 单个树洞的容器 */
   .singleBlock {
     background-color: #fff;
-    border-bottom: 30rpx solid #efefef;
+    border-radius: 2%;
     direction: block;
     width: 100%;
+    margin-top: 5rpx;
     /* height: 400rpx; */
   }
   /* 单个树洞的顶层容器 */

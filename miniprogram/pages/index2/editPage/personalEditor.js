@@ -107,7 +107,8 @@ Page({
         // 点赞数(初始都为0)
         // 发布时间（当前时间戳）
         var now = new Date().getTime();
-        db.collection("index2_treeholes").add({
+        db.collection("index2_treeholes")
+        .add({
           data: {
             goodCount: 0,
             mainBody: this.data.treeholeDetails,

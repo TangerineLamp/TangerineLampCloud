@@ -2,7 +2,7 @@
 /* 整个页面的设置 */
 .allPage{
   color: #efefef;
-  border-bottom: #efefef 100rpx solid;
+  border-bottom: #ffffff 100rpx solid;
 }
 /**************************正文部分**************************/
 /* 储存正文内容的一级容器 */
@@ -16,14 +16,17 @@
   height: 150rpx;
   display: flex;
   flex-wrap: nowrap;
+  justify-content: start;
+  padding-top: 20rpx;
+  padding-left: 10rpx;
 }
 /* 树树洞主人头像 */
 .hostHeadImg{
   width: 12%;
   height: 100rpx;
-  margin-top: 20rpx;
-  margin-left: 10rpx;
-  border-radius: 2%;
+  /* margin-top: 20rpx;
+  margin-left: 10rpx; */
+  border-radius: 15rpx;
 }
 /* 树洞主人信息的三级容器 */
 .hostInfo{
@@ -31,7 +34,7 @@
   height: 100rpx;
   display: flex;
   flex-direction: column;
-  margin-top: 25rpx;
+  /* margin-top: 25rpx; */
   margin-left: 5rpx;
 }
 /* 树洞主人昵称 */
@@ -47,7 +50,7 @@
   color: rgb(88, 88, 88);
   height: 50rpx;
   font-weight: bold;
-  margin-top: 35rpx;
+  margin-top: 25rpx;
   padding-bottom: 0rpx;
   font-size: 20rpx;
 }
@@ -166,6 +169,7 @@
   margin-top: 10rpx;
   width: 75rpx;
   height: 75rpx;
+  border-radius: 15rpx;
 }
 /* 该条评论的主人的信息二级容器 */
 .commentInfoContainer{
@@ -197,6 +201,12 @@
   width:96%;
   height:3rpx;
 }
+  /* 删除按钮的标准样式 */
+  .deleteImg{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+  }
 /**************************底部部分**************************/
 .bottomPrompt{
   display: flex;
@@ -204,6 +214,15 @@
   height: 100rpx;
   background-color: #fff;
   color: #7c7c7c;
+  justify-content: center;
+  align-items: center;
+}
+.toLogin{
+  display: flex;
+  width: 30%;
+  height: 100rpx;
+  background-color: #ff9933;
+  color: #ffffff;
   justify-content: center;
   align-items: center;
 }
@@ -237,4 +256,5 @@
   align-items: center;
   color: #fff;
   font-weight: bold;
+  border-radius: 5rpx;
 }

@@ -18,6 +18,7 @@ Page({
       isLogin: app.globalData.isLogin
     })
     console.log("此时全局变量里面的openid为", app.globalData.openid)
+    console.log('用户登录了吗？',this.data.isLogin)
   },
 
   onShow(){
@@ -39,22 +40,6 @@ Page({
       this.setData({
         treeHoleData: res.data
       })
-      // 获取正确的时间格式
-      var thd = [] // 暂时储存时间的列表
-      for (var i=0;i<res.data.length;i++){
-        // 处理时间使其按照我们的标准显示
-        var year = res.data[i].time.getFullYear()
-        var month = res.data[i].time.getMonth() + 1
-        var day = res.data[i].time.getDate()
-        var hour = res.data[i].time.getHours()
-        var minu = res.data[i].time.getMinutes()
-        var second = res.data[i].time.getSeconds()
-        var temp ='上传时间：'+year+'-'+month+'-'+day+" "+hour+":"+minu+":"+second
-        thd.push(temp)
-      }
-        this.setData({
-        treeHoleDate: thd
-      })
     }).catch(err => {
       console.log(err)
     })
@@ -72,13 +57,22 @@ Page({
       title: '',
       content: '确定要删除吗？',
       success: function (e) {
-        // 点击了确定以后会删除树洞
+        // 点击了确定以后会删除树洞和评论
         if (e.confirm) { 
+          //  删除树洞
           console.log('用户点击确定')
+          console.log('开始删除树洞信息')
           db.collection('index2_treeholes')
           .doc(tempid)
           .remove()
+          //  删除评论
           console.log('成功删除树洞: ', tempid)
+          console.log('开始删除树洞中的评论')
+          db.collection('index2_comments')
+          .where({
+            treeholeid: tempid
+          })
+          .remove()
           // 显示删除的提示界面
           that.getTreeHoleData()
           wx.showToast({
@@ -87,5 +81,15 @@ Page({
         } 
       } 
     })
-  }
+  },
+
+  toDetail(res){
+    let tempid = res.currentTarget.dataset.thistreeholeid
+    let tempurl = "/pages/index2/detailPage/detailPage?title=" + tempid
+    wx.navigateTo({
+      url: tempurl,
+    })
+  },
+
+  catchtouchmove(){}
 })

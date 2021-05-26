@@ -1,12 +1,14 @@
 <!--这部分内容渲染的是用户点进了具体的树洞界面-->
 <!-- 日期转字符串的wxs函数 -->
-<wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
+<wxs module="filter" src="/utils/dateToStr_treehole.wxs" />
 <scroll-view class="allPage">
 	<!-- 正文部分 -->
 	<view class="hostArticleContainer">
 		<view class="treeholeInfoContainer">
 			<image wx:if="{{!isAnonymous}}" class="hostHeadImg" mode="aspectFill" src="{{headImg}}"></image>
-			<image wx:if="{{isAnonymous}}" class="hostHeadImg" mode="aspectFill" src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/normalAnonymous.png"></image>
+			<image wx:if="{{isAnonymous}}" class="hostHeadImg" mode="aspectFill"
+				src="cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/normalAnonymous.png">
+			</image>
 			<view class="hostInfo">
 				<view wx:if="{{!isAnonymous}}" class="hostNickname">{{hostNickname}}</view>
 				<view wx:if="{{isAnonymous}}" class="hostNickname">一个匿名的小可爱</view>
@@ -42,34 +44,36 @@
 		<view class="line2"></view>
 	</view>
 	<!-- 评论区部分 -->
-	<scroll-view class="commentContainer">
-		<view class="singleComment">
-			<image class="commentHeadImg" src="/pages/index2/logo/people.svg" mode="aspectFill"></image>
-			<view class="commentInfoContainer">
-				<view class="commentNickname">啦啦啦</view>
-				<view class="commentDetail">好耶！的话所感动她站立了好久；回身坐下再转紧琴弦拨出急声。凄凄切切不再像刚才那种声音；在座的人重听都掩面哭泣不停。要问在座之中谁流的眼泪最多？我江</view>
-				<view class="commentPostTime">回复时间：2021-3-4 16:36</view>
+	<scroll-view class="commentContainer" wx:if="{{isLogin}}" scroll-y="true" enable-back-to-top="true">
+		<block wx:for="{{comments}}">
+			<view class="singleComment">
+				<image class="commentHeadImg" src="{{item.commenterAvatar}}" mode="aspectFill"></image>
+				<view class="commentInfoContainer">
+					<view class="commentNickname">{{item.commenterNickname}}</view>
+					<view class="commentDetail">{{item.comment}}</view>
+					<view class="commentPostTime">回复时间：{{filter.dateToStr(item.time)}}</view>
+				</view>
+				<!--删除图片-->
+				<view wx:if="{{item._openid==visiterOpenid}}" class="deleteImg_container" data-thistreeholeid="{{item._id}}" catchtap="deleteMe">
+					<image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill"></image>
+				</view>
 			</view>
-		</view>
-		<!-- 评论与评论之间的分割线 -->
+			<!-- 评论与评论之间的分割线 -->
+			<view style="display:flex;justify-content:center;">
+				<view class="line3"></view>
+			</view>
+		</block>
 		<view style="display:flex;justify-content:center;">
 			<view class="line3"></view>
 		</view>
-		<view class="singleComment">
-			<image class="commentHeadImg" src="/pages/index2/logo/people.svg" mode="aspectFill"></image>
-			<view class="commentInfoContainer">
-				<view class="commentNickname">啊这这这</view>
-				<view class="commentDetail">我方将围殴范围见覅偶微积分IE为见覅我就</view>
-				<view class="commentPostTime">回复时间：2021-3-4 16:26</view>
-			</view>
-		</view>
-		<view style="display:flex;justify-content:center;">
-			<view class="line3"></view>
-		</view>
+		<!-- 见底的通知 -->
+		<view class="bottomPrompt">已经到底啦</view>
 	</scroll-view>
-	<view class="bottomPrompt">已经到底啦</view>
+	<view wx:if="{{!isLogin}}" class="bottomPrompt">登录后可见评论</view>
+	<button wx:if="{{!isLogin}}" bindtap="toLogin" class="toLogin">点我前往登录地点</button>
 </scroll-view>
 <view class="iCommentContainer">
-	<textarea class="iComment" maxlength="-1" auto-focus="true" placeholder="回复ta:"></textarea>
+	<textarea class="iComment" maxlength="-1" auto-focus="true" placeholder="回复ta:" bindinput="bindTextAreaInput"
+		value="{{commentDetails}}"></textarea>
 	<view class="send" bindtap="send">发 送</view>
 </view>

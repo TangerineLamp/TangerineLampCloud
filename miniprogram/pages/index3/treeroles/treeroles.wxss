@@ -81,6 +81,7 @@
     width: 13%;
     height: 100%;
     margin-left: 10rpx;
+    border-radius: 15rpx;
   }
   /* 树洞主人的一些信息 */
   .host_info_container {

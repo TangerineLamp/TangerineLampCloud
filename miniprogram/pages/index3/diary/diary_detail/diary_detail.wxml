@@ -1,3 +1,7 @@
+<view class="pic_image">
+    <image src="{{diary_detail.pic}}" mode="aspectFill"></image>
+</view>
+  
 <view class="background" hover-class="none" hover-stop-propagation="false">
     <view class="title" hover-class="none" hover-stop-propagation="false">
         {{diary_detail.title}}

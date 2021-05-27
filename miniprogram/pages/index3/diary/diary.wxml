@@ -6,7 +6,7 @@
       <view class="passage-des">{{item3.content}}</view>
     </view>
     <view class="passage-image">
-      <!-- <image src="{{item3.image}}" mode="aspectFill"></image> -->
+      <image src="{{item3.pic}}" mode="aspectFill"></image>
     </view>
   </navigator>
 </scroll-view>

@@ -64,8 +64,8 @@ Page({
     console.log(flag)
     for (let i = 0; i < alreadylist.arrLen(); i++) {
       if (this.data.alreadylist[i].isToday == date) {
-        flag = true
-        break
+        flag = true;
+        break;
       }
     }
     console.log(flag)

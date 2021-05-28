@@ -1,5 +1,5 @@
 // pages/index3/diary/diary.js
-const db=wx.cloud.database()
+const db = wx.cloud.database()
 const app = getApp()
 Page({
 
@@ -7,8 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-      diary_list:[],
-      openid :""
+    diary_list: [],
+    openid: "",
+    _id: ""
   },
   // sendNewMood(res){
   //   var title=res.detail.value.title;
@@ -30,27 +31,29 @@ Page({
    */
 
   //跳转页面
-  go_to_edit(){
+  go_to_edit() {
     wx.navigateTo({
       url: "/pages/index3/diary/diary_edit/diary"
     });
-      
+
   },
-  //  数据库获取最新的20条日志(参数可修改)
-  getData(){
+  //  数据库获取最新的20条日志(参数可修改), 对应数据库里某一个用户下所有数据
+  getData() {
     db.collection("index3_diary")
-    // .doc(this.data.openid)
-    .limit(20)
-    .get()
-    .then(res=>{
-      this.setData({
-          diary_list:res.data    
+      .where({
+        _openid: this.data.openid
       })
-    })
+      .limit(20)
+      .get()
+      .then(res => {
+        this.setData({
+          diary_list: res.data
+        })
+      })
   },
   onLoad: function (options) {
     this.setData({
-      openid:app.globalData.openid
+      openid: app.globalData.openid
     })
     console.log(this.data.openid)
     wx.showLoading({
@@ -71,7 +74,7 @@ Page({
    * 生命周期函数--监听页面显示
    */
   onShow: function () {
-    this.getData();                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                             
+    this.getData();
   },
 
   /**

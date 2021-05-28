@@ -19,15 +19,24 @@ Page({
       .then(res => {
         console.log("删除成功")
       })
-      wx.navigateTo({
-        url: '/pages/index3/diary/diary',
-        success: (result)=>{
-          
-        },
-        fail: ()=>{},
-        complete: ()=>{}
-      });
+    //这里的逻辑需要修改，跳转不正常
+    wx.redirectTo({
+      url: '/pages/index3/diary/diary',
+      success: (result)=>{
         
+      },
+      fail: ()=>{},
+      complete: ()=>{}
+    });
+    // wx.navigateTo({
+    //   url: '/pages/index3/diary/diary',
+    //   success: (result) => {
+    //       console.log("跳转回日志界面成功")
+    //   },
+    //   fail: () => { },
+    //   complete: () => { }
+    // });
+
   },
   getData(_id) {
     db.collection("index3_diary").doc(_id).get()

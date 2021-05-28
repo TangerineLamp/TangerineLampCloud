@@ -239,4 +239,5 @@ Page({
     })
     this.dateInit(year, month);
   }
+  
 })

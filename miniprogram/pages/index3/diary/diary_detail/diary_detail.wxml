@@ -1,7 +1,6 @@
 <view class="pic_image">
     <image src="{{diary_detail.pic}}" mode="aspectFill"></image>
 </view>
-  
 <view class="background" hover-class="none" hover-stop-propagation="false">
     <view class="title" hover-class="none" hover-stop-propagation="false">
         {{diary_detail.title}}
@@ -14,8 +13,6 @@
     </view>
 </view>
 <view class="is_hide" hover-class="none" hover-stop-propagation="false">
-    {{diary_detail.is_hide}}
+    <!-- {{diary_detail.is_hide}} -->
 </view>
-<button type="primary" bindtap="delete">
-删除
-</button>
+<button type="primary" bindtap="delete">删除</button>

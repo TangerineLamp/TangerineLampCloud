@@ -99,7 +99,19 @@ Page({
   onShow(){
     this.getUserTreeholeCount()
   },
-
+  
+  getcollectionCount(){
+    db.collection("index0_passageLongPicture")
+    .where({
+      _openid: app.globalData.openid
+    })
+    .count()
+    .then(res=>{
+      this.setData({
+        collectionCount: res.total
+      })
+    })
+  },
   /**
    * 获取自己的树洞数量
    */

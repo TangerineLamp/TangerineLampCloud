@@ -13,7 +13,7 @@
 
     <input placeholder="输入标题（选择）" class="add_title" value="" bindinput="setTitle" name="title" />
     <view class="addConent">
-        <textarea placeholder="记下这一刻的想法与心情" maxlength="1000" value="" name="content" />
+        <textarea placeholder="记下这一刻的想法与心情" maxlength="1000" value="" bindinput="setContent"name="content" />
     </view>
     <label for="changePublic">
         <switch checked="{{isPublic}}" bindchange="changePublic" type="checkbox" name="is_hide" />

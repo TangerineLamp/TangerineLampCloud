@@ -10,7 +10,7 @@ Page({
     // chatRoomEnvId: 'release-f8415a',
     chatRoomCollection: 'chatroom',
     chatRoomGroupId: '',
-    chatRoomGroupName: '心理咨询',
+    chatRoomGroupName: '小桔灯在线咨询',
 
     // functions for used in chatroom components
     onGetUserInfo: null,

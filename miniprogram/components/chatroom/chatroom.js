@@ -61,7 +61,7 @@ Component({
 
         this.setData({
           chats: initList.reverse(),
-          scrollTop: 10000,
+          scrollTop: 100000,
         })
 
         this.initWatch(initList.length ? {
@@ -212,7 +212,7 @@ Component({
           const doc = {
             _id: `${Math.random()}_${Date.now()}`,
             groupId: this.data.groupId,
-            avatar: this.data.userInfo.avatarUrl,
+            avatar:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index1/advice/小橘子.jpg",
             nickName: this.data.userInfo.nickName,
             msgType: 'image',
             sendTime: new Date(),
@@ -279,7 +279,7 @@ Component({
       if (force) {
         console.log('force scroll to bottom')
         wx.pageScrollTo({
-          scrollTop: 50000, // 滚动到的位置（距离顶部 px）
+          scrollTop: 100000, // 滚动到的位置（距离顶部 px）
           duration: 500 //滚动所需时间 如果不需要滚动过渡动画，设为0（ms）
         })
         return

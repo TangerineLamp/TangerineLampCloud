@@ -31,7 +31,23 @@ Page({
   },
   btnSub(res) {
     var content = res.detail.value.content;
-    db.collection("index3_feedback").add({
+    if(content.length<=10){
+      wx.showToast({
+        title: '请填写十个字以上的问题',
+        icon: 'none',
+        image: '',
+        duration: 1500,
+        mask: false,
+        success: (result) => {
+          
+        },
+        fail: () => {},
+        complete: () => {}
+      });
+        
+    }
+    else{
+      db.collection("index3_feedback").add({
       data: {
         content: content,
         shopitem: this.data.shopitem
@@ -47,6 +63,8 @@ Page({
       icon: 'success',
       duration: 1000
     })
+    }
+    
     // this.go_back_index3();
 
 

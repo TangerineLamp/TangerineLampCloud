@@ -6,6 +6,8 @@ const db = wx.cloud.database();
 Page({
   data: {
     dailyQianDaoCount:0,
+    year:0,
+    month:0,
     messageCount: 0,
     treeholesCount: null,  //  需要展示的树洞数量
     collectionCount: 0,
@@ -30,35 +32,20 @@ Page({
       complete: () => { }
     });
 
-  }
-  ,
-  //跳转到预约时间的界面
-  jumpToAppointment() {
-    wx.showLoading({
-      title: "加载中",
-      mask: true,
-      success: (result) => {
-
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-
-    wx.navigateTo({
-      url: '/pages/index1/advice/adviceList/adviceList',
-      success: (result) => {
-        console.log("跳转成功")
-      },
-      fail: () => { },
-      complete: () => { }
-    });
-    wx.hideLoading();
   },
 
   /**
    * 加载需要页面的各种信息和内容，包括可能的用户信息和权限
    */
   onLoad() {
+    let now = new Date();
+    let year = now.getFullYear();
+    let month = now.getMonth() + 1;
+    console.log(month)
+    this.setData({
+      year:year,
+      month:month
+    })
     this.initOpenID() //  获得openid
     //  已经登录过了
     if (app.globalData.isLogin) {
@@ -77,6 +64,8 @@ Page({
         })
       }
     } 
+
+    
     // else {
     //   // 在没有 open-type=getUserInfo 版本的兼容处理
     //   wx.getUserProfile({
@@ -121,8 +110,36 @@ Page({
 
   onShow(){
     this.getUserTreeholeCount()
+    this.getdailyQianDaoCount()
+    this.getcollectionCount()
   },
 
+  getdailyQianDaoCount(){
+    db.collection("index3_qiandao_daily")
+    .where({
+      _openid: app.globalData.openid,
+      month: this.data.month,
+      year:this.data.year
+    })
+    .count()
+    .then(res=>{
+      this.setData({
+        dailyQianDaoCount: res.total
+      })
+    })
+  },
+  getcollectionCount(){
+    db.collection("index0_passageLongPicture")
+    // .where({
+    //   _openid: app.globalData.openid
+    // })
+    .count()
+    .then(res=>{
+      this.setData({
+        collectionCount: res.total
+      })
+    })
+  },
   /**
    * 获取自己的树洞数量
    */

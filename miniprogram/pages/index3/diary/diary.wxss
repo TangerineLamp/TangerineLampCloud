@@ -17,14 +17,14 @@ page {
   display: flex;
   height: 180rpx;
   background-color: #eeeeee;
-  border-top: 7rpx solid white;
-  border-bottom: 7rpx solid white;
+  border-top: 12rpx solid white;
+  border-bottom: 12rpx solid white;
   border-left: 5rpx solid white;
   border-right: 5rpx solid white;
   margin-left: 30rpx;
   margin-right: 30rpx;
   align-items: center;
-  border-radius: 15rpx;
+  border-radius: 40rpx;
 }
 .passage-info {
   flex: 2;

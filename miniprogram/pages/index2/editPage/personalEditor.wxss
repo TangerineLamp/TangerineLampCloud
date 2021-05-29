@@ -117,8 +117,8 @@ page{
 }
 /*首页通用标准图片大小样式*/
 .stdimg{
-  width: 50rpx;
-  height: 50rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
 /*调整radio-group的样式*/
 .theRGroup{

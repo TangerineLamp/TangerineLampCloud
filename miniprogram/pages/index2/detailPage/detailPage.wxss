@@ -118,6 +118,9 @@
 .colorIfUserLike{
   color: #d81e06;
 }
+.colorIfUserUnlike{
+  color: #000
+}
 /* 评论分隔条的容器 */
 .devContainer{
   width: 100%;

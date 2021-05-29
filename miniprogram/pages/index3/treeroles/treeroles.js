@@ -25,6 +25,10 @@ Page({
     this.getTreeHoleData()
   },
 
+  onHide(){
+    this.getTreeHoleData()
+  },
+
   /**
    * 获得数据库里面的树洞数据
    */
@@ -69,6 +73,13 @@ Page({
           console.log('成功删除树洞: ', tempid)
           console.log('开始删除树洞中的评论')
           db.collection('index2_comments')
+          .where({
+            treeholeid: tempid
+          })
+          .remove()
+          // 删除点赞
+          console.log('开始删除树洞的点赞')
+          db.collection('index2_likeTag')
           .where({
             treeholeid: tempid
           })

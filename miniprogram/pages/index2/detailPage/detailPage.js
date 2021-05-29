@@ -16,6 +16,15 @@ Page({
     comments: [], //  评论区
     isLogin: false, //  是否登录
     commentDetails: "", //  临时的存放textArea的变量
+    isDeveloper: false, //  开发者选项
+    likecountTemp: 0, // 返回时临时使用的点赞数
+    likeIcon: null, // 存放喜欢和不喜欢的图标地址
+    color: null,  //  样式
+    isLike: null,  //  这个用户喜欢这个树洞吗
+    likeTagid: "无",  //  消息的引用
+    oriLike: false, // 用户以前喜欢吗
+    countState_1: 0, // 直接将点赞数量当做状态存起来,已点赞状态
+    countState_2: 0, // 未点赞状态
   },
 
   /**
@@ -59,6 +68,9 @@ Page({
     .then(res=>{  //  在获取树洞结束后获取评论用.then实现顺序执行
       this.getComments()  //  获取评论
     })
+    .then(res=>{
+      this.getLikeTag()
+    })
   },
 
   /**
@@ -100,6 +112,45 @@ Page({
         })
       })
     }
+  },
+
+  /**
+   * 获取点赞关系
+   */
+  getLikeTag(){
+    console.log("获取点赞标识中.....")
+    db.collection("index2_likeTag")
+    .where({
+      treeholeid: this.data.treeholeid,
+      _openid: this.data.openid
+    })
+    .get()
+    .then(res=>{
+      console.log(res.data)
+      if (res.data.length == 0){
+        this.setData({
+          likeTagid: "",
+          isLike: false,
+          likeIcon: "/pages/index2/logo/unlike.png",
+          countState_1: this.data.likeCount + 1,
+          countState_2: this.data.likeCount,
+          color: "colorIfUserUnlike"
+        })
+        console.log("用户不喜欢这条树洞")
+      }
+      else{
+        this.setData({
+          likeTagid: res.data[0]._id,
+          isLike: true,
+          likeIcon: "/pages/index2/logo/like.png",
+          oriLike: true,
+          countState_1: this.data.likeCount,
+          countState_2: this.data.likeCount - 1,
+          color: "colorIfUserLike",
+        })
+        console.log("用户喜欢这条树洞")
+      }
+    })
   },
 
   /**
@@ -199,6 +250,87 @@ Page({
           })
         } 
       } 
+    })
+  },
+
+  click(){
+    console.log('-----------------------------------------')
+    console.log('orilike:',this.data.oriLike)
+    console.log('isLike', this.data.isLike)
+    console.log('state1:',this.data.countState_1)
+    console.log('state2:',this.data.countState_2)
+    console.log('likeid:', this.data.likeTagid)
+    console.log('-----------------------------------------')
+    if (this.data.isLogin){
+      let jTemp = !this.data.isLike
+      this.setData({
+        likeIcon: jTemp? "/pages/index2/logo/like.png": "/pages/index2/logo/unlike.png",
+        color: jTemp? "colorIfUserLike": "colorIfUserUnlike",
+        likeCount: jTemp? this.data.countState_1: this.data.countState_2,
+        isLike: jTemp
+      })
+      console.log("用户原本喜欢这个树洞吗", this.data.oriLike)
+      console.log("用户现在喜欢这个树洞吗",this.data.isLike)
+    }
+    else{
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
+
+  /**
+   * 生命周期结束使更新值
+   */
+  onUnload(){
+    // 更新对应树洞的点赞数
+    db.collection("index2_treeholes")
+    .doc(this.data.treeholeid)
+    .get()
+    .then(res=>{
+      this.setData({
+        likecountTemp: res.data.goodCount
+      })
+    })
+    .then(res=>{
+      console.log('shi',this.data.oriLike, this.data.isLike)
+      // 如果以前喜欢，但是现在不喜欢，就把对应的点赞记录删除
+      if (this.data.oriLike && !this.data.isLike){
+        console.log('likeTag删除了条数据')
+        db.collection("index2_likeTag")
+        .doc(this.data.likeTagid)
+        .remove()
+        .then(res=>{
+          db.collection("index2_treeholes")
+          .doc(this.data.treeholeid)
+          .update({
+            data:{
+              goodCount: this.data.likecountTemp - 1
+            }
+          })
+        })
+      }
+      // 如果以前不喜欢，现在喜欢，则加上对应的点赞记录
+      else if (!this.data.oriLike && this.data.isLike){
+        console.log('likeTag新增了条数据')
+        db.collection("index2_likeTag")
+        .add({
+          data:{
+            treeholeid: this.data.treeholeid
+          }
+        })
+        .then(res=>{
+          db.collection("index2_treeholes")
+          .doc(this.data.treeholeid)
+          .update({
+            data:{
+              goodCount: this.data.likecountTemp + 1
+            }
+          })
+        })
+      }
     })
   },
 })

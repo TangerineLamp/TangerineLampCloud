@@ -30,9 +30,10 @@
 	</view>
 	<!-- 中间的分隔条部分 -->
 	<view class="likeButtonContainer">
-		<button class="likeButton" bindtap="iLike">
-			<image class="like" src="/pages/index2/logo/Like.svg" mode="aspectFill"></image>
-			<view class="theLikeCount colorIfUserLike">{{likeCount}}</view>
+		<button class="likeButton" bindtap="click">
+			<image class="like" src="{{likeIcon}}" mode="aspectFill"></image>
+			<view class="theLikeCount {{color}}">{{likeCount}}</view>
+			<!-- <view wx:if="{{!isLike}}" class="theLikeCount">{{likeCount}}</view> -->
 		</button>
 	</view>
 	<view class="devContainer">

@@ -6,8 +6,21 @@ Page({
    * 页面的初始数据
    */
   data: {
+    title: "",
+    content: "",
+    is_hide: "",
     isSrc: false,
     pictures: ""
+  },
+  setTitle: function (e) {
+    this.setData({
+      title: e.detail.value,
+    });
+  },
+  setContent: function (e) {
+    this.setData({
+      content: e.detail.value,
+    });
   },
   go_back_diary() {
     // wx.navigateBack({
@@ -45,7 +58,7 @@ Page({
     })
     console.log(this.data.isSrc)
   },
-  
+
   cloudfile(picName) {
     console.log("开始上传")
     wx.cloud.uploadFile({
@@ -63,42 +76,75 @@ Page({
     //var mood=res.detail.value.mood;
     var content = res.detail.value.content;
     var is_hide = res.detail.value.is_hide;
+    if (title.length == 0) {
+      wx.showToast({
+        title: '亲，请先填写一下标题',
+        icon: 'none',
+        image: '',
+        duration: 2000,
+        mask: false,
+        success: (result) => {
 
-    //判断图片格式
-    if (this.data.pictures.endsWith(".jpg")) {
-      picName = title + "_pic.jpg"
-    } else if (this.data.cover.endsWith(".png")) {
-      picName = title + "_pic.png"
-    } else if (this.data.cover.endsWith(".svg")) {
-      picName = title + "_pic.svg"
-    }
-    if (picName != "") {
-      console.log(picName)
-      //上传至云端
-      this.cloudfile(picName)
-    }
+        },
+        fail: () => { },
+        complete: () => { }
+      });
 
-    db.collection("index3_diary").add({
-      data: {
-        title: title,
-        content: content,
-        is_hide: is_hide,
-        pic: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/diary/" + picName
-        //pictures:pictures
+    }
+    else {
+      if (content.length <= 5) {
+        wx.showToast({
+          title: '亲，请填写不少于5个字的内容哦',
+          icon: 'none',
+          image: '',
+          duration: 2000,
+          mask: false,
+          success: (result) => {
+
+          },
+          fail: () => { },
+          complete: () => { }
+        });
       }
-    }).then(res => {
-      console.log(res)
-    })
-    this.setData({
-      pictures: "",
-      isSrc: false
-    })
-    wx.showToast({
-      title: '提交成功', //弹框内容
-      icon: 'success',  //弹框模式
-      duration: 1000    //弹框显示时间
-    })
-    this.go_back_diary()
+      else {
+        //判断图片格式
+        if (this.data.pictures.endsWith(".jpg")) {
+          picName = title + "_pic.jpg"
+        } else if (this.data.cover.endsWith(".png")) {
+          picName = title + "_pic.png"
+        } else if (this.data.cover.endsWith(".svg")) {
+          picName = title + "_pic.svg"
+        }
+        if (picName != "") {
+          console.log(picName)
+          //上传至云端
+          this.cloudfile(picName)
+        }
+
+        db.collection("index3_diary").add({
+          data: {
+            title: title,
+            content: content,
+            is_hide: is_hide,
+            pic: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/diary/" + picName
+            //pictures:pictures
+          }
+        }).then(res => {
+          console.log(res)
+        })
+        this.setData({
+          pictures: "",
+          isSrc: false
+        })
+        wx.showToast({
+          title: '提交成功', //弹框内容
+          icon: 'success',  //弹框模式
+          duration: 2000    //弹框显示时间
+        })
+
+      }
+    }
+    // this.go_back_diary()
   }
   /**
    * 生命周期函数--监听页面加载

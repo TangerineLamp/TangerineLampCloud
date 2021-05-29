@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+const app = getApp()
 Page({
   data: {
     isQianDao: false,
@@ -32,11 +33,13 @@ Page({
     //查询今天是否已经签到
     db.collection("index3_qiandao_daily")
       .where({
+        _openid: app.globalData.openid,
+        // _openid: app.globalData.openid,
         isToday: this.data.isToday
       })
       .get({
         success: res => {
-           console.log(res)
+          console.log(res)
           if (res.data.length == 0) {
             this.setData({
               isQianDao: false,
@@ -80,7 +83,11 @@ Page({
   //     })
   // },
   getData() {
-    db.collection("index3_qiandao_daily").get()
+    db.collection("index3_qiandao_daily")
+      .where({
+        _openid:app.globalData.openid
+      })
+      .get()
       .then(res => {
         let alreadylist = res.data;
         let dateArr = this.data.dateArr;
@@ -138,7 +145,7 @@ Page({
         complete: () => { }
       });
       this.setData({
-        isQianDao:true,
+        isQianDao: true,
         content: "今日已签到",
         nowdaycolor: "nowDay"
       })
@@ -157,7 +164,7 @@ Page({
       }).then(res => {
         console.log(res);
       })
-     
+
       this.getData();
     }
   },
@@ -239,5 +246,5 @@ Page({
     })
     this.dateInit(year, month);
   }
-  
+
 })

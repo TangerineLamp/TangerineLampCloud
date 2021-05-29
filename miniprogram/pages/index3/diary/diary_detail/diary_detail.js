@@ -15,19 +15,38 @@ Page({
    */
   delete() {
     console.log(ID)
-    db.collection("index3_diary").doc(ID).remove()
-      .then(res => {
-        console.log("删除成功")
-      })
-    //这里的逻辑需要修改，跳转不正常
-    wx.redirectTo({
-      url: '/pages/index3/diary/diary',
-      success: (result)=>{
-        
+    wx.showModal({
+      title: 'confirm',
+      content: '您确定要删除吗',
+      showCancel: true,
+      cancelText: '取消',
+      cancelColor: '#000000',
+      confirmText: '确定',
+      confirmColor: '#3CC51F',
+      success: (result) => {
+        if (result.confirm) {
+          db.collection("index3_diary").doc(ID).remove()
+            .then(res => {
+              console.log("删除成功")
+            })
+        }
       },
-      fail: ()=>{},
-      complete: ()=>{}
+      fail: () => { },
+      complete: () => { }
     });
+
+
+
+    //这里的逻辑需要修改，跳转不正常
+    // wx.redirectTo({
+    //   url: '/pages/index3/diary/diary',
+    //   success: (result) => {
+
+    //   },
+    //   fail: () => { },
+    //   complete: () => { }
+    // });
+
     // wx.navigateTo({
     //   url: '/pages/index3/diary/diary',
     //   success: (result) => {

@@ -163,13 +163,13 @@ page{
   font-weight: bold;
   height: 100%;
   position: relative;
-  padding-left: 20rpx;
+  padding-left: 25rpx;
 }
 
 .title .titleTxt::before{
   display: block;
-  width: 8rpx;
-  height: 34rpx;
+  width: 13rpx;
+  height: 36rpx;
   background: #ff9933;
   content: "";
   position: absolute;

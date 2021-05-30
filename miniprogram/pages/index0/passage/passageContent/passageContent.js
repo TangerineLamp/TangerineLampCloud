@@ -16,7 +16,7 @@ Page({
     passage:{},
     // 默认是未收藏
     collect_img_src:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
-    collect_text:"点击收藏文章"
+    collect_text:"收藏"
   },
 
   /**
@@ -40,7 +40,7 @@ Page({
       this.setData({
         passage:res.data,
         collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
-        collect_text: isCollected ? "已收藏此文章" : "点击收藏此文"
+        collect_text: isCollected ? "收藏" : "收藏"
         
       })
     })
@@ -51,7 +51,7 @@ Page({
     this.setData({
       // 已收藏，再点一下取消收藏；未收藏，点击收藏
       collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg",
-      collect_text: isCollected ? "已收藏此文章" :  "点击收藏此文" 
+      collect_text: isCollected ? "收藏" :  "收藏" 
     })
     isCollected = !isCollected
     // 用云函数

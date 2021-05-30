@@ -21,7 +21,7 @@
   width: 80rpx;
   height: 80rpx;
   margin-top: 40rpx;
-  margin-left: 220rpx;
+  margin-left: 300rpx;
   margin-right: 20rpx;
 }
 

@@ -122,7 +122,7 @@ Page({
     db.collection("index2_likeTag")
     .where({
       treeholeid: this.data.treeholeid,
-      _openid: this.data.openid
+      _openid: this.data.visiterOpenid
     })
     .get()
     .then(res=>{
@@ -293,6 +293,7 @@ Page({
       this.setData({
         likecountTemp: res.data.goodCount
       })
+      console.log('当前点赞数',res.data.goodCount)
     })
     .then(res=>{
       console.log('shi',this.data.oriLike, this.data.isLike)

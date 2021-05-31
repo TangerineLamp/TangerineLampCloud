@@ -116,7 +116,7 @@
       wx:for-index="index0"
       wx:for-item="item0"
       url="{{'/pages/index0/passage/passageContent/passageContent?_id='+item0._id}}">
-        <image class="introPic" src="{{item0.introImage}}"></image>
+        <image class="introPic" src="{{item0.introImage}}" mode="aspectFill"></image>
         <view class="text">
           <view class="contentTitle">
             {{item0.title}}
@@ -147,7 +147,7 @@
       wx:for-index="index0"
       wx:for-item="item0"
       url="{{'/pages/index0/comic/comicIntro/comicIntro?_id='+item0._id}}">
-        <image class="comicPic" src="{{item0.image}}"></image>
+        <image class="comicPic" src="{{item0.image}}" mode="aspectFill"></image>
         <view class="comicBackground">
           <view class="comicTitle">
             《{{item0.title}}》

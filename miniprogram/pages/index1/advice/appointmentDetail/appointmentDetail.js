@@ -51,7 +51,8 @@ Page({
     var startTimeCount = Date.parse(this.data.intentDay._futureDay);
     var exactTime = startTimeCount + this.data.exactTime * 60 * 60 * 1000;
     var groupId = this.data.openId+Date.now();
-    var members = [this.data.openId].concat(this.data.masterList);
+    //!!!这里是房间中添加心理咨询师openid逻辑
+    var members = [this.data.openId,"oRKwI5p-MekyCkEb8fTvlUntbZKw"];
 
     db.collection("chatroom_group").where({
       timeCount:exactTime
@@ -111,8 +112,8 @@ Page({
     console.log("这是预约的日期", this.data.intentDay)
     //↓获取openID
     this.initOpenID();
-    //↓获取心理咨询老师列表
-    this.getMaster();
+    //↓获取心理咨询老师
+    this.getDoctor();
   },
 
   // 第二层，用云函数获取openId
@@ -143,12 +144,8 @@ Page({
   },
 
     //获取心理咨询老师的openid列表
-    getMaster() {
-      db.collection("developer_master").doc("28ee4e3e603780be078d689725425801").get().then(res=>{
-        this.setData({
-          masterList:res.data.master
-        })
-      })
+    getDoctor() {
+      
     }
 
 })

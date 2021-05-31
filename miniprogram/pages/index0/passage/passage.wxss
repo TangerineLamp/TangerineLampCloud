@@ -65,8 +65,13 @@ page{
   margin-left: 5rpx;
   font-family: '微软雅黑';
   font-size: 36rpx;
+  display: -webkit-box;
   font-weight: bold;
-
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .passage-des{

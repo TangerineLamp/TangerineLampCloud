@@ -12,6 +12,7 @@ Page({
   data: {
     openId:null,
     docInfo:null,
+    freeTimeList:null,
   },
 
   /**
@@ -19,20 +20,25 @@ Page({
    */
   onLoad: function (options) {
     this.getDocInfo("oRKwI5p-MekyCkEb8fTvlUntbZKw")
-    this.getFreeTimeList("oRKwI5p-MekyCkEb8fTvlUntbZKw")
+    
     //↓因为每次都要登录才能用global的openId，先占个位↓
 
-    //this.getFreeTimeList(app.globalData.openId)
     //this.getDocInfo(app.globalData.openId);
     // this.setData({
     //   openId:app.globalData.openId,
     // })
   },
 
+  onShow(){
+    this.getFreeTimeList(app.globalData.openId)
+    //this.getFreeTimeList(app.globalData.openId)
+  },
+
   getDocInfo(openId){
     db.collection("doctors")
     .where({
-      doctorId:openId
+      doctorId:openId,
+      isCertification:true
     })
     .get()
     .then(res=>{

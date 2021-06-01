@@ -205,14 +205,15 @@ Page({
   getDoctorAuth(openId){
     db.collection("doctors")
     .where({
-      doctorId:openId
+      doctorId:openId,
+      isCertification:true
     })
     .count()
     .then(res=>{
       if(res.total>0){
         app.globalData.isDoctor = true
-        console.log("用户是否是心理咨询师",app.globalData.isDoctor)
       }
+      console.log("用户是否是心理咨询师",app.globalData.isDoctor)
     })
   }
 })

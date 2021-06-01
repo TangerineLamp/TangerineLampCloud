@@ -19,19 +19,14 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDocInfo("oRKwI5p-MekyCkEb8fTvlUntbZKw")
-    
-    //↓因为每次都要登录才能用global的openId，先占个位↓
-
-    //this.getDocInfo(app.globalData.openId);
-    // this.setData({
-    //   openId:app.globalData.openId,
-    // })
+    this.getDocInfo(app.globalData.openId);
+    this.setData({
+      openId:app.globalData.openId,
+    })
   },
 
   onShow(){
     this.getFreeTimeList(app.globalData.openId)
-    //this.getFreeTimeList(app.globalData.openId)
   },
 
   getDocInfo(openId){

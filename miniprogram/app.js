@@ -15,12 +15,13 @@ App({
     }
 
     this.globalData = {
-      userInfo: null, // 用户的昵称和头像信息
-      isLogin: false, // 用户是否已经登录
+      userInfo: null,     // 用户的昵称和头像信息
+      isLogin: false,     // 用户是否已经登录
       toPersonalEditPage: "/pages/index2/editPage/personalEditor", //  前往用户编辑区的全局连接
-      openid: null, //  用户的openid
+      openid: null,       //  用户的openid
       isDeveloper: false, //  是否是开发人员
-      isDoctor:false, //是否是心理咨询师
+      isCertiDoctor: false,    //  是否是认证医师
+      isCertiStudent: false,   //  是否是认证学生
     }
   }
 })

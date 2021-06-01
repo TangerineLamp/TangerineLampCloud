@@ -21,11 +21,11 @@ Page({
     console.log('用户登录了吗？',this.data.isLogin)
   },
 
-  onShow(){
+  onShow(options){
     this.getTreeHoleData()
   },
 
-  onHide(){
+  onReady(){
     this.getTreeHoleData()
   },
 
@@ -42,7 +42,7 @@ Page({
     .then(res => {
       console.log("从数据库中根据openid返回的结果",res)
       this.setData({
-        treeHoleData: res.data
+        treeHoleData: res.data,
       })
     }).catch(err => {
       console.log(err)

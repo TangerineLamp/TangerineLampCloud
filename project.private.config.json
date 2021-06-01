@@ -13,50 +13,20 @@
     "miniprogram": {
       "list": [
         {
-          "id": -1,
-          "name": "db guide",
-          "pathName": "pages/databaseGuide/databaseGuide",
-          "query": ""
-        },
-        {
-          "name": "心理专攻编译模式",
-          "pathName": "pages/index1/index1/index1",
+          "name": "index3",
+          "pathName": "pages/index3/index3",
           "query": "",
           "scene": null
         },
         {
-          "name": "开发通道",
-          "pathName": "pages/index3/developer/developer",
+          "name": "咨询时间调整",
+          "pathName": "pages/index3/adjustAdviceTime/adjustAdviceTime",
           "query": "",
           "scene": null
         },
         {
-          "name": "词条检索编译模式",
-          "pathName": "pages/index1/words/wordsEdit/wordsEdit",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "课程编辑",
-          "pathName": "pages/index1/course/courseEdit/courseEdit",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index1/advice/appointment/appointment",
-          "pathName": "pages/index1/advice/appointment/appointment",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "预约咨询",
-          "pathName": "pages/index1/advice/appointment/appointment",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index3/diary/diary",
-          "pathName": "pages/index3/diary/diary",
+          "name": "dateChoose",
+          "pathName": "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
           "query": "",
           "scene": null
         }

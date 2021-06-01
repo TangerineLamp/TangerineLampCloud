@@ -1,0 +1,42 @@
+/* miniprogram/pages/index3/adjustAdviceTime/hoursChoose/hoursChoose.wxss */
+
+.page{
+  color: whitesmoke;
+}
+.choice{
+  margin-top: 30rpx;
+  background-color: #fff;
+  text-align: center;
+  font-size: 60rpx;
+  border-bottom: 1rpx solid #ccc;
+  display: flex;
+}
+.background{
+  display: inline-block;
+  font-size: 40rpx;
+  margin-top: 40rpx;
+  background-color: #fff;
+  padding: 30rpx ;
+  border-bottom: 2rpx solid #ccc;
+  display: flex;
+  justify-content: space-between;
+
+}
+.backgroundactive{
+  display: inline-block;
+  font-size: 40rpx;
+  margin-top: 40rpx;
+  background-color: #fff;
+  color: orange;
+  padding: 30rpx ;
+  border-bottom: 2rpx solid #ccc;
+  display: flex;
+  justify-content: space-between;
+  border: 1rpx solid rgba(255, 198, 60, 1);
+
+}
+.button{
+  font-size: 40rpx;
+  background-color: orange;
+  color: whitesmoke;
+}

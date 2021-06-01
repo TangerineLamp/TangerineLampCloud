@@ -94,6 +94,7 @@
     </view>
     <view class="address_wrap" bindtap="goToAddress">设置</view>
     <view class="app_info_wrap">
+      <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime/adjustAdviceTime" wx:if="{{isDoctor}}">咨询时间调整</navigator>
       <view class="app_info_item app_info_contact">
         <text>联系客服</text>
         <text>8888888888888</text>

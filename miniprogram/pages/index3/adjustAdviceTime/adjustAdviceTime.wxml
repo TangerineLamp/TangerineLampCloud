@@ -1,0 +1,6 @@
+<!--miniprogram/pages/index3/adjustAdviceTime/adjustAdviceTime.wxml-->
+<view class="header">
+  <view class="line1"><text class="orangeText">{{docInfo.name}}</text>老师，您好！</view>
+  <view class="addTitle" bindtap="addTime"><image class="add" src="/icons/index1_add.png"></image> 添加时间</view>
+</view>
+<view class="none"></view>

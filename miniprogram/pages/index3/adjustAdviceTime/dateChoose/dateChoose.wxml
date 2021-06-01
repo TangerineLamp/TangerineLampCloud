@@ -1,0 +1,44 @@
+<!--miniprogram/pages/index3/adjustAdviceTime/dateChoose/dateChoose.wxml-->
+
+<view class="top">
+  <view class="title">*预约注意事项*</view>
+  <view class="detail">
+    　　亲爱的同学您好！欢迎访问小橘灯大学生心理服务平台咨询预约系统，<text class="red">小橘灯心理咨询服务仅对小橘灯认证用户开放。</text>您可以根据自己的空闲时间选择您想要预约的时间段和咨询师，直接点击相关日期并选择对应时段和咨询师，即可预约。<text class="green">请提前1天预约，并预约7天以内的日期。</text>如果您的情况特别紧急，可以通过个人中心的联系方式联系工作人员，小橘灯运营组将竭诚为您服务。
+  </view>
+</view>
+<view class='wrap'>
+    <view>
+        <view class='date-show'>
+            <view class='lt-arrow' bindtap='lastMonth'>
+                <image src='/pages/images/左箭头.png' mode='aspectFit'></image>
+            </view>
+            {{year}}年{{month}}月
+            <view class='rt-arrow' bindtap='nextMonth'>
+                <image src='/pages/images/右箭头.png' mode='aspectFit'></image>
+            </view>
+        </view>
+    </view>
+    <view class='header'>
+        <view wx:for='{{date}}' wx:key="headerKey" class='{{(index == todayIndex) && isTodayWeek ? "weekMark" : ""}}'>
+            {{item}}
+            <view></view>
+        </view>
+    </view>
+    <!-- 当天之后的六天都需要呈现出一种可预约的状态 -->
+    <!-- 时间戳传参 传格林威治时间 -->
+    <view class='date-box'>
+        <view wx:for='{{dateArr}}'
+        wx:key = "dataKey"
+        class='{{isToday == item.isToday ? "nowDay" : ""}}'
+        data-date='{{isToday}}'
+        data-standardtime='{{item.standardTime}}'
+        bindtap="navToDetail">
+<!-- 传参不分大小写，参数命名必须得用小写 -->
+            <view class='date-head'>
+                <view>{{item.dateNum}}</view>
+            </view>
+            <!-- <view class='date-weight'>{{item.weight}}</view> -->
+        </view>
+    </view>
+</view>
+

@@ -103,6 +103,7 @@ Page({
           hasUserInfo: app.globalData.isLogin,
           isLogin: app.globalData.isLogin,
           isDeveloper: app.globalData.isDeveloper,
+          isDoctor: app.globalData.isDoctor,
         })
       }
     })
@@ -177,6 +178,7 @@ Page({
       const openId = await this.getOpenID()
 
       this.getAuthority(openId);
+      this.getDoctorAuth(openId);
 
       app.globalData.openid = openId
       // this.setData({
@@ -196,6 +198,20 @@ Page({
       if(res.total>0){
         app.globalData.isDeveloper = true
         console.log("用户是否有权限",app.globalData.isDeveloper)
+      }
+    })
+  },
+
+  getDoctorAuth(openId){
+    db.collection("doctors")
+    .where({
+      doctorId:openId
+    })
+    .count()
+    .then(res=>{
+      if(res.total>0){
+        app.globalData.isDoctor = true
+        console.log("用户是否是心理咨询师",app.globalData.isDoctor)
       }
     })
   }

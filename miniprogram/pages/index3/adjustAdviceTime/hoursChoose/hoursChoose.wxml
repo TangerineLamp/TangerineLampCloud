@@ -1,0 +1,25 @@
+<!--miniprogram/pages/index3/adjustAdviceTime/hoursChoose/hoursChoose.wxml-->
+
+<view class="choice">请选择您需要添加的时间段</view>
+<!-- <view class="schedule">
+    <view wx:for="{{scheduleList}}" 
+    class="background" 
+    bindtap="chosen" 
+    data-time="{{scheduleList[index]}}">
+        {{scheduleList[index]}}
+    </view>
+</view> -->
+<view class="schedule">
+    <!-- <view class="" bindtap="chosen">上午9:00-10:00</view>
+    <view class="" bindtap="chosen">上午10:00-11:00</view>
+    <view class="" bindtap="chosen">下午14:00-15:00</view>
+    <view class="" bindtap="chosen">下午15:00-16:00</view> -->
+    <view wx:for="{{hoursAndMinutes}}" 
+    class="background{{item==click?'active':''}}" 
+    bindtap="chosenTime" 
+    data-time="{{hoursAndMinutes[index]}}"
+    data-classify="{{item}}">
+        {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]}}:50
+    </view>
+</view>
+<button class="button" bindtap="makeAnAppointment">预约</button>

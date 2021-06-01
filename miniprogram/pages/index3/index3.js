@@ -222,7 +222,6 @@ Page({
       }
     })
   },
-<<<<<<< Updated upstream
 
   getDoctorAuth(openId){
     db.collection("doctors")
@@ -238,6 +237,4 @@ Page({
       console.log("用户是否是心理咨询师",app.globalData.isDoctor)
     })
   }
-=======
->>>>>>> Stashed changes
 })

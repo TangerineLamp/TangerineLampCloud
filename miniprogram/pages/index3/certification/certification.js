@@ -7,7 +7,7 @@ Page({
   data: {
     isLogin: false,
     isDeveloper: false,
-    isCertiDoctor: false,
+    isDoctor: false,
     isCertiStudent: false,
   },
 
@@ -18,7 +18,7 @@ Page({
     this.setData({
       isLogin: app.globalData.isLogin,
       isDeveloper: app.globalData.isDeveloper,
-      isCertiDoctor: app.globalData.isCertiDoctor,
+      isDoctor: app.globalData.isDoctor,
       isCertiStudent: app.globalData.isCertiStudent,
     })
   },
@@ -37,7 +37,7 @@ Page({
    */
   toCerti(option){
     var certiTemp = option.currentTarget.dataset.certitype
-    if (certiTemp == "certiDoctor" && this.data.isCertiDoctor){
+    if (certiTemp == "certiDoctor" && this.data.isDoctor){
       wx.showToast({
         title: '您已是认证医师',
         icon: 'none',
@@ -46,9 +46,9 @@ Page({
     }
     // 认证过医生就不可以认证学生了
     else if (certiTemp == "certiStudent" 
-    && (this.data.isCertiStudent || this.data.isCertiDoctor)){
+    && (this.data.isCertiStudent || this.data.isDoctor)){
       wx.showToast({
-        title: '您已是认证学生',
+        title: '您已认证',
         icon: 'none',
         duration: 1500
       })

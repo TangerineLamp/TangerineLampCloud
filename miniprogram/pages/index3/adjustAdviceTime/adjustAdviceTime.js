@@ -19,14 +19,16 @@ Page({
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
-    this.getDocInfo(app.globalData.openId);
+    
+    this.getDocInfo(app.globalData.openid);
     this.setData({
-      openId:app.globalData.openId,
+      openId:app.globalData.openid,
     })
+    console.log(this.data.openId)
   },
 
   onShow(){
-    this.getFreeTimeList(app.globalData.openId)
+    this.getFreeTimeList(app.globalData.openid)
   },
 
   getDocInfo(openId){

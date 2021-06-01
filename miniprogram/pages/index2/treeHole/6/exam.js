@@ -93,7 +93,7 @@ Page({
         title: '请先登录',
         icon: 'none',
         duration: 1500
-    })
+      })
     }
   },
 

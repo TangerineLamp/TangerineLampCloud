@@ -87,8 +87,6 @@ Page({
       if (!this.data.isChose) {
         wx.showToast({
           title: '亲，未选分区',
-          // 这个是云储存的路径
-          // image: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/failForNoChooseRegin.png',
           // 这个是本地文件的路径
           image: "/pages/index2/logo/failForNoChooseRegin.png",
           duration: 2000//持续的时间
@@ -99,7 +97,6 @@ Page({
         wx.showLoading({
           title: '发布中...',
         });
-        
         // 正式发送，内容包括
         // 对应的分区chooseRegin[chooseIndex]
         // 是否匿名isAnonymous
@@ -147,9 +144,9 @@ Page({
         console.log('储存树洞成功')
         console.log(this.data.userAvatar)
         console.log(this.data.userName)
-      } // end else in if(!Chose)
-    } // end else in if(this.data.treeholeDetails.length)
-  }, // end function senMsg
+      } 
+    } 
+  },
 
   /**
    * 更换选择条的样式和内容

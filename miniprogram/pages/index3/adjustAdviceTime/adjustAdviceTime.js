@@ -82,6 +82,34 @@ Page({
     wx.navigateTo({
       url: '/pages/index3/adjustAdviceTime/dateChoose/dateChoose',
     })
+  },
+
+  deleteFreeTime(e){
+    console.log("id:",e.target.dataset.id)
+    let tempid = e.target.dataset.id
+    const that = this
+    // 提醒用户是否要删除树洞
+    wx.showModal({
+      title: '',
+      content: '确定要删除吗？',
+      success: function (e) {
+        // 点击了确定以后会删除树洞和评论
+        if (e.confirm) { 
+          //  删除可预约咨询时间
+          db.collection('doctor_freeTime')
+          .where({
+            _id: tempid
+          })
+          .remove().then(res=>{
+            // 显示删除的提示界面
+            that.getFreeTimeList()
+            wx.showToast({
+              title: '删除成功',
+            })
+          })
+        } 
+      } 
+    })
   }
 
 

@@ -60,13 +60,14 @@
 .adviceList {
   display: flex;
   color:#ffffff;
-  background-color: #ffcc33;
+  background-color: #bed742;
   margin:20rpx;
   padding: 30rpx;
   border-radius: 10rpx;
 }
 
 .forbidden {
+  display: flex;
   color:#ffffff;
   background-color: #ff0000;
   margin:20rpx;
@@ -75,9 +76,21 @@
 }
 
 .flex1 {
-  flex:8;
+  font-size:35rpx;
+  flex:2;
 }
 
 .flex2 {
-  flex:2;
+  flex:1;
+  text-align: center;
+  align-items: center;
+}
+
+.flex3 {
+  border-radius: 10rpx;
+  color:#1d953f;
+  background-color: #fff;
+  flex:1;
+  text-align: center;
+  align-items: center;
 }

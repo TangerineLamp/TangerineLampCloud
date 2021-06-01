@@ -16,14 +16,16 @@
   wx:for="{{freeTimeList}}"
   wx:key="advicekey"
   data-timeCount="{{item.timeCount}}"
-  data-groupId="{{item.groupId}}"
   >
   <view class="{{item.isBooked?'forbidden':'adviceList'}}">
     <view class="flex1">{{filters.formatDate(item.timeCount)}}</view>
     <view wx:if="{{item.isBooked}}" class="flex2">
-    （已被预约）
+      （已预约）
     </view>
-    <view wx:if="{{!item.isBooked}}" class="flex2">
+    <view wx:if="{{!item.isBooked}}"
+    class="flex3"
+    data-id="{{item._id}}"
+    bindtap="deleteFreeTime">
       删除
     </view>
   </view>

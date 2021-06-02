@@ -156,7 +156,7 @@ Page({
     }
     else {
       wx.navigateTo({
-        url: '/pages/index1/advice/appointmentDetail/appointmentDetail?_futureDay='+time,
+        url: '/pages/index1/advice/newDetail/newDetail?_futureDay='+time,
         success: (result) => {
           console.log("进入预约界面")
         },
@@ -168,11 +168,6 @@ Page({
         //下面填写是否预约
         //如果预约将数据加入数据库，并且显示预约成功
       });
-      wx.showToast({
-        title: '进入预约界面',
-        icon: 'success',
-        duration: 1000
-      })
 
     }
 

@@ -1,0 +1,28 @@
+<!--miniprogram/pages/index1/advice/newDetail/newDetail.wxml-->
+<wxs src="/utils/hourfilter.wxs" module="filters"/>
+<view class="top">
+  <image class="targetImg" src="/icons/index1_appointment.png" alt="/icons/none_img.png"></image>
+  <text class="des">可预约时段</text>
+</view>
+<view class="bottom">
+  <block wx:if="{{freeTimeList.length===0}}">
+    <view class="noneAppointment">
+      暂无可预约时段
+    </view>
+  </block>
+  <block wx:if="{{!(freeTimeList.length===0)}}">
+    <view
+    class="freeTime_item"
+    wx:for="{{freeTimeList}}"
+    wx:for-item="item"
+    wx:key="idTime"
+    bindtap="adviceTap">
+      <view class="doctorName">
+        {{item.name}}老师
+      </view>
+      <view class="time">
+        {{filters.formatDate(item.timeCount)}}
+      </view>
+    </view>
+  </block>
+</view>

@@ -47,7 +47,6 @@
     "pages/index1/advice/adviceList/adviceList",
     "pages/index1/course/courseImg/courseImg",
     "pages/index1/advice/room/room",
-    "pages/index1/advice/room_list_test/room_list_test",
     "pages/index3/developer/developer",
     "pages/index1/words/wordsEdit/wordsEdit",
     "pages/index1/course/courseEdit/courseEdit",
@@ -59,7 +58,8 @@
     "pages/index1/test1/testlists/phq-9/phq-9",
     "pages/index3/adjustAdviceTime/adjustAdviceTime",
     "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
-    "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose"
+    "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
+    "pages/index1/advice/newDetail/newDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

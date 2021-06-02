@@ -50,7 +50,7 @@ Page({
   //从云端获取空闲时间信息
   getFreeTimeList(openId) {
     let nowDate = this.getNowDate();
-    db.collection("doctor_freeTime").orderBy('timeCount','asc').limit(13).where({
+    db.collection("doctor_freeTime").orderBy('timeCount','asc').limit(20).where({
       doctorId: openId,
       timeCount: _.gt(nowDate)
     })

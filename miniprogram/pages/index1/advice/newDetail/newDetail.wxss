@@ -1,0 +1,45 @@
+/* miniprogram/pages/index1/advice/newDetail/newDetail.wxss */
+.top {
+  display: flex;
+  align-items: center;
+  height: 120rpx;
+}
+
+.top .targetImg{
+  height: 75rpx;
+  width: 75rpx;
+  padding-left: 20rpx;
+  padding-top: 10rpx;
+}
+
+.top .des{
+  margin-left: 20rpx;
+  color: var(--orange1);
+}
+
+.bottom {
+  padding-top:10rpx;
+  background-color:#f7f7f7;
+  height: calc( 100vh - 120rpx );
+}
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 400rpx;
+  color:#b3b3b3;
+}
+
+.freeTime_item {
+  background-color: #fff;
+  /* display: flex; */
+  /* height: 222rpx; */
+  padding:20rpx;
+  border-bottom: 3rpx solid var(--orange0);
+  border-radius: 10rpx;
+  margin: 20rpx;
+  align-items: center;
+}
+
+.doctorName {
+  color: var(--orange1)
+}

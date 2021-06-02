@@ -1,3 +1,0 @@
-<view class="footer">
-    <button bindtap="hhh">获取openID</button>
-</view>

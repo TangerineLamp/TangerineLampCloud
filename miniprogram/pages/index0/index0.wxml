@@ -24,7 +24,7 @@
           每日文章
         </view>
         <view class="daily-des">
-          <text>写些啥呢，哈哈</text>
+          <text></text>
         </view>
       </view>
     </navigator>

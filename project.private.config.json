@@ -31,6 +31,15 @@
           "scene": null
         },
         {
+          "name": "pages/index1/advice/appointmentDetail/appointmentDetail",
+          "pathName": "pages/index1/advice/appointmentDetail/appointmentDetail",
+          "query": "_futureDay=2021%2F6%2F3",
+          "scene": null
+        },
+        {
+          "name": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
+          "pathName": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
+          "query": "_futureDay=2021%2F6%2F3",
           "name": "心理专攻",
           "pathName": "pages/index1/index1/index1",
           "query": "",

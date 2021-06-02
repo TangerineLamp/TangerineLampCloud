@@ -16,6 +16,8 @@ Page({
     newTimeCount: 0,
     exactTime: "",
     exactMin:"00",
+    nextHour:"",
+    nextMinute:"",
     click:0,
     choice:0,
     scheduleList: ["am 9:00-10:00",
@@ -65,11 +67,21 @@ Page({
       if(minutes<10){
         tempMin="0"+minutes
       }
+      var nextHour = (minutes<10)?hours:hours+1;
+      var nextMinute = (minutes+50) % 60;
+      var tempNextMinute = "";
+      if(nextMinute<10){
+        tempNextMinute="0"+nextMinute.toString();
+      }else{
+        tempNextMinute=nextMinute.toString();
+      }
       this.setData({
         exactTime:hours,
         exactMin:tempMin,
         click:hours,
-        choice:0
+        choice:0,
+        nextHour:nextHour,
+        nextMinute:tempNextMinute,
       })
       // this.setData({
       //   chooseIndex: e.detail.value,
@@ -82,9 +94,13 @@ Page({
     console.log(e.currentTarget.dataset)
     let click=e.currentTarget.dataset.classify
     let exactTime = e.currentTarget.dataset.time
+    let nextMinute = "50"
     this.setData({
       exactTime: exactTime,
-      click:click
+      click:click,
+      exactMin:"00",
+      nextHour:exactTime,
+      nextMinute:nextMinute,
     })
     console.log(this.data.exactTime)
   },
@@ -115,6 +131,7 @@ Page({
       if(res.total>0){
         wx.showToast({
           title: '该时间段已存在',
+          icon: 'none',
           duration:1000,
         })
       }else{

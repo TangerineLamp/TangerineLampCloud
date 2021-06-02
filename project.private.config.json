@@ -41,6 +41,11 @@
           "pathName": "pages/index1/advice/newDetail/newDetail",
           "query": "_futureDay='2021/6/8'",
           "scene": null
+        },
+        {
+          "name": "小时选择",
+          "pathName": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
+          "scene": null
         }
       ]
     }

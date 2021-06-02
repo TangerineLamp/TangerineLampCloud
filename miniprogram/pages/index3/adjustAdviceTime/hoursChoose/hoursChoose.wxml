@@ -16,9 +16,9 @@
     <!-- 这里还需要判断一下分钟数 -->
     <view wx:for="{{hoursAndMinutes}}" class="background{{(item==click)?'active':''}}" bindtap="chosenTime" data-time="{{hoursAndMinutes[index]}}" data-classify="{{item}}">
         <view wx:if="{{hoursAndMinutes[index]<=12}}">
-            上午 {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]+1}}:00
+            上午 {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]}}:50
         </view>
-        <view wx:else>下午 {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]+1}}:00</view>
+        <view wx:else>下午 {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]}}:50</view>
     </view>
 </view>
 <!-- 自定义时间 -->
@@ -33,10 +33,10 @@
 <view wx:if='{{click>0}}' class="frame">
     <view class="hint">您最终选择的时间为:</view>
     <view  wx:if='{{exactTime<=12}}' class="final_choice">
-        上午  {{exactTime}}:{{exactMin}}-{{exactTime+1}}:{{exactMin}}
+        上午  {{exactTime}}:{{exactMin}}-{{nextHour}}:{{nextMinute}}
     </view>
     <view  wx:if='{{exactTime>=13}}' class="final_choice">
-       下午  {{exactTime}}:{{exactMin}}-{{exactTime+1}}:{{exactMin}}
+       下午  {{exactTime}}:{{exactMin}}-{{nextHour}}:{{nextMinute}}
     </view>     
     
 </view>

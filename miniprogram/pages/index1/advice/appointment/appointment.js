@@ -129,7 +129,7 @@ Page({
         title: '请预约1天之后的日期',
         icon: 'none',
         image: '',
-        duration: 3000,
+        duration: 1000,
         mask: false,
         success: (result) => {
             console.log("预约失败")
@@ -144,7 +144,7 @@ Page({
         title: '请预约7天之内的日期',
         icon: 'none',
         image: '',
-        duration: 3000,
+        duration: 1000,
         mask: false,
         success: (result) => {
           console.log("预约失败")

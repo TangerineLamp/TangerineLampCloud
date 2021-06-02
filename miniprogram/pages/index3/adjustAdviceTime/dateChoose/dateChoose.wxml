@@ -1,9 +1,9 @@
 <!--miniprogram/pages/index3/adjustAdviceTime/dateChoose/dateChoose.wxml-->
 
 <view class="top">
-  <view class="title">*预约注意事项*</view>
+  <view class="title">*添加时段注意事项*</view>
   <view class="detail">
-    　　亲爱的同学您好！欢迎访问小橘灯大学生心理服务平台咨询预约系统，<text class="red">小橘灯心理咨询服务仅对小橘灯认证用户开放。</text>您可以根据自己的空闲时间选择您想要预约的时间段和咨询师，直接点击相关日期并选择对应时段和咨询师，即可预约。<text class="green">请提前1天预约，并预约7天以内的日期。</text>如果您的情况特别紧急，可以通过个人中心的联系方式联系工作人员，小橘灯运营组将竭诚为您服务。
+    　　亲爱的老师您好！欢迎访问小橘灯大学生心理服务平台<text class="red">咨询时段添加系统</text>。您可以根据自己的时间安排选择您空闲的咨询日期及时段，点击下方日历选择日期，在下一级页面选择时段，即可添加可预约的咨询时段。<text class="green">请提前1天添加时段，并添加7天以内的时段</text>。小橘灯团队诚挚感谢您的付出。
   </view>
 </view>
 <view class='wrap'>

@@ -127,10 +127,10 @@ Page({
 
     if (timeBindtap - timeToday < 86400000) {
       wx.showToast({
-        title: '请预约1天之后的日期',
+        title: '请选择1天之后的日期',
         icon: 'none',
         image: '',
-        duration: 3000,
+        duration: 1000,
         mask: false,
         success: (result) => {
             console.log("预约失败")
@@ -142,10 +142,10 @@ Page({
     }
     else if (timeBindtap - timeToday > 7 * 86400000) {
       wx.showToast({
-        title: '请预约7天之内的日期',
+        title: '请选择7天之内的日期',
         icon: 'none',
         image: '',
-        duration: 3000,
+        duration: 1000,
         mask: false,
         success: (result) => {
           console.log("预约失败")
@@ -169,12 +169,6 @@ Page({
         //下面填写是否预约
         //如果预约将数据加入数据库，并且显示预约成功
       });
-      wx.showToast({
-        title: '进入预约界面',
-        icon: 'success',
-        duration: 1000
-      })
-
     }
 
 

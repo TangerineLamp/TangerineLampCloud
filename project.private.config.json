@@ -45,6 +45,12 @@
         {
           "name": "小时选择",
           "pathName": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
+          "query": "",
+          "scene": null
+        },
+        {
+          "name": "日期选择",
+          "pathName": "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
           "scene": null
         }
       ]

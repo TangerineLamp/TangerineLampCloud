@@ -40,4 +40,4 @@
     </view>     
     
 </view>
-<button class="button" bindtap="makeAnAppointment">预约</button>
+<button class="button" class="but"bindtap="makeAnAppointment">添加</button>

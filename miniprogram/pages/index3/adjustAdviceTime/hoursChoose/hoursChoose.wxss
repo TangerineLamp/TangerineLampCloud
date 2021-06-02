@@ -26,6 +26,9 @@
   margin-right: 10rpx; */
   padding: 10rpx;
 }
+.but{
+  margin-bottom: 30rpx;
+}
 .frame{
   height: 140rpx;
   /* display: flex; */

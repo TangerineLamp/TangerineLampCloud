@@ -24,7 +24,7 @@
           每日文章
         </view>
         <view class="daily-des">
-          <text></text>
+          <text>Daily Passage</text>
         </view>
       </view>
     </navigator>
@@ -39,7 +39,7 @@
           治愈歌单
         </view>
         <view class="daily-des">
-          <text>写些啥呢，哈哈</text>
+          <text>Healing Music</text>
         </view>
       </view>
     </navigator>
@@ -56,7 +56,7 @@
           心理漫画
         </view>
         <view class="daily-des">
-          <text>写些啥呢，哈哈</text>
+          <text>Psyco Comic</text>
         </view>
       </view>
     </navigator>
@@ -71,7 +71,7 @@
           心理电台
         </view>
         <view class="daily-des">
-          <text>写些啥呢，哈哈</text>
+          <text>Psyco Radio</text>
         </view>
       </view>
     </navigator>

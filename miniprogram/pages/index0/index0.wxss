@@ -84,9 +84,9 @@ page{
 }
 
 .daily-icon image{
-  width: 135rpx;
-  height: 135rpx;
-  margin-top: 20rpx;
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 30rpx;
   margin-bottom: 20rpx;
   margin-left: 15rpx;
 }
@@ -231,7 +231,7 @@ page{
 .comicBody{
   width: 300rpx;
   height: 400rpx;
-  margin-bottom: 20rpx;
+  margin-bottom: 40rpx;
   margin-left: 27rpx;
   margin-right: 27rpx;
   position: relative;

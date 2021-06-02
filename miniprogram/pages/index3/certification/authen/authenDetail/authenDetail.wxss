@@ -1,0 +1,50 @@
+/* miniprogram/pages/index3/certification/authen/authenDetail/authenDetail.wxss */
+
+.title{
+  font-size: 50rpx;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+  font-weight: bold;
+}
+
+.info{
+  margin-top: 25rpx;
+}
+
+.txt{
+  font-size: 34rpx;
+  margin-top: 20rpx;
+  margin-left: 30rpx;
+}
+
+.doctorId{
+  font-size: 32rpx;
+  margin: 0 10rpx 0 0;
+  text-align: center;
+  color: #888888;
+}
+
+.img{
+  margin-left: 30rpx;
+  margin-top: 15rpx;
+}
+
+.buttons{
+  margin-top: 40rpx;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  margin-bottom: 100rpx;
+}
+
+.passButton{
+  float: right;
+  margin-left: 50rpx;
+  margin-right: 15rpx;
+}
+
+.rejectButton{
+  float: left;
+  margin-left: 15rpx;
+  margin-right: 50rpx;
+}

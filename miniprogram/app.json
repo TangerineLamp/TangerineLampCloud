@@ -59,7 +59,8 @@
     "pages/index3/adjustAdviceTime/adjustAdviceTime",
     "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
     "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
-    "pages/index1/advice/newDetail/newDetail"
+    "pages/index1/advice/newDetail/newDetail",
+    "pages/index3/certification/authen/authenDetail/authenDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

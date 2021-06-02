@@ -1,0 +1,40 @@
+<!--miniprogram/pages/index3/certification/authen/authenDetail/authenDetail.wxml-->
+
+<view class="title">
+  申请人信息
+</view>
+
+<view class="info">
+  <view class="txt" wx:key="{{review}}">
+    姓名：{{review.name}}
+  </view>
+
+  <view class="txt" wx:key="{{review}}">
+    单位：{{review.school}}
+  </view>
+
+  <view class="txt">申请人openid：</view>
+  <view class="doctorId" wx:key="{{review}}">
+    {{review.doctorId}}
+  </view>
+
+  <view class="txt" wx:key="{{review}}">
+    当前申请状态：{{review.isCertification}}
+  </view>
+</view>
+
+<view class="txt">申请人照片：</view>
+<view class="docSelfPic" wx:key="{{review}}">
+  <image src="{{review.docSelfPic}}" class="img" mode="widthFix"></image>
+</view>
+
+<view class="txt">申请人证件：</view>
+<view class="doctorProof" wx:key="{{review}}">
+  <image src="{{review.doctorProof}}" class="img" mode="widthFix"></image>
+</view>
+
+
+<view class="buttons">
+  <button class="rejectButtom" bindtap="reject" type="warn">审核不通过</button>
+  <button class="passButtom" bindtap="pass" type="primary">审核通过</button>
+</view>

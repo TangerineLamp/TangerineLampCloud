@@ -25,21 +25,6 @@
           "scene": null
         },
         {
-          "name": "dateChoose",
-          "pathName": "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "pages/index1/advice/appointmentDetail/appointmentDetail",
-          "pathName": "pages/index1/advice/appointmentDetail/appointmentDetail",
-          "query": "_futureDay=2021%2F6%2F3",
-          "scene": null
-        },
-        {
-          "name": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
-          "pathName": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
-          "query": "_futureDay=2021%2F6%2F3",
           "name": "心理专攻",
           "pathName": "pages/index1/index1/index1",
           "query": "",
@@ -54,12 +39,6 @@
         {
           "name": "预约详情",
           "pathName": "pages/index1/advice/newDetail/newDetail",
-          "query": "_futureDay='2021/6/8'",
-          "scene": null
-        },
-        {
-          "name": "心理课程",
-          "pathName": "pages/index1/course/courseIndex/courseIndex",
           "query": "_futureDay='2021/6/8'",
           "scene": null
         }

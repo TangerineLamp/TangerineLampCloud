@@ -104,34 +104,54 @@ Page({
     var groupId = this.data.openId+Date.now();
     //!!!这里是房间中添加心理咨询师openid逻辑
     var members = [this.data.openId,"oRKwI5p-MekyCkEb8fTvlUntbZKw"];
-    wx.showModal({
-      title: '您确认预约吗',
-      content: '',
-      showCancel: true,
-      cancelText: '取消',
-      cancelColor: '#000000',
-      confirmText: '确定',
-      confirmColor: '#3CC51F',
-      success: (result) => {
-        if(result.confirm){
-        db.collection("doctor_freeTime").add({
-        data:{
-          //经过计算最后折合的时间戳
-          timeCount:exactTimeCount,
-          standardTime: this.data.intentDay._futureDay,
-        // 从零点开始的时间戳
-          startTimeCount: startTimeCount,
-          doctorId:this.data.openId,
-          name:this.data.docInfo.name
-        }
-    }).then(res=>{
-      console.log("添加成功")
+
+    db.collection("doctor_freeTime")
+    .where({
+      doctorId:this.data.openId,
+      timeCount:exactTimeCount
     })
-        }
-      },
-      fail: ()=>{},
-      complete: ()=>{}
-    });
+    .count()
+    .then(res=>{
+      if(res.total>0){
+        wx.showToast({
+          title: '该时间段已存在',
+          duration:1000,
+        })
+      }else{
+        wx.showModal({
+          title: '您确认添加吗',
+          content: '',
+          showCancel: true,
+          cancelText: '取消',
+          cancelColor: '#000000',
+          confirmText: '确定',
+          confirmColor: '#3CC51F',
+          success: (result) => {
+            if(result.confirm){
+            db.collection("doctor_freeTime").add({
+            data:{
+              //经过计算最后折合的时间戳
+              timeCount:exactTimeCount,
+              standardTime: this.data.intentDay._futureDay,
+            // 从零点开始的时间戳
+              startTimeCount: startTimeCount,
+              doctorId:this.data.openId,
+              name:this.data.docInfo.name,
+              isBooked:false,
+            }
+        }).then(res=>{
+          wx.showToast({
+            title: '添加成功',
+          })
+          console.log("添加成功")
+        })
+            }
+          },
+          fail: ()=>{},
+          complete: ()=>{}
+        });
+      }
+    })
     
     // db.collection("chatroom_group").where({
     //   timeCount:exactTime

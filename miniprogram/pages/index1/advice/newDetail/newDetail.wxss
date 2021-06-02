@@ -31,9 +31,10 @@
 
 .freeTime_item {
   background-color: #fff;
-  /* display: flex; */
+  display: flex;
   /* height: 222rpx; */
   padding:20rpx;
+  padding-right:40rpx;
   border-bottom: 3rpx solid var(--orange0);
   border-radius: 10rpx;
   margin: 20rpx;
@@ -41,5 +42,19 @@
 }
 
 .doctorName {
-  color: var(--orange1)
+  color: var(--orange1);
+}
+
+.leftBlock {
+  flex:4;
+}
+
+.rightBlock {
+  flex:1;
+  color:#ffffff;
+  background-color: var(--orange0);
+  border-radius: 10rpx;
+  padding:10rpx;
+  text-align: center;
+  align-items: center;
 }

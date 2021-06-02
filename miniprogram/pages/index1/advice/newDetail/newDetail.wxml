@@ -15,14 +15,23 @@
     class="freeTime_item"
     wx:for="{{freeTimeList}}"
     wx:for-item="item"
-    wx:key="idTime"
-    bindtap="adviceTap">
+    wx:key="idTime">
+    <view class="leftBlock">
       <view class="doctorName">
         {{item.name}}老师
       </view>
       <view class="time">
         {{filters.formatDate(item.timeCount)}}
       </view>
+    </view>
+    <view
+    class="rightBlock"
+    data-docid="{{item.doctorId}}"
+    data-timecount="{{item.timeCount}}"
+    data-id="{{item._id}}"
+    bindtap="adviceTap">
+      预约
+    </view>
     </view>
   </block>
 </view>

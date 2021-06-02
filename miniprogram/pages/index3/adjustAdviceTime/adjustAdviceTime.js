@@ -39,6 +39,7 @@ Page({
     })
     .get()
     .then(res=>{
+      console.log("res",res.data)
       console.log("docInfo:",res.data[0])
       this.setData({
         docInfo:res.data[0]

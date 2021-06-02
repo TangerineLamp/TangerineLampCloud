@@ -12,9 +12,13 @@ Page({
     dateArr: [],
     isToday: 0,
     isTodayWeek: false,
-    todayIndex: 0
+    todayIndex: 0,
+    picList:[]
   },
   onLoad: function () {
+    var picList=[]
+    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/qiandao/左箭头.png")
+    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/qiandao/右箭头.png")
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -22,8 +26,10 @@ Page({
     this.setData({
       year: year,
       month: month,
-      isToday: '' + year + month + now.getDate()
+      isToday: '' + year + month + now.getDate(),
+      picList:picList
     })
+    console.log(this.data.picList)
     this.getData();
     this.checkIsQianDao();
     //this.isColor();
@@ -235,6 +241,7 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+    this.getData();
   },
   nextMonth: function () {
     //全部时间的月份都是按0~11基准，显示月份才+1
@@ -245,6 +252,7 @@ Page({
       month: (month + 1)
     })
     this.dateInit(year, month);
+    this.getData();
   }
 
 })

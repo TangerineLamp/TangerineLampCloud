@@ -76,7 +76,8 @@
     text-align: center;
     color: #fff;
     /* background-color: orange; */
-    background-color: #22A7F6;
+    /* background-color: #22A7F6; */
+    background-color: var(--orange0);
     margin: 0 auto;
 }
 .date-weight{
@@ -84,7 +85,7 @@
     padding: 15rpx 0;
 }
 .nowDay .date-weight{
-    color: #22A7F6;
+    color: #f67022;
     /* color: #22A7F6; */
 }
 .one{

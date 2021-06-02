@@ -9,11 +9,11 @@
     <view>
         <view class='date-show'>
             <view class='lt-arrow' bindtap='lastMonth'>
-                <image src='/pages/images/左箭头.png' mode='aspectFit'></image>
+                <image src='{{picList[0]}}' mode='aspectFit'></image>
             </view>
             {{year}}年{{month}}月
             <view class='rt-arrow' bindtap='nextMonth'>
-                <image src='/pages/images/右箭头.png' mode='aspectFit'></image>
+                <image src='{{picList[1]}}' mode='aspectFit'></image>
             </view>
         </view>
     </view>

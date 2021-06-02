@@ -34,13 +34,21 @@
   <scroll-view scroll-top="{{scrollTop}}" scroll-y class="right_content"
   bindscrolltolower="bottomRefresh" lower-threshold="20">
     <!-- 右侧渲染循环 -->
-    <navigator
+    <!-- <navigator
     class="test_item"
     wx:for="{{rightTestList}}"
     wx:for-index="index1"
     wx:for-item="item1"
     wx:key="id"
-    url="{{currentIndex===0?('/pages/index1/test1/paidTestDetail/paidTestDetail?_id='+item1._id):'/pages/index1/test1/freeTestDetail/freeTestDetail?_id='+item1._id}}">
+    url="{{currentIndex===0?('/pages/index1/test1/paidTestDetail/paidTestDetail?_id='+item1._id):'/pages/index1/test1/freeTestDetail/freeTestDetail?_id='+item1._id}}"> -->
+    <view
+    class="test_item"
+    wx:for="{{rightTestList}}"
+    wx:for-index="index1"
+    wx:for-item="item1"
+    wx:key="id"
+    data-id="{{item1._id}}"
+    bindtap="navToTap">
       <view class="test_left">
         <image src="{{item1.img}}" alt="/icons/none_img.png" mode="aspectFill"></image>
         <view class="test_type">
@@ -55,6 +63,7 @@
           {{item1.des}}
         </view>
       </view>
-    </navigator>
+    </view>
+    <!-- </navigator> -->
   </scroll-view>
 </view>

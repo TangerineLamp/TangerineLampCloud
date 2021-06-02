@@ -31,8 +31,6 @@
           "scene": null
         },
         {
-<<<<<<< HEAD
-<<<<<<< HEAD
           "name": "pages/index1/advice/appointmentDetail/appointmentDetail",
           "pathName": "pages/index1/advice/appointmentDetail/appointmentDetail",
           "query": "_futureDay=2021%2F6%2F3",
@@ -42,9 +40,6 @@
           "name": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
           "pathName": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
           "query": "_futureDay=2021%2F6%2F3",
-=======
-=======
->>>>>>> dev
           "name": "心理专攻",
           "pathName": "pages/index1/index1/index1",
           "query": "",
@@ -66,10 +61,6 @@
           "name": "心理课程",
           "pathName": "pages/index1/course/courseIndex/courseIndex",
           "query": "_futureDay='2021/6/8'",
-<<<<<<< HEAD
->>>>>>> dev
-=======
->>>>>>> dev
           "scene": null
         }
       ]

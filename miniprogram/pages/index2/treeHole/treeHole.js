@@ -1,32 +1,36 @@
-const db = wx.cloud.database();
 const app = getApp()
+const db = wx.cloud.database()
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    scrollindex: 0,
-    totalnum:  4,
-    starty: 0,  
-    startTime:  0,
-    endy: 0,
-    endTime:  0,
-    critical:  80,
-     maxTimeCritical: 300,
-     minTimeCritical: 100,
-    margintop:  0,
-     currentTarget: null,
-    treeHoleType: "工作区",
-    avatarPath: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_b.svg",
-    treeHoleData: null,
+    treeholeJson: "",
+    treeHoleData: "",
   },
 
   /**
    * 生命周期函数--监听页面加载
    */
   onLoad: function (options) {
+    let josnTemp = options.title + ""
+    this.setData({
+      treeholeJson: app.globalData.treehole[josnTemp]
+    })
+    console.log(this.data.treeholeJson)
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
+  onShow: function () {
     this.getTreeHoleData()
+    console.log(this.data.treeholeJson.color)
+    wx.setNavigationBarColor({
+      frontColor: "#ffffff",
+      backgroundColor: this.data.treeholeJson.color,
+    })
   },
 
   /**
@@ -42,7 +46,8 @@ Page({
   onReachBottom: function () {
 
   },
-  /**
+
+    /**
    * 跳转到树洞编辑页面
    */
   gotoPersonalEditor: function() {
@@ -58,7 +63,7 @@ Page({
         title: '请先登录',
         icon: 'none',
         duration: 1500
-    })
+      })  
     }
   },
 
@@ -66,7 +71,11 @@ Page({
    * 获得数据库里面的树洞数据
    */
   getTreeHoleData(){
-    db.collection("index2_treeholes").get()
+    db.collection("index2_treeholes")
+    .where({
+      tag: this.data.treeholeJson.type
+    })
+    .get()
     .then(res => {
       console.log(res)
       this.setData({
@@ -74,33 +83,6 @@ Page({
       })
     }).catch(err => {
       console.log(err)
-    })
-  },
-
-  scrollTouchStart: function (e) {
-    let py =  e.touches[0].pageY,
-      stamp =  e.timeStamp,
-      currentTarget = e.currentTarget.id;
-    console.log(py);
-    this.setData({
-      starty:  py,
-      startTime: stamp,
-      currentTarget: currentTarget
-    })
-  },
-
-  scrollTouchMove(e) {
-    //  console.log(e);
-  },
-
- scrollTouchEnd: function (e) {
-  let py =  e.changedTouches[0].pageY,
-    stamp =  e.timeStamp,
-    d =  this.data,
-     timeStampdiffer = stamp - d.startTime;
-   this.setData({
-    endy:  py,
-    endTime:  stamp
     })
   },
 

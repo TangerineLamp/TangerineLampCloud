@@ -6,7 +6,7 @@
   <text class='case_title in_mid' style="color:{{treeholeJson.color}}">树洞广场 | {{treeholeJson.type}}</text>
 </view>
 <!-- 整个树洞的滚条界面 -->
-<scroll-view class='theBackground' scroll-y="true" enable-back-to-top="true">
+<scroll-view scroll-y="true" enable-back-to-top="true">
   <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
     <!-- 单个树洞条目 -->
     <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage" style="color:{{treeholeJson.color}}">

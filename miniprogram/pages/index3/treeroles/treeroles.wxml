@@ -11,7 +11,7 @@
 </view>
 
 <block wx:if="{{isLogin}}">
-    <scroll-view class="theScoll" scroll-y="true" enable-back-to-top="true">
+    <scroll-view scroll-y="true" enable-back-to-top="true">
         <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
             <view class='singleBlock' bindtap="toDetail" data-thistreeholeid="{{item._id}}">
                 <view class="single_top_container in_mid">

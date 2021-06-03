@@ -70,8 +70,9 @@ Page({
     console.log(oldData)
     if(oldData.length < maxTopicCount){
       // 显示加载条
-      wx.showLoading({
-        title: '加载中',
+      wx.showToast({
+        icon: 'loading',
+        duration: 500
       })
       // 开始更新下拉的数据
       db.collection("index1_Scl90TestList")
@@ -86,18 +87,11 @@ Page({
           topicData: newData
         })
       })
-      // 加载条关闭
-      wx.hideLoading()
     }
     // 如果现在问题的数量等于问题总数量就显示‘加载完毕’
     else{
       this.setData({
         isShowSubmit: true
-      })
-      wx.showToast({
-        title: '到底了哦',
-        icon: 'success',
-        duration: 1000
       })
     }
   },

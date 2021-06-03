@@ -7,16 +7,7 @@ page{
   justify-content: center;
   align-items: center;
 }
-/*************************************滚动页面设计*************************************/
-.theScoll{
-  background-color: #efefef;
-  width: 100%;
-  height: calc( 100vh - 10vh );
-  left: 0rpx;
-  right: 0rpx;
-  top: 100rpx;
-  position: absolute;
-}
+
 /*************************************标题部分*************************************/
 /* 顶部装载标题的空白容器 */
 .topcontainer{

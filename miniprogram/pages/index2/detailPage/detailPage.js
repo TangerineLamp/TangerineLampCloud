@@ -347,6 +347,7 @@ Page({
           })
         })
       }
+      // 非树洞主人只能看到自己发的消息
       else if (this.data.isLogin && (!this.data.isHost)){
         db.collection("index2_comments")
         .where({

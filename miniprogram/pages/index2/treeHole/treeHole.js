@@ -70,13 +70,10 @@ Page({
     }
     // 如果现在问题的数量等于问题总数量就显示‘加载完毕’
     else{
-      this.setData({
-        isShowSubmit: true
-      })
       wx.showToast({
         title: '到底了哦',
         icon: 'success',
-        duration: 1000
+        duration: 500
       })
     }
   },
@@ -88,7 +85,7 @@ Page({
     // 提示如果已经登录了就可以发树洞
     if (app.globalData.isLogin){
       wx.navigateTo({
-        url: app.globalData.toPersonalEditPage
+        url: "/pages/index2/editPage/personalEditor"
       })
     }
     // 如果没有登录则提醒先登录

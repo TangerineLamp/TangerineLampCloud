@@ -1,15 +1,17 @@
 // pages/index3/treeroles/treeroles.js
 const db = wx.cloud.database()
 const app = getApp()
+var maxCount = 0
 Page({
 
   /**
    * 页面的初始数据
    */
   data: {
-    theHostOpenId: null,  // 在加载页面时从登录界面获取openid
-    _: null,  //  垃圾
-    isLogin: false, // 记录是否登录
+    theHostOpenId: null,  //  在加载页面时从登录界面获取openid
+    _: null,              //  垃圾
+    isLogin: false,       //  记录是否登录
+    treeHoleData: null,   //  树洞
   },
 
   onLoad: function (options) {
@@ -23,10 +25,7 @@ Page({
 
   onShow(options){
     this.getTreeHoleData()
-  },
-
-  onReady(){
-    this.getTreeHoleData()
+    this.getMaxCount()
   },
 
   /**
@@ -38,6 +37,8 @@ Page({
     .where({
       _openid: this.data.theHostOpenId
     })
+    .orderBy('time', 'desc')
+    .limit(10)
     .get()
     .then(res => {
       console.log("从数据库中根据openid返回的结果",res)
@@ -101,6 +102,64 @@ Page({
       url: tempurl,
     })
   },
+
+  /**
+   * 只要触底就进行更新
+   * 直至将collection中的树洞条目更新完
+   */
+  onReachBottom: function(){
+    console.log(1)
+    let oldData = this.data.treeHoleData;
+    // 如果现在问题的数量小于问题总数量就下拉更新
+    if(oldData.length < maxCount){
+      // 显示加载条
+      wx.showToast({
+        icon: 'loading',
+        duration: 500
+      })
+      // 开始更新下拉的数据
+      db.collection("index2_treeholes")
+      .where({
+        _openid: this.data.theHostOpenId
+      })
+      .orderBy('time', 'desc')
+      .skip(oldData.length)
+      .limit(10)
+      .get()
+      .then(res=>{
+        // 将新问题进行缝合
+        let newList = res.data
+        let newData = oldData.concat(newList)
+        // 缝合好的新老数据传给data中问题列表
+        this.setData({
+          treeHoleData: newData
+        })
+      })
+    }
+    // 如果现在问题的数量等于问题总数量就显示‘加载完毕’
+    else{
+      wx.showToast({
+        title: '到底了哦',
+        icon: 'success',
+        duration: 500
+      })
+    }
+  },
+
+  /**
+   * 获得我的树洞数目
+   */
+  getMaxCount(){
+    db.collection('index2_treeholes')
+    .where({
+      _openid: this.data.theHostOpenId
+    })
+    .count()
+    .then(res => {
+      maxCount = res.total
+    })
+  },
+
 
   catchtouchmove(){}
 })

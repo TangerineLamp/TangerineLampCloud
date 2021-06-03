@@ -1,5 +1,6 @@
 const app = getApp()
 const db = wx.cloud.database()
+var maxCount = 0
 Page({
 
   /**
@@ -31,23 +32,56 @@ Page({
       frontColor: "#ffffff",
       backgroundColor: this.data.treeholeJson.color,
     })
+    this.getMaxCount()
   },
 
   /**
-   * 页面相关事件处理函数--监听用户下拉动作
+   * 只要触底就进行更新
+   * 直至将collection中的树洞条目更新完
    */
-  onPullDownRefresh: function () {
-
+  onReachBottom: function(){
+    console.log(1)
+    let oldData = this.data.treeHoleData;
+    // 如果现在问题的数量小于问题总数量就下拉更新
+    if(oldData.length < maxCount){
+      // 显示加载条
+      wx.showToast({
+        icon: 'loading',
+        duration: 500
+      })
+      // 开始更新下拉的数据
+      db.collection("index2_treeholes")
+      .where({
+        tag: this.data.treeholeJson.type
+      })
+      .orderBy('time', 'desc')
+      .skip(oldData.length)
+      .limit(10)
+      .get()
+      .then(res=>{
+        // 将新问题进行缝合
+        let newList = res.data
+        let newData = oldData.concat(newList)
+        // 缝合好的新老数据传给data中问题列表
+        this.setData({
+          treeHoleData: newData
+        })
+      })
+    }
+    // 如果现在问题的数量等于问题总数量就显示‘加载完毕’
+    else{
+      this.setData({
+        isShowSubmit: true
+      })
+      wx.showToast({
+        title: '到底了哦',
+        icon: 'success',
+        duration: 1000
+      })
+    }
   },
 
   /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-    /**
    * 跳转到树洞编辑页面
    */
   gotoPersonalEditor: function() {
@@ -75,6 +109,8 @@ Page({
     .where({
       tag: this.data.treeholeJson.type
     })
+    .limit(10)
+    .orderBy('time', 'desc')
     .get()
     .then(res => {
       console.log(res)
@@ -83,6 +119,20 @@ Page({
       })
     }).catch(err => {
       console.log(err)
+    })
+  },
+
+  /**
+   * 获得这一类型树洞的数目
+   */
+  getMaxCount(){
+    db.collection('index2_treeholes')
+    .where({
+      tag: this.data.treeholeJson.type
+    })
+    .count()
+    .then(res => {
+      maxCount = res.total
     })
   },
 

@@ -1,5 +1,6 @@
 const db = wx.cloud.database()
 const app = getApp()
+var maxCount = 0
 
 Page({
   data: {
@@ -41,6 +42,7 @@ Page({
 
   onShow(){
     this.getTreeholeData()
+    this.getMaxCount()
   },
 
   /**
@@ -77,10 +79,6 @@ Page({
    * 获取评论内容
    */
   getComments(){
-    console.log('是否登录',this.data.isLogin)
-    console.log('游客openid',this.data.visiterOpenid)
-    console.log('树洞id',this.data.treeholeid)
-    console.log('ta是主人吗',this.data.isHost)
     // 如果是树洞主人访问自己的树洞
     // 可以看到所有的回复内容
     if (this.data.isLogin && this.data.isHost){
@@ -88,6 +86,8 @@ Page({
       .where({
         treeholeid: this.data.treeholeid
       })
+      .orderBy('time', 'desc')
+      .limit(10)
       .get()
       .then(res=>{
         console.log("主人访问,评论详细内容", res.data)
@@ -104,12 +104,43 @@ Page({
         treeholeid: this.data.treeholeid,
         _openid: this.data.visiterOpenid
       })
+      .orderBy('time','desc')
+      .limit(10)
       .get()
       .then(res=>{
         console.log("别人访问,评论详细内容", res.data)
         this.setData({
           comments: res.data
         })
+      })
+    }
+  },
+
+  /**
+   * 获得评论的数量
+   */
+  getMaxCount(){
+    // 树洞主人获得所有的评论量
+    if (this.data.isLogin && this.data.isHost){
+      db.collection('index2_comments')
+      .where({
+        treeholeid: this.data.treeholeid
+      })
+      .count()
+      .then(res => {
+        maxCount = res.total
+      })
+    }
+    // 游客只能获得自己评论的评论量
+    else if (this.data.isLogin && (!this.data.isHost)){
+      db.collection("index2_comments")
+      .where({
+        treeholeid: this.data.treeholeid,
+        _openid: this.data.visiterOpenid
+      })
+      .count()
+      .then(res=>{
+        maxCount = res.total
       })
     }
   },
@@ -277,6 +308,75 @@ Page({
         title: '请先登录',
         icon: 'none',
         duration: 1500
+      })
+    }
+  },
+
+  /**
+   * 只要触底就进行更新
+   * 直至将collection中的评论条目更新完
+   */
+  onReachBottom: function(){
+    let oldData = this.data.comments;
+    console.log(oldData)
+    // 如果现在问题的数量小于问题总数量就下拉更新
+    if(oldData.length < maxCount){
+      // 显示加载条
+      wx.showToast({
+        icon: 'loading',
+        duration: 500
+      })
+      // 开始更新下拉的数据
+      // 树洞主人看到所有评论
+      if (this.data.isLogin && this.data.isHost){
+        db.collection("index2_comments")
+        .where({
+          treeholeid: this.data.treeholeid
+        })
+        .orderBy('time', 'desc')
+        .skip(oldData.length)
+        .limit(10)
+        .get()
+        .then(res=>{
+          // 将新条目进行缝合
+          let newList = res.data
+          let newData = oldData.concat(newList)
+          // 缝合好的新老数据传给data中条目列表
+          this.setData({
+            comments: newData
+          })
+        })
+      }
+      else if (this.data.isLogin && (!this.data.isHost)){
+        db.collection("index2_comments")
+        .where({
+          treeholeid: this.data.treeholeid,
+          _openid: this.data.visiterOpenid
+        })
+        .orderBy('time', 'desc')
+        .skip(oldData.length)
+        .limit(10)
+        .get()
+        .then(res=>{
+          // 将新条目进行缝合
+          let newList = res.data
+          let newData = oldData.concat(newList)
+          // 缝合好的新老数据传给data条目列表
+          this.setData({
+            comments: newData
+          })
+        })
+      }
+    }
+    // 如果现在问题的数量等于问题总数量就显示‘加载完毕’
+    else{
+      this.setData({
+        isShowSubmit: true
+      })
+      wx.showToast({
+        title: '到底了哦',
+        icon: 'success',
+        duration: 1000
       })
     }
   },

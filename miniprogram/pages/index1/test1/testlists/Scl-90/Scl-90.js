@@ -48,7 +48,8 @@ Page({
    * 只能获得最多20个
    */
   getInitScl90Test(){
-    db.collection("index1_Scl90TestList").get()
+    db.collection("index1_Scl90TestList")
+    .get()
     .then(res => {
       console.log(res)
       this.setData({

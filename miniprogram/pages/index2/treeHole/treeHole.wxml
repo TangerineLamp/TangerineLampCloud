@@ -9,12 +9,12 @@
 <scroll-view class='theBackground' scroll-y="true" enable-back-to-top="true">
   <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
     <!-- 单个树洞条目 -->
-    <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage">
+    <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage" style="color:{{treeholeJson.color}}">
       <view class="single_top_container in_mid">
-        <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' class="host_head_img"></image>
+        <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' class="host_head_img" lazy-load="true"></image>
         <image wx:if="{{!item.isAnonymous}}"
           src="{{item.avatar}}? {{item.avatar}} : {{treeholeJson.avatar}}"
-          mode='aspectFill' class="host_head_img"></image>
+          mode='aspectFill' class="host_head_img" lazy-load="true"></image>
         <view class="host_info_container">
           <view wx:if="{{item.isAnonymous}}" class="nick_name color" space="ensp">一个匿名的小可爱</view>
           <view wx:if="{{!item.isAnonymous}}" class="nick_name color" space="ensp">{{item.nickName}}</view>

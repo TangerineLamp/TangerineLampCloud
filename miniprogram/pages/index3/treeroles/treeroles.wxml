@@ -15,7 +15,7 @@
         <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
             <view class='singleBlock' bindtap="toDetail" data-thistreeholeid="{{item._id}}">
                 <view class="single_top_container in_mid">
-                    <image src="{{item.avatar}}" mode='aspectFill' class="host_head_img"></image>
+                    <image src="{{item.avatar}}" mode='aspectFill' class="host_head_img" lazy-load="true"></image>
                     <view class="host_info_container">
                         <view type="userNickName" class="nick_name color" space="ensp">{{item.nickName}}</view>
                         <view class="time_info" space="ensp">
@@ -25,7 +25,7 @@
                     </view>
                     <!--删除图片-->
                     <view class="deleteImg_container" data-thistreeholeid="{{item._id}}" catchtap="deleteMe">
-                        <image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill"></image>
+                        <image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill" lazy-load="true"></image>
                     </view>
                 </view>
                 <view class="single_body_container">

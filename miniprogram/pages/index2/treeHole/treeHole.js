@@ -40,7 +40,6 @@ Page({
    * 直至将collection中的树洞条目更新完
    */
   onReachBottom: function(){
-    console.log(1)
     let oldData = this.data.treeHoleData;
     // 如果现在问题的数量小于问题总数量就下拉更新
     if(oldData.length < maxCount){
@@ -65,6 +64,9 @@ Page({
         // 缝合好的新老数据传给data中问题列表
         this.setData({
           treeHoleData: newData
+        }).catch(err => {
+          console.log('获得树洞数据失败 ',err)
+          this.showError('网络连接失败')
         })
       })
     }
@@ -115,7 +117,8 @@ Page({
         treeHoleData: res.data
       })
     }).catch(err => {
-      console.log(err)
+      console.log('获得树洞数据失败 ',err)
+      this.showError('网络连接失败')
     })
   },
 
@@ -142,5 +145,13 @@ Page({
     wx.navigateTo({
       url: tempurl,
     })
-  }
+  },
+
+  showError(detail){
+    wx.showToast({
+      title: detail,
+      icon: 'error',
+      duration: 2000
+    })
+  },
 })

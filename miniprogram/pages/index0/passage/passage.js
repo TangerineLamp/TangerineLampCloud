@@ -1,6 +1,8 @@
 // pages/index0/passage/passage.js
 
 const db = wx.cloud.database();
+let cnt = 0;
+// let passageList = [];
 
 Page({
 
@@ -20,6 +22,7 @@ Page({
     })
     this.getPassageList();
     wx.hideLoading();
+    this.getCount();
   },
 
   // 获取文章列表
@@ -68,11 +71,37 @@ Page({
 
   },
 
-  /**
+    /**
    * 页面上拉触底事件的处理函数
    */
   onReachBottom: function () {
+    let oldData = this.data.passageList;
+    if(oldData.length<cnt){
+      wx.showLoading({
+        title: '加载中',
+      })
+      db.collection("index0_passageLongPicture").orderBy('pushTime', 'desc').skip(oldData.length).limit(8).get().then(res=>{
+        let newList = res.data;
+        let newData = oldData.concat(newList);
+        this.setData({
+          passageList:newData
+        })
+      })
+      wx.hideLoading();
+    }else{
+      wx.showToast({
+        title: '到底了哦',
+        icon: 'success',
+        duration: 1000
+      })
+    }
+  },
 
+  // 获得文章的数目
+  getCount() {
+    db.collection("index0_passageLongPicture").count().then(res=>{
+      cnt = res.total
+    })
   },
 
   /**

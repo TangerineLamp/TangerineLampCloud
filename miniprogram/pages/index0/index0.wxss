@@ -209,7 +209,7 @@ page{
 .contentContainer .text{
   width: 100%;
   height: 100%;
-  background: rgba(0,0,0,0.3);
+  background: rgba(0,0,0,0.4);
   position: absolute;
   top: 0;
   left: 0;
@@ -222,9 +222,16 @@ page{
 }
 
 .contentContainer .text .contentTitle{
-  font-size: 32rpx;
+  font-size: 34rpx;
   margin-left: 20rpx;
   margin-right: 20rpx;
+  text-align: center;
+  display: -webkit-box;
+  overflow: hidden;
+  text-emphasis: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 /* 漫画内容展示模块 */

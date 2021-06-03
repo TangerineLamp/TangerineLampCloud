@@ -1,7 +1,0 @@
-.color{
-  color: #5C92F1;
-}
-.backColor{
-  background-color: #5C92F1;
-}
-@import "/pages/index2/treeHole/treeHole";

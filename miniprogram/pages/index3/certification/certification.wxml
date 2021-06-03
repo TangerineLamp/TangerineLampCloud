@@ -6,7 +6,7 @@
   <view class="singlecontainer" data-certitype="certiDoctor" bindtap="toCerti">
     <view class="certiButton">医师认证</view>
   </view>
-  <!-- <view class="singlecontainer" wx:if="{{isDeveloper}}" data-certitype="authen" bindtap="toCerti">
+  <view class="singlecontainer" wx:if="{{isDeveloper}}" data-certitype="authen" bindtap="toCerti">
     <view class="certiButton">验证通道</view>
-  </view> -->
+  </view>
 </view>

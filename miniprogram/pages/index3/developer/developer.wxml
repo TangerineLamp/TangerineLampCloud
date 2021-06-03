@@ -18,5 +18,5 @@
   <navigator url="/pages/index1/course/courseEdit/courseEdit">心理课程</navigator>
   <navigator url="">专业测评</navigator>
   <navigator url="">娱乐测评</navigator>
-  <navigator url="/pages/index3/certification/authen/authen">验证通道</navigator>
+  <!-- <navigator url="/pages/index3/certification/authen/authen">验证通道</navigator> -->
 </block>

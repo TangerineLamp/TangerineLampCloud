@@ -1,8 +1,0 @@
-<!-- 日期转字符串的wxs函数 -->
-<wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
-
-<view class='topcontainer in_mid'>
-  <text class='case_title in_mid color'>树洞广场 | 考研区</text>
-</view>
-<include src="/pages/index2/treeHole/treeHole" />
-<include src="/pages/index2/addButton/addButton" />

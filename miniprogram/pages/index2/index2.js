@@ -37,8 +37,10 @@ Page({
   gotoTreehole: function(res) {
     let temp = res.currentTarget.dataset.treeholename
     console.log("即将前往树洞：",temp, this.data.TreeholeAddress[temp])
+    // let tempurl = this.data.TreeholeAddress + "?title=" + temp
+    let tempurl = "/pages/index2/treeHole/treeHole?title=" + temp 
     wx.navigateTo({
-      url: this.data.TreeholeAddress[temp],
+      url: tempurl,
     })
   },
 
@@ -46,21 +48,6 @@ Page({
    * 跳转到树洞编辑页面
    */
   gotoPersonalEditor: function() {
-    // 提示如果已经登录了就可以发树洞
-    // wx.checkSession({
-    //   success() {
-    //     wx.navigateTo({
-    //       url: app.globalData.toPersonalEditPage
-    //     })
-    //   },
-    //   fail(){
-    //     wx.showToast({
-    //       title: '请先登录',
-    //       icon: 'none',
-    //       duration: 1500
-    //     })
-    //   }
-    // })
     if (app.globalData.isLogin){
       wx.navigateTo({
         url: app.globalData.toPersonalEditPage

@@ -1,15 +1,19 @@
 <!-- 日期转字符串的wxs函数 -->
 <wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
 
+<!-- 标题部分 -->
+<view class='topcontainer in_mid'>
+  <text class='case_title in_mid' style="color:{{treeholeJson.color}}">树洞广场 | {{treeholeJson.type}}</text>
+</view>
 <!-- 整个树洞的滚条界面 -->
 <scroll-view class='theBackground' scroll-y="true" enable-back-to-top="true">
-  <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item" wx:if="{{item.tag==treeHoleType}}">
+  <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
     <!-- 单个树洞条目 -->
     <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage">
       <view class="single_top_container in_mid">
-        <image wx:if="{{item.isAnonymous}}" src="{{avatarPath}}" mode='aspectFill' class="host_head_img"></image>
+        <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' class="host_head_img"></image>
         <image wx:if="{{!item.isAnonymous}}"
-          src="{{item.avatar}}? {{item.avatar}} : cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/pictureLoadFail.svg"
+          src="{{item.avatar}}? {{item.avatar}} : {{treeholeJson.avatar}}"
           mode='aspectFill' class="host_head_img"></image>
         <view class="host_info_container">
           <view wx:if="{{item.isAnonymous}}" class="nick_name color" space="ensp">一个匿名的小可爱</view>
@@ -26,3 +30,7 @@
     </view>
   </block>
 </scroll-view>
+<!-- 写树洞的按钮 -->
+<button class="circle in_mid" bindtap="gotoPersonalEditor" style="width:80rpx;height: 80rpx;padding:0;background-color:{{treeholeJson.color}}">
+  + <!--这个“+”是圆形按钮里面的内容-->
+</button>

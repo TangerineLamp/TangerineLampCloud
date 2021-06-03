@@ -22,6 +22,38 @@ App({
       isDeveloper: false, //  是否是开发人员
       isDoctor: false,    //  是否是认证医师
       isCertiStudent: false,   //  是否是认证学生
+      treehole: {
+        "work": {
+          type: '工作区', 
+          color: "#5C92F1",
+          avatar: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_b.svg"
+        },
+        "game": {
+          type: '游戏区', 
+          color: "#C26BE7",
+          avatar: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_p.svg"
+        },
+        "study": {
+          type: '学习区', 
+          color: "#17AD17",
+          avatar: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_g.svg"
+        },
+        "emotion": {
+          type: '情感区', 
+          color: "#F41010",
+          avatar: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_r.svg"
+        },
+        "life": {
+          type: '生活区', 
+          color: "#AAB20E",
+          avatar: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_o.svg"
+        },
+        "exam": {
+          type: '考研区', 
+          color: "#E95BB8",
+          avatar: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/people_pk.svg"
+        },
+      }
     }
   }
 })

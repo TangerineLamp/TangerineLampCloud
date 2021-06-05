@@ -74,7 +74,7 @@
 	<button wx:if="{{!isLogin}}" bindtap="toLogin" class="toLogin">点我前往登录地点</button>
 </scroll-view>
 <view class="iCommentContainer">
-	<textarea class="iComment" maxlength="-1" auto-focus="true" placeholder="回复ta:" bindinput="bindTextAreaInput"
+	<textarea class="iComment" maxlength="-1" auto-focus="true" placeholder="评论只有树洞主人和自己看得见哟~~" bindinput="bindTextAreaInput"
 		value="{{commentDetails}}"></textarea>
 	<view class="send" bindtap="send">发 送</view>
 </view>

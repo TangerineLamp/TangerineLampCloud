@@ -77,10 +77,16 @@ page{
 }
 
 .comic-title{
-  font-size: 36rpx;
+  font-size: 32rpx;
   color: black;
   margin-left: 10rpx;
   font-weight: bold;
+  display: -webkit-box;
+  overflow: hidden;
+  text-emphasis: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .comic-des{

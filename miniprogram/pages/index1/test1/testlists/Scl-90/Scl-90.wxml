@@ -30,4 +30,5 @@
   自评结果
   </view>
   <view class="resultMainBody">总得分：{{totalScores}}</view>
+  <view>结果分析开发中，敬请期待...</view>
 </block>

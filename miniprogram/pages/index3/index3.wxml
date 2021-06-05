@@ -56,12 +56,12 @@
         <view class="his_name">签到</view>
       </navigator>
       <navigator url="/pages/index3/collection/collection">
-        <view wx:if="{{isLogin}}" class="his_num">{{collectionCount}}</view>
+        <view wx:if="{{isLogin}}" class="his_num">0</view>
         <view wx:if="{{!isLogin}}" class="his_num">0</view>
         <view class="his_name">收藏</view>
       </navigator>
       <navigator url="/pages/index3/treeroles/treeroles">
-        <view wx:if="{{isLogin}}" class="his_num">{{treeholesCount}}</view>
+        <view wx:if="{{isLogin}}" class="his_num">{{treeholesCount}}</view>  
         <view wx:if="{{!isLogin}}" class="his_num">0</view>
         <view class="his_name">树洞</view>
       </navigator>
@@ -97,7 +97,7 @@
       <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime/adjustAdviceTime" wx:if="{{isDoctor}}">咨询时间调整</navigator>
       <view class="app_info_item app_info_contact">
         <text>联系客服</text>
-        <text>8888888888888</text>
+        <text class="qqEmail" user-select="true">2948350015@qq.com</text>
       </view>
       <navigator url="/pages/index3/advice/advice" class="app_info_item">意见反馈</navigator>
       <navigator class="app_info_item" url="/pages/index3/developer/developer" wx:if="{{isDeveloper}}">开发通道</navigator>

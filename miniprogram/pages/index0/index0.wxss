@@ -268,4 +268,11 @@ page{
 
 .comicTitle{
   font-size: 24rpx;
+  text-align: center;
+  display: -webkit-box;
+  overflow: hidden;
+  text-emphasis: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
 }

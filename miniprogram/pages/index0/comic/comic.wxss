@@ -13,8 +13,9 @@ page{
 }
 
 .recommendComic{
-  margin-top: 0rpx;
-  margin-bottom: 200rpx;
+  margin-top: 20rpx;
+  margin-bottom: 100rpx;
+  background: #eeeeee;
 }
 
 .title{
@@ -38,15 +39,16 @@ page{
 .comic-area{
   background: #eeeeee;
   margin-top: 10rpx;
+  margin-bottom: 20rpx;
 }
 
 .comic-list{
   display: inline-flex;
   flex-wrap: wrap;
   /* justify-content: space-around; */
-  height: 550rpx;
+  height: 560rpx;
   width: 300rpx;
-  margin-top: 10rpx;
+  margin-top: 5rpx;
   /* width: 32%; */
   margin-left: 40rpx;
   margin-right: 10rpx;

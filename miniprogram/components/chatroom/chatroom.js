@@ -231,9 +231,13 @@ Component({
             ]
           })
           this.scrollToBottom(true)
-
+          let imgPathDate = new Date();
+          let imgPathYear = imgPathDate.getFullYear()
+          let imgPathMonth = imgPathDate.getMonth()+1
+          let imgPathDay = imgPathDate.getDate()
           const uploadTask = wx.cloud.uploadFile({
-            cloudPath: `${this.data.openId}/${Math.random()}_${Date.now()}.${res.tempFilePaths[0].match(/\.(\w+)$/)[1]}`,
+            // cloudPath: `${this.data.openId}/${Math.random()}_${Date.now()}.${res.tempFilePaths[0].match(/\.(\w+)$/)[1]}`,
+            cloudPath: `index1/advice/pictures/${imgPathYear}.${imgPathMonth}.${imgPathDay}/${Math.random()}_${Date.now()}.${res.tempFilePaths[0].match(/\.(\w+)$/)[1]}`,
             filePath: res.tempFilePaths[0],
             config: {
               env: envId,

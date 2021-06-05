@@ -50,7 +50,7 @@ Page({
   gotoPersonalEditor: function() {
     if (app.globalData.isLogin){
       wx.navigateTo({
-        url: app.globalData.toPersonalEditPage
+        url: "/pages/index2/editPage/personalEditor"
       })
     }
     // 如果没有登录则提醒先登录

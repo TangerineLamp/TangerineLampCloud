@@ -112,3 +112,8 @@ page {
   background-color: #fff;
   padding: 20rpx ;
 }
+
+.qqEmail {
+  padding: 5rpx;
+  font-size:32rpx;
+}

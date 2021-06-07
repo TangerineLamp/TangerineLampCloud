@@ -10,6 +10,7 @@ Page({
    */
   data: {
     reviewContent:{},
+    _id:null,
   },
 
   /**
@@ -19,6 +20,9 @@ Page({
     _id = options._id
     wx.showLoading({
       title: '加载中',
+    })
+    this.setData({
+      _id:_id,
     })
     this.getReviewInfo(_id);
     wx.hideLoading();
@@ -57,23 +61,27 @@ Page({
   
   // 通过
   pass() {
+    var that = this;
     db.collection("doctors").doc(_id).update({
       data:{
         isCertification: true,
       }
     }).then(res=>{
       console.log("通过", res)
+      that.getReviewInfo(that.data._id);
     })
   },
 
   // 不通过
   reject() {
+    var that = this;
     db.collection("doctors").doc(_id).update({
       data:{
         isCertification: false,
       }
     }).then(res=>{
       console.log("不通过", res)
+      that.getReviewInfo(that.data._id);
     })
   },
 

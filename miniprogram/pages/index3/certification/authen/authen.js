@@ -27,8 +27,11 @@ Page({
     wx.showLoading({
       title: '加载中'
     })
-    this.getReviewList();
     wx.hideLoading();
+  },
+
+  onShow(){
+    this.getReviewList();
   },
 
   // 获取审核名单（医师）
@@ -45,13 +48,6 @@ Page({
    * 生命周期函数--监听页面初次渲染完成
    */
   onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
 
   },
 

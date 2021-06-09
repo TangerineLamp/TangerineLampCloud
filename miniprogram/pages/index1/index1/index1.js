@@ -121,19 +121,9 @@ Page({
   },
   //导航至心理咨询
   bindViewTap2() {
-    if (app.globalData.isLogin){
-      wx.navigateTo({
-        url: "/pages/index1/advice/adviceIndex/adviceiIndex"
-      })
-    }
-    // 如果没有登录则提醒先登录
-    else {
-      wx.showToast({
-        title: '请先登录',
-        icon: 'none',
-        duration: 1000
-      })
-    }
+    wx.navigateTo({
+      url: "/pages/index1/advice/adviceIndex/adviceiIndex"
+    })
   },
   //导航至心理课程
   bindViewTap3() {

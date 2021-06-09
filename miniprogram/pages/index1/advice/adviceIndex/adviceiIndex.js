@@ -1,4 +1,6 @@
 // pages/adviceIndex/adviceiIndex.js
+const app = getApp();
+
 Page({
 
   /**
@@ -8,16 +10,47 @@ Page({
 
   },
 
-  navToAppointment() {
-    wx.navigateTo({
-      url: '/pages/index1/advice/appointment/appointment'
+  outerAppointment(){
+    // wx.navigateTo({
+    //   url: '/pages/index1/advice/outerAppointment/outerAppointment'
+    // })
+    wx.showToast({
+      title: '暂未开通',
+      icon: 'none',
+      duration: 1000
     })
   },
 
+  navToAppointment() {
+    if (app.globalData.isLogin){
+      wx.navigateTo({
+        url: '/pages/index1/advice/appointment/appointment'
+      })
+    }
+    // 如果没有登录则提醒先登录
+    else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1000
+      })
+    }
+  },
+
   navToAdvice() {
-    wx.navigateTo({
-      url: '/pages/index1/advice/adviceList/adviceList'
-    })
+    if (app.globalData.isLogin){
+      wx.navigateTo({
+        url: '/pages/index1/advice/adviceList/adviceList'
+      })
+    }
+    // 如果没有登录则提醒先登录
+    else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1000
+      })
+    }
   }
 
 })

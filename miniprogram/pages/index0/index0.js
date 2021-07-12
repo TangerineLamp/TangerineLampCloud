@@ -16,10 +16,10 @@ Page({
   onLoad: function() {
     var that = this
     var picList = []
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide0.jpg")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide1.jpg")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide2.jpg")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide3.jpg")
+    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide0.jpg")
+    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide1.jpg")
+    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide2.jpg")
+    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide3.jpg")
     this.getPassageList();
     this.getComicList();
     that.setData({

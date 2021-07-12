@@ -9,7 +9,7 @@ Page({
     year:0,
     month:0,
     messageCount: 0,
-    treeholesCount: null,  //  需要展示的树洞数量
+    treeholesCount: 0,  //  需要展示的树洞数量
     collectionCount: 0,
     motto: 'Hello World',
     userInfo: {},

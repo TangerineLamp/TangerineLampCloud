@@ -11,14 +11,14 @@ Page({
   },
 
   outerAppointment(){
-    // wx.navigateTo({
-    //   url: '/pages/index1/advice/outerAppointment/outerAppointment'
-    // })
-    wx.showToast({
-      title: '暂未开通',
-      icon: 'none',
-      duration: 1000
+    wx.navigateTo({
+      url: '/pages/index1/advice/outerAppointment/outerAppointment'
     })
+    // wx.showToast({
+    //   title: '暂未开通',
+    //   icon: 'none',
+    //   duration: 1000
+    // })
   },
 
   navToAppointment() {

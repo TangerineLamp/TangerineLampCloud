@@ -15,7 +15,7 @@ Page({
   data: {
     passage:{},
     // 默认是未收藏
-    collect_img_src:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
+    collect_img_src:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png",
     collect_text:"收藏"
   },
 
@@ -39,7 +39,7 @@ Page({
       isCollected = res.data.isCollected
       this.setData({
         passage:res.data,
-        collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg",
+        collect_img_src: isCollected ? "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png" : "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png",
         collect_text: isCollected ? "收藏" : "收藏"
         
       })
@@ -50,7 +50,7 @@ Page({
   collectClick() {
     this.setData({
       // 已收藏，再点一下取消收藏；未收藏，点击收藏
-      collect_img_src: isCollected ? "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-icon.jpg" : "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/icon/collect-active-icon.jpg",
+      collect_img_src: isCollected ? "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png" : "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png",
       collect_text: isCollected ? "收藏" :  "收藏" 
     })
     isCollected = !isCollected

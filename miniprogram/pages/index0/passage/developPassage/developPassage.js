@@ -108,8 +108,8 @@ Page({
       data:{
         title:this.data.title,
         author:this.data.author,
-        introImage:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/introImage/"+introImageName,
-        body:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/passage-longPicture/body/"+passageLongPictureName,
+        introImage:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/introImage/"+introImageName,
+        body:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/body/"+passageLongPictureName,
         pushTime:pushTime
       }
     })

@@ -146,8 +146,8 @@ Page({
       data:{
         name:this.data.certiName,
         school:this.data.school,
-        studentProof:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/Certification/students/studentProof/"+studentProofName,
-        stuSelfPic:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/Certification/students/studentSelf/"+stuSelfPicName,
+        studentProof:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/Certification/students/studentProof/"+studentProofName,
+        stuSelfPic:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/Certification/students/studentSelf/"+stuSelfPicName,
         isCertification: false,
         studentId: this.data.openid,
       }

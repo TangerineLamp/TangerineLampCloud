@@ -165,7 +165,7 @@ Component({
           _id: `${Math.random()}_${Date.now()}`,
           groupId: this.data.groupId,
           //avatar: this.data.userInfo.avatarUrl,
-          avatar:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index1/advice/小橘子.jpg",
+          avatar:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index1/advice/小橘子.png",
           nickName: this.data.userInfo.nickName,
           msgType: 'text',
           textContent: e.detail.value,
@@ -212,7 +212,7 @@ Component({
           const doc = {
             _id: `${Math.random()}_${Date.now()}`,
             groupId: this.data.groupId,
-            avatar:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index1/advice/小橘子.jpg",
+            avatar:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index1/advice/小橘子.png",
             nickName: this.data.userInfo.nickName,
             msgType: 'image',
             sendTime: new Date(),

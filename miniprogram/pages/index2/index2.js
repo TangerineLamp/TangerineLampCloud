@@ -15,19 +15,19 @@ Page({
       game: "/pages/index2/treeHole/5/game",
       exam: "/pages/index2/treeHole/6/exam"},
     // 各个子树洞的图片
-    work: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/work.svg",
-    game: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/game.svg",
-    emotion:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/emotion.svg",
-    exam:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/exam.png",
-    life: "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/life.png",
-    study:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/study.png",
+    work: "/pages/index2/logo/work.svg",
+    game: "/pages/index2/logo/game.svg",
+    emotion:"/pages/index2/logo/emotion.svg",
+    exam:"/pages/index2/logo/exam.svg",
+    life: "/pages/index2/logo/life.svg",
+    study:"/pages/index2/logo/study.svg",
     // 轮播图
-    picList: [
-      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide0.jpg",
-      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide1.jpg",
-      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide2.jpg",
-      "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide3.jpg",
-    ],
+    // picList: [
+    //   "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide0.jpg",
+    //   "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide1.jpg",
+    //   "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide2.jpg",
+    //   "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index2/slide3.jpg",
+    // ],
     tempTreeholeName: null, // 临时存放树洞名称的地方
   },
 

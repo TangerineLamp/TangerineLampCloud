@@ -117,8 +117,8 @@ Page({
         title:this.data.bigTitle,
         des:this.data.des,
         introduce_words:this.data.introduce_words,
-        cover:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index1/course/cover/"+coverName,
-        content:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index1/course/content/"+contentName,
+        cover:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index1/course/cover/"+coverName,
+        content:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index1/course/content/"+contentName,
         pushTime:pushTime
       }
     })

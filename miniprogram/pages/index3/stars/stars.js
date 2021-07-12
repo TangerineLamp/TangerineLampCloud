@@ -17,8 +17,8 @@ Page({
   },
   onLoad: function () {
     var picList=[]
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/qiandao/左箭头.png")
-    picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/qiandao/右箭头.png")
+    picList.push("cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/logo/左.png")
+    picList.push("cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/logo/右.png")
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;

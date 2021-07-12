@@ -12,8 +12,8 @@ Page({
     standardTime: 0,
     isTodayWeek: false,
     todayIndex: 0,
-    picList:["cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/qiandao/左箭头.png",
-    "cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index3/qiandao/右箭头.png"]
+    picList:["cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/logo/左.png",
+    "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/logo/右.png"]
   },
   onLoad: function () {
     let now = new Date();

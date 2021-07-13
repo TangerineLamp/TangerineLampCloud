@@ -57,6 +57,7 @@ Page({
       // 完成位置的拼接
       let certiUrl = "/pages/index3/certification/" + certiTemp + "/" + certiTemp
       // 前往对应位置
+      console.log(certiUrl)
       wx.navigateTo({
         url: certiUrl,
       })

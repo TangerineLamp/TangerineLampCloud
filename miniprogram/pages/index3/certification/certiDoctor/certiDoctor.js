@@ -13,11 +13,14 @@ Page({
     doctorProof:"/icons/certi_add.png",
     docSelfPic:"/icons/certi_add.png",
     isSubmit: false,//检测是否提交过
+    isDoctor: false,
   },
 
   onLoad(){
     this.setData({
-      openid: app.globalData.openid
+      openid: app.globalData.openid,
+      isDoctor: app.globalData.isDoctor,
+      
     })
   },
 

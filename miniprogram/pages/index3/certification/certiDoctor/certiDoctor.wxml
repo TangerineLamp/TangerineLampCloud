@@ -1,6 +1,7 @@
 <button class="tips" bindtap="toBack" wx:if="{{isSubmit}}">您提交的审核将在几个工作日内完成，请您返回等待</button>
 
-<view class="whole" wx:if="{{!isSubmit}}">
+<!-- <view class="whole" wx:if="{{!isSubmit}}"> -->
+  <view class="whole">
   <!-- 姓名 -->
   <view class="bigTitle">您的姓名</view>
   <view><textarea class="titleInput" value="{{certiName}}" bindinput="handleName" placeholder="请输入您的真实姓名，便于工作人员审核，如：张三"

@@ -11,21 +11,23 @@ Page({
     contactIconSrc: '/icons/contact-icon.jpg',
     passageList: [], // 热门文章列表
     comicList: [], // 热门漫画列表
+    picList: [], //轮播图列表
   },
  
   onLoad: function() {
-    var that = this
-    var picList = []
-    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide0.jpg")
-    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide1.jpg")
-    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide2.jpg")
-    // picList.push("cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/index0/slide3.jpg")
+    this.getPicList();
     this.getPassageList();
     this.getComicList();
-    that.setData({
-      picList: picList,
+  },
+
+  //获取轮播图片列表
+  getPicList() {
+    var picList = []
+    db.collection("index0_swiper").get().then(res=>{
+      this.setData({
+        picList:res.data
+      })
     })
-    
   },
 
   // 获取热门文章列表

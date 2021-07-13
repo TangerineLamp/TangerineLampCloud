@@ -4,7 +4,11 @@ page{
 }
 
 .slide{
-  height: 450rpx;
+  height: 425rpx;
+  margin: 20rpx 20rpx 0rpx 20rpx;
+  border-radius: 20rpx;
+  overflow: hidden;
+  transform: translateY(0);
 }
 
 .slide-image{

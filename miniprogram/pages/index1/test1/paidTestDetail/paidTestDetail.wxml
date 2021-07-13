@@ -18,7 +18,7 @@
     <view class="side"></view>
   </view>
   <view class="detail">
-    {{testDetail.introduce_words}}
+    <text user-select="true" space="ensp">{{testDetail.introduce_words}}</text>
   </view>
 </view>
 <!-- 底部固定栏 -->

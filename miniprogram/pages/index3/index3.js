@@ -130,10 +130,9 @@ Page({
     })
   },
   getcollectionCount(){
-    db.collection("index0_passageLongPicture")
-    // .where({
-    //   _openid: app.globalData.openid
-    // })
+    db.collection("index0_passageCollect").where({
+      isCollected:true
+    })
     .count()
     .then(res=>{
       this.setData({

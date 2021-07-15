@@ -34,14 +34,25 @@ Page({
 
   // 获取文章内容
   getPassage(_id) {
+    var that = this;
     // 文章使用长图模式展示，从passageLongPicture集合获取，数据库模式从passage集合获取
     db.collection("index0_passageLongPicture").doc(_id).get().then(res=>{
       isCollected = res.data.isCollected
-      this.setData({
+      that.setData({
         passage:res.data,
-        collect_img_src: isCollected ? "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png" : "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png",
-        collect_text: isCollected ? "收藏" : "收藏"
-        
+        collect_img_src: isCollected ? "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png" : "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png"
+      })
+      // 从index0_passageCollect获取个人收藏文章记录
+      db.collection("index0_passageCollect").where({
+        passage_id:_id,
+        isCollected:true
+      }).count().then(res=>{
+        if(res.total>0){
+          isCollected = true
+          that.setData({
+            collect_img_src:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png"
+          })
+        }
       })
     })
   },
@@ -50,72 +61,37 @@ Page({
   collectClick() {
     this.setData({
       // 已收藏，再点一下取消收藏；未收藏，点击收藏
-      collect_img_src: isCollected ? "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png" : "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png",
-      collect_text: isCollected ? "收藏" :  "收藏" 
+      collect_img_src: isCollected ? "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-icon.png" : "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/passage-longPicture/icon/collect-active-icon.png"
     })
     isCollected = !isCollected
-    // 用云函数
-    wx.cloud.callFunction({
-      name: "collect",
-      data:{
-        id: _id,
-        isCollected: isCollected
+    // 收藏状态更新至index0_passageCollect
+    db.collection("index0_passageCollect").where({
+      passage_id: _id
+    }).count().then(res=>{
+      // 已有该用户在该文章下的收藏记录
+      console.log(res)
+      if(res.total>0){
+        db.collection("index0_passageCollect").where({
+          passage_id: _id
+        }).update({
+          data:{
+            isCollected: isCollected
+          }
+        }).then(res=>{
+          console.log("改变收藏状态成功")
+        })
+      }else{  // 该用户之前未收藏过该文章
+        db.collection("index0_passageCollect").add({
+          data:{
+            passage_id: _id,
+            isCollected: isCollected
+          }
+        }).then(res=>{
+          console.log("改变收藏状态成功")
+        })
       }
     })
-    .then(res => {
-      console.log("改变收藏状态成功", res)
-    })
-    .catch(res => {
-      console.log("改变收藏状态失败", res)
-    })
   },
 
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
 
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

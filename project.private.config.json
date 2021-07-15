@@ -13,44 +13,9 @@
     "miniprogram": {
       "list": [
         {
-          "name": "index3",
-          "pathName": "pages/index3/index3",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "咨询时间调整",
-          "pathName": "pages/index3/adjustAdviceTime/adjustAdviceTime",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "心理专攻",
-          "pathName": "pages/index1/index1/index1",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "预约咨询",
-          "pathName": "pages/index1/advice/appointment/appointment",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "预约详情",
-          "pathName": "pages/index1/advice/newDetail/newDetail",
-          "query": "_futureDay='2021/6/8'",
-          "scene": null
-        },
-        {
-          "name": "小时选择",
-          "pathName": "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
-          "query": "",
-          "scene": null
-        },
-        {
-          "name": "日期选择",
-          "pathName": "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
+          "name": "收藏列表",
+          "pathName": "pages/index3/collection/collection",
+          "query": "_id=b00064a760ec34b926dd4b2b5ccd76de",
           "scene": null
         }
       ]

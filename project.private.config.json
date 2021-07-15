@@ -17,6 +17,11 @@
           "pathName": "pages/index3/collection/collection",
           "query": "_id=b00064a760ec34b926dd4b2b5ccd76de",
           "scene": null
+        },
+        {
+          "name": "垃圾回收",
+          "pathName": "pages/index3/developer/trash/trash",
+          "scene": null
         }
       ]
     }

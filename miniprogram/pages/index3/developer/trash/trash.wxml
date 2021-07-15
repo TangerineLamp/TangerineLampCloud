@@ -1,0 +1,5 @@
+<view class="top">
+  <view class="singlecontainer" data-certitype="certiStudent">
+    <view class="certiButton" bindtap="deletePassageCollection">文章收藏</view>
+  </view>
+</view>

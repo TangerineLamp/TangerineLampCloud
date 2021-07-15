@@ -97,6 +97,7 @@ Page({
         app.globalData.userInfo = res.userInfo
         app.globalData.isLogin = true
         this.getUserTreeholeCount() //  获取树洞数量
+        this.getcollectionCount() //获取收藏
         // 将全局变量中的内容获取到本页
         this.setData({
           userInfo: app.globalData.userInfo,
@@ -114,7 +115,9 @@ Page({
     this.getdailyQianDaoCount()
     this.getcollectionCount()
   },
-
+  /**
+   * 获取自己的签到天数
+   */
   getdailyQianDaoCount(){
     db.collection("index3_qiandao_daily")
     .where({
@@ -129,8 +132,12 @@ Page({
       })
     })
   },
+    /**
+   * 获取自己的文章收藏数量
+   */
   getcollectionCount(){
     db.collection("index0_passageCollect").where({
+      _openid: app.globalData.openid,
       isCollected:true
     })
     .count()

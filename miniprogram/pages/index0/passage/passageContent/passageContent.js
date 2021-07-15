@@ -81,10 +81,15 @@ Page({
           console.log("改变收藏状态成功")
         })
       }else{  // 该用户之前未收藏过该文章
+        var passage = this.data.passage;
         db.collection("index0_passageCollect").add({
           data:{
             passage_id: _id,
-            isCollected: isCollected
+            isCollected: isCollected,
+            author: passage.author,
+            introImage: passage.introImage,
+            title: passage.title,
+            pushTime: passage.pushTime
           }
         }).then(res=>{
           console.log("改变收藏状态成功")

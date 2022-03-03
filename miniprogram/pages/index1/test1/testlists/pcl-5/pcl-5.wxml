@@ -21,7 +21,7 @@
   <view wx:for="{{Parts_Scores}}"
   wx:for-item="item"
   wx:key="pcl5key">
-    {{item}}
+    {{item[0]}} {{item[1]}}
   </view>
   <view>结果分析开发中，敬请期待...</view>
 </block>

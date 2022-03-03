@@ -42,6 +42,11 @@
           "pathName": "pages/index3/developer/trash/trash",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "PCL问卷评测结果",
+          "pathName": "pages/index1/test1/testlists/pcl-5/pcl-5",
+          "scene": null
         }
       ]
     }

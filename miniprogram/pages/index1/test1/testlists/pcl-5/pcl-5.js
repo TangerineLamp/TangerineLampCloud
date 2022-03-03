@@ -6,9 +6,11 @@ Page({
    */
   data: {
     totalScores:0,
-    Parts_Scores:[], //各部分分数
+    // Parts_Scores:[], //各部分分数
+    Parts_Scores:[[1,"症状轻微"],[2,"中等症状"],[3,"症状较严重"],[4,"症状严重"]],    // *****
     Parts_numbers:[[1,2,3,4,5], [6,7],[8,9,10,11,12,13,14],[15,16,17,18,19,20]],  //各部分题目序号
-    showCalculation:false,
+    // showCalculation:false,
+    showCalculation:true,      // *****
     currentChosen:-1,
     nowIndex:1,
     chosenAnswers:[0], //第0位仅用来占位，真正的index从1开始
@@ -101,16 +103,38 @@ Page({
   //计算得分
   calculate(){
     let totalScores = 0;
-    let Parts_Scores = new Array(this.data.Parts_numbers.length).fill(0);    //根据各部分总数创建各部分的scores数组
+    let Parts_Scores_tmp = new Array(this.data.Parts_numbers.length).fill(0);    //根据各部分总数创建各部分的scores数组
     for(var i=1;i<=20;i++){                     //计算各部分得分
       for(var j=0;j<4;j++){
         if(this.data.Parts_numbers[j].indexOf(i)>=0){
-          Parts_Scores[j] += this.data.chosenAnswers[i];
+          Parts_Scores_tmp[j] += this.data.chosenAnswers[i];
           break;
         }
       }
       totalScores += this.data.chosenAnswers[i];
     }
+    //根据各部分得分分析结果
+    let Parts_Eva_tmp = [];
+    let tmpstr = "";
+    for(var i=0;i<this.data.Parts_numbers.length;i++){
+      if(Parts_Scores_tmp[i]<1){
+        tmpstr = "毫无症状";
+      }else if (Parts_Scores_tmp[i]<2){
+        tmpstr = "症状轻微";
+      }else if (Parts_Scores_tmp[i]<3){
+        tmpstr = "中等症状";
+      }else if (Parts_Scores_tmp[i]<4){
+        tmpstr = "症状较严重";
+      }else{
+        tmpstr = "症状严重";
+      }
+      Parts_Eva_tmp.push(tmpstr);
+    }
+    let Parts_Scores = [];
+    for(var i=0;i<this.data.Parts_numbers.length;i++){
+      Parts_Scores.push([Parts_Scores_tmp[i],Parts_Eva_tmp[i]])
+    }
+
     this.setData({
       Parts_Scores,
       totalScores

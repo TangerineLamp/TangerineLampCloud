@@ -38,6 +38,10 @@ Page({
    * 加载需要页面的各种信息和内容，包括可能的用户信息和权限
    */
   onLoad() {
+    let userInfo = wx.getStorageSync('userInfo')
+    let hasUserInfo=wx.getStorageSync('hasUserInfo')
+    console.log('hasUserInfo',hasUserInfo)
+    console.log('userInfo+',userInfo)
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -48,10 +52,17 @@ Page({
     })
     this.initOpenID() //  获得openid
     //  已经登录过了
-    if (app.globalData.isLogin) {
+    
+    if (app.globalData.isLogin||hasUserInfo==true) {
       this.setData({
-        userInfo: app.globalData.userInfo,
-        hasUserInfo: app.globalData.isLogin,
+        userInfo: userInfo,
+        hasUserInfo: hasUserInfo,
+      })
+      app.globalData.isLogin=hasUserInfo
+      this.setData({
+        isLogin: app.globalData.isLogin,
+        isDeveloper: app.globalData.isDeveloper,
+        isDoctor: app.globalData.isDoctor,
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -86,6 +97,7 @@ Page({
    * 登录按钮绑定的事件
    * 在经过用户的允许后获得用户的个人信息
    */
+  // 登录
   getUserProfile(e) {
     // 推荐使用wx.getUserProfile获取用户信息，开发者每次通过该接口获取用户个人信息均需用户确认
     // 开发者妥善保管用户快速填写的头像昵称，避免重复弹窗
@@ -94,6 +106,7 @@ Page({
       success: (res) => {
         console.log("从getUserProfile里面获得信息",this.data.userInfo)
         // 先将所有的信息传到全局变量里面
+        console.log(res)
         app.globalData.userInfo = res.userInfo
         app.globalData.isLogin = true
         this.getUserTreeholeCount() //  获取树洞数量
@@ -106,6 +119,8 @@ Page({
           isDeveloper: app.globalData.isDeveloper,
           isDoctor: app.globalData.isDoctor,
         })
+        wx.setStorageSync('userInfo', res.userInfo);
+        wx.setStorageSync('hasUserInfo',true)
       }
     })
   },

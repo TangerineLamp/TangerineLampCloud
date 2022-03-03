@@ -1,4 +1,5 @@
 {
+  "description": "项目配置文件，详见文档：https://developers.weixin.qq.com/miniprogram/dev/devtools/projectconfig.html",
   "miniprogramRoot": "miniprogram/",
   "cloudfunctionRoot": "cloudfunctions/",
   "setting": {
@@ -28,14 +29,14 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
-    "bundle": false,
     "useIsolateContext": true,
-    "useCompilerModule": true,
-    "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "showES6CompileOption": false,
+    "useSummerCompiler": false,
+    "minifyWXML": true
   },
   "appid": "wx72920a312942dcc0",
   "projectname": "TangerineLamp",
@@ -43,7 +44,7 @@
   "compileType": "miniprogram",
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
-  "cloudfunctionTemplateRoot": "cloudfunctionTemplate",
+  "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
   "condition": {
     "plugin": {
       "list": []
@@ -88,5 +89,19 @@
         }
       ]
     }
+  },
+  "scripts": {},
+  "packOptions": {
+    "ignore": [],
+    "include": []
+  },
+  "watchOptions": {
+    "ignore": []
+  },
+  "debugOptions": {
+    "hidedInDevtools": []
+  },
+  "staticServerOptions": {
+    "servePath": ""
   }
 }

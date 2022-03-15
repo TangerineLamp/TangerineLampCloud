@@ -37,7 +37,9 @@ Page({
   // 获取审核名单（医师）
   getReviewList() {
     // 降序，越新的申请在越前面
-    db.collection("doctors").orderBy('pushTime','desc').get().then(res=>{
+    db.collection("doctors").where({
+      isCertification: false
+    }).orderBy('pushTime','desc').get().then(res=>{
       this.setData({
         reviewList:res.data
       })

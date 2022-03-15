@@ -1,5 +1,5 @@
 <!-- 日期转字符串的wxs函数 -->
-<wxs module="filter" src="/utils/dateToStr_treehole.wxs"/>
+<wxs module="filter" src="/utils/dateToStr_treehole.wxs" />
 
 <!-- 标题部分 -->
 <view class='topcontainer in_mid'>
@@ -9,14 +9,18 @@
 <scroll-view scroll-y="true" enable-back-to-top="true">
   <block wx:for="{{treeHoleData}}" wx:for-index="index" wx:for-item="item">
     <!-- 单个树洞条目 -->
-    <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage" style="color:{{treeholeJson.color}}">
+    <view class='singleBlock' data-treeholeid="{{item._id}}" bindtap="toDetailPage"
+      style="color:{{treeholeJson.color}}">
       <view class="single_top_container in_mid">
-        <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' class="host_head_img" lazy-load="true"></image>
-        <image wx:if="{{!item.isAnonymous}}"
-          src="{{item.avatar}}? {{item.avatar}} : {{treeholeJson.avatar}}"
-          mode='aspectFill' class="host_head_img" lazy-load="true"></image>
+        <view class="host_head">
+          <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' lazy-load="true" class="host_head_img">
+          </image>
+          <image wx:if="{{!item.isAnonymous}}" src="{{item.avatar}}? {{item.avatar}} : {{treeholeJson.avatar}}"
+            mode='aspectFill' lazy-load="true" class="host_head_img">
+          </image>
+        </view>
         <view class="host_info_container">
-          <view wx:if="{{item.isAnonymous}}" class="nick_name color" space="ensp">一个匿名的小可爱</view>
+          <view wx:if="{{item.isAnonymous}}" class="nick_name color" space="ensp">一个匿名的小橘子</view>
           <view wx:if="{{!item.isAnonymous}}" class="nick_name color" space="ensp">{{item.nickName}}</view>
           <view class="time_info" space="ensp">
             {{filter.dateToStr(item.time)}}
@@ -31,6 +35,8 @@
   </block>
 </scroll-view>
 <!-- 写树洞的按钮 -->
-<button class="circle in_mid" bindtap="gotoPersonalEditor" style="width:80rpx;height: 80rpx;padding:0;background-color:{{treeholeJson.color}}">
-  + <!--这个“+”是圆形按钮里面的内容-->
+<button class="circle in_mid" bindtap="gotoPersonalEditor"
+  style="width:80rpx;height: 80rpx;padding:0;background-color:{{treeholeJson.color}}">
+  +
+  <!--这个“+”是圆形按钮里面的内容-->
 </button>

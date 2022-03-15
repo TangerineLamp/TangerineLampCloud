@@ -20,13 +20,30 @@
   padding-top: 20rpx;
   padding-left: 10rpx;
 }
+/* 树洞主人头像信息的三级容器 */
+.hostHead{
+  width: 13%;
+  height: 100rpx;
+  position: relative;
+  z-index: 1;
+}
 /* 树树洞主人头像 */
 .hostHeadImg{
-  width: 12%;
-  height: 100rpx;
-  /* margin-top: 20rpx;
-  margin-left: 10rpx; */
+  width: 90%;
+  height: 90%;
   border-radius: 15rpx;
+}
+/* 认证的V标 */
+.host_vip{
+  justify-items: center;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50rpx;
+  width: 5rpx;
+  height: 5rpx;
+  bottom: -10rpx;
+  right:-10rpx;
+  z-index: 2;
 }
 /* 树洞主人信息的三级容器 */
 .hostInfo{
@@ -166,12 +183,19 @@
   padding-bottom: 5rpx;
   padding-top: 5rpx;
 }
-/* 该条评论的主人的头像 */
-.commentHeadImg{
+/* 该条评论的主人头像的二级容器 */
+.commentHead{
   margin-left: 2%;
   margin-top: 10rpx;
+  position: relative;
   width: 75rpx;
   height: 75rpx;
+  z-index: 1;
+}
+/* 该条评论的主人的头像 */
+.commentHeadImg{
+  width: 100%;
+  height: 100%;
   border-radius: 15rpx;
 }
 /* 该条评论的主人的信息二级容器 */

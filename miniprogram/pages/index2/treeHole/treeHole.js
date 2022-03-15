@@ -103,23 +103,44 @@ Page({
   /**
    * 获得数据库里面的树洞数据
    */
-  getTreeHoleData(){
-    db.collection("index2_treeholes")
-    .where({
-      tag: this.data.treeholeJson.type
+  getTreeHoleData: async function(){
+    let that = this
+    await wx.cloud.callFunction({
+      name: "index2_getTreeholeList",
+      data: {
+        dbName: "index2_treeholes",
+        limCount: 10,
+        theValue: this.data.treeholeJson.type,
+        order: "time",
+        length: 0
+      },
+      success: function(res){
+        console.log(res),
+        that.setData({
+          treeHoleData: res.result.data
+        })
+      },
+      fail: function(err){
+        console.log('获得树洞数据失败 ',err)
+        that.showError('网络连接失败')
+      }
     })
-    .limit(10)
-    .orderBy('time', 'desc')
-    .get()
-    .then(res => {
-      console.log(res)
-      this.setData({
-        treeHoleData: res.data
-      })
-    }).catch(err => {
-      console.log('获得树洞数据失败 ',err)
-      this.showError('网络连接失败')
-    })
+    // db.collection("index2_treeholes")
+    // .where({
+    //   tag: this.data.treeholeJson.type
+    // })
+    // .limit(10)
+    // .orderBy('time', 'desc')
+    // .get()
+    // .then(res => {
+    //   this.setData({
+    //     treeHoleData: res.data
+    //   })
+    //   this.data.treeHoleData["isCerti"] = this.getIsTrue(this.data.treeHoleData._openid)
+    // }).catch(err => {
+    //   console.log('获得树洞数据失败 ',err)
+    //   this.showError('网络连接失败')
+    // })
   },
 
   /**
@@ -152,6 +173,20 @@ Page({
       title: detail,
       icon: 'error',
       duration: 2000
+    })
+  },
+
+  getIsTrue(openid){
+    let tempIsCertification = false
+    db.collection('doctors')
+    .where({
+      _openid: openid
+    })
+    .get()
+    .then(res => {
+      tempIsCertification = res.data.isCertification
+      console.log(tempIsCertification)
+      return tempIsCertification
     })
   },
 })

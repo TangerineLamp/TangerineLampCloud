@@ -20,7 +20,6 @@ Page({
     this.setData({
       openid: app.globalData.openid,
       isDoctor: app.globalData.isDoctor,
-      
     })
   },
 

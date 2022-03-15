@@ -69,6 +69,7 @@ Page({
     }).then(res=>{
       console.log("通过", res)
       that.getReviewInfo(that.data._id);
+      
     })
   },
 

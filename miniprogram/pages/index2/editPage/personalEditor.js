@@ -141,9 +141,6 @@ Page({
             }) // end wx.showModal
           }, 2000);
         }) // end then
-        console.log('储存树洞成功')
-        console.log(this.data.userAvatar)
-        console.log(this.data.userName)
       } 
     } 
   },

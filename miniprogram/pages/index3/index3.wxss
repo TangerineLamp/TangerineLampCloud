@@ -29,9 +29,23 @@ page {
   height: 150rpx;
   border-radius: 50%;
 }
-.user_info_wrap .user_img_wrap .user_info .user_name {
+.user_info_wrap .user_img_wrap .user_info .user_vip{
+  justify-items: center;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 50rpx;
+  height: 50rpx;
+  bottom: -5rpx;
+  right:-5rpx;
+  z-index: 3;
+} 
+.user_info_wrap .user_img_wrap .user_name {
   color: white;
-  margin-top: 40rpx;
+  position: absolute;
+  width: 100%;
+  bottom: 40%;
+  text-align: center;
   font-size: 40rpx;
 }
 .user_info_wrap .user_btn {

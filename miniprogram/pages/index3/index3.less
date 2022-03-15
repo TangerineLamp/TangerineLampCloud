@@ -3,55 +3,73 @@ page{
     background-color: #edece8;
 }
 .user_info_wrap{
-    height: 45vh;
-    overflow: hidden;
-    width: 100%;
-    //width: 10rpx;//宽度感觉有点问题
-    background-color: orange;
-    position: relative;
-    .user_img_wrap{
-    position: relative;
-    .user_bg{
-        height:50vh;
-        width: 100%;
-        //高斯模糊
-        filter: blur(10rpx);
-    }
-    .user_info{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top: 20%;
-        text-align: center;
-        .user_icon{
-            width: 150rpx;
-            height: 150rpx;
-            border-radius: 50%;
-        }
-        .user_name{
-                color: white;
-                margin-top: 40rpx;
-                font-size: 40rpx;
-        }
-    }
+  height: 50%;
+  width: 100%;
+  overflow: hidden;
+  //width: 10rpx;//宽度感觉有点问题
+  background-color: orange;
+}
+.user_img_wrap{
+  height: 100%;
+  width: 100%;
+  z-index: 1;
+}
+.user_bg{
+  height: 100%;
+  width: 100%;
+  //高斯模糊
+  filter: blur(10rpx);
+}
+.user_info{
+  width: 100%;
+  height: 200rpx;
+  position: relative;
+  z-index: 2;
+}
+.user_icon{
+  width: 150rpx;
+  height: 150rpx;
+  border-radius: 50%;
+  z-index: 2;
+  position: relative;
+}
+.user_vip{
+  justify-items: center;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  width: 5rpx;
+  height: 5rpx;
+  bottom: -20rpx;
+  right:-20rpx;
+  z-index: 3;
 } 
-
-  .user_btn{
-        position: absolute;
-        left: 50%;
-        transform: translateX(-50%);
-        top:40%;
-        background-color: orange;
-        border: 1rpx solid whitesmoke;
-        color:whitesmoke;
-        font-size: 38rpx;
-        padding: 30rpx;
-        border-radius: 10rpx;
-    }
-
-    
+.user_name{
+  color: white;
+  margin-top: 40rpx;
+  font-size: 40rpx;
+}
+.user_bg{
+  height:50vh;
+  width: 100%;
+  //高斯模糊
+  filter: blur(10rpx);
+}
+ 
+.user_btn{
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  top:40%;
+  background-color: orange;
+  border: 1rpx solid whitesmoke;
+  color:whitesmoke;
+  font-size: 38rpx;
+  padding: 30rpx;
+  border-radius: 10rpx;
 }
 
+// 下半部分
 .user_content{
     position: relative;
     .user_main{

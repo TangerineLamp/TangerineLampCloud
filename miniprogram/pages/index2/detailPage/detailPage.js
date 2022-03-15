@@ -10,6 +10,7 @@ Page({
     hostPostTime: "", //  树洞主人发布时间
     aritleDetail: "", //  树洞详细内容
     isAnonymous: true, //  匿名
+    isCertification: false, // 认证
     time: 0,  //  发布时间
     treeholeid: null, //  树洞id
     isHost: false, //  是否是树洞的主人
@@ -49,8 +50,9 @@ Page({
    * 获取树洞的内容和评论
    */
   getTreeholeData(){
+    var that = this
     db.collection("index2_treeholes")
-    .doc(this.data.treeholeid)
+    .doc(that.data.treeholeid)
     .get()
     .then(res=>{
       console.log("树洞的详细内容:",res.data)
@@ -65,6 +67,14 @@ Page({
         time: res.data.time,
         isHost: judgeTemp,
       })
+      // db.collection('doctors').where({_openid: that.data.treeholeid}).field({
+      //   isCertification: true
+      // }).get()
+      // .then(res => {
+      //   that.setData({
+      //     isCertification: res.data.isCertification
+      //   })
+      // })
       console.log("它是主人吗",this.data.isHost)
     })
     .then(res=>{  //  在获取树洞结束后获取评论用.then实现顺序执行
@@ -230,6 +240,7 @@ Page({
             time: dateTemp,
             commenterNickname: app.globalData.userInfo.nickName,
             commenterAvatar: app.globalData.userInfo.avatarUrl,
+            isCertification: app.globalData.isDoctor,
           }
         })
         .then(res=>{
@@ -285,13 +296,6 @@ Page({
   },
 
   click(){
-    console.log('-----------------------------------------')
-    console.log('orilike:',this.data.oriLike)
-    console.log('isLike', this.data.isLike)
-    console.log('state1:',this.data.countState_1)
-    console.log('state2:',this.data.countState_2)
-    console.log('likeid:', this.data.likeTagid)
-    console.log('-----------------------------------------')
     if (this.data.isLogin){
       let jTemp = !this.data.isLike
       this.setData({

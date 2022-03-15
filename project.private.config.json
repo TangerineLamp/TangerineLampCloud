@@ -1,32 +1,15 @@
 {
   "setting": {
     "urlCheck": true,
-    "es6": true,
-    "enhance": true,
-    "postcss": true,
     "preloadBackgroundData": false,
-    "minified": true,
     "coverView": true,
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
-    "uglifyFileName": false,
     "checkInvalidKey": true,
-    "uploadWithSourceMap": true,
     "compileHotReLoad": false,
     "useMultiFrameRuntime": true,
-    "babelSetting": {
-      "ignore": [],
-      "disablePlugins": [],
-      "outputPath": ""
-    },
-    "packNpmManually": false,
-    "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "disableUseStrict": false,
     "showES6CompileOption": false,
-    "useCompilerPlugins": false,
-    "useStaticServer": true,
-    "minifyWXML": true
+    "useStaticServer": true
   },
   "condition": {
     "miniprogram": {
@@ -46,6 +29,7 @@
         {
           "name": "PCL问卷评测结果",
           "pathName": "pages/index1/test1/testlists/pcl-5/pcl-5",
+          "query": "",
           "scene": null
         }
       ]

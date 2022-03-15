@@ -12,9 +12,17 @@ Page({
     passageList: [], // 热门文章列表
     comicList: [], // 热门漫画列表
     picList: [], //轮播图列表
+    userInfo:{},
+    hasUserInfo:false,
   },
- 
+  // 首页缓存
+  initCache(){
+    let userInfo = wx.getStorageSync('userInfo')
+    let hasUserInfo=wx.getStorageSync('hasUserInfo')
+
+  },
   onLoad: function() {
+    this.initCache()
     this.getPicList();
     this.getPassageList();
     this.getComicList();

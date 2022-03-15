@@ -18,6 +18,8 @@ Page({
     // 为了保持解耦性，这两个只能从全局变量里面获得
     openid: null, //  用户的openid
     isDeveloper: false,  //  用户的权限
+    isDoctor:false,
+    isCertiStudent:false,
     isLogin: false,  //  用户是否登录
     canIUseGetUserProfile: true,
   },
@@ -40,8 +42,12 @@ Page({
   onLoad() {
     let userInfo = wx.getStorageSync('userInfo')
     let hasUserInfo=wx.getStorageSync('hasUserInfo')
+    let isDeveloper=wx.getStorageSync('isDeveloper', app.globalData.isDeveloper);
+    let isDoctor=wx.getStorageSync('hasUserInfo',app.globalData.isDoctor)
+    let isCertiStudent=wx.getStorageSync('isCertiStudent',app.globalData.isCertiStudent)
     console.log('hasUserInfo',hasUserInfo)
     console.log('userInfo+',userInfo)
+
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;
@@ -57,12 +63,19 @@ Page({
       this.setData({
         userInfo: userInfo,
         hasUserInfo: hasUserInfo,
+        isDeveloper:isDeveloper,
+        isDoctor:isDoctor,
+        isCertiStudent:isCertiStudent
       })
       app.globalData.isLogin=hasUserInfo
+      app.globalData.isDeveloper=isDeveloper
+      app.globalData.isDoctor=isDoctor
+      app.globalData.isCertiStudent=isCertiStudent
       this.setData({
         isLogin: app.globalData.isLogin,
         isDeveloper: app.globalData.isDeveloper,
         isDoctor: app.globalData.isDoctor,
+        isCertiStudent:app.globalData.isCertiStudent,
       })
     } else if (this.data.canIUse) {
       // 由于 getUserInfo 是网络请求，可能会在 Page.onLoad 之后才返回
@@ -120,7 +133,10 @@ Page({
           isDoctor: app.globalData.isDoctor,
         })
         wx.setStorageSync('userInfo', res.userInfo);
-        wx.setStorageSync('hasUserInfo',true)
+        wx.setStorageSync('hasUserInfo',true);
+        wx.setStorageSync('isDeveloper', app.globalData.isDeveloper);
+        wx.setStorageSync('isDoctor',app.globalData.isDoctor);
+        wx.setStorageSync('isCertiStudent',app.globalData.isCertiStudent);
       }
     })
   },

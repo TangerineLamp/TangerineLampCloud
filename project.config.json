@@ -35,7 +35,12 @@
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true
+    "minifyWXSS": true,
+    "showES6CompileOption": false,
+    "useSummerCompiler": false,
+    "minifyWXML": true,
+    "disableUseStrict": false,
+    "useCompilerPlugins": false
   },
   "appid": "wx72920a312942dcc0",
   "projectname": "TangerineLamp",
@@ -44,19 +49,9 @@
   "simulatorType": "wechat",
   "simulatorPluginLibVersion": {},
   "cloudfunctionTemplateRoot": "cloudfunctionTemplate/",
-  "scripts": {},
   "packOptions": {
     "ignore": [],
     "include": []
-  },
-  "watchOptions": {
-    "ignore": []
-  },
-  "debugOptions": {
-    "hidedInDevtools": []
-  },
-  "staticServerOptions": {
-    "servePath": ""
   },
   "condition": {
     "plugin": {
@@ -102,5 +97,10 @@
         }
       ]
     }
+  },
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   }
 }

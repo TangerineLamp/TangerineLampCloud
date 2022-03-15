@@ -42,12 +42,14 @@ Page({
   onLoad() {
     let userInfo = wx.getStorageSync('userInfo')
     let hasUserInfo=wx.getStorageSync('hasUserInfo')
-    let isDeveloper=wx.getStorageSync('isDeveloper', app.globalData.isDeveloper);
-    let isDoctor=wx.getStorageSync('hasUserInfo',app.globalData.isDoctor)
-    let isCertiStudent=wx.getStorageSync('isCertiStudent',app.globalData.isCertiStudent)
+    let isDeveloper=wx.getStorageSync('isDeveloper');
+    let isDoctor=wx.getStorageSync('isDoctor')
+    let isCertiStudent=wx.getStorageSync('isCertiStudent')
     console.log('hasUserInfo',hasUserInfo)
     console.log('userInfo+',userInfo)
-
+    console.log('我是医生',isDoctor)
+    console.log('我是开发者',isDeveloper)
+    console.log('我是认证学生',isCertiStudent)
     let now = new Date();
     let year = now.getFullYear();
     let month = now.getMonth() + 1;

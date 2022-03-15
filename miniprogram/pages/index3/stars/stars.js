@@ -32,7 +32,7 @@ Page({
     console.log(this.data.picList)
     this.getData();
     this.checkIsQianDao();
-    //this.isColor();
+    this.isColor();
 
   },
   checkIsQianDao() {

@@ -69,6 +69,18 @@ Page({
     this.setData({
       state: 'paused'
     })
+    // this.audioCtx.pause()
+    // this.setData({
+    //   state: 'paused'
+    // })
+  },
+
+  onUnload: function() {
+    // 页面销毁时执行
+    this.audioCtx.pause()
+    this.setData({
+      state: 'paused'
+    })
   },
 
   // 实现播放器播放功能

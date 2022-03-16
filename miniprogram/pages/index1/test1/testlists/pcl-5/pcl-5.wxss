@@ -37,3 +37,35 @@
   color:#fff;
   background-color: #00cc00;
 }
+
+.iteration {
+  margin-left: 25rpx;
+  margin-top:20rpx;
+}
+
+.big {
+  font-size: xx-large;
+}
+
+.tips {
+  color: rgb(112, 104, 104);
+  font-size: small;
+}
+
+.eva_str {
+  margin-top:20rpx;
+  padding: 10rpx;
+}
+
+/* total color */
+.green {
+  color: rgb(94, 189, 39);
+}
+
+.blue {
+  color: rgb(63, 153, 212);
+}
+
+.red {
+  color: rgb(255, 0, 0);
+}

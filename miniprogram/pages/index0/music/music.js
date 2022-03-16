@@ -10,10 +10,9 @@ Page({
   data: {
     //轮播图
     slides: [
-      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide1.jpg' },
-      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide2.jpg' },
-      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide3.jpg' },
-      { url: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/slides/slide4.jpg' }
+      { url: 'cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/swiper/1.jpg' },
+      { url: 'cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/swiper/2.jpg' },
+      { url: 'cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/swiper/3.jpg' }
     ],
     item: 0,
     tab: 0,
@@ -24,7 +23,7 @@ Page({
       title: '请点击选择播放音乐',
       singer: 'Please choose a song',
       src: '',
-      coverImgUrl: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/icon/music-default-icon.jpg'
+      coverImgUrl: 'cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/music/icon/music-default-icon.jpg'
     }], 
     state: 'paused',
     playIndex: 0,
@@ -35,7 +34,7 @@ Page({
       percent: 0,
       title: '请点击选择播放音乐',
       singer: 'Please choose a song',
-      coverImgUrl: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/icon/music-default-icon.jpg',
+      coverImgUrl: 'cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/music/icon/music-default-icon.jpg',
       src: ''
     }
   },

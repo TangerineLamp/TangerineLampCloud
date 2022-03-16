@@ -89,7 +89,8 @@ Page({
         title:this.data.title,
         singer:this.data.singer,
         src:this.data.src,
-        coverImgUrl:"cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/index0/music/coverImg/"+coverImgName,
+        // cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/music/coverImg/C大调奏鸣曲_coverImg.jpg
+        coverImgUrl:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index0/music/coverImg/"+coverImgName,
         pushTime:pushTime
       }
     })

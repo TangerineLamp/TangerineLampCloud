@@ -19,7 +19,23 @@ Page({
   initCache(){
     let userInfo = wx.getStorageSync('userInfo')
     let hasUserInfo=wx.getStorageSync('hasUserInfo')
-
+    let isDeveloper=wx.getStorageSync('isDeveloper');
+    let isDoctor=wx.getStorageSync('isDoctor')
+    let isCertiStudent=wx.getStorageSync('isCertiStudent')
+    console.log('hasUserInfo',hasUserInfo)
+    console.log('userInfo+',userInfo)
+    console.log('我是医生',isDoctor)
+    console.log('我是开发者',isDeveloper)
+    console.log('我是认证学生',isCertiStudent)
+    if(hasUserInfo==true){
+      app.globalData.userInfo=userInfo
+      app.globalData.hasUserInfo=hasUserInfo
+      app.globalData.isLogin=hasUserInfo
+      app.globalData.isDeveloper=isDeveloper
+      app.globalData.isDoctor=isDoctor
+      app.globalData.isCertiStudent=isCertiStudent
+    }
+    
   },
   onLoad: function() {
     this.initCache()

@@ -239,7 +239,7 @@ Page({
 
       this.getAuthority(openId);
       this.getDoctorAuth(openId);
-
+      this.getCertiStudentAuth(openId);
       app.globalData.openid = openId
       // this.setData({
       //   openid: app.globalData.openid
@@ -274,6 +274,21 @@ Page({
         app.globalData.isDoctor = true
       }
       console.log("用户是否是心理咨询师",app.globalData.isDoctor)
+    })
+  }
+  ,
+  getCertiStudentAuth(openId){
+    db.collection("CertiStudent")
+    .where({
+      openid:openId
+    })
+    .count()
+    .then(res=>{
+      console.log(res)
+      if(res.total>0){
+        app.globalData.isCertiStudent = true
+      }
+      console.log("用户是否是认证学生",app.globalData.isCertiStudent)
     })
   }
 })

@@ -69,14 +69,11 @@ Page({
     this.setData({
       state: 'paused'
     })
-    // this.audioCtx.pause()
-    // this.setData({
-    //   state: 'paused'
-    // })
   },
 
   onUnload: function() {
     // 页面销毁时执行
+    // 离开页面必须停止播放音乐
     this.audioCtx.pause()
     this.setData({
       state: 'paused'

@@ -6,11 +6,16 @@ Page({
    */
   data: {
     totalScores:0,
-    // Parts_Scores:[], //各部分分数
-    Parts_Scores:[[1,"症状轻微"],[2,"中等症状"],[3,"症状较严重"],[4,"症状严重"]],    // *****
+    // totalScores:10,
+    totalColor: "",
+    Parts_Scores:[], //各部分分数
+    final_eval_str: "", // 最终测评结果字符串
+    // final_eval_str: "有极轻微PSTD症状，可自行观察一段时间，或向心理医师寻求建议。",
+    // Parts_Scores:[["入侵症状",1,"症状轻微"],["持续回避",2,"中等症状"],["认知、情绪消极改变",3,"症状较严重"],["情绪激动",4,"症状严重"]],    // *****
     Parts_numbers:[[1,2,3,4,5], [6,7],[8,9,10,11,12,13,14],[15,16,17,18,19,20]],  //各部分题目序号
-    // showCalculation:false,
-    showCalculation:true,      // *****
+    Parts_meanings: ["入侵症状","持续回避","认知和情绪消极改变","情绪激动"],  //各部分分数含义
+    showCalculation:false,
+    // showCalculation:true,      // *****
     currentChosen:-1,
     nowIndex:1,
     chosenAnswers:[0], //第0位仅用来占位，真正的index从1开始
@@ -104,6 +109,8 @@ Page({
   calculate(){
     let totalScores = 0;
     let Parts_Scores_tmp = new Array(this.data.Parts_numbers.length).fill(0);    //根据各部分总数创建各部分的scores数组
+    let final_eval_str = "";
+    let totalColor = "";
     for(var i=1;i<=20;i++){                     //计算各部分得分
       for(var j=0;j<4;j++){
         if(this.data.Parts_numbers[j].indexOf(i)>=0){
@@ -113,17 +120,32 @@ Page({
       }
       totalScores += this.data.chosenAnswers[i];
     }
+    if(totalScores==0){
+      final_eval_str = "恭喜，本次测评未发现PTSD症状！";
+      totalColor = "green";
+    }else if(totalScores < 19){
+      final_eval_str = "有极轻微PSTD症状，可自行观察一段时间，或向心理医师寻求建议。";
+      totalColor = "blue";
+    }else if(totalScores < 38){
+      final_eval_str = "有轻微PSTD症状，可自行观察一段时间，或向心理医师寻求建议。";
+      totalColor = "orange";
+    }else{
+      final_eval_str = "有较严重PSTD症状，请立即向心理咨询师寻求帮助！";
+      totalColor = "red";
+    }
+
     //根据各部分得分分析结果
     let Parts_Eva_tmp = [];
     let tmpstr = "";
+    let Parts_meanings = this.data.Parts_meanings;
     for(var i=0;i<this.data.Parts_numbers.length;i++){
-      if(Parts_Scores_tmp[i]<1){
-        tmpstr = "毫无症状";
-      }else if (Parts_Scores_tmp[i]<2){
+      if(Parts_Scores_tmp[i]/this.data.Parts_numbers[i].length<1){
+        tmpstr = "无明显症状";
+      }else if (Parts_Scores_tmp[i]/this.data.Parts_numbers[i].length<2){
         tmpstr = "症状轻微";
-      }else if (Parts_Scores_tmp[i]<3){
+      }else if (Parts_Scores_tmp[i]/this.data.Parts_numbers[i].length<3){
         tmpstr = "中等症状";
-      }else if (Parts_Scores_tmp[i]<4){
+      }else if (Parts_Scores_tmp[i]/this.data.Parts_numbers[i].length<4){
         tmpstr = "症状较严重";
       }else{
         tmpstr = "症状严重";
@@ -132,12 +154,14 @@ Page({
     }
     let Parts_Scores = [];
     for(var i=0;i<this.data.Parts_numbers.length;i++){
-      Parts_Scores.push([Parts_Scores_tmp[i],Parts_Eva_tmp[i]])
+      Parts_Scores.push([Parts_meanings[i],Parts_Scores_tmp[i],Parts_Eva_tmp[i]])
     }
 
     this.setData({
       Parts_Scores,
-      totalScores
+      totalScores,
+      final_eval_str,
+      totalColor
     })
   },
 

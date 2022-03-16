@@ -16,14 +16,15 @@
   </view>
 </block>
 <block wx:if="{{showCalculation}}">
-  <view class="top">总得分：{{totalScores}}</view>
+  <view class="top">总得分：<text class="big {{totalColor}}">{{totalScores}} </text><text class="tips"> (分值越大症状越严重)</text></view>
   <view>部分得分：</view>
   <view wx:for="{{Parts_Scores}}"
   wx:for-item="item"
-  wx:key="pcl5key">
-    {{item[0]}} {{item[1]}}
+  wx:key="pcl5key"
+  class="iteration">
+  {{item[0]}}: {{item[1]}}分 —— {{item[2]}}
   </view>
-  <view>结果分析开发中，敬请期待...</view>
+  <view class="eva_str">{{final_eval_str}}</view>
 </block>
 
 

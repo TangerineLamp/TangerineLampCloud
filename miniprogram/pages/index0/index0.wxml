@@ -59,7 +59,6 @@
       </view> -->
     </navigator>
     
-    
     <!-- 删去心理电塔功能 -->
     <!-- 心理电台 -->
     <!-- <navigator url="/pages/index0/radio/radio" hover-class="navigator-hover" class="daily-item4">
@@ -76,36 +75,20 @@
       </view>
     </navigator> -->
 
-    <!-- 联系我们 -->
-    <!-- <view>
-      <navigator url="/pages/index0/contact/contact" hover-class="navigator-hover" class="contact-item">
-        <view class="contact-icon">
-          <image src="{{contactIconSrc}}"></image>
-        </view>
-        <view>
-          <view class="contact-info">
-            联 系 我 们
-          </view>
-          <view class="contact-des">
-            <text>Tel: 135XXXXXXXX</text>
-          </view>
-        </view>
-      </navigator>
-    </view> -->
   </view>
 </view>
 
 
 
-<!-- 热门内容展示 -->
+<!-- 最新内容展示 -->
 
-<!-- 热门文章 -->
+<!-- 最新文章 -->
 <view class="contentShow">
   <!-- <view class="container"> -->
     <!-- 标题 -->
     <view class="title">
-      <view class="titleTxt">热门文章</view>
-      <navigator class="more" url="/pages/index0/passage/passage">更多 > </navigator>
+      <view class="titleTxt">最新文章</view>
+      <navigator class="more" url="/pages/index0/passage/passage">更多文章 > </navigator>
     </view>
     <!-- 展示内容主体 -->
     <view class="contentContainer">
@@ -130,13 +113,13 @@
   <!-- </view> -->
 </view>
 
-<!-- 热门漫画 -->
+<!-- 最新漫画 -->
 <view class="contentShow">
   <!-- <view class="container"> -->
     <!-- 标题 -->
     <view class="title">
-      <view class="titleTxt">热门漫画</view>
-      <navigator class="more" url="/pages/index0/comic/comic">更多 > </navigator>
+      <view class="titleTxt">最新漫画</view>
+      <navigator class="more" url="/pages/index0/comic/comic">更多漫画 > </navigator>
     </view>
     <!-- 展示内容主体 -->
     <view class="contentContainer">

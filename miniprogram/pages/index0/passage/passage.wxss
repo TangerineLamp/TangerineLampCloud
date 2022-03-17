@@ -12,7 +12,7 @@ page{
 .title{
   font-size: 50rpx;
   font-weight: bold;
-  color: #ff9933;
+  color: #ff8833;
 }
 
 .des{

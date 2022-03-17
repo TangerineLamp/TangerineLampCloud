@@ -74,17 +74,6 @@ page{
   border-radius: 15rpx;
 } */
 
-/* .contact-item{
-  display: flex;
-  float: left;
-  position: relative;
-  width: 700rpx;
-  height: 175rpx;
-  margin-top: 20rpx; 
-  margin-left: 25rpx;
-  background: #f0f3f8;
-} */
-
 /* 每日文章、治愈歌单、心理漫画 图标设置 */
 .daily-icon-passage image{
   width: 120rpx;
@@ -110,14 +99,6 @@ page{
   margin-left: 25rpx;
 }
 
-/* .contact-icon image{
-  width: 135rpx;
-  height: 135rpx;
-  margin-top: 20rpx;
-  margin-bottom: 20rpx;
-  margin-left: 155rpx;
-} */
-
 /* .daily-info{
   height: 35rpx;
   font-size: 35rpx;
@@ -138,25 +119,6 @@ page{
   margin-left: 15rpx;
 }
 
-.contact-info{
-  height: 50rpx;
-  font-size: 55rpx;
-  position: relative;
-  color: black;
-  font-family: '微软雅黑';
-  font-weight: bold;
-  bottom: 10rpx;
-  left: -10rpx;
-  margin-left: 30rpx;
-  margin-top: 40rpx;
-}
-
-.contact-des{
-  color: #797676;
-  font-size: 25rpx;
-  margin-top: 15rpx;
-  margin-left: 30rpx;
-} */
 
 
 /* 热门内容展示 */

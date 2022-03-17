@@ -17,54 +17,52 @@ page{
 
 .dailyMain{
   margin-top: -20rpx;
-  margin-bottom: -37rpx;
+  margin-bottom: 25rpx;
 }
 
 .daily{
   height: 240rpx;
+  display: flex;
+  justify-content: center;
   /* background: #f9f9f9; */
 }
 
-/* 每日分享四大组件样式 */
+
+/* 每日分享三大导航栏组件样式 */
+/* 每日文章、治愈歌单、心理漫画 */
 
 .daily-item1{
-  display: flex;
-  float: left;
-  position: relative;
-  width: 342rpx;
+  width: 175rpx;
   height: 175rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
-  margin-right: 10rpx;
+  margin-right: 30rpx;
   background: #f7f6f6;
-  border-radius: 15rpx;
+  border-radius: 100rpx;
 }
 
 .daily-item2{
-  display: flex;
-  float: right;
-  position: relative;
-  width: 342rpx;
+  width: 175rpx;
   height: 175rpx;
   margin-top: 50rpx; 
-  margin-right: 25rpx;
+  margin-left: 25rpx;
+  margin-right: 30rpx;
   background: #f7f6f6;
-  border-radius: 15rpx;
+  border-radius: 100rpx;
 }
 
 .daily-item3{
-  display: flex;
-  float: left;
-  position: relative;
-  width: 342rpx;
+  width: 175rpx;
   height: 175rpx;
-  margin-top: 5rpx; 
+  margin-top: 50rpx; 
   margin-left: 25rpx;
+  margin-right: 30rpx;
   background: #f7f6f6;
-  border-radius: 15rpx;
+  border-radius: 100rpx;
 }
 
-.daily-item4{
+/* 心理电台功能已去除 */
+/* .daily-item4{
   display: flex;
   float: right;
   position: relative;
@@ -74,9 +72,9 @@ page{
   margin-right: 25rpx;
   background: #f7f6f6;
   border-radius: 15rpx;
-}
+} */
 
-.contact-item{
+/* .contact-item{
   display: flex;
   float: left;
   position: relative;
@@ -85,26 +83,42 @@ page{
   margin-top: 20rpx; 
   margin-left: 25rpx;
   background: #f0f3f8;
-}
+} */
 
-.daily-icon image{
+/* 每日文章、治愈歌单、心理漫画 图标设置 */
+.daily-icon-passage image{
   width: 120rpx;
   height: 120rpx;
-  margin-top: 30rpx;
+  margin-top: 27rpx;
   margin-bottom: 20rpx;
-  margin-left: 15rpx;
+  margin-left: 30rpx;
 }
 
-.contact-icon image{
+.daily-icon-music image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 27rpx;
+  margin-bottom: 20rpx;
+  margin-left: 30rpx;
+}
+
+.daily-icon-comic image{
+  width: 120rpx;
+  height: 120rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 25rpx;
+}
+
+/* .contact-icon image{
   width: 135rpx;
   height: 135rpx;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
   margin-left: 155rpx;
-}
+} */
 
-.daily-info{
-  /* position: absolute; */
+/* .daily-info{
   height: 35rpx;
   font-size: 35rpx;
   position: relative;
@@ -142,7 +156,7 @@ page{
   font-size: 25rpx;
   margin-top: 15rpx;
   margin-left: 30rpx;
-}
+} */
 
 
 /* 热门内容展示 */
@@ -167,19 +181,19 @@ page{
   font-weight: bold;
   height: 100%;
   position: relative;
-  padding-left: 25rpx;
+  padding-left: 28rpx;
 }
 
 .title .titleTxt::before{
   display: block;
-  width: 13rpx;
+  width: 18rpx;
   height: 36rpx;
   background: #ff9933;
   content: "";
   position: absolute;
   left: 0;
   top: 50%;
-  margin-top: -15rpx;
+  margin-top: -20rpx;
 }
 
 .title .more{

@@ -16,53 +16,53 @@
   <view class="daily">
     <!-- 文章 -->
     <navigator url="/pages/index0/passage/passage" hover-class="navigator-hover" class="daily-item1">
-      <view class="daily-icon">
+      <view class="daily-icon-passage">
         <image src="{{passageIconSrc}}"></image>
       </view>
-      <view>
+      <!-- <view>
         <view class="daily-info">
           每日文章
         </view>
         <view class="daily-des">
           <text>Daily Passage</text>
         </view>
-      </view>
+      </view> -->
     </navigator>
 
-    <!-- 治愈歌单、书目 -->
+    <!-- 治愈歌单 -->
     <navigator url="/pages/index0/music/music" hover-class="navigator-hover" class="daily-item2">
-      <view class="daily-icon">
+      <view class="daily-icon-music">
         <image src="{{musicIconSrc}}"></image>
       </view>
-      <view>
+      <!-- <view>
         <view class="daily-info">
           治愈歌单
         </view>
         <view class="daily-des">
           <text>Healing Music</text>
         </view>
-      </view>
+      </view> -->
     </navigator>
-  </view>
-
-  <view class="daily">
+  
     <!-- 心理漫画 -->
     <navigator url="/pages/index0/comic/comic" hover-class="navigator-hover" class="daily-item3">
-      <view class="daily-icon">
+      <view class="daily-icon-comic">
         <image src="{{comicIconSrc}}"></image>
       </view>
-      <view>
+      <!-- <view>
         <view class="daily-info">
           心理漫画
         </view>
         <view class="daily-des">
           <text>Psyco Comic</text>
         </view>
-      </view>
+      </view> -->
     </navigator>
     
+    
+    <!-- 删去心理电塔功能 -->
     <!-- 心理电台 -->
-    <navigator url="/pages/index0/radio/radio" hover-class="navigator-hover" class="daily-item4">
+    <!-- <navigator url="/pages/index0/radio/radio" hover-class="navigator-hover" class="daily-item4">
       <view class="daily-icon">
         <image src="{{radioIconSrc}}"></image>
       </view>
@@ -74,7 +74,7 @@
           <text>Psyco Radio</text>
         </view>
       </view>
-    </navigator>
+    </navigator> -->
 
     <!-- 联系我们 -->
     <!-- <view>

@@ -10,13 +10,13 @@ page{
 }
 
 .title{
-  font-size: 46rpx;
+  font-size: 50rpx;
   font-weight: bold;
   color: #ff9933;
 }
 
 .des{
-  font-size: 32rpx;
+  font-size: 30rpx;
   color: #aaa;
   line-height: 67rpx;
 }

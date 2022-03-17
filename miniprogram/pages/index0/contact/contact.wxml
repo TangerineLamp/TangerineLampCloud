@@ -20,7 +20,7 @@
          <view class="icon">
             <image src="{{clockIconSrc}}" class="icon-postion"></image>
          </view>
-         <view class="text">8：30 AM ~ 17：30 PM</view>
+         <view class="text">8:30 AM ~ 17:30 PM</view>
       </view>
       <!-- 电话 -->
       <view class="line" bindtap="calling">

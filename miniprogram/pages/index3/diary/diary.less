@@ -50,12 +50,16 @@ page{
   }
   
   .passage-title{
+    display:-webkit-box;
+    font-weight: bold;
+    overflow: hidden;
+    text-overflow: ellipsis;
     margin-top: 30rpx;
     margin-left: 5rpx;
     font-family: '微软雅黑';
     font-size: 40rpx;
-    font-weight: bold;
-  
+    -webkit-box-orient: vertical;
+    -webkit-line-clamp: 1;
   }
   
   .passage-des{
@@ -75,7 +79,7 @@ page{
     border: 0 solid #ffffff;
     box-shadow: 6rpx 1rpx 1rpx #cccccc;
     position: fixed;
-    left: 50%;
+    left: 85%;
     transform: translateX(-50%);
     bottom: 1%;
     color: #fff;

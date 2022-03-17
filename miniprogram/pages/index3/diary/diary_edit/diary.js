@@ -110,28 +110,42 @@ Page({
         //判断图片格式
         if (this.data.pictures.endsWith(".jpg")) {
           picName = title + "_pic.jpg"
-        } else if (this.data.cover.endsWith(".png")) {
+        } else if (this.data.pictures.endsWith(".png")) {
           picName = title + "_pic.png"
-        } else if (this.data.cover.endsWith(".svg")) {
+        } else if (this.data.pictures.endsWith(".svg")) {
           picName = title + "_pic.svg"
         }
+
+        console.log(picName)
         if (picName != "") {
           console.log(picName)
           //上传至云端
           this.cloudfile(picName)
+          db.collection("index3_diary").add({
+            data: {
+              title: title,
+              content: content,
+              is_hide: is_hide,
+              pic: "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/diary/" + picName
+              //pictures:pictures
+            }
+          }).then(res => {
+            console.log(res)
+          })
         }
-
-        db.collection("index3_diary").add({
-          data: {
-            title: title,
-            content: content,
-            is_hide: is_hide,
-            pic: "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/diary/" + picName
-            //pictures:pictures
-          }
-        }).then(res => {
-          console.log(res)
-        })
+        else{
+          db.collection("index3_diary").add({
+            data: {
+              title: title,
+              content: content,
+              is_hide: is_hide,
+              pic: ""
+              //pictures:pictures
+            }
+          }).then(res => {
+            console.log(res)
+          })
+        }
         this.setData({
           pictures: "",
           isSrc: false

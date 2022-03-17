@@ -110,3 +110,10 @@
   border-left:8rpx solid #ff6633;
   background-color: #fff;
 }
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 400rpx;
+  color:#b3b3b3;
+  font-size: 35rpx;
+}

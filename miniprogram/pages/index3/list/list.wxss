@@ -1,1 +1,8 @@
 /* pages/index3/list/list.wxss */
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 500rpx;
+  color:#b3b3b3;
+  font-size: 35rpx;
+}

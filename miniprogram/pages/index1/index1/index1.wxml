@@ -41,6 +41,12 @@
     wx:for-item="item1"
     wx:key="id"
     url="{{currentIndex===0?('/pages/index1/test1/paidTestDetail/paidTestDetail?_id='+item1._id):'/pages/index1/test1/freeTestDetail/freeTestDetail?_id='+item1._id}}"> -->
+  <block wx:if="{{rightTestList.length===0}}">
+    <view class="noneAppointment">
+      暂无可用测评
+    </view>
+  </block>
+  <block wx:if="{{!(rightTestList.length===0)}}">
     <view
     class="test_item"
     wx:for="{{rightTestList}}"
@@ -64,6 +70,7 @@
         </view>
       </view>
     </view>
+  </block>
     <!-- </navigator> -->
   </scroll-view>
 </view>

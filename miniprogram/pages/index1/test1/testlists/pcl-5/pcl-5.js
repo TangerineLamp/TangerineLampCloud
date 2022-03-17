@@ -1,4 +1,7 @@
 // miniprogram/pages/index1/test1/testlists/pcl-5/pcl-5.js
+const db = wx.cloud.database();
+const _ = db.command
+
 Page({
 
   /**
@@ -83,6 +86,29 @@ Page({
         this.setData({
           showCalculation:true
         })
+        // ↓ ********* 保存分析结果到数据库 ********* ↓
+        let testName = "PCL-5";
+        let totalScores = this.data.totalScores;
+        let partScores = [];
+        let advice = this.data.final_eval_str;
+        let date = Date.now();
+        for(var i=0;i<this.data.Parts_Scores.length;i++){
+          partScores.push(String(this.data.Parts_Scores[i][0]+":"+this.data.Parts_Scores[i][1]+"分（"+this.data.Parts_Scores[i][2]+"）；"))
+        }
+        db.collection("index1_adviceResult").add({
+          data:{
+            testName:testName,
+            totalScores:totalScores,
+            partScores:partScores,
+            advice:advice,
+            date:date,
+          }
+        }).then(res=>{
+          console.log("测评结果添加入数据库")
+        })
+
+        // ↑ ********* 保存分析结果到数据库 ********* ↑
+
       }else{                           //当前index为中间题目,继续在本页面渲染
         //从未问答过下一题
         if(this.data.nowIndex>=this.data.chosenAnswersLength){

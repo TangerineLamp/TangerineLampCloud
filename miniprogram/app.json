@@ -56,7 +56,8 @@
     "pages/index1/advice/newDetail/newDetail",
     "pages/index3/certification/authen/authenDetail/authenDetail",
     "pages/index1/advice/outerAppointment/outerAppointment",
-    "pages/index3/developer/trash/trash"
+    "pages/index3/developer/trash/trash",
+    "pages/index3/exam/adviceResult/adviceResult"
   ],
   "window": {
     "backgroundTextStyle": "light",

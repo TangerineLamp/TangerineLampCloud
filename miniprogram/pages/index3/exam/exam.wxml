@@ -1,0 +1,30 @@
+<wxs src="/utils/adviceResultDate.wxs" module="filters"/>
+<view class="header">
+  <view class="title">
+    测评结果
+  </view>
+  <view class="des">
+    心灵旅途的点滴，小橘灯记得
+  </view>
+</view>
+
+<!-- 测评列表 -->
+<scroll-view scroll-top="{{0}}" scroll-y class="passage">
+  <!-- 测评导航 -->
+  <navigator class="passage-item"
+  wx:for="{{result_list}}"
+  wx:key="id"
+  wx:for-index="index0"
+  wx:for-item="item0"
+  url="{{'/pages/index3/exam/adviceResult/adviceResult?_id='+item0._id}}">
+    <!-- 测评信息 title/des -->
+    <view class="passage-info">
+      <view class="passage-title">
+        {{item0.testName}}
+      </view>
+      <view class="passage-des">
+        {{filters.formatDate(item0.date)}}
+      </view>
+    </view>
+  </navigator>
+</scroll-view>

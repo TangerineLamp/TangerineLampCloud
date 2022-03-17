@@ -15,7 +15,7 @@
     <text class="nextquestion" bindtap="tapNext">{{nowIndex===9?"查看结果":"下一题"}}</text>
   </view>
 </block>
-<block wx:if="{{showCalculation}}">
+<!-- <block wx:if="{{showCalculation}}">
   <view class="top">总得分：{{totalScores}}</view>
   <view>部分得分：</view>
   <view wx:for="{{Parts_Scores}}"
@@ -23,5 +23,22 @@
   wx:key="pcl5key">
     {{item}}
   </view>
-  <view>结果分析开发中，敬请期待...</view>
+  <view class="eva_str">{{final_eval_str}}</view>
+  <view class="bottom">
+    <text class="nextquestion" bindtap="navback">返回首页</text>
+  </view>
+</block> -->
+<block wx:if="{{showCalculation}}">
+  <view class="top">总得分：<text class="big {{totalColor}}">{{totalScores}} </text><text class="tips"> (分值越大症状越严重)</text></view>
+  <view>部分得分：</view>
+  <view wx:for="{{Parts_Scores}}"
+  wx:for-item="item"
+  wx:key="phqkey"
+  class="iteration">
+  抑郁症状得分：{{item}}
+  </view>
+  <view class="eva_str">{{final_eval_str}}</view>
+  <view class="bottom">
+    <text class="nextquestion" bindtap="navback">返回首页</text>
+  </view>
 </block>

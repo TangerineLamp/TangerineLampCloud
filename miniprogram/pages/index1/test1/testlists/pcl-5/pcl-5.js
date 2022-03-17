@@ -87,13 +87,14 @@ Page({
           showCalculation:true
         })
         // ↓ ********* 保存分析结果到数据库 ********* ↓
-        let testName = "PCL-5";
+        let testName = "创伤后应激障碍筛查量表PCL-5";
         let totalScores = this.data.totalScores;
         let partScores = [];
         let advice = this.data.final_eval_str;
         let date = Date.now();
+        let totalColor = this.data.totalColor;
         for(var i=0;i<this.data.Parts_Scores.length;i++){
-          partScores.push(String(this.data.Parts_Scores[i][0]+":"+this.data.Parts_Scores[i][1]+"分（"+this.data.Parts_Scores[i][2]+"）；"))
+          partScores.push(String(this.data.Parts_Scores[i][0]+"："+this.data.Parts_Scores[i][1]+"分（"+this.data.Parts_Scores[i][2]+"）；"))
         }
         db.collection("index1_adviceResult").add({
           data:{
@@ -102,6 +103,7 @@ Page({
             partScores:partScores,
             advice:advice,
             date:date,
+            totalColor:totalColor,
           }
         }).then(res=>{
           console.log("测评结果添加入数据库")
@@ -188,6 +190,12 @@ Page({
       totalScores,
       final_eval_str,
       totalColor
+    })
+  },
+
+  navback(){
+    wx.navigateBack({
+      delta: 2,
     })
   },
 

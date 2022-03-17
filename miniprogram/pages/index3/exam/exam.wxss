@@ -14,3 +14,59 @@
   color: #aaa;
   line-height: 67rpx;
 }
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 400rpx;
+  color:#b3b3b3;
+  font-size: 35rpx;
+}
+
+.passage{
+  display: flex;
+  margin-bottom: 100rpx;
+}
+
+.passage-item{
+  display: flex;
+  height: 150rpx;
+  background-color: #f7f5f5;
+  border-top: 7rpx solid white;
+  border-bottom: 10rpx solid white;
+  border-left: 5rpx solid white;
+  border-right: 5rpx solid white;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  align-items: center;
+  border-radius: 15rpx;
+}
+
+.passage-info{
+  flex:2;
+  margin-top: 0rpx;
+  margin-left: 30rpx;
+  height: 90%;
+}
+
+
+.passage-title{
+  width: 90%;
+  margin-top: 25rpx;
+  margin-left: 5rpx;
+  font-family: '微软雅黑';
+  font-size: 36rpx;
+  display: -webkit-box;
+  font-weight: bold;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  word-wrap: break-word;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+
+.passage-des{
+  color: #797676;
+  font-size: 26rpx;
+  margin-top: 10rpx;
+  margin-left: 5rpx;
+}

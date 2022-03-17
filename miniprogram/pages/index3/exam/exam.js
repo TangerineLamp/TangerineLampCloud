@@ -17,14 +17,13 @@ Page({
    */
   //  数据库获取最新的10条该用户测评结果
   getData() {
-    db.collection("index1_adviceResult")
+    db.collection("index1_adviceResult").orderBy('date', 'desc')
       .where({
         _openid: this.data.openid
       })
       .limit(10)
       .get()
       .then(res => {
-        console.log(res.data)
         this.setData({
           result_list: res.data
         })
@@ -81,7 +80,7 @@ Page({
   /**
    * 生命周期函数--监听页面显示
    */
-  // onShow: function () {
-  //   this.getData();
-  // },
+  onShow: function () {
+    this.getData();
+  },
 })

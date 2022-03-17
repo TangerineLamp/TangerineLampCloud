@@ -1,2 +1,12 @@
 <!--miniprogram/pages/index3/exam/adviceResult/adviceResult.wxml-->
-<text>miniprogram/pages/index3/exam/adviceResult/adviceResult.wxml</text>
+<view class="title">{{testName}}</view>
+<view class="top">总得分：<text class="big {{totalColor}}">{{totalScores}} </text><text class="tips"> (分值越大症状越严重)</text></view>
+<view>部分得分：</view>
+<view wx:for="{{partScores}}"
+wx:for-item="item"
+wx:key="resultkey"
+class="iteration">
+{{item}}
+</view>
+<view class="eva_str">{{advice}}</view>
+<view class="bottombox"><text class="delete" bindtap="deleteResult">删除</text></view>

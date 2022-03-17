@@ -1,4 +1,8 @@
 // miniprogram/pages/index1/test1/testlists/phq-9/phq-9.js
+const db = wx.cloud.database();
+const _ = db.command
+
+
 Page({
 
   /**
@@ -7,6 +11,7 @@ Page({
   data: {
     totalScores:0,
     Parts_Scores:[], //各部分分数
+    totalColor:"",
     // Parts_numbers:[[1,2,3,4,5], [6,7],[8,9,10,11,12,13,14],[15,16,17,18,19,20]],  //各部分题目序号
     Parts_numbers:[[1,2,3,4,5,6,7,8,9]],  //各部分题目序号
     showCalculation:false,
@@ -66,6 +71,30 @@ Page({
         this.setData({
           showCalculation:true
         })
+                // ↓ ********* 保存分析结果到数据库 ********* ↓
+                let testName = "抑郁症筛查量表PHQ-9";
+                let totalScores = this.data.totalScores;
+                let partScores = [];
+                let advice = this.data.final_eval_str;
+                let date = Date.now();
+                let totalColor = this.data.totalColor;
+                for(var i=0;i<this.data.Parts_Scores.length;i++){
+                  partScores.push(String("抑郁症状得分："+this.data.Parts_Scores[i]))
+                }
+                db.collection("index1_adviceResult").add({
+                  data:{
+                    testName:testName,
+                    totalScores:totalScores,
+                    partScores:partScores,
+                    advice:advice,
+                    date:date,
+                    totalColor:totalColor,
+                  }
+                }).then(res=>{
+                  console.log("测评结果添加入数据库")
+                })
+        
+                // ↑ ********* 保存分析结果到数据库 ********* ↑
       }else{                           //当前index为中间题目,继续在本页面渲染
         //从未问答过下一题
         if(this.data.nowIndex>=this.data.chosenAnswersLength){
@@ -92,6 +121,8 @@ Page({
   calculate(){
     let totalScores = 0;
     let Parts_Scores = new Array(this.data.Parts_numbers.length).fill(0);    //根据各部分总数创建各部分的scores数组
+    let final_eval_str = ""
+    let totalColor = ""
     for(var i=1;i<=9;i++){                     //计算各部分得分
       for(var j=0;j<4;j++){
         if(this.data.Parts_numbers[j].indexOf(i)>=0){
@@ -100,10 +131,34 @@ Page({
         }
       }
       totalScores += this.data.chosenAnswers[i];
+      if(totalScores<=4){
+        final_eval_str = "无症状或症状极轻微，该分数表明您可能不需要接受抑郁症治疗。";
+        totalColor = "green";
+      }else if(totalScores <= 9){
+        final_eval_str = "轻度抑郁，可向心理医师寻求帮助，根据您抑郁症状的持续时间和造成的功能障碍，对治疗进行临床判断。";
+        totalColor = "blue";
+      }else if(totalScores <= 14){
+        final_eval_str = "中度抑郁，可向心理医师寻求帮助，根据您抑郁症状的持续时间和造成的功能障碍，对治疗进行临床判断。";
+        totalColor = "orange";
+      }else if(totalScores <= 19){
+        final_eval_str = "较重度抑郁，请立即向心理医师寻求帮助，并根据医嘱使用抗抑郁剂、心理疗法或综合治疗！";
+        totalColor = "red";
+      }else{
+        final_eval_str = "重度抑郁，请立即向心理医师寻求帮助，并根据医嘱使用抗抑郁剂、心理疗法或综合治疗！";
+        totalColor = "red";
+      }
     }
     this.setData({
       Parts_Scores,
-      totalScores
+      totalScores,
+      totalColor,
+      final_eval_str
+    })
+  },
+
+  navback(){
+    wx.navigateBack({
+      delta: 2,
     })
   },
 

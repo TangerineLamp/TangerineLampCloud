@@ -41,6 +41,7 @@
 .iteration {
   margin-left: 25rpx;
   margin-top:20rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
 }
 
 .big {

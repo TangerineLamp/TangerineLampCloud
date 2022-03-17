@@ -25,6 +25,9 @@
   {{item[0]}}: {{item[1]}}分 —— {{item[2]}}
   </view>
   <view class="eva_str">{{final_eval_str}}</view>
+  <view class="bottom">
+    <text class="nextquestion" bindtap="navback">返回首页</text>
+  </view>
 </block>
 
 

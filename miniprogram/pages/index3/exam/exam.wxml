@@ -27,4 +27,9 @@
       </view>
     </view>
   </navigator>
+  <block wx:if="{{result_list.length===0}}">
+    <view class="noneAppointment">
+      暂无测评结果
+    </view>
+  </block>
 </scroll-view>

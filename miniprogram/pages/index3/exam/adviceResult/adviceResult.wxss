@@ -1,1 +1,96 @@
-/* miniprogram/pages/index3/exam/adviceResult/adviceResult.wxss */
+.title {
+  margin-top: 40rpx;
+  margin-bottom: 20rpx;
+  text-align: center;
+  font-family: '微软雅黑';
+  font-size: 40rpx;
+  font-weight: bold;
+}
+
+.bigTitle {
+  margin:20rpx;
+  color :#999999;
+  font-size:35rpx;
+}
+
+.orange {
+  color:var(--orange0);
+}
+
+.active{
+  background-color:#ffcc33;
+  color:#fff;
+}
+
+.questionTitle {
+  margin: 0rpx 15rpx 0rpx 15rpx;
+}
+
+.question {
+  margin:30rpx;
+  padding:15rpx;
+  border-radius: 10rpx;
+  border: 1rpx solid var(--orange0);
+}
+
+.bottom {
+  margin-top:80rpx;
+  text-align: center;
+}
+
+.nextquestion {
+  padding:20rpx;
+  margin-left:80rpx;
+  margin-right:80rpx;
+  border-radius: 10rpx;
+  color:#fff;
+  background-color: #00cc00;
+}
+
+.iteration {
+  margin-left: 25rpx;
+  margin-top:20rpx;
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}
+
+.big {
+  font-size: xx-large;
+}
+
+.tips {
+  color: rgb(112, 104, 104);
+  font-size: small;
+}
+
+.eva_str {
+  margin-top:20rpx;
+  padding: 10rpx;
+}
+
+/* total color */
+.green {
+  color: rgb(94, 189, 39);
+}
+
+.blue {
+  color: rgb(63, 153, 212);
+}
+
+.red {
+  color: rgb(255, 0, 0);
+}
+
+.bottombox {
+  margin-top: 60rpx;
+  text-align: center;
+}
+
+.delete {
+  font-size: 40rpx;
+  padding: 20rpx 40rpx;
+  border-radius: 15rpx;
+  color:red;
+  background-color: rgb(247, 245, 245);
+  text-align: center;
+  align-items: center;
+}

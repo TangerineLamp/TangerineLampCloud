@@ -112,6 +112,9 @@ Page({
     }
     // 如果没有登录则提醒先登录
     else {
+      wx.switchTab({
+        url: '/pages/index3/index3',
+      })
       wx.showToast({
         title: '请先登录',
         icon: 'none',
@@ -134,6 +137,9 @@ Page({
     }
     // 如果没有登录则提醒先登录
     else {
+      wx.switchTab({
+        url: '/pages/index3/index3',
+      })
       wx.showToast({
         title: '请先登录',
         icon: 'none',
@@ -172,6 +178,9 @@ Page({
     }
     // 如果没有登录则提醒先登录
     else {
+      wx.switchTab({
+        url: '/pages/index3/index3',
+      })
       wx.showToast({
         title: '请先登录',
         icon: 'none',

@@ -2,7 +2,7 @@
 <wxs src="/utils/hourfilter.wxs" module="filters"/>
 <view class="top">
   <image class="targetImg" src="/icons/index1_appointment.png" alt="/icons/none_img.png"></image>
-  <text class="des">可预约时段</text>
+  <text class="des">可预约时段 （ {{month}}月{{day}}日）</text>
 </view>
 <view class="bottom">
   <block wx:if="{{freeTimeList.length===0}}">
@@ -16,22 +16,39 @@
     wx:for="{{freeTimeList}}"
     wx:for-item="item"
     wx:key="idTime">
+    <view class="picBlock">
+      <image src="{{item.docSelfPic}}" mode="aspectFill"></image>
+    </view>
+   
+
     <view class="leftBlock">
-      <view class="doctorName">
-        {{item.name}}老师
+      <view class="detail_header">
+        <text class="doctorName">
+          {{item.name}}
+        </text>
+        <text class="time">
+          （{{filters.formatDate(item.timeCount)}}）
+        </text>
       </view>
-      <view class="time">
-        {{filters.formatDate(item.timeCount)}}
+      <view class="level">
+        职称：{{item.level}}
       </view>
+      <view class="speciality">
+        擅长：{{item.speciality}}
+      </view>
+      <view>
+        <view
+        class="advicebutton"
+        data-docid="{{item.doctorId}}"
+        data-timecount="{{item.timeCount}}"
+        data-id="{{item._id}}"
+        bindtap="adviceTap">
+        预约咨询
+      </view>
+      </view>
+
     </view>
-    <view
-    class="rightBlock"
-    data-docid="{{item.doctorId}}"
-    data-timecount="{{item.timeCount}}"
-    data-id="{{item._id}}"
-    bindtap="adviceTap">
-      预约
-    </view>
+
     </view>
   </block>
 </view>

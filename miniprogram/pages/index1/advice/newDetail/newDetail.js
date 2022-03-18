@@ -13,6 +13,8 @@ Page({
     today:null,
     tomorrow:null,
     freeTimeList:null,
+    day:null,    //用于显示日期
+    month:null,  //用于显示日期
   },
 
   /**
@@ -20,11 +22,17 @@ Page({
    */
   onLoad: function (options) {
     let today = Date.parse(options._futureDay);
+    let date_today = new Date(options._futureDay);
+    let month = date_today.getMonth()+1;
+    let day = date_today.getDate();
+    console.log(month,day)
     let tomorrow = today + 86400000;
     this.setData({
       openId:app.globalData.openid,
       today:today,
       tomorrow:tomorrow,
+      month:month,
+      day:day,
     })
     this.getFreeTimeList(today,tomorrow)
   },
@@ -91,6 +99,11 @@ Page({
                     }
                   }).then(res=>{
                     console.log("已更新")
+                    wx.showToast({
+                      title: '预约成功',
+                    })
+                    that.getFreeTimeList(that.data.today,that.data.tomorrow);
+                    console.log("添加成功")
                   })
     
                   //添加房间记录
@@ -101,11 +114,7 @@ Page({
                       members:members,
                     }
                   }).then(res => {
-                    wx.showToast({
-                      title: '预约成功',
-                    })
-                    that.getFreeTimeList();
-                    console.log("添加成功")
+
                   })
                 }else{
                   //在浏览的时间里已被其他用户预约
@@ -113,7 +122,7 @@ Page({
                     title: '慢了一步哟~',
                     icon: 'none',
                   })
-                  that.getFreeTimeList();
+                  that.getFreeTimeList(that.data.today,that.data.tomorrow);
                 }
               })
             } else if (res.cancel) {

@@ -154,6 +154,9 @@ Page({
               startTimeCount: startTimeCount,
               doctorId:this.data.openId,
               name:this.data.docInfo.name,
+              level:this.data.docInfo.level,
+              speciality:this.data.docInfo.speciality,
+              docSelfPic:this.data.docInfo.docSelfPic,
               isBooked:false,
             }
         }).then(res=>{

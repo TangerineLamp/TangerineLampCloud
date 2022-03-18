@@ -1,0 +1,32 @@
+<wxs src="/utils/datefilter.wxs" module="filters"/>
+<view class="header">
+  <view class="line1"><text class="orangeText">{{docInfo.name}}</text>老师咨询时间</view>
+  <view class="addTitle" bindtap="addTime"><image class="add" src="/icons/index1_add.png"></image> 添加时间</view>
+</view>
+<view class="none"></view>
+<view class="line2">已添加的可预约咨询时间：</view>
+<block wx:if="{{freeTimeList.length===0}}">
+  <view class="noneAppointment">
+    暂无可预约时间
+  </view>
+</block>
+<block wx:else>
+  <block
+  wx:for="{{freeTimeList}}"
+  wx:key="advicekey"
+  data-timeCount="{{item.timeCount}}"
+  >
+  <view class="{{item.isBooked?'forbidden':'adviceList'}}">
+    <view class="flex1">{{filters.formatDate(item.timeCount)}}</view>
+    <view wx:if="{{item.isBooked}}" class="flex2">
+      （被预约）
+    </view>
+    <view wx:if="{{!item.isBooked}}"
+    class="flex3"
+    data-id="{{item._id}}"
+    bindtap="deleteFreeTime">
+      删除
+    </view>
+  </view>
+</block>
+</block>

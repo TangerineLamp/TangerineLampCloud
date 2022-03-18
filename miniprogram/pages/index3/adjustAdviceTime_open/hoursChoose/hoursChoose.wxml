@@ -1,0 +1,43 @@
+<!-- miniprogram/pages/index3/adjustAdviceTime/hoursChoose/hoursChoose.wxml -->
+<view class="choice">请选择您需要添加的时间段</view>
+<!-- <view class="schedule">
+    <view wx:for="{{scheduleList}}" 
+    class="background" 
+    bindtap="chosen" 
+    data-time="{{scheduleList[index]}}">
+        {{scheduleList[index]}}
+    </view>
+</view> -->
+<view class="schedule">
+    <!-- <view class="" bindtap="chosen">上午9:00-10:00</view>
+    <view class="" bindtap="chosen">上午10:00-11:00</view>
+    <view class="" bindtap="chosen">下午14:00-15:00</view>
+    <view class="" bindtap="chosen">下午15:00-16:00</view> -->
+    <!-- 这里还需要判断一下分钟数 -->
+    <view wx:for="{{hoursAndMinutes}}" class="background{{(item==click)?'active':''}}" bindtap="chosenTime" data-time="{{hoursAndMinutes[index]}}" data-classify="{{item}}">
+        <view wx:if="{{hoursAndMinutes[index]<=12}}">
+            上午 {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]}}:50
+        </view>
+        <view wx:else>下午 {{hoursAndMinutes[index]}}:00-{{hoursAndMinutes[index]}}:50</view>
+    </view>
+</view>
+<!-- 自定义时间 -->
+<picker mode="time" range-key="" value="" bindchange="chooseFreeTime" >
+    <view class="free">
+    <view>点我自定义时间</view>
+</view>
+</picker>
+  
+
+<!-- 用一个框提示用户最后选择的时间 -->
+<view wx:if='{{click>0}}' class="frame">
+    <view class="hint">您最终选择的时间为:</view>
+    <view  wx:if='{{exactTime<=12}}' class="final_choice">
+        上午  {{exactTime}}:{{exactMin}}-{{nextHour}}:{{nextMinute}}
+    </view>
+    <view  wx:if='{{exactTime>=13}}' class="final_choice">
+       下午  {{exactTime}}:{{exactMin}}-{{nextHour}}:{{nextMinute}}
+    </view>     
+    
+</view>
+<button class="button" class="but"bindtap="makeAnAppointment">添加</button>

@@ -1,0 +1,34 @@
+<!--miniprogram/pages/index1/advice/newDetail/newDetail.wxml-->
+<view class="top">
+  <image class="targetImg" src="/icons/index1_appointment.png" alt="/icons/none_img.png"></image>
+  <text class="des">医师列表</text>
+</view>
+<view class="bottom">
+    <navigator
+    url="/pages/index3/adjustAdviceTime_open/adviceTimeList/adviceTimeList?_id={{item._openid}}"
+    class="freeTime_item"
+    wx:for="{{docList}}"
+    wx:for-item="item"
+    wx:key="idTime"
+    bindtap="chooseTime">
+    <view class="picBlock">
+      <image src="{{item.docSelfPic}}" mode="aspectFill"></image>
+    </view>
+
+    <view class="leftBlock">
+      <view class="detail_header">
+        <text class="doctorName">
+          {{item.name}}
+        </text>
+      </view>
+      <view class="level">
+        学校：{{item.school}}
+      </view>
+      <view class="speciality">
+        职称：{{item.level}}
+      </view>
+
+    </view>
+
+    </navigator>
+</view>

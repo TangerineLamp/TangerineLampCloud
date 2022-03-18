@@ -1,0 +1,96 @@
+/* miniprogram/pages/index3/adjustAdviceTime/adjustAdviceTime.wxss */
+
+.header {
+  padding:20rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.line1 {
+  flex: 3;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+  color: #888888;
+}
+
+.line2 {
+  margin-top: 20rpx;
+  margin-left: 20rpx;
+  color: #888888;
+}
+
+.none{
+  text-align: center;
+  padding-top: 20rpx;
+  background-color:#f7f7f7;
+}
+
+.orangeText{
+  color: var(--orange1);
+}
+
+.header .addTitle {
+  padding:10rpx;
+  flex: 2;
+  padding-left:20rpx;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  flex:2;
+  color:var(--orange1);
+}
+
+.add {
+  height: 60rpx;
+  width: 60rpx;
+  margin-right: 0rpx;
+}
+
+.header .addTitle image{
+  margin-right:10rpx;
+}
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 400rpx;
+  color:#b3b3b3;
+}
+
+.adviceList {
+  display: flex;
+  color:#ffffff;
+  background-color: #bed742;
+  margin:20rpx;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+
+.forbidden {
+  display: flex;
+  color:#ffffff;
+  background-color: #ff0000;
+  margin:20rpx;
+  padding: 30rpx;
+  border-radius: 10rpx;
+}
+
+.flex1 {
+  font-size:35rpx;
+  flex:2;
+}
+
+.flex2 {
+  flex:1;
+  text-align: center;
+  align-items: center;
+}
+
+.flex3 {
+  border-radius: 10rpx;
+  color:#1d953f;
+  background-color: #fff;
+  flex:1;
+  text-align: center;
+  align-items: center;
+}

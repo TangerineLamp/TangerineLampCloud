@@ -65,7 +65,8 @@
     </view>
     <view class="address_wrap" bindtap="goToAddress">设置</view>
     <view class="app_info_wrap">
-      <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime/adjustAdviceTime" wx:if="{{isDoctor}}">咨询时间调整</navigator>
+      <!-- <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime/adjustAdviceTime" wx:if="{{isDoctor}}">个人咨询时间调整</navigator> -->
+      <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime_open/docList/docList" wx:if="{{isDeveloper}}">添加咨询时间</navigator>
       <view class="app_info_item app_info_contact">
         <text>联系客服</text>
         <text class="qqEmail" user-select="true">2948350015@qq.com</text>

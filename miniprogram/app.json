@@ -57,7 +57,11 @@
     "pages/index3/certification/authen/authenDetail/authenDetail",
     "pages/index1/advice/outerAppointment/outerAppointment",
     "pages/index3/developer/trash/trash",
-    "pages/index3/exam/adviceResult/adviceResult"
+    "pages/index3/exam/adviceResult/adviceResult",
+    "pages/index3/adjustAdviceTime_open/docList/docList",
+    "pages/index3/adjustAdviceTime_open/dateChoose/dateChoose",
+    "pages/index3/adjustAdviceTime_open/adviceTimeList/adviceTimeList",
+    "pages/index3/adjustAdviceTime_open/hoursChoose/hoursChoose"
   ],
   "window": {
     "backgroundTextStyle": "light",

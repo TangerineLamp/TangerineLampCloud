@@ -1,0 +1,104 @@
+/* miniprogram/pages/index3/adjustAdviceTime/hoursChoose/hoursChoose.wxss */
+
+.page{
+  color: whitesmoke;
+}
+.free{
+  display: flex;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  background-color: thistle;
+  padding: 30rpx;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 70rpx;
+  justify-content: center;
+}
+.hint{
+
+  display: inline;
+  height: 20rpx;
+  margin-top: 5rpx;
+  margin-bottom: 5rpx;
+  /* margin-left: 10rpx;
+  margin-right: 10rpx; */
+  padding: 10rpx;
+}
+.but{
+  margin-bottom: 30rpx;
+}
+.frame{
+  height: 140rpx;
+  /* display: flex; */
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  background-color: thistle;
+  padding: 30rpx;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+  border-radius: 70rpx;
+}
+.final_choice{
+  display: flex;
+  height: 90rpx;
+  font-size: 40rpx;
+  font-family:Verdana, Geneva, Tahoma, sans-serif;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+  margin-left: 10rpx;
+  margin-right: 10rpx;
+  background-color: rgb(50, 205, 84);
+  border-radius: 70rpx;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+  /* justify-content: center; */
+}
+.choice{
+  margin-top: 30rpx;
+  background-color: #fff;
+  text-align: center;
+  font-size: 44rpx;
+  font-family:Cambria, Cochin, Georgia, Times, 'Times New Roman', serif;
+  border-bottom: 1rpx solid #ccc;
+  display: flex;
+}
+.background{
+  display: flex;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  background-color: whitesmoke;
+  padding: 30rpx ;
+  border-bottom: 5rpx solid yellowgreen;
+  align-content: center;
+  justify-content: center;
+  border-radius: 70rpx;
+}
+.backgroundactive{
+  display: flex;
+  font-size: 40rpx;
+  margin-top: 30rpx;
+  margin-bottom: 30rpx;
+  margin-left: 50rpx;
+  margin-right: 50rpx;
+  background-color: #fff;
+  color: orange;
+  padding: 30rpx ;
+  border-bottom: 5rpx solid yellowgreen;
+  align-content: center;
+  justify-content: center;
+  border: 5rpx solid rgba(255, 198, 60, 1);
+  border-radius: 70rpx;
+
+}
+.button{
+  font-size: 40rpx;
+  background-color: orange;
+  color: whitesmoke;
+}

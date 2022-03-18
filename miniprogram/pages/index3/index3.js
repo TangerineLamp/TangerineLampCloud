@@ -60,7 +60,8 @@ Page({
     })
     this.initOpenID() //  获得openid
     //  已经登录过了
-    
+    // 清除缓存的时候要先更新
+    this.data.hasUserInfo=app.globalData.hasUserInfo
     if (app.globalData.isLogin||hasUserInfo==true) {
       this.setData({
         userInfo: userInfo,
@@ -70,6 +71,7 @@ Page({
         isCertiStudent:isCertiStudent
       })
       app.globalData.isLogin=hasUserInfo
+      app.globalData.hasUserInfo=hasUserInfo
       app.globalData.isDeveloper=isDeveloper
       app.globalData.isDoctor=isDoctor
       app.globalData.isCertiStudent=isCertiStudent
@@ -147,6 +149,8 @@ Page({
     this.getUserTreeholeCount()
     this.getdailyQianDaoCount()
     this.getcollectionCount()
+    this.data.hasUserInfo=app.globalData.hasUserInfo
+    console.log(this.data.hasUserInfo)
   },
   /**
    * 获取自己的签到天数

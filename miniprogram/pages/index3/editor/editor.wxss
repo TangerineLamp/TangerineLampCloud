@@ -14,3 +14,22 @@
     display: flex;
     justify-content: space-between;
 }
+
+.nick{
+    color:#ff6633;
+    font-family: 'FZShuTi';
+    font-style: normal;
+    transform: translateX(-100%);
+    font-weight: bold;
+    font-size: 40rpx;
+}
+
+.sentence{
+    color:#ff6633;
+    font-family:'STKaiti';
+    font-style: normal;
+    transform: translateX(-5%);
+    font-weight: bold;
+    font-size: 33rpx;
+
+}

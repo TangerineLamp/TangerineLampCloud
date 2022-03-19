@@ -83,6 +83,7 @@
 .bottombox {
   margin-top: 60rpx;
   text-align: center;
+  margin-bottom: 50rpx;
 }
 
 .delete {

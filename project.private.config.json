@@ -43,8 +43,8 @@
           "scene": null
         },
         {
-          "name": "医生列表",
-          "pathName": "pages/index3/adjustAdviceTime_open/docList/docList",
+          "name": "scl-90",
+          "pathName": "pages/index1/test1/testlists/Scl-90/Scl-90",
           "query": "_futureDay=2022/3/20",
           "scene": null
         }

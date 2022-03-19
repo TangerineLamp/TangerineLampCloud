@@ -7,13 +7,13 @@
   <!-- 具体的内容——由数据库导出 -->
   <scroll-view class="mainBody">
     <!--具体每一道题-->
-    <view class="singleTopic" wx:for="{{topicData}}" wx:for-item="items" wx:for-index="index">
+    <view class="singleTopic" wx:for="{{topicData}}" wx:for-item="items" wx:key="pclkey" wx:for-index="index">
       <view class="topicName">
         {{index+1}}/90. {{items.topic}}
       </view>
       <!--具体每一个选项选项-->
       <radio-group class="radioGroup" bindchange="radioChange">
-        <label class="label" wx:for="{{selectButton}}" wx:for-item="buttonNum" wx:for-index="buttionInd">
+        <label class="label" wx:for="{{selectButton}}" wx:key="choosebuttonkey" wx:for-item="buttonNum" wx:for-index="buttionInd">
           <view class="radio">
             <radio value="{{(index+1) * 10 + buttonNum.value}}" checked="{{false}}" color="#ff6633"/>
           </view>
@@ -26,9 +26,16 @@
 </block>
 <!--查看结果-->
 <block wx:if="{{isShowResult}}">
-  <view class="topTips">
-  自评结果
+  <view class="top">总得分：<text class="big {{totalColor}}">{{totalScores}} </text><text class="tips"> (分值越大症状越严重)</text></view>
+  <view>部分得分：</view>
+  <view wx:for="{{Parts_Scores}}"
+  wx:for-item="item"
+  wx:key="scl90key"
+  class="iteration">
+  {{item[0]}}: <text class="blue">{{item[1]}}</text> 分 —— <text class="orange">{{item[2]}}</text> (该部分阳性因子<text class="red">{{item[3]}}</text>个)
   </view>
-  <view class="resultMainBody">总得分：{{totalScores}}</view>
-  <view>结果分析开发中，敬请期待...</view>
+  <view class="eva_str">{{final_eval_str}}</view>
+  <view class="bottom">
+    <text class="nextquestion" bindtap="navback">返回首页</text>
+  </view>
 </block>

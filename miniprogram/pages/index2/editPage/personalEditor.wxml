@@ -21,7 +21,7 @@
 	</picker>
 	<view class="bottomcontainer">
 		<view class="piccontainer in_mid">
-			<image src="/pages/index2/logo/phiz.svg" class="stdimg" mode="aspectFit"></image>
+			<!-- <image src="/pages/index2/logo/phiz.svg" class="stdimg" mode="aspectFit"></image> -->
 		</view>
 		<radio-group class="theRGroup">
 			<radio class="theRadio" color="#ff7733" checked="{{isAnonymous}}" bindtap="radioBindtap">匿名发布</radio>

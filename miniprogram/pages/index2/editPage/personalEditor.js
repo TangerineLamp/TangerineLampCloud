@@ -4,13 +4,6 @@ const app = getApp(); //  获得全局变量
 Page({
 
   /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-    this.getInfo()
-  },
-
-  /**
    * 页面的初始数据
    */
   data: {
@@ -37,6 +30,20 @@ Page({
       "学习区",  
       "游戏区",  
     ]
+  },
+
+  onLoad: function() {
+    this.setData({
+      chooseIndex: this.options.index,
+      isChose: this.options.index? true: false,
+    })
+  },
+
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady: function () {
+    this.getInfo()
   },
 
   /**

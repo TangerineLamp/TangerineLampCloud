@@ -19,7 +19,6 @@ Page({
     this.setData({
       treeholeJson: app.globalData.treehole[josnTemp]
     })
-    console.log(this.data.treeholeJson)
   },
 
   /**
@@ -87,7 +86,7 @@ Page({
     // 提示如果已经登录了就可以发树洞
     if (app.globalData.isLogin){
       wx.navigateTo({
-        url: "/pages/index2/editPage/personalEditor"
+        url: "/pages/index2/editPage/personalEditor?index=" + this.data.treeholeJson.index
       })
     }
     // 如果没有登录则提醒先登录

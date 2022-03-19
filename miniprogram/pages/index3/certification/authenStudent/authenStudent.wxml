@@ -1,6 +1,6 @@
 <!--pages/index3/certification/authen/authen.wxml-->
 
-<view class="title">医师认证审核</view>
+<view class="title">学生认证审核</view>
 
 <view class="header">
   <view class="line1">管理员openID:</view>
@@ -20,7 +20,7 @@
   wx:key="id"
   wx:for-index="index0"
   wx:for-item="item0"
-  url="{{'/pages/index3/certification/authen/authenDetail/authenDetail?_id='+item0._id}}">
+  url="/pages/index3/certification/authenDetail/authenDetail?_id={{item0._id}}&certiType={{_type}}">
     <!-- 预览内容 -->
     <view class="info">
       <view class="name">
@@ -35,7 +35,7 @@
     </view>
     <!-- 自拍照片 -->
     <view class="selfPic">
-      <image src="{{item0.docSelfPic}}"></image>
+      <image src="{{item0.proof}}"></image>
     </view>
   </navigator>
 </scroll-view>

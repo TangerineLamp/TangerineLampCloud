@@ -2,6 +2,7 @@
 
 const db = wx.cloud.database();
 let _id = '';
+let certiType = '';
 // let isCertification = false;
 Page({
 
@@ -10,7 +11,8 @@ Page({
    */
   data: {
     reviewContent:{},
-    _id:null,
+    _id: null,  //  输入的id，可以详细查看验证信息
+    certiType: null,  //  需要查询的数据库
   },
 
   /**
@@ -18,20 +20,21 @@ Page({
    */
   onLoad: function (options) {
     _id = options._id
+    certiType = options.certiType
     wx.showLoading({
       title: '加载中',
     })
     this.setData({
-      _id:_id,
+      _id: _id,
+      certiType: certiType
     })
-    this.getReviewInfo(_id);
+    this.getReviewInfo(this.data._id);
     wx.hideLoading();
   },
 
   // 获取被审核人信息
   getReviewInfo(_id) {
-    db.collection("doctors").doc(_id).get().then(res=>{
-      // isCertification = res.data.isCertification
+    db.collection(this.data.certiType).doc(_id).get().then(res=>{
       this.setData({
         review:res.data,
       })
@@ -62,7 +65,7 @@ Page({
   // 通过
   pass() {
     var that = this;
-    db.collection("doctors").doc(_id).update({
+    db.collection(this.data.certiType).doc(_id).update({
       data:{
         isCertification: true,
       }
@@ -76,7 +79,7 @@ Page({
   // 不通过
   reject() {
     var that = this;
-    db.collection("doctors").doc(_id).update({
+    db.collection(this.data.certiType).doc(_id).update({
       data:{
         isCertification: false,
       }
@@ -85,53 +88,4 @@ Page({
       that.getReviewInfo(that.data._id);
     })
   },
-
-  /**
-   * 生命周期函数--监听页面初次渲染完成
-   */
-  onReady: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面显示
-   */
-  onShow: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面隐藏
-   */
-  onHide: function () {
-
-  },
-
-  /**
-   * 生命周期函数--监听页面卸载
-   */
-  onUnload: function () {
-
-  },
-
-  /**
-   * 页面相关事件处理函数--监听用户下拉动作
-   */
-  onPullDownRefresh: function () {
-
-  },
-
-  /**
-   * 页面上拉触底事件的处理函数
-   */
-  onReachBottom: function () {
-
-  },
-
-  /**
-   * 用户点击右上角分享
-   */
-  onShareAppMessage: function () {
-
-  }
 })

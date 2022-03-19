@@ -3,10 +3,20 @@
   <view class="singlecontainer" data-certitype="certiStudent" bindtap="toCerti">
     <view class="certiButton">学生认证</view>
   </view>
+
+  <view class="singlecontainer" wx:if="{{isDeveloper}}" data-certitype="authenStudent" bindtap="toCerti">
+    <view class="certiButton">学生验证通道</view>
+  </view>
+
   <view class="singlecontainer" data-certitype="certiDoctor" bindtap="toCerti">
     <view class="certiButton">医师认证</view>
   </view>
-  <view class="singlecontainer" wx:if="{{isDeveloper}}" data-certitype="authen" bindtap="toCerti">
-    <view class="certiButton">验证通道</view>
+
+  <view class="singlecontainer" wx:if="{{isDeveloper}}" data-certitype="doctorUpdata" bindtap="toCerti">
+    <view class="certiButton">医师更新</view>
+  </view>
+
+  <view class="singlecontainer" wx:if="{{isDeveloper}}" data-certitype="authenDoctor" bindtap="toCerti">
+    <view class="certiButton">医师验证通道</view>
   </view>
 </view>

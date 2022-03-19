@@ -21,7 +21,6 @@
     "pages/index3/certification/certification",
     "pages/index3/certification/certiDoctor/certiDoctor",
     "pages/index3/certification/certiStudent/certiStudent",
-    "pages/index3/certification/authen/authen",
     "pages/index3/share/share",
     "pages/index3/stars/stars",
     "pages/index3/collection/collection",
@@ -54,14 +53,18 @@
     "pages/index3/adjustAdviceTime/dateChoose/dateChoose",
     "pages/index3/adjustAdviceTime/hoursChoose/hoursChoose",
     "pages/index1/advice/newDetail/newDetail",
-    "pages/index3/certification/authen/authenDetail/authenDetail",
+    "pages/index3/certification/authenDetail/authenDetail",
+    "pages/index3/certification/authenStudent/authenStudent",
+    "pages/index3/certification/authenDoctor/authenDoctor",
     "pages/index1/advice/outerAppointment/outerAppointment",
     "pages/index3/developer/trash/trash",
     "pages/index3/exam/adviceResult/adviceResult",
     "pages/index3/adjustAdviceTime_open/docList/docList",
     "pages/index3/adjustAdviceTime_open/dateChoose/dateChoose",
     "pages/index3/adjustAdviceTime_open/adviceTimeList/adviceTimeList",
-    "pages/index3/adjustAdviceTime_open/hoursChoose/hoursChoose"
+    "pages/index3/adjustAdviceTime_open/hoursChoose/hoursChoose",
+    "pages/index3/certification/doctorUpdata/doctorUpdata",
+    "pages/index3/certification/doctorUpdata/doctorUpdataDetail/doctorUpdataDetail"
   ],
   "window": {
     "backgroundTextStyle": "light",

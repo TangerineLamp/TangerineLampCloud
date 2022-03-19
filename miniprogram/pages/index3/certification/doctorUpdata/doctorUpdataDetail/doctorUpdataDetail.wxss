@@ -1,0 +1,114 @@
+
+.whole {
+  padding-left:20rpx;
+  padding-right:20rpx;
+  margin-bottom:10rpx;
+}
+
+/* title */
+.bigTitle {
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  color:var(--orange2);
+}
+
+.titleInput {
+  border: 1rpx solid #888;
+  height: 100rpx;
+  width: 100%;
+}
+
+/* author */
+.detailContent0 {
+  height:100rpx;
+  width: 100%;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  border: 1rpx solid #888;
+}
+
+/* introImage */
+.bigTitle0 {
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  color:var(--orange2);
+  display: flex;
+  align-items: center;
+}
+
+.add {
+  margin-left:30rpx;
+  margin-right:30rpx;
+  width: 50rpx;
+  height: 50rpx;
+}
+
+/* introImage */
+.image0 {
+  border: 1rpx solid #888;
+  width: 100%;
+  height: 400rpx;
+}
+
+.image0 image {
+  width: 100%;
+  height: 100%;
+}
+
+/* body */
+.image1 {
+  border: 1rpx solid #888;
+  width: 50%;
+  height: 800rpx;
+}
+
+.image1 image {
+  width: 100%;
+  height: 100%;
+}
+
+.explain {
+  font-size: 30rpx;
+}
+
+/* 底部提交 */
+.bottom {
+  margin-top:30rpx;
+  border-top: solid 1rpx #bbbbbb;
+  width: 100%;
+  height:110rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.bottom .side {
+  flex:4;
+}
+
+.bottom .test {
+  color:#ffffff;
+  background-color:var(--orange0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:80rpx;
+  margin-right: 15rpx;
+  border-radius: 10rpx;
+  flex:2;
+  font-size:35rpx;
+  letter-spacing: 2rpx;
+}
+
+.tips{
+  color:#fff;
+  background-color: var(--orange0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 50%;
+  height: 200rpx;
+  margin-top: 60%;
+  margin-left: 25%;
+}

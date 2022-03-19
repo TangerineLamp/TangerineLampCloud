@@ -1,0 +1,49 @@
+<scroll-view class="whole">
+  <view class="whole">
+    <!-- 姓名 -->
+    <view class="bigTitle">心理咨询师姓名</view>
+    <view><textarea class="titleInput" value="{{certiName}}" bindinput="handleName"
+        placeholder="{{certiName}}" maxlength="-1"></textarea></view>
+
+    <!-- 所在机构 -->
+    <view class="bigTitle">所在的大学或机构</view>
+    <textarea class="detailContent0" value="{{school}}" bindinput="handleSchool"
+      placeholder="{{school}}" maxlength="-1"></textarea>
+
+    <!-- 医生等级 -->
+    <view class="bigTitle">心理咨询师等级</view>
+    <textarea class="detailContent0" value="{{level}}" bindinput="handleLevel"
+      placeholder="请输入心理咨询师等级，如：国家二级心理咨询师" maxlength="-1"></textarea>
+
+    <!-- 治疗专长 -->
+    <view class="bigTitle">专长</view>
+    <textarea class="detailContent0" value="{{spec}}" bindinput="handleSpec"
+      placeholder="请输入心理咨询师的专长" maxlength="-1"></textarea>
+
+    <!-- 心理咨询师资格证 -->
+    <view class="bigTitle0">
+      心理咨询师证明
+      <image class="add" src="/icons/index1_add.png" bindtap="chooseCover" mode="aspectFill"></image>
+      <text class="explain">(请上传有人物照片的那一页)</text>
+    </view>
+    <view class="image0">
+      <image src="{{doctorProof}}" mode="aspectFit" bindtap="chooseCover"></image>
+    </view>
+
+    <!-- 心理医师照片 -->
+    <view class="bigTitle0">
+      心理医师照片
+      <image class="add" src="/icons/index1_add.png" bindtap="chooseCoverProof" mode="aspectFill"></image>
+      <text class="explain">(请上传有人物照片的那一页)</text>
+    </view>
+    <view class="image0">
+      <image src="{{doctorSelfPic}}" mode="aspectFit" bindtap="chooseCoverSelfPic"></image>
+    </view>
+
+    <!-- 提交部分 -->
+    <view class="bottom">
+      <view class="side"></view>
+      <view class="test" bindtap="showPopup"><text>更新</text></view>
+    </view>
+  </view>
+</scroll-view>

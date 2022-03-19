@@ -1,0 +1,22 @@
+<view class="bottom">
+  <navigator url="/pages/index3/certification/doctorUpdata/doctorUpdataDetail/doctorUpdataDetail?_id={{item._id}}"
+    class="freeTime_item" wx:for="{{docList}}" wx:for-item="item" wx:key="idTime" bindtap="chooseTime">
+    <view class="picBlock">
+      <image src="{{item.proof}}" mode="aspectFill"></image>
+    </view>
+
+    <view class="leftBlock">
+      <view class="detail_header">
+        <text class="doctorName">
+          {{item.name}}
+        </text>
+      </view>
+      <view class="level">
+        学校：{{item.school}}
+      </view>
+      <view class="speciality">
+        职称：{{item.level}}
+      </view>
+    </view>
+  </navigator>
+</view>

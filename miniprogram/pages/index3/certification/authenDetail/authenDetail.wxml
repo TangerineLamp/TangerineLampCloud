@@ -14,8 +14,8 @@
   </view>
 
   <view class="txt">申请人openid：</view>
-  <view class="doctorId" wx:key="{{review}}">
-    <text user-select="true">{{review.doctorId}}</text>
+  <view class="Id" wx:key="{{review}}">
+    <text user-select="true">{{review._openid}}</text>
   </view>
 
   <view class="txt" wx:key="{{review}}">
@@ -23,14 +23,9 @@
   </view>
 </view>
 
-<view class="txt">申请人照片：</view>
-<view class="docSelfPic" wx:key="{{review}}">
-  <image src="{{review.docSelfPic}}" class="img" mode="widthFix"></image>
-</view>
-
 <view class="txt">申请人证件：</view>
-<view class="doctorProof" wx:key="{{review}}">
-  <image src="{{review.doctorProof}}" class="img" mode="widthFix"></image>
+<view class="Proof" wx:key="{{review}}">
+  <image src="{{review.proof}}" class="img" mode="widthFix"></image>
 </view>
 
 

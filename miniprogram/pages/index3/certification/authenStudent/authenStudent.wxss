@@ -1,0 +1,91 @@
+/* pages/index3/certification/authen/authen.wxss */
+
+.title{
+  font-size: 50rpx;
+  font-weight: bold;
+  margin-top: 30rpx;
+  margin-left: 30rpx;
+}
+
+/* .header {
+  padding:20rpx;
+} */
+
+.line1 {
+  margin-top: 20rpx;
+  margin-left: 33rpx;
+  color: #888888;
+}
+
+.line2 {
+  text-align: center;
+  color: #888888;
+}
+
+.none{
+  text-align: center;
+  margin-top: 30rpx;
+  height: 10rpx;
+  background-color:#f7f7f7;
+}
+
+.notDeveloper {
+  text-align: center;
+  padding-top: 400rpx;
+  color:#b3b3b3;
+}
+
+.item{
+  display: flex;
+  height: 170rpx;
+  background-color: #eeeeee;
+  border-top: 7rpx solid white;
+  border-bottom: 10rpx solid white;
+  border-left: 5rpx solid white;
+  border-right: 5rpx solid white;
+  margin-left: 30rpx;
+  margin-right: 30rpx;
+  align-items: center;
+  border-radius: 15rpx;
+}
+
+.info{
+  flex:3;
+  /* margin-top: 0rpx; */
+  /* margin-left: 30rpx; */
+  /* height: 90%; */
+}
+
+.scroll{
+  margin-top: 40rpx;
+}
+
+.name{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 30rpx;
+}
+
+.school{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 30rpx;
+}
+
+.certificationCondition{
+  font-size: 30rpx;
+  font-weight: bold;
+  margin-left: 30rpx;
+}
+
+.selfPic image{
+  position: relative;
+  flex: 1.2;
+  width: 100rpx;
+  height: 140rpx;
+  /* height: 10%; */
+  margin-left: 25rpx;
+  margin-right: 25rpx;
+  margin-top: 8rpx;
+  border-radius: 10rpx;
+}

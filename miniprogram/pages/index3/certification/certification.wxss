@@ -19,7 +19,7 @@
   align-items: center;
 }
 .certiButton{
-  width: 200rpx;
+  width: 250rpx;
   height: 100rpx;
   border-radius: 15rpx;
   background-color: #ff9933;

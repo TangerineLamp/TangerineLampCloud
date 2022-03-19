@@ -11,7 +11,6 @@ Page({
     school:"",//学生所在的学校
     openid:"",//学生的openid
     studentProof:"/icons/certi_add.png",
-    stuSelfPic:"/icons/certi_add.png",
     isSubmit: false,//检测是否提交过
   },
 
@@ -55,26 +54,6 @@ Page({
     })
   },
 
-  // 获取照片
-  chooseContent(){
-    var that = this;
-    wx.chooseImage({
-      count: 1,
-      success (res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        that.setData({
-          stuSelfPic:res.tempFilePaths[0]
-        })
-      },
-      fail(){
-        wx.showToast({
-          icon:"none",
-          title: '取消上传',
-        })
-      }
-    })
-  },
-
   // 展示提交窗口
   showPopup(){
     // 防止用户捣乱不写
@@ -92,8 +71,7 @@ Page({
         duration: 1500
       })
     }
-    else if (this.data.studentProof == "/icons/certi_add.png" 
-    || this.data.stuSelfPic == "/icons/certi_add.png")
+    else if (this.data.studentProof == "/icons/certi_add.png")
     {
       wx.showToast({
         title: '请上传图片便于认证',
@@ -121,7 +99,6 @@ Page({
   commit(){
     console.log("提交成功")
     let studentProofName = ""; //学生证书
-    let stuSelfPicName = "";  //学生照片
     //判断介绍图片格式
     if(this.data.studentProof.endsWith(".jpg")){
       studentProofName = this.data.certiName + "_studentProof.jpg"
@@ -130,26 +107,16 @@ Page({
     }else if(this.data.studentProof.endsWith(".svg")){
       studentProofName = this.data.certiName + "_studentProof.svg"
     }
-    //判断文章长图格式
-    if(this.data.stuSelfPic.endsWith(".jpg")){
-      stuSelfPicName = this.data.certiName + "_stuSelfPic.jpg"
-    }else if(this.data.stuSelfPic.endsWith(".png")){
-      stuSelfPicName = this.data.certiName + "_stuSelfPic.png"
-    }else if(this.data.stuSelfPic.endsWith(".svg")){
-      stuSelfPicName = this.data.certiName + "_stuSelfPic.svg"
-    }
     //图片上传至云储存
-    this.cloudFile(studentProofName,stuSelfPicName);
+    this.cloudFile(studentProofName);
     //信息上传至数据库
-    db.collection("students")
+    db.collection("CertiStudent")
     .add({
       data:{
         name:this.data.certiName,
         school:this.data.school,
-        studentProof:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/Certification/students/studentProof/"+studentProofName,
-        stuSelfPic:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/Certification/students/studentSelf/"+stuSelfPicName,
+        proof:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index3/Certification/students/studentProof/"+studentProofName,
         isCertification: false,
-        studentId: this.data.openid,
       }
     })
     .then(res=>{
@@ -165,14 +132,10 @@ Page({
   },
 
   // 储存图片至云端
-  cloudFile(studentProofName,stuSelfPicName){
+  cloudFile(studentProofName){
     wx.cloud.uploadFile({
       cloudPath:"index3/Certification/students/studentProof/"+studentProofName,
       filePath:this.data.studentProof
-    }).then(res=>{})
-    wx.cloud.uploadFile({
-      cloudPath:"index3/Certification/students/studentSelf/"+stuSelfPicName,
-      filePath:this.data.stuSelfPic
     }).then(res=>{})
   },
 

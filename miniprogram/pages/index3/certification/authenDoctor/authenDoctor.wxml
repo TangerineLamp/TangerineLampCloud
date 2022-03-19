@@ -1,0 +1,42 @@
+<!--pages/index3/certification/authen/authen.wxml-->
+
+<view class="title">医师认证审核</view>
+
+<view class="header">
+  <view class="line1">管理员openID:</view>
+  <view class="line2"><text user-select="true">{{openId}}</text></view>
+</view>
+<view class="none"></view>
+<block wx:if="{{!isDeveloper}}">
+  <view class="notDeveloper">
+    无开发权限
+  </view>
+</block>
+
+<!-- 资格审核导航 -->
+<scroll-view scroll-top="{{0}}" scroll-y class="scroll">
+  <navigator class="item"
+  wx:for="{{reviewList}}"
+  wx:key="id"
+  wx:for-index="index0"
+  wx:for-item="item0"
+  url="/pages/index3/certification/authenDetail/authenDetail?_id={{item0._id}}&certiType={{_type}}">
+    <!-- 预览内容 -->
+    <view class="info">
+      <view class="name">
+        姓名：{{item0.name}}
+      </view>
+      <view class="school">
+        单位：{{item0.school}}
+      </view>
+      <view class="certificationCondition">
+        认证情况：{{item0.isCertification}}
+      </view>
+    </view>
+    <!-- 自拍照片 -->
+    <view class="selfPic">
+      <image src="{{item0.proof}}"></image>
+    </view>
+  </navigator>
+</scroll-view>
+

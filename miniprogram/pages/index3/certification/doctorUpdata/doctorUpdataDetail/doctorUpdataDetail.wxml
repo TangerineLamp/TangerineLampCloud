@@ -17,24 +17,23 @@
 
     <!-- 治疗专长 -->
     <view class="bigTitle">专长</view>
-    <textarea class="detailContent0" value="{{spec}}" bindinput="handleSpec"
+    <textarea class="detailContent1" value="{{spec}}" bindinput="handleSpec"
       placeholder="请输入心理咨询师的专长" maxlength="-1"></textarea>
 
     <!-- 心理咨询师资格证 -->
     <view class="bigTitle0">
       心理咨询师证明
-      <image class="add" src="/icons/index1_add.png" bindtap="chooseCover" mode="aspectFill"></image>
-      <text class="explain">(请上传有人物照片的那一页)</text>
+      <!-- <image class="add" src="/icons/index1_add.png"  mode="aspectFill"></image> -->
     </view>
     <view class="image0">
-      <image src="{{doctorProof}}" mode="aspectFit" bindtap="chooseCover"></image>
+      <image src="{{doctorProof}}" mode="aspectFit"></image>
     </view>
 
     <!-- 心理医师照片 -->
     <view class="bigTitle0">
       心理医师照片
-      <image class="add" src="/icons/index1_add.png" bindtap="chooseCoverProof" mode="aspectFill"></image>
-      <text class="explain">(请上传有人物照片的那一页)</text>
+      <image class="add" src="/icons/index1_add.png" bindtap="chooseCoverSelfPic" mode="aspectFill"></image>
+      <text class="explain">(请上传心理医师的照片)</text>
     </view>
     <view class="image0">
       <image src="{{doctorSelfPic}}" mode="aspectFit" bindtap="chooseCoverSelfPic"></image>

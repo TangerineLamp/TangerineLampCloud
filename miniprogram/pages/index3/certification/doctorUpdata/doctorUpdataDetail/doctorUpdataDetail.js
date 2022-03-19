@@ -58,24 +58,24 @@ Page({
   },
 
   // 获取证书
-  chooseCoverProof(){
-    var that = this;
-    wx.chooseImage({
-      count: 1,
-      success (res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        that.setData({
-          doctorProof:res.tempFilePaths[0]
-        })
-      },
-      fail(){
-        wx.showToast({
-          icon:"none",
-          title: '取消上传',
-        })
-      }
-    })
-  },
+  // chooseCoverProof(){
+  //   var that = this;
+  //   wx.chooseImage({
+  //     count: 1,
+  //     success (res) {
+  //       // tempFilePath可以作为img标签的src属性显示图片
+  //       that.setData({
+  //         doctorProof:res.tempFilePaths[0]
+  //       })
+  //     },
+  //     fail(){
+  //       wx.showToast({
+  //         icon:"none",
+  //         title: '取消上传',
+  //       })
+  //     }
+  //   })
+  // },
 
   // 获取照片
   chooseCoverSelfPic(){

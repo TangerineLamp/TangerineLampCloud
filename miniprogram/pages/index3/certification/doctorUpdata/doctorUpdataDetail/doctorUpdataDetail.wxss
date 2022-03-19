@@ -27,6 +27,14 @@
   border: 1rpx solid #888;
 }
 
+.detailContent1 {
+  height:200rpx;
+  width: 100%;
+  margin-top:20rpx;
+  margin-bottom:20rpx;
+  border: 1rpx solid #888;
+}
+
 /* introImage */
 .bigTitle0 {
   margin-bottom: 20rpx;

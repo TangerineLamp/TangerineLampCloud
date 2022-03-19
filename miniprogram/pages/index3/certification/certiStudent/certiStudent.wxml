@@ -23,14 +23,14 @@
   </view>
 
   <!-- 照片证明 -->
-  <view class="bigTitle0">
+  <!-- <view class="bigTitle0">
     请上传一张您的自拍
     <image class="add" src="/icons/index1_add.png" bindtap="chooseContent"></image>
     <text class="explain">(仅支持上传一张自拍)</text>
   </view>
   <view class="image0">
     <image src="{{stuSelfPic}}" mode="aspectFill" bindtap="chooseContent"></image>
-  </view>
+  </view> -->
 
   <!-- 提交部分 -->
   <view class="bottom">

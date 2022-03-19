@@ -10,8 +10,6 @@
 				<image wx:if="{{isAnonymous}}" class="hostHeadImg" mode="aspectFill"
 					src="cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/index2/anonymous/normalAnonymous.svg">
 				</image>
-				<image wx:if="{{!isAnonymous && isCertification}}" class="host_vip" mode='aspectFill' src="/icons/vip.svg">
-				</image>
 			</view>
 			<view class="hostInfo">
 				<view wx:if="{{!isAnonymous}}" class="hostNickname">{{hostNickname}}</view>

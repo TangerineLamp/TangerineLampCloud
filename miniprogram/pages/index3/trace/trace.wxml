@@ -1,0 +1,42 @@
+<!-- 日期转字符串的wxs函数 -->
+<wxs module="filter" src="/utils/dateToStr_treehole.wxs" />
+
+<!-- 标题 -->
+<view class="bottom" hover-class="none" hover-stop-propagation="false">
+  <view class="" hover-class="none" hover-stop-propagation="false">
+    <view class="title" hover-class="none" hover-stop-propagation="false">
+      <image class="pic" src="/icons/message.svg"></image>
+      我的消息
+    </view>
+  </view>
+</view>
+
+<!-- 消息部分 -->
+<scroll-view class="commentContainer" scroll-y="true" enable-back-to-top="true">
+  <block wx:for="{{comments}}">
+    <view class="singleComment" bindtap="toDetail" data-thistreeholeid="{{item.treeholeid}}">
+      <view class="commentHead">
+        <image class="commentHeadImg" src="{{item.commenterAvatar}}" mode="aspectFill"></image>
+      </view>
+      <view class="commentInfoContainer">
+        <view class="commentNickname">{{item.commenterNickname}}</view>
+        <view class="commentDetail">{{item.comment}}</view>
+        <view class="commentPostTime">回复时间：{{filter.dateToStr(item.time)}}</view>
+      </view>
+      <!--删除图片-->
+      <view wx:if="{{item._openid==visiterOpenid}}" class="deleteImg_container" data-thistreeholeid="{{item._id}}"
+        catchtap="deleteMe">
+        <image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill"></image>
+      </view>
+    </view>
+    <!-- 评论与评论之间的分割线 -->
+    <view style="display:flex;justify-content:center;">
+      <view class="line3"></view>
+    </view>
+  </block>
+  <view style="display:flex;justify-content:center;">
+    <view class="line3"></view>
+  </view>
+  <!-- 见底的通知 -->
+  <view class="bottomPrompt">已经到底啦</view>
+</scroll-view>

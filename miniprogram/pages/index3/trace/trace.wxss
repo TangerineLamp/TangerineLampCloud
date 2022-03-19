@@ -1,0 +1,134 @@
+.bottom {
+  background-color: orange;
+  height: 10vh;
+  width: 100%;
+  position: relative;
+}
+.bottom .pic{
+  top: 20%;
+  padding: 5rpx 5rpx;
+    position: relative;
+    width: 80rpx;
+    height: 80rpx;
+    margin-left: 30rpx;
+}
+.bottom .title {
+  padding: 5rpx 5rpx;
+  text-align: center;
+  font-weight: bold;
+  top: 20%;
+  position: relative;
+  font-size: 50rpx;
+  color: whitesmoke;
+  font-family: 'Courier New', Courier, monospace;
+}
+
+page{
+  background: #efefef;
+}
+/* 子元素居中通用样式设置 */
+.in_mid{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/*************************************标题部分*************************************/
+/* 顶部装载标题的空白容器 */
+.topcontainer{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  border-bottom: 10rpx solid #efefef;
+}
+/*标题*/
+.case_title{
+  font-size: 50rpx;
+  font-weight: bold;
+  height: 100%;
+}
+/**************************评论部分**************************/
+/* 整个评论区 */
+.commentContainer{
+  width: 100%;
+}
+/* 单独的一个评论 */
+/* 是一个一级容器 */
+.singleComment{
+  width: 100%;
+  display: flex;
+  background-color: #fff;
+  padding-bottom: 5rpx;
+  padding-top: 5rpx;
+}
+/* 该条评论的主人头像的二级容器 */
+.commentHead{
+  margin-left: 2%;
+  margin-top: 10rpx;
+  position: relative;
+  width: 75rpx;
+  height: 75rpx;
+  z-index: 1;
+}
+/* 该条评论的主人的头像 */
+.commentHeadImg{
+  width: 100%;
+  height: 100%;
+  border-radius: 15rpx;
+}
+/* 该条评论的主人的信息二级容器 */
+.commentInfoContainer{
+  width: 80%;
+  margin-left: 2%;
+}
+/* 该条评论的主人的昵称 */
+.commentNickname{
+  color: #ff9933;
+  font-size: 35rpx;
+  font-weight: bold;
+  margin-bottom: 10rpx;
+}
+/* 该条评论的具体内容 */
+.commentDetail{
+  color: #3d3a3a;
+  font-size: 35rpx;
+  font-family: "楷体";
+  margin-bottom: 10rpx;
+}
+/* 该条评论的上传时间 */
+.commentPostTime{
+  color: #868585;
+  font-size: 20rpx;
+}
+/* 每个评论之间的分割线 */
+.line3{
+  background-color:#7c7c7c;
+  width:96%;
+  height:3rpx;
+}
+  /* 删除按钮的标准样式 */
+  .deleteImg{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 10rpx;
+  }
+/**************************底部部分**************************/
+.bottomPrompt{
+  display: flex;
+  width: 100%;
+  height: 100rpx;
+  background-color: #fff;
+  color: #7c7c7c;
+  justify-content: center;
+  align-items: center;
+}
+.toLogin{
+  display: flex;
+  width: 30%;
+  height: 100rpx;
+  background-color: #ff9933;
+  color: #ffffff;
+  justify-content: center;
+  align-items: center;
+}

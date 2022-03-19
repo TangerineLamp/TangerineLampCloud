@@ -7,9 +7,9 @@ Page({
    * 页面的初始数据
    */
   data: {
-    certiName:"",//医师姓名
-    school:"",//医师所在的学校
-    openid:"",//医师的openid
+    certiName:"",//学生姓名
+    school:"",//学生所在的学校
+    openid:"",//学生的openid
     studentProof:"/icons/certi_add.png",
     stuSelfPic:"/icons/certi_add.png",
     isSubmit: false,//检测是否提交过

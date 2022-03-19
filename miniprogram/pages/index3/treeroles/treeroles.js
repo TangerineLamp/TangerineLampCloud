@@ -32,7 +32,6 @@ Page({
    * 获得数据库里面的树洞数据
    */
   getTreeHoleData(){
-    console.log("检测该用户openid",this.data.theHostOpenId)
     db.collection("index2_treeholes")
     .where({
       _openid: this.data.theHostOpenId
@@ -108,7 +107,6 @@ Page({
    * 直至将collection中的树洞条目更新完
    */
   onReachBottom: function(){
-    console.log(1)
     let oldData = this.data.treeHoleData;
     // 如果现在问题的数量小于问题总数量就下拉更新
     if(oldData.length < maxCount){

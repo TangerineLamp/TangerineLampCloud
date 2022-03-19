@@ -75,7 +75,7 @@ Page({
       //     isCertification: res.data.isCertification
       //   })
       // })
-      console.log("它是主人吗",this.data.isHost)
+      console.log("访问者是否是树洞主人",this.data.isHost)
     })
     .then(res=>{  //  在获取树洞结束后获取评论用.then实现顺序执行
       this.getComments()  //  获取评论

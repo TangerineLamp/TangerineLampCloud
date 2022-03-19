@@ -8,7 +8,7 @@ Page({
     dailyQianDaoCount:0,
     year:0,
     month:0,
-    messageCount: 0,
+    messageCount: 0,    //  需要展示的消息数量
     treeholesCount: 0,  //  需要展示的树洞数量
     collectionCount: 0,
     motto: 'Hello World',
@@ -147,6 +147,7 @@ Page({
 
   onShow(){
     this.getUserTreeholeCount()
+    this.getUserMessageCount()
     this.getdailyQianDaoCount()
     this.getcollectionCount()
     this.data.hasUserInfo=app.globalData.hasUserInfo
@@ -184,6 +185,7 @@ Page({
       })
     })
   },
+
   /**
    * 获取自己的树洞数量
    */
@@ -200,6 +202,21 @@ Page({
     })
   },
 
+  /**
+   * 获得所有给自己的评论
+   */
+  getUserMessageCount(){
+    db.collection("index2_comments")
+    .where({
+      toID: app.globalData.openid
+    })
+    .count()
+    .then(res=>{
+      this.setData({
+        messageCount: res.total
+      })
+    })
+  },
   
   /**
    * 前往认证通道

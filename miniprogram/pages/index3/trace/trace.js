@@ -1,5 +1,6 @@
 const db = wx.cloud.database()
 const app = getApp()
+const _ = db.command;
 var maxCount = 0
 
 Page({
@@ -18,6 +19,7 @@ Page({
     this.setData({
       theOpenid: app.globalData.openid, //  获取游客的openid
     })
+    this.updateRead()
   },
 
   onShow(){
@@ -32,9 +34,14 @@ Page({
   getComments(){
     console.log('openid', this.data.theOpenid)
     db.collection("index2_comments")
-    .where({
-      toID: this.data.theOpenid
-    })
+    .where(_.and([
+      {
+        _openid: _.not(_.eq(this.data.theOpenid))
+      },
+      {
+        toID: this.data.theOpenid
+      }
+    ]))
     .orderBy('time', 'desc')
     .limit(10)
     .get()
@@ -118,4 +125,20 @@ Page({
       url: tempurl,
     })
   },
+
+  // 将未读变为已读
+  updateRead(){
+    db.collection('index2_comments').where(_.and([
+      {
+        _openid: _.not(_.eq(this.data.theOpenid))
+      },
+      {
+        toID: this.data.theOpenid
+      }
+    ])).update({
+      data: {
+        isRead: true,
+      }
+    })
+  }
 })

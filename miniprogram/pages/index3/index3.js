@@ -2,6 +2,7 @@
 // 获取应用实例
 const app = getApp()
 const db = wx.cloud.database();
+const _ = db.command;
 
 Page({
   data: {
@@ -207,9 +208,17 @@ Page({
    */
   getUserMessageCount(){
     db.collection("index2_comments")
-    .where({
-      toID: app.globalData.openid
-    })
+    .where(_.and([
+      {
+        _openid: _.not(_.eq(app.globalData.openid))
+      },
+      {
+        toID: app.globalData.openid
+      },
+      {
+        isRead: false
+      }
+    ]))
     .count()
     .then(res=>{
       this.setData({

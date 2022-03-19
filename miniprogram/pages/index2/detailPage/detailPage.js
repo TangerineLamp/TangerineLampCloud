@@ -1,6 +1,7 @@
 const db = wx.cloud.database()
 const app = getApp()
 var maxCount = 0
+var toID = ''
 
 Page({
   data: {
@@ -57,6 +58,7 @@ Page({
     .then(res=>{
       console.log("树洞的详细内容:",res.data)
       let judgeTemp = (res.data._openid == this.data.visiterOpenid)
+      toID = res.data._openid
       this.setData({
         headImg: res.data.avatar,
         likeCount: res.data.goodCount,
@@ -241,6 +243,8 @@ Page({
             commenterNickname: app.globalData.userInfo.nickName,
             commenterAvatar: app.globalData.userInfo.avatarUrl,
             isCertification: app.globalData.isDoctor,
+            toID: toID,
+            isRead: false,
           }
         })
         .then(res=>{

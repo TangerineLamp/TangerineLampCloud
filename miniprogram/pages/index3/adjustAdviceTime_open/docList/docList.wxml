@@ -8,6 +8,7 @@
     url="/pages/index3/adjustAdviceTime_open/adviceTimeList/adviceTimeList?_id={{item._openid}}"
     class="freeTime_item"
     wx:for="{{docList}}"
+    wx:if="{{item.level}}"
     wx:for-item="item"
     wx:key="idTime"
     bindtap="chooseTime">

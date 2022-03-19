@@ -29,18 +29,14 @@
       "outputPath": ""
     },
     "enableEngineNative": false,
+    "bundle": false,
     "useIsolateContext": true,
     "useCompilerModule": true,
     "userConfirmedUseCompilerModuleSwitch": false,
     "userConfirmedBundleSwitch": false,
     "packNpmManually": false,
     "packNpmRelationList": [],
-    "minifyWXSS": true,
-    "showES6CompileOption": false,
-    "useSummerCompiler": false,
-    "minifyWXML": true,
-    "disableUseStrict": false,
-    "useCompilerPlugins": false
+    "minifyWXSS": true
   },
   "appid": "wx72920a312942dcc0",
   "projectname": "TangerineLamp",
@@ -52,6 +48,11 @@
   "packOptions": {
     "ignore": [],
     "include": []
+  },
+  "srcMiniprogramRoot": "miniprogram/",
+  "editorSetting": {
+    "tabIndent": "insertSpaces",
+    "tabSize": 2
   },
   "condition": {
     "plugin": {
@@ -97,10 +98,5 @@
         }
       ]
     }
-  },
-  "srcMiniprogramRoot": "miniprogram/",
-  "editorSetting": {
-    "tabIndent": "insertSpaces",
-    "tabSize": 2
   }
 }

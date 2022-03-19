@@ -1,7 +1,7 @@
 <!-- pages/index3/editor/editor.wxml -->
 <view class="background">
-    <view>绑定电话<text></text></view>
+    <view bindtap="surprise">树洞昵称<text class="nick">{{nickName}}</text></view>
     <view bindtap="clear">清空缓存</view>
-    <view bindtap="">个性签名</view>
-    <view bindtap="version">版本号 0.8.0</view>
+    <view bindtap="surprise">个性签名<text class="sentence">{{rand}}</text></view>
+    <view bindtap="version">版本号  0.8.0</view>
 </view>

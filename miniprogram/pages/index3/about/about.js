@@ -10,7 +10,7 @@ Page({
   },
   calling: function () {
     wx.makePhoneCall({
-      phoneNumber: '13123456789', 
+      phoneNumber: '02365120105', 
     })
   },
   onLoad: function (options) {

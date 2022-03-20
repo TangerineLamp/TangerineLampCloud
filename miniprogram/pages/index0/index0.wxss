@@ -36,7 +36,7 @@ page{
   height: 150rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
-  margin-right: 45rpx;
+  margin-right: 60rpx;
   background: #f7f6f6;
   border-radius: 100rpx;
 }
@@ -46,7 +46,7 @@ page{
   height: 150rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
-  margin-right: 45rpx;
+  margin-right: 60rpx;
   background: #f7f6f6;
   border-radius: 100rpx;
 }
@@ -56,7 +56,7 @@ page{
   height: 150rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
-  margin-right: 30rpx;
+  margin-right: 25rpx;
   background: #f7f6f6;
   border-radius: 100rpx;
 }

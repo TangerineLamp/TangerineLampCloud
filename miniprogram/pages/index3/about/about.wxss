@@ -11,8 +11,8 @@
   }
   
   .title{
-    color: orange;
-    font-size: 46rpx;
+    color: #ff9933;
+    font-size: 60rpx;
     font-weight: bold;
   }
   
@@ -41,10 +41,21 @@
     left: -55rpx;
     top: -6rpx;
   }
+
   
-  .icon-postion{
-    width: 50rpx;
-    height: 50rpx;
+  .icon-postion-addr{
+    width: 52rpx;
+    height: 52rpx;
+  }
+
+  .icon-postion-time{
+    width: 48rpx;
+    height: 48rpx;
+  }
+
+  .icon-postion-tel{
+    width: 52rpx;
+    height: 52rpx;
   }
   
   .arrow{

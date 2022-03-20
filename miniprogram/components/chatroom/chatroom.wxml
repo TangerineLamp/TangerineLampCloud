@@ -54,6 +54,7 @@
         type="text"
         confirm-type="send"
         bindconfirm="onConfirmSendText"
+        bindinput="handleTextInput"
         cursor-spacing="20"
         value="{{textInputValue}}"
       ></input>
@@ -64,6 +65,10 @@
         mode="scaleToFill"
         bindtap="onChooseImage"
       ></image>
+
+      <view class="btn-send-text" bindtap="clickSendButton">
+        <view>发送</view>
+      </view>
     </view>
   </view>
 

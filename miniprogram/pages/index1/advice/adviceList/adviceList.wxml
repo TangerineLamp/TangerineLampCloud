@@ -16,8 +16,24 @@
   wx:key="advicekey"
   data-timeCount="{{item.timeCount}}"
   data-groupId="{{item.groupId}}"
-  bindtap="navTo"
+  catchtap="navTo"
   >
-    {{filters.formatDate(item.timeCount)}}
-</view>
+    <view class="left">
+      <view>
+        在线心理咨询
+      </view>
+      <view>
+        {{filters.formatDate(item.timeCount)}}
+      </view>
+    </view>
+    <view class="right">
+      <view class="right_button"
+      wx:if="{{item.showCancel}}"
+      data-groupId="{{item._id}}"
+      data-adviceId="{{item.adviceId}}"
+      catchtap="cancel_advice" >
+        取消预约
+      </view>
+    </view>
+  </view>
 </block>

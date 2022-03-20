@@ -157,10 +157,10 @@ Page({
       }
     }
     if(totalScores>40){
-      totalColor = blue;
+      totalColor = "blue";
     }
     if(totalScores>100){
-      totalColor = orange;
+      totalColor = "orange";
     }
     if(totalScores>160){
       final_eval_str += "总得分超过160；";

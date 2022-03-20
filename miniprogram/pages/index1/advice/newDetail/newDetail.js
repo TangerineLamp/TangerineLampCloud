@@ -109,6 +109,7 @@ Page({
                   //添加房间记录
                   db.collection("chatroom_group").add({
                     data: {
+                      adviceId: _id,
                       timeCount: timeCount,
                       groupId: groupId,
                       members:members,

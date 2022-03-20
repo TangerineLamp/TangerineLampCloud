@@ -36,4 +36,23 @@
   margin:20rpx;
   padding: 30rpx;
   border-radius: 10rpx;
+  display: flex;
+  align-items: center;
+}
+
+.left{
+  flex:3.5
+}
+
+.right{
+  flex:1
+}
+
+.right_button {
+  text-align: center;
+  font-size: 30rpx;
+  padding:12rpx;
+  background-color: white;
+  color: rgb(52, 177, 52);
+  border-radius: 10rpx;
 }

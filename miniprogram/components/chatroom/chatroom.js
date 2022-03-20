@@ -26,6 +26,7 @@ Component({
     scrollTop: 0,
     scrollToMessage: '',
     hasKeyboard: false,
+    inputTextE: {},
   },
 
   methods: {
@@ -153,6 +154,9 @@ Component({
 
     async onConfirmSendText(e) {
       this.try(async () => {
+        if (!e){
+          return
+        }
         if (!e.detail.value) {
           return
         }
@@ -310,6 +314,22 @@ Component({
         },
       })
     },
+
+    //获取底部文字输入框的内容
+    handleTextInput(e){
+      this.setData({
+        inputTextE:e
+      })
+    },
+
+    // 点击“发送”按钮发送消息
+    clickSendButton(){
+      this.onConfirmSendText(this.data.inputTextE)
+      this.setData({
+        inputTextE:null
+      })
+    }
+
   },
 
   ready() {
@@ -321,4 +341,6 @@ Component({
       duration: 500 //滚动所需时间 如果不需要滚动过渡动画，设为0（ms）
     })
   },
+
+
 })

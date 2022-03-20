@@ -134,7 +134,7 @@
 }
 
 .message-sender .text-input {
-  flex: 1;
+  flex: 3;
   font-size: 16px;
   border: 1px solid transparent;
   border-radius: 5px;
@@ -147,6 +147,20 @@
   width: 50rpx;
   height: 50rpx;
   align-self: center;
+}
+
+.message-sender .btn-send-text {
+  width: 120rpx;
+  height: 90%;
+  margin-left: 20rpx;
+  margin-right:-20rpx;
+  background-color:rgb(5,190,96);
+  color:white;
+  border-radius: 10rpx;
+  font-size: 30rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 button {

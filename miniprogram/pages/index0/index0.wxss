@@ -17,7 +17,7 @@ page{
 
 .dailyMain{
   margin-top: -20rpx;
-  margin-bottom: 25rpx;
+  margin-bottom: 50rpx;
 }
 
 .daily{
@@ -32,28 +32,28 @@ page{
 /* 每日文章、治愈歌单、心理漫画 */
 
 .daily-item1{
-  width: 175rpx;
-  height: 175rpx;
+  width: 150rpx;
+  height: 150rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
-  margin-right: 30rpx;
+  margin-right: 45rpx;
   background: #f7f6f6;
   border-radius: 100rpx;
 }
 
 .daily-item2{
-  width: 175rpx;
-  height: 175rpx;
+  width: 150rpx;
+  height: 150rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
-  margin-right: 30rpx;
+  margin-right: 45rpx;
   background: #f7f6f6;
   border-radius: 100rpx;
 }
 
 .daily-item3{
-  width: 175rpx;
-  height: 175rpx;
+  width: 150rpx;
+  height: 150rpx;
   margin-top: 50rpx; 
   margin-left: 25rpx;
   margin-right: 30rpx;
@@ -76,49 +76,46 @@ page{
 
 /* 每日文章、治愈歌单、心理漫画 图标设置 */
 .daily-icon-passage image{
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
   margin-top: 27rpx;
   margin-bottom: 20rpx;
   margin-left: 30rpx;
 }
 
 .daily-icon-music image{
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
   margin-top: 27rpx;
   margin-bottom: 20rpx;
   margin-left: 30rpx;
 }
 
 .daily-icon-comic image{
-  width: 120rpx;
-  height: 120rpx;
+  width: 100rpx;
+  height: 100rpx;
   margin-top: 20rpx;
   margin-bottom: 20rpx;
   margin-left: 25rpx;
 }
 
-/* .daily-info{
-  height: 35rpx;
-  font-size: 35rpx;
+.daily-info{
+  font-size: 28rpx;
   position: relative;
-  color: black;
+  color: #666666;
   font-family: '微软雅黑';
-  font-weight: bold;
   bottom: 10rpx;
   left: -10rpx;
-  margin-left: 20rpx;
-  margin-top: 55rpx;
+  margin-left: 32rpx;
+  margin-top: 20rpx;
 }
 
-.daily-des{
+/* .daily-des{
   color: #797676;
   font-size: 22rpx;
   margin-top: 15rpx;
   margin-left: 15rpx;
 }
-
 
 
 /* 热门内容展示 */

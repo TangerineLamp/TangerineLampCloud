@@ -19,14 +19,14 @@
       <view class="daily-icon-passage">
         <image src="{{passageIconSrc}}"></image>
       </view>
-      <!-- <view>
+      <view>
         <view class="daily-info">
           每日文章
         </view>
-        <view class="daily-des">
+        <!-- <view class="daily-des">
           <text>Daily Passage</text>
-        </view>
-      </view> -->
+        </view> -->
+      </view> 
     </navigator>
 
     <!-- 治愈歌单 -->
@@ -34,14 +34,14 @@
       <view class="daily-icon-music">
         <image src="{{musicIconSrc}}"></image>
       </view>
-      <!-- <view>
+      <view>
         <view class="daily-info">
           治愈歌单
         </view>
-        <view class="daily-des">
+        <!-- <view class="daily-des">
           <text>Healing Music</text>
-        </view>
-      </view> -->
+        </view> -->
+      </view>
     </navigator>
   
     <!-- 心理漫画 -->
@@ -49,14 +49,14 @@
       <view class="daily-icon-comic">
         <image src="{{comicIconSrc}}"></image>
       </view>
-      <!-- <view>
+      <view>
         <view class="daily-info">
           心理漫画
         </view>
-        <view class="daily-des">
+        <!-- <view class="daily-des">
           <text>Psyco Comic</text>
-        </view>
-      </view> -->
+        </view> -->
+      </view>
     </navigator>
     
     <!-- 删去心理电塔功能 -->

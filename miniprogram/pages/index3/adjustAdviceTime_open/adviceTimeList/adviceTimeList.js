@@ -34,13 +34,14 @@ Page({
   getDocInfo(docId){
     db.collection("doctors")
     .where({
-      doctorId:docId
+      _openid:docId
     })
     .get()
     .then(res=>{
       this.setData({
         docInfo:res.data[0]
       })
+      console.log("docInfo:",res.data[0])
     })
   },
 

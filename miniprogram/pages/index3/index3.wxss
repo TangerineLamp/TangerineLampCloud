@@ -131,3 +131,33 @@ page {
   padding: 5rpx;
   font-size:32rpx;
 }
+
+.redPointContainer{
+  position: relative;
+}
+
+.redPointContainer2{
+  position: relative;
+}
+
+.redPoint{
+  border-radius: 50%;
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  top: 20rpx;
+  right:20rpx;
+  background-color: red;
+  z-index: 1;
+}
+
+.redPoint2{
+  border-radius: 50%;
+  position: absolute;
+  width: 20rpx;
+  height: 20rpx;
+  top: 20rpx;
+  right:20rpx;
+  background-color: red;
+  z-index: 1;
+}

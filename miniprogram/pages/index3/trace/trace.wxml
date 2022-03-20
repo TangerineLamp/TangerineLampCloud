@@ -5,7 +5,7 @@
 <view class="bottom" hover-class="none" hover-stop-propagation="false">
   <view class="" hover-class="none" hover-stop-propagation="false">
     <view class="title" hover-class="none" hover-stop-propagation="false">
-      <image class="pic" src="/icons/message.svg"></image>
+      <!-- <image class="pic" src="/icons/message.svg"></image> -->
       我的消息
     </view>
   </view>

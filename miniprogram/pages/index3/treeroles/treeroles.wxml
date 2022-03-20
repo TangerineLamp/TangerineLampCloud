@@ -4,7 +4,7 @@
 <view class="bottom" hover-class="none" hover-stop-propagation="false">
     <view class="" hover-class="none" hover-stop-propagation="false">
         <view class="title" hover-class="none" hover-stop-propagation="false">
-            <image class="pic" src="/icons/树洞.png"></image>
+            <!-- <image class="pic" src="/icons/树洞.png"></image> -->
             树洞列表
         </view>
     </view>

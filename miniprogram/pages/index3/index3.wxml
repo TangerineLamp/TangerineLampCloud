@@ -36,16 +36,18 @@
         <view wx:if="{{!isLogin}}" class="his_num">0</view>
         <view class="his_name">树洞</view>
       </navigator>
-      <navigator url="/pages/index3/trace/trace">
+      <navigator class="redPointContainer" url="/pages/index3/trace/trace">
         <view wx:if="{{isLogin}}" class="his_num">{{messageCount}}</view>
         <view wx:if="{{!isLogin}}" class="his_num">0</view>
         <view class="his_name">消息</view>
+        <view class="redPoint" wx:if="{{messageCount != 0}}"></view>
       </navigator>
     </view>
     <view class="orders_wrap">
       <view class="orders_title">我的</view>
       <view class="order_content">
-        <navigator url="/pages/index1/advice/adviceList/adviceList">
+        <navigator class="redPointContainer2" url="/pages/index1/advice/adviceList/adviceList">
+          <view class="redPoint2" wx:if="{{isBooked}}"></view>
           <view class="order_icon iconfont icon-yuyue"></view>
           <view class="order_name">预约</view>
         </navigator>

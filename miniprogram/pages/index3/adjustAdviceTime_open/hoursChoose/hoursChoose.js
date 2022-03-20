@@ -42,7 +42,7 @@ Page({
   getDocInfo(openId){
     db.collection("doctors")
     .where({
-      doctorId:openId,
+      _openid:openId,
     })
     .get()
     .then(res=>{

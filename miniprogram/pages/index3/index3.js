@@ -22,6 +22,7 @@ Page({
     isDoctor:false,
     isCertiStudent:false,
     isLogin: false,  //  用户是否登录
+    isBooked: false, //用户是否有心理咨询预约记录
     canIUseGetUserProfile: true,
   },
   // 跳转设置页面
@@ -41,6 +42,7 @@ Page({
    * 加载需要页面的各种信息和内容，包括可能的用户信息和权限
    */
   onLoad() {
+    let openid = wx.getStorageSync('openid')
     let userInfo = wx.getStorageSync('userInfo')
     let hasUserInfo=wx.getStorageSync('hasUserInfo')
     let isDeveloper=wx.getStorageSync('isDeveloper');
@@ -59,7 +61,7 @@ Page({
       year:year,
       month:month
     })
-    this.initOpenID() //  获得openid
+    // this.initOpenID() //  获得openid
     //  已经登录过了
     // 清除缓存的时候要先更新
     this.data.hasUserInfo=app.globalData.hasUserInfo
@@ -71,6 +73,7 @@ Page({
         isDoctor:isDoctor,
         isCertiStudent:isCertiStudent
       })
+      app.globalData.openid = openid
       app.globalData.isLogin=hasUserInfo
       app.globalData.hasUserInfo=hasUserInfo
       app.globalData.isDeveloper=isDeveloper
@@ -92,8 +95,9 @@ Page({
           hasUserInfo: app.globalData.isLogin,
         })
       }
-    } 
-
+    }
+    
+    this.initOpenID() //  获得openid
     
     // else {
     //   // 在没有 open-type=getUserInfo 版本的兼容处理
@@ -127,8 +131,11 @@ Page({
         console.log(res)
         app.globalData.userInfo = res.userInfo
         app.globalData.isLogin = true
+        this.getdailyQianDaoCount() //获取签到数量
         this.getUserTreeholeCount() //  获取树洞数量
         this.getcollectionCount() //获取收藏
+        this.getUserMessageCount() // 获取消息数量
+        this.getAdviceCount()  // 获取预约
         // 将全局变量中的内容获取到本页
         this.setData({
           userInfo: app.globalData.userInfo,
@@ -151,6 +158,7 @@ Page({
     this.getUserMessageCount()
     this.getdailyQianDaoCount()
     this.getcollectionCount()
+    this.getAdviceCount()
     this.data.hasUserInfo=app.globalData.hasUserInfo
     console.log(this.data.hasUserInfo)
   },
@@ -221,8 +229,25 @@ Page({
     ]))
     .count()
     .then(res=>{
+      console.log("获取评论res:",res)
       this.setData({
         messageCount: res.total
+      })
+    })
+  },
+
+    /**
+   * 获得心理咨询预约记录
+   */
+  getAdviceCount(){
+    let nowDate = this.getNowDate();
+    db.collection("chatroom_group").where({
+      members: _.all([app.globalData.openid]),
+      timeCount: _.gt(nowDate)
+    })
+    .count().then(res=>{
+      this.setData({
+        isBooked: (res.total>0)
       })
     })
   },
@@ -266,7 +291,7 @@ Page({
   async initOpenID() {
     return this.try(async () => {
       const openId = await this.getOpenID()
-
+      wx.setStorageSync('openid',openId)
       this.getAuthority(openId);
       this.getDoctorAuth(openId);
       this.getCertiStudentAuth(openId);
@@ -287,15 +312,15 @@ Page({
     .then(res=>{
       if(res.total>0){
         app.globalData.isDeveloper = true
-        console.log("用户是否有权限",app.globalData.isDeveloper)
       }
+      console.log("用户是否有权限",app.globalData.isDeveloper)
     })
   },
 
   getDoctorAuth(openId){
     db.collection("doctors")
     .where({
-      doctorId:openId,
+      _openid:openId,
       isCertification:true
     })
     .count()
@@ -320,5 +345,22 @@ Page({
       }
       console.log("用户是否是认证学生",app.globalData.isCertiStudent)
     })
+  },
+
+
+  // 工具函数 —— 获取今天的时间戳
+  getNowDate(){
+    let timestamp = Date.parse(new Date());
+    let nowTime = new Date(timestamp);
+    let year = nowTime.getFullYear();
+    let month = nowTime.getMonth();
+    let date = nowTime.getDate();
+    month = month + 1;
+    if (month < 10) month = "0" + month;
+    if (date < 10) date = "0" + date;
+    let time = year + "/" + month + "/" + date;
+    let nowDate = Date.parse(new Date(time));
+    return nowDate;
   }
+
 })

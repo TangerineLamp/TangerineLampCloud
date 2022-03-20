@@ -382,11 +382,11 @@ Page({
       this.setData({
         isShowSubmit: true
       })
-      wx.showToast({
-        title: '到底了哦',
-        icon: 'success',
-        duration: 1000
-      })
+      // wx.showToast({
+      //   title: '到底了哦',
+      //   icon: 'success',
+      //   duration: 1000
+      // })
     }
   },
 

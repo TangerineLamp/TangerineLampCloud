@@ -57,7 +57,7 @@
 				</view>
 				<view class="commentInfoContainer">
 					<view class="commentNickname">{{item.commenterNickname}}</view>
-					<view class="commentDetail">{{item.comment}}</view>
+					<text class="commentDetail" space="ensp">{{item.comment}}</text>
 					<view class="commentPostTime">回复时间：{{filter.dateToStr(item.time)}}</view>
 				</view>
 				<!--删除图片-->
@@ -81,7 +81,7 @@
 	<button wx:if="{{!isLogin}}" bindtap="toLogin" class="toLogin">点我前往登录地点</button>
 </scroll-view>
 <view class="iCommentContainer">
-	<textarea class="iComment" maxlength="-1" auto-focus="true" placeholder="评论只有树洞主人和自己看得见哟~~"
+	<textarea class="iComment" maxlength="-1" auto-height placeholder="评论只有树洞主人和自己看得见哟~~"
 		bindinput="bindTextAreaInput" value="{{commentDetails}}"></textarea>
 	<view class="send" bindtap="send">发 送</view>
 </view>

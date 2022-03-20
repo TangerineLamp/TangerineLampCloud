@@ -13,11 +13,10 @@
   <navigator url="/pages/index0/passage/developPassage/developPassage">每日文章</navigator>
   <navigator url="/pages/index0/music/developMusic/developMusic">治愈歌单</navigator>
   <navigator url="/pages/index0/comic/developComic/developComic">心理漫画</navigator>
-  <navigator url="">心理电台</navigator>
   <navigator url="/pages/index1/words/wordsEdit/wordsEdit">词条检索</navigator>
   <navigator url="/pages/index1/course/courseEdit/courseEdit">心理课程</navigator>
-  <navigator url="">专业测评</navigator>
-  <navigator url="">娱乐测评</navigator>
+  <!-- <navigator url="">专业测评</navigator>
+  <navigator url="">娱乐测评</navigator> -->
   <navigator url="/pages/index3/developer/trash/trash">垃圾回收</navigator>
   
   <!-- <navigator url="/pages/index3/certification/authen/authen">验证通道</navigator> -->

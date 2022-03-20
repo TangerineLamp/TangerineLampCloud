@@ -26,7 +26,7 @@ Component({
     scrollTop: 0,
     scrollToMessage: '',
     hasKeyboard: false,
-    inputTextE: {},
+    inputTextE: null,
   },
 
   methods: {

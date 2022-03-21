@@ -60,6 +60,7 @@ Page({
     wx.showModal({
       title: '',
       content: '确定要删除吗？',
+      mask: true,
       success: function (e) {
         // 点击了确定以后会删除树洞和评论
         if (e.confirm) { 
@@ -113,6 +114,7 @@ Page({
       // 显示加载条
       wx.showToast({
         icon: 'loading',
+        mask: true,
         duration: 500
       })
       // 开始更新下拉的数据

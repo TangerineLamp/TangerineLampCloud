@@ -14,7 +14,7 @@
 		value="{{details}}">
 		</textarea>
 	<picker mode="selector" range="{{chooseRegion}}" bindchange="bindPickerChange" value="{{chooseIndex}}">
-		<view class="viewInPicker in_mid viewInPickerBackground" wx:if="{{!isChose}}">"点我"选择分区</view>
+		<view class="viewInPicker in_mid viewInPickerBackground" wx:if="{{!isChose}}">点我"选择分区</view>
 		<view class="viewInPicker in_mid {{chooseRegionColor[chooseIndex]}}" wx:if="{{isChose}}">
 			{{chooseRegion[chooseIndex]}}
 		</view>

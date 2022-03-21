@@ -101,8 +101,12 @@ Page({
       }
       else {
         // 显示正在发送
+        this.setData({
+          sendClicked: true
+        })
         wx.showLoading({
           title: '发布中...',
+          mask: true,
         });
         // 正式发送，内容包括
         // 对应的分区chooseRegin[chooseIndex]
@@ -111,6 +115,7 @@ Page({
         // 点赞数(初始都为0)
         // 发布时间（当前时间戳）
         var now = new Date().getTime();
+        let that = this
         db.collection("index2_treeholes")
         .add({
           data: {
@@ -126,26 +131,28 @@ Page({
           // 显示发送成功
           setTimeout(function (){
             wx.hideLoading()
+            wx.navigateBack({changed: true})
             // 发布成功，引导用户离开编辑页面
-            wx.showModal({
-              title: '发布成功！',
-              content: '再写一个树洞？',
-              success: function (res) {
-                // 点击了确定以后会重新进入编辑页面界面
-                if (res.confirm) { 
-                  console.log('用户点击确定')
-                  wx.navigateTo({
-                    url: "/pages/index2/editPage/personalEditor",
-                  })
-                // 点击了取消以后会转换进入树洞广场界面
-                } else { 
-                  console.log('用户点击取消')
-                  wx.switchTab({
-                    url: "/pages/index2/index2",
-                  })
-                }
-              }
-            }) // end wx.showModal
+            // wx.showModal({
+            //   title: '发布成功！',
+            //   content: '再写一个树洞？',
+            //   success: function (res) {
+            //     // 点击了确定以后会重新进入编辑页面界面
+            //     if (res.confirm) { 
+            //       // detail内容变成空
+            //       that.setData({
+            //         sendClicked: false
+            //       })
+
+            //     // 点击了取消以后会转换进入树洞广场界面
+            //     } else { 
+            //       console.log('用户点击取消')
+            //       wx.navigateBack({
+            //         changed: true
+            //       })
+            //     }
+            //   }
+            // }) // end wx.showModal
           }, 2000);
         }) // end then
       } 

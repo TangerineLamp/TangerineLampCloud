@@ -335,7 +335,7 @@ Page({
   getCertiStudentAuth(openId){
     db.collection("CertiStudent")
     .where({
-      openid:openId
+      _openid:openId
     })
     .count()
     .then(res=>{

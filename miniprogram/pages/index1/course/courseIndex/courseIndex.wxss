@@ -69,3 +69,10 @@
   -webkit-line-clamp: 2;
   -webkit-box-orient: vertical;
 }
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 400rpx;
+  color:#b3b3b3;
+  font-size: 35rpx;
+}

@@ -7,23 +7,29 @@
 <scroll-view scroll-y class="bottom"
 bindscrolltolower="bottomRefresh" lower-threshold="20">
   <!-- 课程渲染循环 -->
-  <navigator
-  class="test_item"
-  wx:for="{{courseList}}"
-  wx:for-item="itemCourse"
-  wx:key="idCourse"
-  url="{{'/pages/index1/course/courseDetail/courseDetail?_id='+itemCourse._id}}">
-    <view class="test_left">
-      <image src="{{itemCourse.cover}}" alt="/icons/none_img.png" mode="aspectFill"></image>
-    </view>
-    <view class="test_right">
-      <view class="test_title">
-        {{itemCourse.title}}
+  <block wx:if="{{courseList.length>0}}">
+    <navigator
+    class="test_item"
+    wx:for="{{courseList}}"
+    wx:for-item="itemCourse"
+    wx:key="idCourse"
+    url="{{'/pages/index1/course/courseDetail/courseDetail?_id='+itemCourse._id}}">
+      <view class="test_left">
+        <image src="{{itemCourse.cover}}" alt="/icons/none_img.png" mode="aspectFill"></image>
       </view>
+      <view class="test_right">
+        <view class="test_title">
+          {{itemCourse.title}}
+        </view>
       <view class="test_des">
         {{itemCourse.des}}
       </view>
     </view>
   </navigator>
+  </block>
+  <block wx:if="{{courseList.length==0}}">
+    <view class="noneAppointment">暂无课程</view>
+  </block>
+
 </scroll-view>
 

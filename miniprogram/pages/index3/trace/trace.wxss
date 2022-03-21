@@ -92,6 +92,18 @@ page{
   font-weight: bold;
   margin-bottom: 10rpx;
 }
+/* 认证的V标 */
+.host_vip{
+  justify-items: center;
+  position: absolute;
+  background-color: #fff;
+  border-radius: 50%;
+  width:40%;
+  height: 40%;
+  bottom: -10rpx;
+  right:-10rpx;
+  z-index: 2;
+}
 /* 该条评论的具体内容 */
 .commentDetail{
   color: #3d3a3a;

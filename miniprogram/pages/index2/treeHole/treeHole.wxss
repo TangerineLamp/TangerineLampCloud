@@ -43,6 +43,7 @@ page{
   direction: flex;
   justify-content: start;
 }
+
 /* 树洞主人的头像和认证的横条 */
 .host_head {
   width: 13%;
@@ -79,6 +80,19 @@ page{
   color: #666666;
   display: flex;
   font-size: 25rpx;
+}
+/* 删除按钮容器的样式 */
+ .deleteImg_container{
+  width: 8%;
+  height: 100%;
+  justify-content: center;
+  align-items: center;
+}
+/* 删除按钮的标准样式 */
+.deleteImg{
+  width: 40rpx;
+  height: 40rpx;
+  margin-right: 10rpx;
 }
 /* 单个树洞的标题 */
 .single_title {

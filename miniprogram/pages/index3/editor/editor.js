@@ -68,7 +68,7 @@ Page({
       icon: 'none',
       image: '',
       duration: 5000,
-      mask: true,
+      mask: false,
       success: (result) => {
         
       },

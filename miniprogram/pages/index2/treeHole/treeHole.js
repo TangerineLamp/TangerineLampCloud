@@ -9,6 +9,7 @@ Page({
   data: {
     treeholeJson: "",
     treeHoleData: "",
+    isDeveloper: false,
   },
 
   /**
@@ -17,7 +18,8 @@ Page({
   onLoad: function (options) {
     let josnTemp = options.title + ""
     this.setData({
-      treeholeJson: app.globalData.treehole[josnTemp]
+      treeholeJson: app.globalData.treehole[josnTemp],
+      isDeveloper: app.globalData.isDeveloper
     })
   },
 
@@ -189,6 +191,51 @@ Page({
       tempIsCertification = res.data.isCertification
       console.log(tempIsCertification)
       return tempIsCertification
+    })
+  },
+
+  /**
+   * 处理删除树洞事件
+   */
+  deleteMe(res){
+    console.log("用户选中树洞的id: ", res.currentTarget.dataset.thistreeholeid)
+    let tempid = res.currentTarget.dataset.thistreeholeid
+    const that = this
+    // 提醒用户是否要删除树洞
+    wx.showModal({
+      title: '',
+      content: '确定要删除吗？',
+      success: function (e) {
+        // 点击了确定以后会删除树洞和评论
+        if (e.confirm) { 
+          //  删除树洞
+          console.log('用户点击确定')
+          console.log('开始删除树洞信息')
+          db.collection('index2_treeholes')
+          .doc(tempid)
+          .remove()
+          //  删除评论
+          console.log('成功删除树洞: ', tempid)
+          console.log('开始删除树洞中的评论')
+          db.collection('index2_comments')
+          .where({
+            treeholeid: tempid
+          })
+          .remove()
+          // 删除点赞
+          console.log('开始删除树洞的点赞')
+          db.collection('index2_likeTag')
+          .where({
+            treeholeid: tempid
+          })
+          .remove()
+          // 显示删除的提示界面
+          that.getTreeHoleData()
+          wx.showToast({
+            title: '删除成功',
+          })
+        } 
+      } 
     })
   },
 })

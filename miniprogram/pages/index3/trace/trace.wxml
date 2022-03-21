@@ -17,6 +17,8 @@
     <view class="singleComment" bindtap="toDetail" data-thistreeholeid="{{item.treeholeid}}">
       <view class="commentHead">
         <image class="commentHeadImg" src="{{item.commenterAvatar}}" mode="aspectFill"></image>
+        <image wx:if="{{item.isCertification}}" class="host_vip" mode='aspectFill' src="/icons/vip.svg">
+        </image>
       </view>
       <view class="commentInfoContainer">
         <view class="commentNickname">{{item.commenterNickname}}</view>

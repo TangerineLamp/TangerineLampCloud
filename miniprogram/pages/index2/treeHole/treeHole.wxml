@@ -13,7 +13,8 @@
       style="color:{{treeholeJson.color}}">
       <view class="single_top_container in_mid">
         <view class="host_head">
-          <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' lazy-load="true" class="host_head_img">
+          <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' lazy-load="true"
+            class="host_head_img">
           </image>
           <image wx:if="{{!item.isAnonymous}}" src="{{item.avatar}}? {{item.avatar}} : {{treeholeJson.avatar}}"
             mode='aspectFill' lazy-load="true" class="host_head_img">
@@ -25,6 +26,10 @@
           <view class="time_info" space="ensp">
             {{filter.dateToStr(item.time)}}
           </view>
+          </view>
+        <!--删除图片-->
+        <view wx:if="{{isDeveloper}}" class="deleteImg_container" data-thistreeholeid="{{item._id}}" catchtap="deleteMe">
+            <image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill" lazy-load="true"></image>
         </view>
       </view>
       <view class="single_body_container">

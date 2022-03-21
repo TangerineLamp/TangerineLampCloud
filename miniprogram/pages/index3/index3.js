@@ -247,7 +247,7 @@ Page({
     })
     .count().then(res=>{
       this.setData({
-        isBooked: (res.total>0)
+        isBooked: (res.total>0  && app.globalData.isLogin)
       })
     })
   },

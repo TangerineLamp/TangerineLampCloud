@@ -10,9 +10,8 @@
 </view>
 <view class="midcontainer">
 	<!--用户多行输入的内容-->
-	<textarea class="per_body" maxlength="-1" focus="true" placeholder="来说点什么吧~~" bindinput="bindTextAreaInput"
-		value="{{details}}">
-		</textarea>
+	<rtf class="per_body" name="referenceAnswer" placeholder="来说点什么吧" showTabBar="{{true}}" bind:input="onInputtingDesc">
+	</rtf>
 	<picker mode="selector" range="{{chooseRegion}}" bindchange="bindPickerChange" value="{{chooseIndex}}">
 		<view class="viewInPicker in_mid viewInPickerBackground" wx:if="{{!isChose}}">点我"选择分区</view>
 		<view class="viewInPicker in_mid {{chooseRegionColor[chooseIndex]}}" wx:if="{{isChose}}">

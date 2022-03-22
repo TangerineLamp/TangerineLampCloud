@@ -1,3 +1,5 @@
 {
-  "usingComponents": {}
+  "usingComponents": {
+    "rtf": "/components/treehole-rtf/rtf"
+  }
 }

@@ -33,7 +33,8 @@
         </view>
       </view>
       <view class="single_body_container">
-        <text class="single_body" space="ensp">{{item.mainBody}}</text>
+        <!-- <text class="single_body" space="ensp">{{item.mainBody}}</text> -->
+        <rich-text class="single_body" space="ensp" nodes="{{item.mainHtml}}"></rich-text>
         <view class="single_agree" space="ensp" style="position:relative; bottom:0">{{item.goodCount}} 人点赞 </view>
       </view>
     </view>

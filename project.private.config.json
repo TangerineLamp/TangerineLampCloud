@@ -29,6 +29,12 @@
           "pathName": "pages/index3/index3",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "富文本测试",
+          "pathName": "pages/index2/myTest/editor",
+          "query": "",
+          "scene": null
         }
       ]
     }

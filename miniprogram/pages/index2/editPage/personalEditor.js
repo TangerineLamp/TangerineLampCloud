@@ -9,7 +9,8 @@ Page({
   data: {
     userName: "",         // 用户的昵称
     userAvatar: "",       // 用户的头像
-    treeholeDetails: "",  // textArea里面的细节
+    treeholeText: "",     // 原文
+    treeholeHtml: "",     // 具有html格式的内容
     chooseIndex: "",      // 选择分区时各个区域的位置指数
     isChose: false,       // 判断是否选择了分区
     isAnonymous: true,    // 判断是否匿名, 默认不匿
@@ -47,13 +48,15 @@ Page({
   },
 
   /**
-   * 在textArea中写入后会将内容传到暂存的数据treeholeDetails里去
+   * 在在富文本编辑器中写入后会将原文和详细内容都存到里去
    */
-  bindTextAreaInput: function(e) {
+  onInputtingDesc: function (e) {
+    let html = e.detail.html;   //相关的html代码
+    let originText = e.detail.text;  //text，不含有任何的html标签
     this.setData({
-      treeholeDetails: e.detail.value,
+      treeholeHtml: html,
+      treeholeText: originText
     });
-    // console.log("树洞内容：", this.data.treeholeDetails);
   },
 
   /**
@@ -65,25 +68,19 @@ Page({
    * @param {点击事件} e 
    */
   sendMsg: function(e){
-    console.log("目前树洞的长度是", this.data.treeholeDetails.length)
+    console.log("目前树洞的长度是", this.data.treeholeText.length)
     // 树洞如果什么都没有写则会提示写内容
-    if (this.data.treeholeDetails.length == 0) {
+    if (this.data.treeholeText.length == 0) {
       wx.showToast({
         title: '树洞不能为空呢',
-        // 这个是云储存里面的路径
-        // image: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/failForVoidTreehole.png',
-        // 这个是本地文件的路径
         image: "/pages/index2/logo/failForVoidTreehole.png",
         duration: 2000//持续的时间
       })
 
     // 限制树洞字数不小于20字，否则提示内容太少
-    } else if (this.data.treeholeDetails.length < 20) {
+    } else if (this.data.treeholeText.length < 20) {
       wx.showToast({
         title: '树洞长度小于20',
-        // 这个是云储存的路径
-        // image: 'cloud://tangerine-cloud-5g4h71uo73fc1edb.7461-tangerine-cloud-5g4h71uo73fc1edb-1304921980/logo/failForShortContent.png',
-        // 这个是本地文件的路径
         image: "/pages/index2/logo/failForShortContent.png",
         duration: 2000//持续的时间
       })
@@ -94,7 +91,6 @@ Page({
       if (!this.data.isChose) {
         wx.showToast({
           title: '亲，未选分区',
-          // 这个是本地文件的路径
           image: "/pages/index2/logo/failForNoChooseRegin.png",
           duration: 2000//持续的时间
         })
@@ -120,7 +116,8 @@ Page({
         .add({
           data: {
             goodCount: 0,
-            mainBody: this.data.treeholeDetails,
+            mainBody: this.data.treeholeText,
+            mainHtml: this.data.treeholeHtml,
             tag: this.data.chooseRegion[this.data.chooseIndex],
             time: now,
             isAnonymous: this.data.isAnonymous,

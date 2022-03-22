@@ -64,7 +64,7 @@ Page({
         likeCount: res.data.goodCount,
         hostNickname: res.data.nickName,
         hostPostTime: res.data.time,
-        aritleDetail: res.data.mainBody,
+        aritleDetail: res.data.mainHtml,
         isAnonymous: res.data.isAnonymous,
         time: res.data.time,
         isHost: judgeTemp,

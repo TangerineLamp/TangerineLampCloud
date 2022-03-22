@@ -94,7 +94,6 @@
   /* background-color: #efefef; */
   color: #3a3a3a;
   font-size: 30rpx;
-  font-family: "宋体";
 }
 /**************************中间分隔按钮**************************/
 /* 点赞按钮的二级容器 */
@@ -181,8 +180,8 @@
 .singleComment{
   width: 100%;
   display: flex;
-  padding-bottom: 5rpx;
-  padding-top: 5rpx;
+  padding-bottom: 15rpx;
+  padding-top: 15rpx;
 }
 /* 该条评论的主人头像的二级容器 */
 .commentHead{
@@ -225,7 +224,7 @@
 }
 /* 每个评论之间的分割线 */
 .line3{
-  background-color:#7c7c7c;
+  background-color:#b9b9b9;
   width:96%;
   height:3rpx;
 }

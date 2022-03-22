@@ -62,8 +62,8 @@ page{
   width: 100%;
   display: flex;
   background-color: #fff;
-  padding-bottom: 5rpx;
-  padding-top: 5rpx;
+  padding-bottom: 15rpx;
+  padding-top: 15rpx;
 }
 /* 该条评论的主人头像的二级容器 */
 .commentHead{
@@ -118,7 +118,7 @@ page{
 }
 /* 每个评论之间的分割线 */
 .line3{
-  background-color:#7c7c7c;
+  background-color:#b9b9b9;
   width:96%;
   height:3rpx;
 }

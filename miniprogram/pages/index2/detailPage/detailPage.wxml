@@ -60,7 +60,7 @@
 					<view class="commentPostTime">回复时间：{{filter.dateToStr(item.time)}}</view>
 				</view>
 				<!--删除图片-->
-				<view wx:if="{{item._openid==visiterOpenid}}" class="deleteImg_container" data-thistreeholeid="{{item._id}}"
+				<view wx:if="{{item._openid==visiterOpenid || isDeveloper}}" class="deleteImg_container" data-thistreeholeid="{{item._id}}"
 					catchtap="deleteMe">
 					<image src="/pages/index2/logo/delete.svg" class="deleteImg" mode="aspectFill"></image>
 				</view>

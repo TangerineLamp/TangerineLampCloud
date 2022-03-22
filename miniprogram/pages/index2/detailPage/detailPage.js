@@ -16,6 +16,7 @@ Page({
     treeholeid: null, //  树洞id
     isHost: false, //  是否是树洞的主人
     visiterOpenid: null,  //  访问者的openid
+    idDeveloper: false, // 是否是开发者
     comments: [], //  评论区
     isLogin: false, //  是否登录
     commentDetails: "", //  临时的存放textArea的变量
@@ -39,6 +40,7 @@ Page({
       treeholeid: options.title, //  获取对应的树洞的id
       visiterOpenid: app.globalData.openid, //  获取游客的openid
       isLogin: app.globalData.isLogin,  //  获取登录状态
+      isDeveloper: app.globalData.isDeveloper, // 获取开发者信息
     })
   },
 
@@ -52,9 +54,7 @@ Page({
    */
   getTreeholeData(){
     var that = this
-    db.collection("index2_treeholes")
-    .doc(that.data.treeholeid)
-    .get()
+    db.collection("index2_treeholes").doc(that.data.treeholeid).get()
     .then(res=>{
       console.log("树洞的详细内容:",res.data)
       let judgeTemp = (res.data._openid == this.data.visiterOpenid)
@@ -69,14 +69,6 @@ Page({
         time: res.data.time,
         isHost: judgeTemp,
       })
-      // db.collection('doctors').where({_openid: that.data.treeholeid}).field({
-      //   isCertification: true
-      // }).get()
-      // .then(res => {
-      //   that.setData({
-      //     isCertification: res.data.isCertification
-      //   })
-      // })
       console.log("访问者是否是树洞主人",this.data.isHost)
     })
     .then(res=>{  //  在获取树洞结束后获取评论用.then实现顺序执行
@@ -94,13 +86,9 @@ Page({
     // 如果是树洞主人访问自己的树洞
     // 可以看到所有的回复内容
     if (this.data.isLogin && this.data.isHost){
-      db.collection("index2_comments")
-      .where({
-        treeholeid: this.data.treeholeid
-      })
-      .orderBy('time', 'desc')
-      .limit(10)
-      .get()
+      db.collection("index2_comments").where({
+        fromID: this.data.treeholeid
+      }).orderBy('time', 'desc').limit(10).get()
       .then(res=>{
         console.log("主人访问,评论详细内容", res.data)
         this.setData({
@@ -111,14 +99,10 @@ Page({
     // 如果是游客访问别人的树洞
     // 则只能看到自己的回复内容
     else if (this.data.isLogin && (!this.data.isHost)){
-      db.collection("index2_comments")
-      .where({
-        treeholeid: this.data.treeholeid,
+      db.collection("index2_comments").where({
+        fromID: this.data.treeholeid,
         _openid: this.data.visiterOpenid
-      })
-      .orderBy('time','desc')
-      .limit(10)
-      .get()
+      }).orderBy('time','desc').limit(10).get()
       .then(res=>{
         console.log("别人访问,评论详细内容", res.data)
         this.setData({
@@ -134,23 +118,19 @@ Page({
   getMaxCount(){
     // 树洞主人获得所有的评论量
     if (this.data.isLogin && this.data.isHost){
-      db.collection('index2_comments')
-      .where({
-        treeholeid: this.data.treeholeid
-      })
-      .count()
+      db.collection('index2_comments').where({
+        fromID: this.data.treeholeid
+      }).count()
       .then(res => {
         maxCount = res.total
       })
     }
     // 游客只能获得自己评论的评论量
     else if (this.data.isLogin && (!this.data.isHost)){
-      db.collection("index2_comments")
-      .where({
-        treeholeid: this.data.treeholeid,
+      db.collection("index2_comments").where({
+        fromID: this.data.treeholeid,
         _openid: this.data.visiterOpenid
-      })
-      .count()
+      }).count()
       .then(res=>{
         maxCount = res.total
       })
@@ -162,12 +142,10 @@ Page({
    */
   getLikeTag(){
     console.log("获取点赞标识中.....")
-    db.collection("index2_likeTag")
-    .where({
+    db.collection("index2_likeTag").where({
       treeholeid: this.data.treeholeid,
       _openid: this.data.visiterOpenid
-    })
-    .get()
+    }).get()
     .then(res=>{
       console.log(res.data)
       if (res.data.length == 0){
@@ -234,10 +212,9 @@ Page({
         });
         // 正式开始发送
         let dateTemp = new Date().getTime()
-        db.collection("index2_comments")
-        .add({
+        db.collection("index2_comments").add({
           data: {
-            treeholeid: this.data.treeholeid,
+            fromID: this.data.treeholeid,
             comment: this.data.commentDetails,
             time: dateTemp,
             commenterNickname: app.globalData.userInfo.nickName,
@@ -286,9 +263,7 @@ Page({
         // 点击了确定以后会删除树洞和评论
         if (e.confirm) { 
           //  删除评论
-          db.collection('index2_comments')
-          .doc(tempid)
-          .remove()
+          db.collection('index2_comments').doc(tempid).remove()
           // 显示删除的提示界面
           that.getComments()
           wx.showToast({
@@ -337,14 +312,9 @@ Page({
       // 开始更新下拉的数据
       // 树洞主人看到所有评论
       if (this.data.isLogin && this.data.isHost){
-        db.collection("index2_comments")
-        .where({
-          treeholeid: this.data.treeholeid
-        })
-        .orderBy('time', 'desc')
-        .skip(oldData.length)
-        .limit(10)
-        .get()
+        db.collection("index2_comments").where({
+          fromID: this.data.treeholeid
+        }).orderBy('time', 'desc').skip(oldData.length).limit(10).get()
         .then(res=>{
           // 将新条目进行缝合
           let newList = res.data
@@ -357,15 +327,10 @@ Page({
       }
       // 非树洞主人只能看到自己发的消息
       else if (this.data.isLogin && (!this.data.isHost)){
-        db.collection("index2_comments")
-        .where({
-          treeholeid: this.data.treeholeid,
+        db.collection("index2_comments").where({
+          fromID: this.data.treeholeid,
           _openid: this.data.visiterOpenid
-        })
-        .orderBy('time', 'desc')
-        .skip(oldData.length)
-        .limit(10)
-        .get()
+        }).orderBy('time', 'desc').skip(oldData.length).limit(10).get()
         .then(res=>{
           // 将新条目进行缝合
           let newList = res.data
@@ -382,11 +347,6 @@ Page({
       this.setData({
         isShowSubmit: true
       })
-      // wx.showToast({
-      //   title: '到底了哦',
-      //   icon: 'success',
-      //   duration: 1000
-      // })
     }
   },
 
@@ -395,9 +355,7 @@ Page({
    */
   onUnload(){
     // 更新对应树洞的点赞数
-    db.collection("index2_treeholes")
-    .doc(this.data.treeholeid)
-    .get()
+    db.collection("index2_treeholes").doc(this.data.treeholeid).get()
     .then(res=>{
       this.setData({
         likecountTemp: res.data.goodCount
@@ -408,14 +366,9 @@ Page({
       console.log('shi',this.data.oriLike, this.data.isLike)
       // 如果以前喜欢，但是现在不喜欢，就把对应的点赞记录删除
       if (this.data.oriLike && !this.data.isLike){
-        console.log('likeTag删除了条数据')
-        db.collection("index2_likeTag")
-        .doc(this.data.likeTagid)
-        .remove()
+        db.collection("index2_likeTag").doc(this.data.likeTagid).remove()
         .then(res=>{
-          db.collection("index2_treeholes")
-          .doc(this.data.treeholeid)
-          .update({
+          db.collection("index2_treeholes").doc(this.data.treeholeid).update({
             data:{
               goodCount: this.data.likecountTemp - 1
             }
@@ -425,16 +378,13 @@ Page({
       // 如果以前不喜欢，现在喜欢，则加上对应的点赞记录
       else if (!this.data.oriLike && this.data.isLike){
         console.log('likeTag新增了条数据')
-        db.collection("index2_likeTag")
-        .add({
+        db.collection("index2_likeTag").add({
           data:{
             treeholeid: this.data.treeholeid
           }
         })
         .then(res=>{
-          db.collection("index2_treeholes")
-          .doc(this.data.treeholeid)
-          .update({
+          db.collection("index2_treeholes").doc(this.data.treeholeid).update({
             data:{
               goodCount: this.data.likecountTemp + 1
             }

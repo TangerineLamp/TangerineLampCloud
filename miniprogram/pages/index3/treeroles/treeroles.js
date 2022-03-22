@@ -32,13 +32,9 @@ Page({
    * 获得数据库里面的树洞数据
    */
   getTreeHoleData(){
-    db.collection("index2_treeholes")
-    .where({
+    db.collection("index2_treeholes").where({
       _openid: this.data.theHostOpenId
-    })
-    .orderBy('time', 'desc')
-    .limit(10)
-    .get()
+    }).orderBy('time', 'desc').limit(10).get()
     .then(res => {
       console.log("从数据库中根据openid返回的结果",res)
       this.setData({
@@ -67,24 +63,18 @@ Page({
           //  删除树洞
           console.log('用户点击确定')
           console.log('开始删除树洞信息')
-          db.collection('index2_treeholes')
-          .doc(tempid)
-          .remove()
+          db.collection('index2_treeholes').doc(tempid).remove()
           //  删除评论
           console.log('成功删除树洞: ', tempid)
           console.log('开始删除树洞中的评论')
-          db.collection('index2_comments')
-          .where({
+          db.collection('index2_comments').where({
             treeholeid: tempid
-          })
-          .remove()
+          }).remove()
           // 删除点赞
           console.log('开始删除树洞的点赞')
-          db.collection('index2_likeTag')
-          .where({
+          db.collection('index2_likeTag').where({
             treeholeid: tempid
-          })
-          .remove()
+          }).remove()
           // 显示删除的提示界面
           that.getTreeHoleData()
           wx.showToast({
@@ -118,14 +108,9 @@ Page({
         duration: 500
       })
       // 开始更新下拉的数据
-      db.collection("index2_treeholes")
-      .where({
+      db.collection("index2_treeholes").where({
         _openid: this.data.theHostOpenId
-      })
-      .orderBy('time', 'desc')
-      .skip(oldData.length)
-      .limit(10)
-      .get()
+      }).orderBy('time', 'desc').skip(oldData.length).limit(10).get()
       .then(res=>{
         // 将新问题进行缝合
         let newList = res.data
@@ -150,16 +135,13 @@ Page({
    * 获得我的树洞数目
    */
   getMaxCount(){
-    db.collection('index2_treeholes')
-    .where({
+    db.collection('index2_treeholes').where({
       _openid: this.data.theHostOpenId
-    })
-    .count()
+    }).count()
     .then(res => {
       maxCount = res.total
     })
   },
-
 
   catchtouchmove(){}
 })

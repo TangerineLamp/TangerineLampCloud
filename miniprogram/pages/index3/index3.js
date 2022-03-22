@@ -199,11 +199,9 @@ Page({
    * 获取自己的树洞数量
    */
   getUserTreeholeCount(){
-    db.collection("index2_treeholes")
-    .where({
+    db.collection("index2_treeholes").where({
       _openid: app.globalData.openid
-    })
-    .count()
+    }).count()
     .then(res=>{
       this.setData({
         treeholesCount: res.total
@@ -226,8 +224,7 @@ Page({
       {
         isRead: false
       }
-    ]))
-    .count()
+    ])).count()
     .then(res=>{
       console.log("获取评论res:",res)
       this.setData({
@@ -304,11 +301,9 @@ Page({
   },
 
   getAuthority(openId){
-    db.collection("developer")
-    .where({
+    db.collection("developer").where({
       developer:openId
-    })
-    .count()
+    }).count()
     .then(res=>{
       if(res.total>0){
         app.globalData.isDeveloper = true
@@ -318,12 +313,10 @@ Page({
   },
 
   getDoctorAuth(openId){
-    db.collection("doctors")
-    .where({
+    db.collection("doctors").where({
       _openid:openId,
       isCertification:true
-    })
-    .count()
+    }).count()
     .then(res=>{
       if(res.total>0){
         app.globalData.isDoctor = true
@@ -333,11 +326,9 @@ Page({
   }
   ,
   getCertiStudentAuth(openId){
-    db.collection("CertiStudent")
-    .where({
+    db.collection("CertiStudent").where({
       _openid:openId
-    })
-    .count()
+    }).count()
     .then(res=>{
       console.log(res)
       if(res.total>0){

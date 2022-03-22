@@ -71,21 +71,36 @@ Page({
       }
     }).then(res=>{
       console.log("通过", res)
-      that.getReviewInfo(that.data._id);
-      
+      wx.navigateBack({
+        delta: 1,
+      })  
     })
   },
 
   // 不通过
   reject() {
-    var that = this;
-    db.collection(this.data.certiType).doc(_id).update({
-      data:{
-        isCertification: false,
+    var that = this; // review
+    wx.showModal({
+      title:"确认信息",
+      content:"确定驳回申请？",
+      cancelColor: 'cancelColor',
+      success(res){
+        if(res.confirm){
+          wx.cloud.deleteFile({
+            fileList: [that.data.review.proof]
+          }).then(res => {
+            console.log("删除成功")
+          }).catch(error => {
+            // handle error
+          })
+          db.collection(that.data.certiType).doc(_id).remove().then(res=>{
+            console.log("不通过", res)
+            wx.navigateBack({
+              delta: 1,
+            });
+          })
+        }else if(res.cancel){}
       }
-    }).then(res=>{
-      console.log("不通过", res)
-      that.getReviewInfo(that.data._id);
     })
   },
 })

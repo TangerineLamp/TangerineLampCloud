@@ -14,7 +14,7 @@
 <!-- 消息部分 -->
 <scroll-view class="commentContainer" scroll-y="true" enable-back-to-top="true">
   <block wx:for="{{comments}}">
-    <view class="singleComment" bindtap="toDetail" data-thistreeholeid="{{item.treeholeid}}">
+    <view class="singleComment" bindtap="toDetail" data-thistreeholeid="{{item.fromID}}">
       <view class="commentHead">
         <image class="commentHeadImg" src="{{item.commenterAvatar}}" mode="aspectFill"></image>
         <image wx:if="{{item.isCertification}}" class="host_vip" mode='aspectFill' src="/icons/vip.svg">

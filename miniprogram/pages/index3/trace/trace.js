@@ -119,6 +119,7 @@ Page({
    * 前往details页面的函数
    */
   toDetail(res){
+    console.log("_treeholeid:",res.currentTarget.dataset.thistreeholeid)
     let tempid = res.currentTarget.dataset.thistreeholeid
     let tempurl = "/pages/index2/detailPage/detailPage?title=" + tempid
     wx.navigateTo({

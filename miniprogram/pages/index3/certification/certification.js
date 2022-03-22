@@ -1,4 +1,5 @@
 const app = getApp()
+const db = wx.cloud.database();
 Page({
 
   /**
@@ -9,6 +10,7 @@ Page({
     isDeveloper: false,
     isDoctor: false,
     isCertiStudent: false,
+    certiStudentING: false, //学生认证申请正在被审核
   },
 
   /**
@@ -20,6 +22,24 @@ Page({
       isDeveloper: app.globalData.isDeveloper,
       isDoctor: app.globalData.isDoctor,
       isCertiStudent: app.globalData.isCertiStudent,
+    })
+    this.getCertiStuING();  // 获取该用户是否正在被审核学生身份
+  },
+
+  /**
+   * 获取该用户是否正在被审核学生身份
+   */
+  getCertiStuING(){
+    db.collection("CertiStudent").where({
+      _openid: app.globalData.openid,
+      isCertification: false,
+    }).count().then(res=>{
+      console.log("certiCNT:",res)
+      if(res.total>0){
+        this.setData({
+          certiStudentING: true,
+        })
+      }
     })
   },
 
@@ -42,6 +62,15 @@ Page({
         title: '您已是认证医师',
         icon: 'none',
         duration: 1500
+      })
+    }
+    // 学生认证正在审核
+    else if (certiTemp == "certiStudent" 
+    && this.data.certiStudentING){
+      wx.showToast({
+        title: '认证申请正在审核',
+        icon: 'none',
+        duration: 2000
       })
     }
     // 认证过医生就不可以认证学生了

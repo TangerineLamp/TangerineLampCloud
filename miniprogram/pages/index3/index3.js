@@ -340,9 +340,16 @@ Page({
           })
           wx.setStorageSync('isDeveloper', flag);
         }
-        app.globalData.isDeveloper = flag
+      }else{
+        if(app.globalData.isDeveloper == !flag){
+          that.setData({
+            isDeveloper:flag
+          })
+          wx.setStorageSync('isDeveloper', flag);
+        }
       }
-      console.log("用户是否有权限",app.globalData.isDeveloper)
+      app.globalData.isDeveloper = flag
+      console.log("用户是否为开发者",app.globalData.isDeveloper)
     })
   },
 
@@ -364,8 +371,15 @@ Page({
           })
           wx.setStorageSync('isDoctor',flag);
         }
-        app.globalData.isDoctor = flag
+      }else{
+        if(app.globalData.isDoctor == !flag){
+          that.setData({
+            isDoctor:flag
+          })
+          wx.setStorageSync('isDoctor',flag);
+        }
       }
+      app.globalData.isDoctor = flag
       console.log("用户是否是心理咨询师",app.globalData.isDoctor)
     })
   }
@@ -388,8 +402,15 @@ Page({
           })
           wx.setStorageSync('isCertiStudent',flag);
         }
-        app.globalData.isCertiStudent = flag
+      }else{
+        if(app.globalData.isCertiStudent == !flag){
+          that.setData({
+            isCertiStudent:flag
+          })
+          wx.setStorageSync('isCertiStudent',flag);
+        }
       }
+      app.globalData.isCertiStudent = flag
       console.log("用户是否是认证学生",app.globalData.isCertiStudent)
     })
   },

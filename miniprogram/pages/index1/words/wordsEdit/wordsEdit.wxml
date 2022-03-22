@@ -2,6 +2,8 @@
 <view class="whole" id="j_page">
   <view class="bigTitle">词条标题</view>
   <view><textarea class="titleInput" value="{{bigTitle}}" bindinput="handleBigTitle" placeholder="请输入该词条的标题" maxlength="-1"></textarea></view>
+  <view class="bigTitle">内容来源</view>
+  <view><textarea class="titleInput" value="{{origin}}" bindinput="handleOrigin" placeholder="请输入内容来源 【选填】" maxlength="-1"></textarea></view>
   <view class="bigTitle">详细内容</view>
   
 

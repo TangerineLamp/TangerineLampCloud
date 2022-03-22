@@ -23,7 +23,7 @@
         </text>
       </view>
       <view class="level">
-        学校：{{item.school}}
+        单位：{{item.school}}
       </view>
       <view class="speciality">
         职称：{{item.level}}

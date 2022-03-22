@@ -39,7 +39,7 @@ Page({
       })
     }else{
       wx.showToast({
-        title: '请先在"个人中心->验证通道->学生认证"验证学生身份',
+        title: '请先在"个人中心->认证通道->学生认证"验证学生身份',
         icon: 'none',
         duration: 5000
       })

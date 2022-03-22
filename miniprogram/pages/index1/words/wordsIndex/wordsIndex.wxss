@@ -17,6 +17,13 @@
   color: var(--orange1);
 }
 
+.top .origin{
+  margin-left: 20rpx;
+  margin-top:40rpx;
+  color: var(--orange1);
+  font-size: 25rpx;
+}
+
 .blank {
   height: 20rpx;
   background-color: #f7f7f7;

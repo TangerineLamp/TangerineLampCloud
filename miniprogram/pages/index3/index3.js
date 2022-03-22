@@ -23,6 +23,7 @@ Page({
     isCertiStudent:false,
     isLogin: false,  //  用户是否登录
     isBooked: false, //用户是否有心理咨询预约记录
+    hasAdvice: false, //数据库是否存在已预约心理咨询
     canIUseGetUserProfile: true,
   },
   // 跳转设置页面
@@ -135,7 +136,8 @@ Page({
         this.getUserTreeholeCount() //  获取树洞数量
         this.getcollectionCount() //获取收藏
         this.getUserMessageCount() // 获取消息数量
-        this.getAdviceCount()  // 获取预约
+        this.getAdviceCount()  // 获取个人用户预约
+        this.getAdviceListCount()  //获取数据库全局预约
         // 将全局变量中的内容获取到本页
         this.setData({
           userInfo: app.globalData.userInfo,
@@ -143,6 +145,7 @@ Page({
           isLogin: app.globalData.isLogin,
           isDeveloper: app.globalData.isDeveloper,
           isDoctor: app.globalData.isDoctor,
+          isCertiStudent:app.globalData.isCertiStudent,
         })
         wx.setStorageSync('userInfo', res.userInfo);
         wx.setStorageSync('hasUserInfo',true);
@@ -159,6 +162,7 @@ Page({
     this.getdailyQianDaoCount()
     this.getcollectionCount()
     this.getAdviceCount()
+    this.getAdviceListCount()
     this.data.hasUserInfo=app.globalData.hasUserInfo
     console.log(this.data.hasUserInfo)
   },
@@ -251,6 +255,22 @@ Page({
       })
     })
   },
+
+  /**
+   * 获得已预约咨询时间记录数
+   */
+  getAdviceListCount(){
+    let nowDate = this.getNowDate();
+    db.collection("doctor_freeTime").where({
+      isBooked: true,
+      timeCount: _.gt(nowDate)
+    })
+    .count().then(res=>{
+      this.setData({
+        hasAdvice: (res.total>0  && app.globalData.isLogin)
+      })
+    })
+  },
   
   /**
    * 前往认证通道
@@ -304,6 +324,8 @@ Page({
   },
 
   getAuthority(openId){
+    var that = this
+    let flag = false
     db.collection("developer")
     .where({
       developer:openId
@@ -311,13 +333,22 @@ Page({
     .count()
     .then(res=>{
       if(res.total>0){
-        app.globalData.isDeveloper = true
+        flag = true
+        if(app.globalData.isDeveloper == !flag){
+          that.setData({
+            isDeveloper:flag
+          })
+          wx.setStorageSync('isDeveloper', flag);
+        }
+        app.globalData.isDeveloper = flag
       }
       console.log("用户是否有权限",app.globalData.isDeveloper)
     })
   },
 
   getDoctorAuth(openId){
+    var that = this
+    let flag = false
     db.collection("doctors")
     .where({
       _openid:openId,
@@ -326,22 +357,38 @@ Page({
     .count()
     .then(res=>{
       if(res.total>0){
-        app.globalData.isDoctor = true
+        flag = true
+        if(app.globalData.isDoctor == !flag){
+          that.setData({
+            isDoctor:flag
+          })
+          wx.setStorageSync('isDoctor',flag);
+        }
+        app.globalData.isDoctor = flag
       }
       console.log("用户是否是心理咨询师",app.globalData.isDoctor)
     })
   }
   ,
   getCertiStudentAuth(openId){
+    var that = this
+    let flag = false
     db.collection("CertiStudent")
     .where({
-      _openid:openId
+      _openid:openId,
+      isCertification:true,
     })
     .count()
     .then(res=>{
-      console.log(res)
       if(res.total>0){
-        app.globalData.isCertiStudent = true
+        flag = true
+        if(app.globalData.isCertiStudent == !flag){
+          that.setData({
+            isCertiStudent:flag
+          })
+          wx.setStorageSync('isCertiStudent',flag);
+        }
+        app.globalData.isCertiStudent = flag
       }
       console.log("用户是否是认证学生",app.globalData.isCertiStudent)
     })

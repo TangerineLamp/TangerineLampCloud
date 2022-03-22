@@ -149,6 +149,7 @@ Page({
               speciality:this.data.docInfo.speciality,
               docSelfPic:this.data.docInfo.docSelfPic,
               isBooked:false,
+              school: this.data.docInfo.school,
             }
         }).then(res=>{
           wx.navigateBack({

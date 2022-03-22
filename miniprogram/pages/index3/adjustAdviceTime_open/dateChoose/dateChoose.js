@@ -126,9 +126,9 @@ Page({
     console.log("返回今日时间戳：" + timeToday)
     console.log("返回点击时间戳：" + timeBindtap)
 
-    if (timeBindtap - timeToday < 86400000) {
+    if (timeBindtap - timeToday < 2 * 86400000) {
       wx.showToast({
-        title: '请选择1天之后的日期',
+        title: '请选择2天之后的日期',
         icon: 'none',
         image: '',
         duration: 1000,
@@ -141,9 +141,9 @@ Page({
       });
 
     }
-    else if (timeBindtap - timeToday > 7 * 86400000) {
+    else if (timeBindtap - timeToday > 16 * 86400000) {
       wx.showToast({
-        title: '请选择7天之内的日期',
+        title: '请选择16天之内的日期',
         icon: 'none',
         image: '',
         duration: 1000,

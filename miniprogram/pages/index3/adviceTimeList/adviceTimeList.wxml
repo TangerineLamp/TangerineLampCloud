@@ -1,0 +1,53 @@
+<wxs src="/utils/month_day_hour_minute.wxs" module="filters"/>
+<view class="top">
+  <image class="targetImg" src="/icons/index1_appointment.png" alt="/icons/none_img.png"></image>
+  <text class="des">已被预约时段</text>
+</view>
+<view class="bottom">
+  <block wx:if="{{adviceTimeList.length===0}}">
+    <view class="noneAppointment">
+      暂无已被预约时段
+    </view>
+  </block>
+  <block wx:if="{{!(adviceTimeList.length===0)}}">
+    <view
+    class="freeTime_item"
+    wx:for="{{adviceTimeList}}"
+    wx:for-item="item"
+    wx:key="idTime">
+    <view class="picBlock">
+      <image src="{{item.docSelfPic}}" mode="aspectFill"></image>
+    </view>
+   
+
+    <view class="leftBlock">
+      <view class="detail_header">
+        <text class="doctorName">
+          {{item.name}}
+        </text>
+        <text class="time">
+          （{{filters.formatDate(item.timeCount)}}）
+        </text>
+      </view>
+      <view class="level">
+        单位：{{item.school}}
+      </view>
+      <view class="speciality">
+        职称：{{item.level}}
+      </view>
+      <!-- <view>
+        <view
+        class="advicebutton"
+        data-docid="{{item.doctorId}}"
+        data-timecount="{{item.timeCount}}"
+        data-id="{{item._id}}"
+        bindtap="adviceTap">
+        预约咨询
+      </view>
+      </view> -->
+
+    </view>
+
+    </view>
+  </block>
+</view>

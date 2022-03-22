@@ -85,7 +85,7 @@ Page({
   getComments(){
     // 如果是树洞主人访问自己的树洞
     // 可以看到所有的回复内容
-    if (this.data.isLogin && this.data.isHost){
+    if (this.data.isLogin && (this.data.isHost || this.data.isDeveloper)){
       db.collection("index2_comments").where({
         fromID: this.data.treeholeid
       }).orderBy('time', 'desc').limit(10).get()
@@ -98,7 +98,7 @@ Page({
     }
     // 如果是游客访问别人的树洞
     // 则只能看到自己的回复内容
-    else if (this.data.isLogin && (!this.data.isHost)){
+    else if (this.data.isLogin && (!this.data.isHost && !this.data.isDeveloper)){
       db.collection("index2_comments").where({
         fromID: this.data.treeholeid,
         _openid: this.data.visiterOpenid

@@ -29,3 +29,16 @@
   line-height: 45rpx;
   color:#333333;
 }
+
+.flexbox {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 50rpx;
+}
+
+.flexbox .origin {
+  font-size: 30rpx;
+  color:var(--orange1);
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+}

@@ -8,6 +8,7 @@ Page({
    */
   data: {
     bigTitle:"",
+    origin:"",
     content:[]
   },
 
@@ -43,6 +44,13 @@ Page({
     })
   },
 
+  //获取并set内容来源输入内容
+  handleOrigin(e){
+    this.setData({
+      origin:e.detail.value
+    })
+  },
+
   //获取小标题
   handleSmallTitle(e){
     let index = e.target.dataset.index;
@@ -72,7 +80,15 @@ Page({
       cancelColor: 'cancelColor',
       success(res){
         if(res.confirm){
-          that.commit();
+          if(that.data.bigTitle && (that.data.content.length>0)){
+            that.commit();
+          }else{
+            wx.showToast({
+              title: '标题和详细内容不能为空',
+              duration:2000,
+              icon:'none',
+            })
+          }
         }else if(res.cancel){}
       }
     })
@@ -85,11 +101,13 @@ Page({
       data:{
         title:this.data.bigTitle,
         content:this.data.content,
-        pushTime:pushTime
+        pushTime:pushTime,
+        origin:this.data.origin ? this.data.origin : '互联网',
       }
     })
     this.setData({
       bigTitle:"",
+      origin:"",
       content:[]
     })
     wx.showToast({

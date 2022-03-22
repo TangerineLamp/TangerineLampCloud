@@ -24,7 +24,7 @@
 		<!-- 显示点赞的人 -->
 		<view class="likeCount" space="ensp">有{{likeCount}}人觉得很赞 </view>
 		<!-- 主体部分 -->
-		<view>
+		<view style="padding-left: 2%; padding-right: 2%;">
 			<!-- <text class="article" space="ensp">{{aritleDetail}}</text> -->
 			<rich-text class="article" space="ensp" nodes="{{aritleDetail}}"></rich-text>
 		</view>

@@ -201,10 +201,6 @@ Page({
   // 储存图片至云端
   cloudFile(doctorProofName, doctorSelfPicName){
     wx.cloud.uploadFile({
-      cloudPath:"index3/Certification/doctors/doctorProof/"+doctorProofName,
-      filePath:this.data.doctorProof
-    }).then(res=>{})
-    wx.cloud.uploadFile({
       cloudPath:"index3/Certification/doctors/doctorSelfPic/"+doctorSelfPicName,
       filePath:this.data.doctorSelfPic
     }).then(res=>{})

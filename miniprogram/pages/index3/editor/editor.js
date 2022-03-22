@@ -92,49 +92,67 @@ Page({
       
   },
   clear(){
-      wx.clearStorageSync();
-      wx.showToast({
-        title: '您已成功清除缓存',
-        icon: 'none',
-        image: '',
-        duration: 1500,
-        mask: false,
-        success: (result)=>{
-          console.log("Clearing is successful")
-        },
-        fail: ()=>{},
-        complete: ()=>{}
-      });
-      let testUserInfo=wx.getStorage({
-        key: 'userInfo',
-        success: (result)=>{
-          
-        },
-        fail: ()=>{},
-        complete: ()=>{}
-      });
-      console.log(testUserInfo)
-      app.globalData.isLogin=false
-      app.globalData.hasUserInfo=false
-      // wx.switchTab({
-      //   url: '/pages/index3/index3',
-      //   success: (result) => {
-      //     console.log("清除缓存后返回tab")
-      //   },
-      //   fail: () => {},
-      //   complete: () => {}
-      // });
-      wx.reLaunch({
-        url: '/pages/index3/index3',
-        success: (result) => {
-          
-        },
-        fail: () => {},
-        complete: () => {}
-      });
-        
-        
+    wx.showModal({
+      title:"提示",
+      content:"确定清空缓存？",
+      cancelColor: 'cancelColor',
+      success(res){
+        if(res.confirm){
+          wx.clearStorageSync();
+          wx.showToast({
+            title: '您已成功清除缓存',
+            icon: 'none',
+            image: '',
+            duration: 1500,
+            mask: false,
+            success: (result)=>{
+              console.log("Clearing is successful")
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+          });
+          let testUserInfo=wx.getStorage({
+            key: 'userInfo',
+            success: (result)=>{
+              
+            },
+            fail: ()=>{},
+            complete: ()=>{}
+          });
+          console.log(testUserInfo)
+          app.globalData.isLogin=false
+          app.globalData.hasUserInfo=false
+          // wx.switchTab({
+          //   url: '/pages/index3/index3',
+          //   success: (result) => {
+          //     console.log("清除缓存后返回tab")
+          //   },
+          //   fail: () => {},
+          //   complete: () => {}
+          // });
+          wx.reLaunch({
+            url: '/pages/index3/index3',
+            success: (result) => {
+              
+            },
+            fail: () => {},
+            complete: () => {}
+          });
+        }else if(res.cancel){}
+      }
+    })
+ 
   },
+
+  modifyName(){
+    wx.showToast({
+      title: '修改功能正在路上...',
+      duration:2000,
+      icon:'none',
+    })
+  },
+
+
   /**
    * 生命周期函数--监听页面初次渲染完成
    */

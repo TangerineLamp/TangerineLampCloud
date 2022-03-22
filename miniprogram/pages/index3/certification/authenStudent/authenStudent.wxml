@@ -15,6 +15,7 @@
 
 <!-- 资格审核导航 -->
 <scroll-view scroll-top="{{0}}" scroll-y class="scroll">
+<view class="noneAppointment" wx:if="{{reviewList.length==0}}">暂无学生认证申请</view>
   <navigator class="item"
   wx:for="{{reviewList}}"
   wx:key="id"

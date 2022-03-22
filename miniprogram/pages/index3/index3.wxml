@@ -40,7 +40,7 @@
       <navigator class="redPointContainer" url="/pages/index3/trace/trace">
         <view wx:if="{{isLogin}}" class="his_num">{{messageCount}}</view>
         <view wx:if="{{!isLogin}}" class="his_num">0</view>
-        <view class="his_name">消息</view>
+        <view class="his_name">回复</view>
         <view class="redPoint" wx:if="{{messageCount != 0}}"></view>
       </navigator>
     </view>

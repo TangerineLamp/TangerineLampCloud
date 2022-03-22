@@ -6,7 +6,7 @@
   <view class="" hover-class="none" hover-stop-propagation="false">
     <view class="title" hover-class="none" hover-stop-propagation="false">
       <!-- <image class="pic" src="/icons/message.svg"></image> -->
-      我的消息
+      树洞回复
     </view>
   </view>
 </view>

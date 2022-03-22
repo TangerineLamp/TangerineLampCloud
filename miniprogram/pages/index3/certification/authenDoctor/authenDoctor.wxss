@@ -89,3 +89,10 @@
   margin-top: 8rpx;
   border-radius: 10rpx;
 }
+
+.noneAppointment {
+  text-align: center;
+  padding-top: 350rpx;
+  color:#b3b3b3;
+  font-size: 35rpx;
+}

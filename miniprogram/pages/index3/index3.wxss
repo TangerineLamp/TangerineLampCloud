@@ -48,6 +48,27 @@ page {
   text-align: center;
   font-size: 40rpx;
 }
+
+.user_info_wrap .user_img_wrap .user_student_box {
+  color: var(--orange1);
+  position: absolute;
+  width: 100%;
+  bottom: 30%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.user_info_wrap .user_img_wrap .user_student {
+  color: white;
+  font-size:30rpx;
+  padding:0 5rpx;
+  text-align: center;
+  background-color: orange;
+  border:solid orange 1rpx;
+  border-radius: 10rpx;
+}
+
 .user_info_wrap .user_btn {
   position: absolute;
   left: 50%;
@@ -160,4 +181,9 @@ page {
   right:20rpx;
   background-color: red;
   z-index: 1;
+}
+
+.warning {
+  color:red;
+  font-weight: bold;
 }

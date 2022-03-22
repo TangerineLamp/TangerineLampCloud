@@ -8,9 +8,9 @@
         placeholder="请输入您的真实姓名，便于工作人员审核，如：张三" maxlength="-1"></textarea></view>
 
     <!-- 所在机构 -->
-    <view class="bigTitle">您所在的大学</view>
+    <view class="bigTitle">您所在的单位</view>
     <textarea class="detailContent0" value="{{School}}" bindinput="handleSchool"
-      placeholder="请输入您真实的所在大学的全称，以便于工作人员审核，如：重庆大学" maxlength="-1"></textarea>
+      placeholder="请输入您真实的所在单位的全称，以便于工作人员审核，如：重庆大学" maxlength="-1"></textarea>
 
     <!-- 心理医师证明 -->
     <view class="bigTitle0">

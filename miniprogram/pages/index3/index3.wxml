@@ -13,6 +13,7 @@
         </image>
       </view>
       <view class="user_name">{{userInfo.nickName}}</view>
+      <view wx:if="{{isCertiStudent}}" class="user_student_box"><view class="user_student">认证学生</view></view>
     </view>
   </block>
   <!-- </block> -->
@@ -68,6 +69,7 @@
     <view class="address_wrap" bindtap="goToAddress">设置</view>
     <view class="app_info_wrap">
       <!-- <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime/adjustAdviceTime" wx:if="{{isDoctor}}">个人咨询时间调整</navigator> -->
+      <navigator class="app_info_item" url="/pages/index3/adviceTimeList/adviceTimeList" wx:if="{{isDeveloper}}">已被预约时间<text wx:if="{{hasAdvice}}" class="warning"> (有预约!)</text></navigator>
       <navigator class="app_info_item" url="/pages/index3/adjustAdviceTime_open/docList/docList" wx:if="{{isDeveloper}}">添加咨询时间</navigator>
       <view class="app_info_item app_info_contact">
         <text>联系客服</text>

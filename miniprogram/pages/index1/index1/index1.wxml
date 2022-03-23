@@ -11,12 +11,12 @@
     </view>
     <text style="color:#ff9933;font-size:30rpx" bindtap="bindViewTap2">心理咨询</text>
   </view>
-  <view class="topright">
+  <!-- <view class="topright">
     <view>
       <image src="/icons/lesson.png" class="topimg" bindtap="bindViewTap3"></image>
     </view>
     <text style="color:#ff9933;font-size:30rpx" bindtap="bindViewTap3">心理课程</text>
-  </view>
+  </view> -->
 </view>
 <view class="bottom">
   <!-- 左侧菜单 -->

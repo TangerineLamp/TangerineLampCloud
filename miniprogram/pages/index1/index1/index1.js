@@ -9,7 +9,8 @@ Page({
   data: {
     currentIndex:0,
     scrollTop:0,
-    leftMenuList:["专业测评","娱乐测评"],
+    // leftMenuList:["专业测评","娱乐测评"],
+    leftMenuList:["专业测评"],
     rightTestList:[],
   },
 

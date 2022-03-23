@@ -1,4 +1,5 @@
 const db = wx.cloud.database()
+
 Page({
 
   /**
@@ -29,6 +30,7 @@ Page({
     });
 
   },
+
   btnSub(res) {
     var content = res.detail.value.content;
     if(content.length<=10){
@@ -47,6 +49,33 @@ Page({
         
     }
     else{
+      // 检查敏感信息
+      var flag=false;
+      wx.request({
+        url: 'https://api.weixin.qq.com/cgi-bin/token?grant_type=client_credential&appid={APPID}&secret={APPSECRET}',
+        method: 'GET',
+        success: res => {
+            var access_token = res.data.access_token;
+            console.log(access_token)
+            wx.request({
+                method: 'POST',
+                url: `https://api.weixin.qq.com/wxa/msg_sec_check?access_token=${access_token}`,
+                data: {
+                    content:content
+                },
+                success(res) {
+                    if (res.errcode !== 87014) {
+                        // 合格
+                        flag=true;
+                    }
+                }
+            })
+        },
+        fail() {
+            console.log(res);
+        }
+    })
+    if(flag==true){
       db.collection("index3_feedback").add({
       data: {
         content: content,
@@ -63,6 +92,22 @@ Page({
       icon: 'success',
       duration: 1000
     })
+    }
+    else{
+      wx.showToast({
+        title: '您的内容含有敏感信息，请重新编辑',
+        icon: 'none',
+        image: '',
+        duration: 3500,
+        mask: true,
+        success: (result) => {
+          
+        },
+        fail: () => {},
+        complete: () => {}
+      });
+        
+    }
     }
     
     // this.go_back_index3();

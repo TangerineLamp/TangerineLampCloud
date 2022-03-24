@@ -114,6 +114,7 @@ Page({
           wx.showToast({
             // 当内容违规时,做一些用户提示
             title: "您输入的文本内容含有敏感内容,请重新输入",
+            icon:'none',
             duration:3000,
           });
     }

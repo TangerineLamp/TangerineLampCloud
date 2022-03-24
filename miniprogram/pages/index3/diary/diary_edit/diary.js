@@ -100,34 +100,24 @@ Page({
   _requestCloudMsgCheck:async function() {
     let content = this.data.content;
     var fl=true;
-    await wx.cloud.callFunction({
+    const res = await wx.cloud.callFunction({
         name: "checkMsg",
         data: {
           content: content,
         },
       })
-      .then((res) => {
-        console.log(res);
-        const errcode = res.result.data.errcode;
+    console.log(res);
+    const errcode = res.result.data.errcode;
         // 检测到文本错误时,做一些业务
-        if (errcode == 87014) {
+    if (errcode == 87014) {
           fl=false
           wx.showToast({
             // 当内容违规时,做一些用户提示
             title: "您输入的文本内容含有敏感内容,请重新输入",
             duration:3000,
           });
-
-        } else {
-          // 成功时做其他业务操作
-        }
-        return fl
-      })
-      .catch((err) => {
-        // 失败时,也就是违规做一些用户提示,或者禁止下一步操作等之类的业务逻辑操作
-        console.error(err);
-      });
-      
+    }
+    return fl
   },
   async sendNewMood(res) {
     let picName = "";

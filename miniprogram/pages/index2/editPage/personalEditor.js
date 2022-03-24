@@ -104,6 +104,37 @@ Page({
           title: '发布中...',
           mask: true,
         });
+
+        /**
+         * 调用云函数check字符串合法性
+         */
+        wx.cloud.callFunction({
+          name: "checkMsg",
+          data: {
+            content: this.data.treeholeText,
+          },
+        })
+        .then((res) => {
+          console.log(res);
+          const errcode = res.result.data.errcode;
+          // 检测到文本错误时,做一些业务
+          if (errcode == 87014) {
+            wx.hideLoading()
+            wx.showToast({
+              // 当内容违规时,做一些用户提示
+              title: "您输入的文本内容含有敏感内容,请重新输入",
+              icon:'none',
+              duration:3000,
+            });
+          } else {
+            // 成功时做其他业务操作
+            console.log(res);
+            this.publicTreeHole();
+          }
+        })
+
+
+        /*
         // 正式发送，内容包括
         // 对应的分区chooseRegin[chooseIndex]
         // 是否匿名isAnonymous
@@ -152,9 +183,65 @@ Page({
             // }) // end wx.showModal
           }, 2000);
         }) // end then
+        */
       } 
     } 
   },
+
+  /**
+   * 发布树洞函数
+   */
+  publicTreeHole(){
+    // 正式发送，内容包括
+    // 对应的分区chooseRegin[chooseIndex]
+    // 是否匿名isAnonymous
+    // 正文内容treeholeDetails
+    // 点赞数(初始都为0)
+    // 发布时间（当前时间戳）
+    var now = new Date().getTime();
+    let that = this
+    db.collection("index2_treeholes")
+    .add({
+      data: {
+        goodCount: 0,
+        mainBody: this.data.treeholeText,
+        mainHtml: this.data.treeholeHtml,
+        tag: this.data.chooseRegion[this.data.chooseIndex],
+        time: now,
+        isAnonymous: this.data.isAnonymous,
+        nickName: this.data.userName,
+        avatar: this.data.userAvatar
+      }
+    }).then(res =>{
+      // 显示发送成功
+      setTimeout(function (){
+        wx.hideLoading()
+        wx.navigateBack({changed: true})
+        // 发布成功，引导用户离开编辑页面
+        // wx.showModal({
+        //   title: '发布成功！',
+        //   content: '再写一个树洞？',
+        //   success: function (res) {
+        //     // 点击了确定以后会重新进入编辑页面界面
+        //     if (res.confirm) { 
+        //       // detail内容变成空
+        //       that.setData({
+        //         sendClicked: false
+        //       })
+
+        //     // 点击了取消以后会转换进入树洞广场界面
+        //     } else { 
+        //       console.log('用户点击取消')
+        //       wx.navigateBack({
+        //         changed: true
+        //       })
+        //     }
+        //   }
+        // }) // end wx.showModal
+      }, 2000);
+    }) // end then
+  },
+
 
   /**
    * 更换选择条的样式和内容

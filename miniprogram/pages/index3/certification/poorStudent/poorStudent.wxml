@@ -1,0 +1,29 @@
+<!--miniprogram/pages/index3/certification/poorStudent/poorStudent.wxml-->
+<view class="title">
+  <text>贫困生认证</text>
+</view>
+
+<view class="header">
+  <view class="line1">openID:</view>
+  <view class="line2"><text user-select="true">{{openId}}</text></view>
+</view>
+
+<!-- 分割线 -->
+<view>
+  <view class="divLine"></view>
+</view>
+
+
+<view class="txt1">
+  <text>若您有需要进行贫困生认证，烦请加工作人员<text class="highlight">QQ：1527082183</text>进行人工认证。</text>
+  <text>\n</text>
+  <text>届时请您向工作人员出具最近一次所在学院的贫困生认定公示。</text>
+</view>
+
+<view class="txt2">
+  <text>贫困生优惠收费:</text>
+  <text>\n</text>
+  <text>1.费用上优惠60%，线上语音咨询收费50元/时，线下咨询240元/时；</text>
+  <text>\n</text>
+  <text>2.每次咨询制作5篇推文（转载），或写一篇咨询感受（用户体验）。</text>
+</view>

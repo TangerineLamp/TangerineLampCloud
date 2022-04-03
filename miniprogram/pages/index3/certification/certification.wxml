@@ -8,6 +8,10 @@
     <view class="certiButton">学生验证通道</view>
   </view> -->
 
+  <view class="singlecontainer" data-certitype="poorStudent" bindtap="toCerti">
+    <view class="certiButton">贫困生认证</view>
+  </view>
+
   <view class="singlecontainer" data-certitype="certiDoctor" bindtap="toCerti">
     <view class="certiButton">医师认证</view>
   </view>

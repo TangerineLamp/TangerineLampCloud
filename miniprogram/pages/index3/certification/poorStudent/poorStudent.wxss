@@ -1,0 +1,49 @@
+/* miniprogram/pages/index3/certification/poorStudent/poorStudent.wxss */
+
+.title{
+  margin-left:20rpx;
+  margin-top:20rpx;
+  color :#666;
+  font-size:60rpx;
+  font-weight: bold;
+}
+
+.header{
+  padding:20rpx;
+}
+
+.line1{
+  color: #888888;
+}
+
+.line2{
+  text-align: center;
+  color:var(--orange1);
+}
+
+.divLine{
+  background: #b6b6b6;
+  width: 80%;
+  height: 3rpx;
+  margin-left: 70rpx;
+  margin-top: 20rpx;
+}
+
+.highlight{
+  color: red;
+}
+
+.txt1{
+  font-size: 35rpx;
+  margin: 30rpx;
+  line-height:35px;
+  color: #666;
+}
+
+.txt2{
+  font-size: 35rpx;
+  margin: 30rpx;
+  line-height:35px;
+  color: #666;
+}
+

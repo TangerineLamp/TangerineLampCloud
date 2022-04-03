@@ -22,14 +22,13 @@ Page({
   },
 
   navToAppointment() {
-    if (app.globalData.isLogin && app.globalData.isCertiStudent){
+    if (app.globalData.isLogin){
       wx.navigateTo({
         url: '/pages/index1/advice/appointment/appointment'
       })
     }
     // 如果没有登录则提醒先登录
-    // else if(!app.globalData.isLogin){
-      else if(true){
+    else{
       wx.switchTab({
         url: '/pages/index3/index3',
       })
@@ -37,12 +36,6 @@ Page({
         title: '请先登录',
         icon: 'none',
         duration: 1000
-      })
-    }else{
-      wx.showToast({
-        title: '请先在"个人中心->认证通道->问卷调查"验证学生身份',
-        icon: 'none',
-        duration: 5000
       })
     }
   },

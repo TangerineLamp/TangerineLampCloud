@@ -65,7 +65,8 @@
     "pages/index3/adjustAdviceTime_open/hoursChoose/hoursChoose",
     "pages/index3/certification/doctorUpdata/doctorUpdata",
     "pages/index3/certification/doctorUpdata/doctorUpdataDetail/doctorUpdataDetail",
-    "pages/index3/adviceTimeList/adviceTimeList"
+    "pages/index3/adviceTimeList/adviceTimeList",
+    "pages/index3/certification/student_questionnaire/student_questionnaire"
   ],
   "window": {
     "backgroundTextStyle": "light",

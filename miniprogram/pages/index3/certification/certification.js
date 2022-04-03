@@ -23,7 +23,7 @@ Page({
       isDoctor: app.globalData.isDoctor,
       isCertiStudent: app.globalData.isCertiStudent,
     })
-    this.getCertiStuING();  // 获取该用户是否正在被审核学生身份
+    //this.getCertiStuING();  // 获取该用户是否正在被审核学生身份
   },
 
   /**
@@ -75,7 +75,8 @@ Page({
     }
     // 认证过医生就不可以认证学生了
     else if (certiTemp == "certiStudent" 
-    && (this.data.isCertiStudent || this.data.isDoctor)){
+    // && (this.data.isCertiStudent || this.data.isDoctor)){
+      && this.data.isCertiStudent){
       wx.showToast({
         title: '您已认证',
         icon: 'none',

@@ -289,6 +289,26 @@ Page({
     }
   },
 
+    /**
+   * 前往问卷通道
+   */
+  toQuest(){
+    // 登录了才可以认证
+    if (this.data.isLogin){
+      wx.navigateTo({
+        url: '/pages/index3/certification/student_questionnaire/student_questionnaire',
+      })
+    }
+    // 否则提示要登录
+    else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
+
   ///////////////////////获取openid并识别开发人员的一些列操作/////////////////////
   getOpenID: async function() {
     const { result } = await wx.cloud.callFunction({

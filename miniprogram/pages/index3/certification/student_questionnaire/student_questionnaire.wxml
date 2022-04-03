@@ -1,0 +1,43 @@
+<view class="bigTitle">“小橘灯”用户群体问卷调查</view>
+  <!-- 注意nowIndex是从1开始的 -->
+  <view class="questionTitle"><text class="orange">1</text>. 你所在的学习阶段是：</view>
+  <view class="chooseBox">
+    <view class="question {{0===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{0}}"
+    data-degree="本科生">本科生</view>
+    <view class="question {{1===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{1}}"
+    data-degree="研究生">研究生</view>
+    <view class="question {{2===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{2}}"
+    data-degree="博士生">博士生</view>
+    <view class="question {{3===currentChosen?'active':''}}" bindtap="chooseAnswer" data-index="{{3}}"
+    data-degree="博士后">博士后</view>
+  </view>
+  <view class="questionTitle"><text class="orange">2</text>. 你咨询的问题属于哪一种：</view>
+  <view class="chooseBox">
+    <view class="question {{0===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{0}}"
+    data-question_type="学业">学业</view>
+    <view class="question {{1===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{1}}"
+    data-question_type="考研">考研</view>
+    <view class="question {{2===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{2}}"
+    data-question_type="就业">就业</view>
+    <view class="question {{3===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{3}}"
+    data-question_type="伦理">伦理</view>
+    <view class="question {{4===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{4}}"
+    data-question_type="人际交往">人际交往</view>
+    <view class="question {{5===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{5}}"
+    data-question_type="恋爱">恋爱</view>
+    <view class="question {{6===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{6}}"
+    data-question_type="家庭">家庭</view>
+    <view class="question {{7===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{7}}"
+    data-question_type="经济">经济</view>
+    <view class="question {{8===currentChosen1?'active':''}}" bindtap="chooseAnswer1" data-index="{{8}}"
+    data-question_type="其它">其它</view>
+  </view>
+  <view class="top">
+  <view class="title">使用须知</view>
+  <view class="detail">
+    本小程序服务人群目前仅包括<text class="red">大学生</text>群体，点击进行下一步即默认您符合大学生身份，若在咨询期间，任何时候发现您不属于大学生，服务立即终止。
+  </view>
+</view>
+  <view class="bottom">
+    <text class="nextquestion" bindtap="submit_question">提交问卷</text>
+  </view>

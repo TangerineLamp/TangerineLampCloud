@@ -50,18 +50,13 @@ Page({
         duration: 500
       })
       // 开始更新下拉的数据
-      db.collection("index2_treeholes")
-      .where({
+      db.collection("index2_treeholes").where({
         tag: this.data.treeholeJson.type
-      })
-      .orderBy('time', 'desc')
-      .skip(oldData.length)
-      .limit(10)
-      .get()
-      .then(res=>{
+      }).orderBy('time', 'desc').skip(oldData.length).limit(10).get().then(res=>{
         // 将新问题进行缝合
         let newList = res.data
         let newData = oldData.concat(newList)
+        console.log("拼接后的数据", newData)
         // 缝合好的新老数据传给data中问题列表
         this.setData({
           treeHoleData: newData
@@ -107,44 +102,40 @@ Page({
   /**
    * 获得数据库里面的树洞数据
    */
-  getTreeHoleData: async function(){
+  getTreeHoleData: function(){
     let that = this
-    await wx.cloud.callFunction({
-      name: "index2_getTreeholeList",
-      data: {
-        dbName: "index2_treeholes",
-        limCount: 10,
-        theValue: this.data.treeholeJson.type,
-        order: "time",
-        length: 0
-      },
-      success: function(res){
-        console.log(res),
-        that.setData({
-          treeHoleData: res.result.data
-        })
-      },
-      fail: function(err){
-        console.log('获得树洞数据失败 ',err)
-        that.showError('网络连接失败')
-      }
+    // await wx.cloud.callFunction({
+    //   name: "index2_getTreeholeList",
+    //   data: {
+    //     dbName: "index2_treeholes",
+    //     limCount: 10,
+    //     theValue: this.data.treeholeJson.type,
+    //     order: "time",
+    //     length: 0
+    //   },
+    //   success: function(res){
+    //     console.log("树洞的数据", res),
+    //     that.setData({
+    //       treeHoleData: res.result.data
+    //     })
+    //   },
+    //   fail: function(err){
+    //     console.log('获得树洞数据失败 ',err)
+    //     that.showError('网络连接失败')
+    //   }
+    // })
+    db.collection("index2_treeholes").where({
+      tag: this.data.treeholeJson.type
+    }).limit(10).orderBy('time', 'desc').get().then(res => {
+      console.log("树洞的数据", res),
+      this.setData({
+        treeHoleData: res.data
+      })
+      // this.data.treeHoleData["isCerti"] = this.getIsTrue(this.data.treeHoleData._openid)
+    }).catch(err => {
+      console.log('获得树洞数据失败 ',err)
+      this.showError('网络连接失败')
     })
-    // db.collection("index2_treeholes")
-    // .where({
-    //   tag: this.data.treeholeJson.type
-    // })
-    // .limit(10)
-    // .orderBy('time', 'desc')
-    // .get()
-    // .then(res => {
-    //   this.setData({
-    //     treeHoleData: res.data
-    //   })
-    //   this.data.treeHoleData["isCerti"] = this.getIsTrue(this.data.treeHoleData._openid)
-    // }).catch(err => {
-    //   console.log('获得树洞数据失败 ',err)
-    //   this.showError('网络连接失败')
-    // })
   },
 
   /**
@@ -180,19 +171,19 @@ Page({
     })
   },
 
-  getIsTrue(openid){
-    let tempIsCertification = false
-    db.collection('doctors')
-    .where({
-      _openid: openid
-    })
-    .get()
-    .then(res => {
-      tempIsCertification = res.data.isCertification
-      console.log(tempIsCertification)
-      return tempIsCertification
-    })
-  },
+  // getIsTrue(openid){
+  //   let tempIsCertification = false
+  //   db.collection('doctors')
+  //   .where({
+  //     _openid: openid
+  //   })
+  //   .get()
+  //   .then(res => {
+  //     tempIsCertification = res.data.isCertification
+  //     console.log(tempIsCertification)
+  //     return tempIsCertification
+  //   })
+  // },
 
   /**
    * 处理删除树洞事件

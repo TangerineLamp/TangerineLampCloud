@@ -35,6 +35,12 @@
           "pathName": "pages/index2/myTest/editor",
           "query": "",
           "scene": null
+        },
+        {
+          "name": "树洞首页",
+          "pathName": "pages/index2/index2",
+          "query": "",
+          "scene": null
         }
       ]
     }

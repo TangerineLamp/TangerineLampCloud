@@ -5,30 +5,36 @@ var toID = ''
 
 Page({
   data: {
-    headImg: "", // 头像
-    likeCount: 0, // 喜欢的数量
-    hostNickname: "", // 树洞主人昵称
-    hostPostTime: "", //  树洞主人发布时间
-    aritleDetail: "", //  树洞详细内容
-    isAnonymous: true, //  匿名
-    isCertification: false, // 认证
-    time: 0,  //  发布时间
-    treeholeid: null, //  树洞id
-    isHost: false, //  是否是树洞的主人
-    visiterOpenid: null,  //  访问者的openid
-    idDeveloper: false, // 是否是开发者
-    comments: [], //  评论区
-    isLogin: false, //  是否登录
-    commentDetails: "", //  临时的存放textArea的变量
-    isDeveloper: false, //  开发者选项
-    likecountTemp: 0, // 返回时临时使用的点赞数
-    likeIcon: null, // 存放喜欢和不喜欢的图标地址
-    color: null,  //  样式
-    isLike: null,  //  这个用户喜欢这个树洞吗
-    likeTagid: "无",  //  消息的引用
-    oriLike: false, // 用户以前喜欢吗
-    countState_1: 0, // 直接将点赞数量当做状态存起来,已点赞状态
-    countState_2: 0, // 未点赞状态
+    treeholeid: null,       //  树洞id
+    headImg: "",            //  树洞主人头像
+    hostNickname: "",       //  树洞主人昵称
+    hostPostTime: "",       //  树洞主人发布时间
+    aritleDetail: "",       //  树洞详细内容
+    time: 0,                //  树洞发布时间
+    likeCount: 0,           //  该树洞被喜欢的数量
+    isAnonymous: false ,    //  树洞主人是否匿名，默认不匿
+
+    visiterOpenid: null,    //  游客的openid
+    visitorName: "",        //  游客昵称
+    visitorAvatar: "",      //  游客头像路径
+    isCertification: false, //  游客是否是认证医师
+
+    isLogin: false,         //  是否登录
+    isHost: false,          //  是否是树洞的主人
+    isDeveloper: false,     //  开发者选项
+
+    comments: [],           //  评论区
+
+    commentDetails: "",     //  临时的存放textArea的变量
+    
+    likecountTemp: 0,       //  返回时临时使用的点赞数
+    likeIcon: null,         //  存放喜欢和不喜欢的图标地址
+    color: null,            //  点赞的样式
+    isLike: null,           //  用户是否喜欢这个树洞
+    likeTagid: "无",        //  消息的引用
+    oriLike: false,         //  用户以前喜欢吗
+    countState_1: 0,        //  直接将点赞数量当做状态存起来,已点赞状态
+    countState_2: 0,        //  未点赞状态
   },
 
   /**
@@ -40,13 +46,14 @@ Page({
       treeholeid: options.title, //  获取对应的树洞的id
       visiterOpenid: app.globalData.openid, //  获取游客的openid
       isLogin: app.globalData.isLogin,  //  获取登录状态
-      isDeveloper: app.globalData.isDeveloper, // 获取开发者信息
+      isDeveloper: app.globalData.isDeveloper, // 获取开发者权限
     })
   },
 
   onShow(){
     this.getTreeholeData()
     this.getMaxCount()
+    this.getInfo()
   },
 
   /**
@@ -217,14 +224,15 @@ Page({
             fromID: this.data.treeholeid,
             comment: this.data.commentDetails,
             time: dateTemp,
-            commenterNickname: app.globalData.userInfo.nickName,
-            commenterAvatar: app.globalData.userInfo.avatarUrl,
+            commenterNickname: this.data.visitorName,
+            commenterAvatar: this.data.visitorAvatar,
             isCertification: app.globalData.isDoctor,
             toID: toID,
             isRead: false,
           }
         })
         .then(res=>{
+          console.log(this.data)
           // 成功存储后撤回内容,让用户重新进入这个树洞
           this.setData({
             commentDetails: ""
@@ -393,4 +401,33 @@ Page({
       }
     })
   },
+
+  // 从全局变量中获取用户的微信名和微信头像
+  getInfo: function(){
+    let that = this
+    db.collection('User').where({
+      _openid: app.globalData.openid
+    }).count().then(res => {
+      console.log("用户是否修改过昵称和头像", res.total>0)
+      if (res.total > 0){
+        db.collection('User').where({
+          _openid: app.globalData.openid
+        }).field({
+          avatarUrl: true,
+          nickName: true
+        }).get().then(res =>{
+          console.log(res.data[0])
+          that.setData({
+            visitorName: res.data[0].nickName,
+            visitorAvatar: res.data[0].avatarUrl
+          })
+        })
+      } else {
+        that.setData({
+          visitorName: app.globalData.userInfo.nickName,
+          visitorAvatar: app.globalData.userInfo.avatarUrl
+        })
+      }
+    })
+  }
 })

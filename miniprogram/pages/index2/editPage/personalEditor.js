@@ -13,7 +13,8 @@ Page({
     treeholeHtml: "",     // 具有html格式的内容
     chooseIndex: "",      // 选择分区时各个区域的位置指数
     isChose: false,       // 判断是否选择了分区
-    isAnonymous: true,    // 判断是否匿名, 默认不匿
+    isGetFromUser: false, // 判断此用户是否更换过名字和头像
+    isAnonymous: false,   // 判断是否匿名, 默认不匿
     chooseRegionColor:    // 和选择分区对应的颜色
     [ 
       "theWork",
@@ -43,7 +44,7 @@ Page({
   /**
    * 生命周期函数--监听页面初次渲染完成
    */
-  onReady: function () {
+  onShow: function () {
     this.getInfo()
   },
 
@@ -112,9 +113,7 @@ Page({
           name: "checkMsg",
           data: {
             content: this.data.treeholeText,
-          },
-        })
-        .then((res) => {
+          },}).then((res) => {
           console.log(res);
           const errcode = res.result.data.errcode;
           // 检测到文本错误时,做一些业务
@@ -130,60 +129,14 @@ Page({
             // 成功时做其他业务操作
             console.log(res);
             this.publicTreeHole();
-          }
-        })
-
-
-        /*
-        // 正式发送，内容包括
-        // 对应的分区chooseRegin[chooseIndex]
-        // 是否匿名isAnonymous
-        // 正文内容treeholeDetails
-        // 点赞数(初始都为0)
-        // 发布时间（当前时间戳）
-        var now = new Date().getTime();
-        let that = this
-        db.collection("index2_treeholes")
-        .add({
-          data: {
-            goodCount: 0,
-            mainBody: this.data.treeholeText,
-            mainHtml: this.data.treeholeHtml,
-            tag: this.data.chooseRegion[this.data.chooseIndex],
-            time: now,
-            isAnonymous: this.data.isAnonymous,
-            nickName: this.data.userName,
-            avatar: this.data.userAvatar
-          }
-        }).then(res =>{
+            console.log(this.data)
+          }}).then(res =>{
           // 显示发送成功
           setTimeout(function (){
             wx.hideLoading()
             wx.navigateBack({changed: true})
-            // 发布成功，引导用户离开编辑页面
-            // wx.showModal({
-            //   title: '发布成功！',
-            //   content: '再写一个树洞？',
-            //   success: function (res) {
-            //     // 点击了确定以后会重新进入编辑页面界面
-            //     if (res.confirm) { 
-            //       // detail内容变成空
-            //       that.setData({
-            //         sendClicked: false
-            //       })
-
-            //     // 点击了取消以后会转换进入树洞广场界面
-            //     } else { 
-            //       console.log('用户点击取消')
-            //       wx.navigateBack({
-            //         changed: true
-            //       })
-            //     }
-            //   }
-            // }) // end wx.showModal
           }, 2000);
         }) // end then
-        */
       } 
     } 
   },
@@ -199,9 +152,7 @@ Page({
     // 点赞数(初始都为0)
     // 发布时间（当前时间戳）
     var now = new Date().getTime();
-    let that = this
-    db.collection("index2_treeholes")
-    .add({
+    db.collection("index2_treeholes").add({
       data: {
         goodCount: 0,
         mainBody: this.data.treeholeText,
@@ -211,35 +162,7 @@ Page({
         isAnonymous: this.data.isAnonymous,
         nickName: this.data.userName,
         avatar: this.data.userAvatar
-      }
-    }).then(res =>{
-      // 显示发送成功
-      setTimeout(function (){
-        wx.hideLoading()
-        wx.navigateBack({changed: true})
-        // 发布成功，引导用户离开编辑页面
-        // wx.showModal({
-        //   title: '发布成功！',
-        //   content: '再写一个树洞？',
-        //   success: function (res) {
-        //     // 点击了确定以后会重新进入编辑页面界面
-        //     if (res.confirm) { 
-        //       // detail内容变成空
-        //       that.setData({
-        //         sendClicked: false
-        //       })
-
-        //     // 点击了取消以后会转换进入树洞广场界面
-        //     } else { 
-        //       console.log('用户点击取消')
-        //       wx.navigateBack({
-        //         changed: true
-        //       })
-        //     }
-        //   }
-        // }) // end wx.showModal
-      }, 2000);
-    }) // end then
+      }})
   },
 
 
@@ -257,18 +180,38 @@ Page({
   /**
    * 使匿名选项可以被自由地取消(之前的不可以自由取消)
    */
-  radioBindtap: function(e) {
-    this.setData({
-      isAnonymous: !this.data.isAnonymous
-    })
-  },
+  // radioBindtap: function(e) {
+  //   this.setData({
+  //     isAnonymous: !this.data.isAnonymous
+  //   })
+  // },
 
   // 从全局变量中获取用户的微信名和微信头像
   getInfo: function(){
-    console.log("用户信息返回成功",app.globalData.userInfo)
-    this.setData({
-      userName: app.globalData.userInfo.nickName,
-      userAvatar: app.globalData.userInfo.avatarUrl
+    let that = this
+    db.collection('User').where({
+      _openid: app.globalData.openid
+    }).count().then(res => {
+      console.log("用户是否修改过昵称和头像", res.total>0)
+      if (res.total > 0){
+        db.collection('User').where({
+          _openid: app.globalData.openid
+        }).field({
+          avatarUrl: true,
+          nickName: true
+        }).get().then(res =>{
+          console.log(res.data[0])
+          that.setData({
+            userName: res.data[0].nickName,
+            userAvatar: res.data[0].avatarUrl
+          })
+        })
+      } else {
+        that.setData({
+          userName: app.globalData.userInfo.nickName,
+          userAvatar: app.globalData.userInfo.avatarUrl
+        })
+      }
     })
   }
 })

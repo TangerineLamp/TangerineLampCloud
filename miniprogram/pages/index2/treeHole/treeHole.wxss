@@ -51,7 +51,6 @@ page{
   position: relative;
   margin-left: 10rpx;
   border-radius: 15rpx;
-  z-index: 1;
 }
 /* 树洞主人头像 */
 .host_head_img {

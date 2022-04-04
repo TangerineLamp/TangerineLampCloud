@@ -16,8 +16,7 @@
           <image wx:if="{{item.isAnonymous}}" src="{{treeholeJson.avatar}}" mode='aspectFill' lazy-load="true"
             class="host_head_img">
           </image>
-          <image wx:if="{{!item.isAnonymous}}" src="{{item.avatar}}? {{item.avatar}} : {{treeholeJson.avatar}}"
-            mode='aspectFill' lazy-load="true" class="host_head_img">
+          <image wx:if="{{!item.isAnonymous}}" src="{{item.avatar}}" mode='aspectFill' lazy-load="true" class="host_head_img">
           </image>
         </view>
         <view class="host_info_container">

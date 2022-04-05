@@ -4,4 +4,7 @@
     <view bindtap="clear">清空缓存</view>
     <view bindtap="surprise">每日一句<text class="sentence">{{rand}}</text></view>
     <view bindtap="version">版本号  1.0.0</view>
+    <view class="" hover-class="none" hover-stop-propagation="false">
+        <navigator url="/pages/index3/editor/update/update">修改树洞头像和昵称</navigator>
+    </view>
 </view>

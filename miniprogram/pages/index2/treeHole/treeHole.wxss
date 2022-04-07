@@ -46,16 +46,16 @@ page{
 
 /* 树洞主人的头像和认证的横条 */
 .host_head {
-  width: 13%;
-  height: 100%;
+  width: 98rpx;
+  height: 90rpx;
   position: relative;
   margin-left: 10rpx;
-  border-radius: 15rpx;
 }
 /* 树洞主人头像 */
 .host_head_img {
-  width: 90%;
-  height: 90%;
+  width: 100%;
+  height: 100%;
+  border-radius: 15rpx;
 }
 /* 树洞主人的一些信息 */
 .host_info_container {

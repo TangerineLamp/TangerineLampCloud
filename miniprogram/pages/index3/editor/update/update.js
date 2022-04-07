@@ -56,7 +56,7 @@ Page({
   //获取并set简介输入内容
   handleAuthor(e){
     this.setData({
-      author:e.detail.value
+      nickName:e.detail.value
     })
   },
 
@@ -152,21 +152,23 @@ Page({
     db.collection("User").where({
       _openid:openid
     }).update({
-      avatarUrl:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/user_info/avatar/"+introImageName,
-      nickName:author
+      data:{
+        avatarUrl:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/user_info/avatar/"+introImageName,
+        nickName:this.data.nickName
+      }
+
     }).then(res=>{
       console.log(res)
       // wx.hideLoading()
     })
 
-
-    this.setData({
-      title:"",
-      author:"",
-      introduce_words:"",
-      introImage:"/icons/none_img.png",
-      body:"/icons/none_img.png"
-    })
+    // this.setData({
+    //   title:"",
+    //   author:"",
+    //   introduce_words:"",
+    //   introImage:"/icons/none_img.png",
+    //   body:"/icons/none_img.png"
+    // })
     wx.showToast({
       title: '提交成功',
       duration:1500,

@@ -9,13 +9,13 @@
    <view class="bigTitle0">目前树洞头像<text class="explain">(缩略展示)</text></view>
   <view class="image0"><image src="{{user[0].avatarUrl}}" mode="aspectFill"></image></view>
 
-  <view class="bigTitle">树洞头像</view>
+  <view class="bigTitle">树洞昵称</view>
   <textarea class="detailContent0" value="{{author}}" bindinput="handleAuthor" placeholder="请输入您想要修改的树洞昵称" maxlength="-1"></textarea>
 
   <!-- <view class="bigTitle">详情介绍</view>
   <textarea class="detailContent1" value="{{introduce_words}}" bindinput="handleIntroduce" placeholder="请输入课程详情介绍" maxlength="-1"></textarea> -->
 
-  <view class="bigTitle0">树洞昵称<image class="add" src="/icons/index1_add.png" bindtap="chooseCover"></image><text class="explain">(缩略展示，支持格式:jpg/png/svg)</text></view>
+  <view class="bigTitle0">树洞头像<image class="add" src="/icons/index1_add.png" bindtap="chooseCover"></image><text class="explain">(缩略展示，支持格式:jpg/png/svg)</text></view>
   <view class="image0"><image src="{{introImage}}" mode="aspectFill"></image></view>
   
   

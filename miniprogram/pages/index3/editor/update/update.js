@@ -1,35 +1,92 @@
 const db = wx.cloud.database();
-const app = getApp()
+const app = getApp();
 Page({
-
   /**
    * 页面的初始数据
    */
   data: {
-    title:"",
-    user:{},
-    nickname:"",
-    author:"",
-    introImage:"/icons/none_img.png",
-    body:"/icons/none_img.png"
+    title: "",
+    flag:0,
+    user: {},
+    nickName: "",
+    author: "",
+    introImage: "/icons/none_img.png",
+    body: "/icons/none_img.png",
   },
   onLoad: function (options) {
     // let userInfo=wx.getStorageSync('userInfo');
     // console.log(userInfo)
-    let openid=app.globalData.openid
-    console.log(openid)
-    // avatarUrl  nickName _openid
-    db.collection("User").where({
-      _openid:openid
-    }).get().then(res=>{
-      console.log(res.data)
-      this.setData({
-        user:res.data
-      })
-    })
+    let openid = app.globalData.openid;
+    let userInfo = app.globalData.userInfo;
     this.setData({
-      title:openid
+      flag:0
     })
+    console.log(userInfo);
+    console.log(openid);
+    db.collection("User")
+      .where({
+        _openid: openid,
+      })
+      .count()
+      .then((res) => {
+        console.log(res.total);
+        if (res.total == 0) {
+          db.collection("User")
+            .add({
+              data: {
+                avatarUrl: userInfo.avatarUrl,
+                nickName: userInfo.nickName,
+              },
+            })
+            .then((res) => {
+              // db.collection("User")
+              // .where({
+              //   _openid: openid,
+              // })
+              // .get()
+              // .then((res) => {
+              //   console.log(res.data);
+              //   this.setData({
+              //     user: res.data,
+              //   });
+              // });
+              console.log("添加成功");
+            });
+        }
+        // 异步问题
+        db.collection("User")
+          .where({
+            _openid: openid,
+          })
+          .get()
+          .then((res) => {
+            console.log(res.data);
+            this.setData({
+              user: res.data,
+            });
+          });
+      });
+    // avatarUrl  nickName _openid
+    // db.collection("User")
+    // .where({
+    //   _openid: openid,
+    // })
+    // .get()
+    // .then((res) => {
+    //   console.log(res.data);
+    //   this.setData({
+    //     user: res.data,
+    //   });
+    // });
+
+    this.setData({
+      title: openid,
+    });
+    this.setData({
+      nickName: userInfo.nickName,
+      // introImage: userInfo.avatarUrl
+    });
+
     // const result = await db.collection("User").where({
     //   _openid:openid
     // }).get().then(res=>{
@@ -42,93 +99,96 @@ Page({
     // this.setData({
     //   nickName:userInfo.nickName
     // })
-
-},
+  },
   //获取并set词条大标题输入内容
-  handleTitle(e){
+  handleTitle(e) {
     this.setData({
-      title:e.detail.value
-    })
-
-    console.log(this.data.user)
+      title: e.detail.value,
+    });
+    
+    console.log(this.data.user);
   },
 
   //获取并set简介输入内容
-  handleAuthor(e){
+  handleAuthor(e) {
     this.setData({
-      nickName:e.detail.value
+      nickName: e.detail.value,
+    });
+    this.setData({
+      flag:1
     })
   },
 
   // 获取封面
-  chooseCover(){
+  chooseCover() {
     var that = this;
     wx.chooseImage({
       count: 1,
-      success (res) {
+      success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         that.setData({
-          introImage:res.tempFilePaths[0]
-        })
+          introImage: res.tempFilePaths[0],
+        });
       },
-      fail(){
+      fail() {
         wx.showToast({
-          icon:"none",
-          title: '上传失败',
-        })
-      }
-    })
+          icon: "none",
+          title: "上传失败",
+        });
+      },
+    });
   },
 
   // 获取内容长图
-  chooseContent(){
+  chooseContent() {
     var that = this;
     wx.chooseImage({
       count: 1,
-      success (res) {
+      success(res) {
         // tempFilePath可以作为img标签的src属性显示图片
         that.setData({
-          body:res.tempFilePaths[0]
-        })
+          body: res.tempFilePaths[0],
+        });
       },
-      fail(){
+      fail() {
         wx.showToast({
-          icon:"none",
-          title: '上传失败',
-        })
-      }
-    })
+          icon: "none",
+          title: "上传失败",
+        });
+      },
+    });
   },
 
   // 展示提交窗口
-  showPopup(){
+  showPopup() {
     var that = this;
     wx.showModal({
-      title:"录入数据",
-      content:"确定提交数据？",
-      cancelColor: 'cancelColor',
-      success(res){
-        if(res.confirm){
+      title: "录入数据",
+      content: "确定提交数据？",
+      cancelColor: "cancelColor",
+      success(res) {
+        if (res.confirm) {
           that.commit();
-        }else if(res.cancel){}
-      }
-    })
+        } else if (res.cancel) {
+        }
+      },
+    });
   },
 
   //提交数据
-  commit(){
-    console.log("提交成功")
+  commit() {
+    console.log("提交成功");
     let pushTime = new Date();
-    let openid=app.globalData.openid
+    let openid = app.globalData.openid;
     let introImageName = ""; //介绍图片
     // let passageLongPictureName = ""; //文章长图，仅支持上传一张
     //判断介绍图片格式
-    if(this.data.introImage.endsWith(".jpg")){
-      introImageName = this.data.title + ".jpg"
-    }else if(this.data.introImage.endsWith(".png")){
-      introImageName = this.data.title + ".png"
-    }else if(this.data.introImage.endsWith(".svg")){
-      introImageName = this.data.title + ".svg"
+    if (this.data.introImage.endsWith(".jpg")) {
+      introImageName = this.data.title + ".jpg";
+    } else if (this.data.introImage.endsWith(".png")) {
+      introImageName = this.data.title + ".png";
+    } else if (this.data.introImage.endsWith(".svg")) {
+      introImageName = this.data.title + ".svg";
     }
     // //判断文章长图格式
     // if(this.data.body.endsWith(".jpg")){
@@ -149,19 +209,41 @@ Page({
     //     pushTime:pushTime
     //   }
     // })
-    db.collection("User").where({
-      _openid:openid
-    }).update({
-      data:{
-        avatarUrl:"cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/user_info/avatar/"+introImageName,
-        nickName:this.data.nickName
-      }
+    if(flag==0){
+      db.collection("User")
+      .where({
+        _openid: openid,
+      })
+      .update({
+        data: {
+          avatarUrl:
+            "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/user_info/avatar/" +
+            introImageName,
+          nickName: this.data.nickName,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        // wx.hideLoading()
+      });
 
-    }).then(res=>{
-      console.log(res)
-      // wx.hideLoading()
-    })
-
+    }
+    else{
+      db.collection("User")
+      .where({
+        _openid: openid,
+      })
+      .update({
+        data: {
+          nickName: this.data.nickName,
+        },
+      })
+      .then((res) => {
+        console.log(res);
+        // wx.hideLoading()
+      });
+    }
+    
     // this.setData({
     //   title:"",
     //   author:"",
@@ -170,21 +252,23 @@ Page({
     //   body:"/icons/none_img.png"
     // })
     wx.showToast({
-      title: '提交成功',
-      duration:1500,
-      mask:true
-    })
+      title: "提交成功",
+      duration: 1500,
+      mask: true,
+    });
   },
 
   // 储存图片至云端
-  cloudFile(introImageName){
-    wx.cloud.uploadFile({
-      cloudPath:"user_info/avatar/"+introImageName,
-      filePath:this.data.introImage
-    }).then(res=>{})
+  cloudFile(introImageName) {
+    wx.cloud
+      .uploadFile({
+        cloudPath: "user_info/avatar/" + introImageName,
+        filePath: this.data.introImage,
+      })
+      .then((res) => {});
     // wx.cloud.uploadFile({
     //   cloudPath:"index0/passage-longPicture/body/"+passageLongPictureName,
     //   filePath:this.data.body
     // }).then(res=>{})
-  }
-})
+  },
+});

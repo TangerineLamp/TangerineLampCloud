@@ -101,13 +101,13 @@ Page({
     // })
   },
   //获取并set词条大标题输入内容
-  handleTitle(e) {
-    this.setData({
-      title: e.detail.value,
-    });
+  // handleTitle(e) {
+  //   this.setData({
+  //     title: e.detail.value,
+  //   });
     
-    console.log(this.data.user);
-  },
+  //   console.log(this.data.user);
+  // },
 
   //获取并set简介输入内容
   handleAuthor(e) {
@@ -128,26 +128,6 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         that.setData({
           introImage: res.tempFilePaths[0],
-        });
-      },
-      fail() {
-        wx.showToast({
-          icon: "none",
-          title: "上传失败",
-        });
-      },
-    });
-  },
-
-  // 获取内容长图
-  chooseContent() {
-    var that = this;
-    wx.chooseImage({
-      count: 1,
-      success(res) {
-        // tempFilePath可以作为img标签的src属性显示图片
-        that.setData({
-          body: res.tempFilePaths[0],
           flag:1
         });
       },
@@ -159,6 +139,8 @@ Page({
       },
     });
   },
+
+  
 
   // 展示提交窗口
   showPopup() {

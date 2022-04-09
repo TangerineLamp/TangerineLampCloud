@@ -114,9 +114,9 @@ Page({
     this.setData({
       nickName: e.detail.value,
     });
-    this.setData({
-      flag:1
-    })
+    // this.setData({
+    //   flag:1
+    // })
   },
 
   // 获取封面
@@ -148,6 +148,7 @@ Page({
         // tempFilePath可以作为img标签的src属性显示图片
         that.setData({
           body: res.tempFilePaths[0],
+          flag:1
         });
       },
       fail() {
@@ -209,7 +210,7 @@ Page({
     //     pushTime:pushTime
     //   }
     // })
-    if(flag==0){
+    if(this.data.flag==0){
       db.collection("User")
       .where({
         _openid: openid,

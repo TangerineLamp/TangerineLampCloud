@@ -63,6 +63,7 @@ Page({
             console.log(res.data);
             this.setData({
               user: res.data,
+              nickName: res.data[0].nickName
             });
           });
       });
@@ -78,9 +79,9 @@ Page({
     //     user: res.data,
     //   });
     // });
-
+    
     this.setData({
-      title: openid,
+      title: openid+Math.random(),
     });
     this.setData({
       nickName: userInfo.nickName,
@@ -152,6 +153,14 @@ Page({
       success(res) {
         if (res.confirm) {
           that.commit();
+          wx.navigateBack({
+            delta: 1,
+          })
+          wx.showToast({
+            title: "提交成功",
+            duration: 1500,
+            mask: true,
+          });
         } else if (res.cancel) {
         }
       },
@@ -160,6 +169,8 @@ Page({
 
   //提交数据
   commit() {
+    console.log("flag:",this.data.flag)
+    var that = this;
     console.log("提交成功");
     let pushTime = new Date();
     let openid = app.globalData.openid;
@@ -182,7 +193,7 @@ Page({
     //   passageLongPictureName = this.data.title + "_passageBody.svg"
     // }
     // 修改
-    this.cloudFile(introImageName);
+    
     // db.collection("index0_passageLongPicture").add({
     //   data:{
     //     title:this.data.title,
@@ -193,22 +204,28 @@ Page({
     //   }
     // })
     if(this.data.flag==1){
-      db.collection("User")
-      .where({
-        _openid: openid,
+      wx.cloud.deleteFile({
+        fileList: [this.data.user[0].avatarUrl]
+      }).then(res => {
+        console.log("删除成功")
+        that.cloudFile(introImageName)
+        db.collection("User")
+        .where({
+          _openid: openid,
+        })
+        .update({
+          data: {
+            avatarUrl:
+              "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/user_info/avatar/" +
+              introImageName,
+            nickName: this.data.nickName,
+          },
+        })
+      }).catch(error => {
+        // handle error
       })
-      .update({
-        data: {
-          avatarUrl:
-            "cloud://tangerine-cloud-9grdz5e80159e7b3.7461-tangerine-cloud-9grdz5e80159e7b3-1304921980/user_info/avatar/" +
-            introImageName,
-          nickName: this.data.nickName,
-        },
-      })
-      .then((res) => {
-        console.log(res);
-        // wx.hideLoading()
-      });
+
+
 
     }
     else{
@@ -234,11 +251,6 @@ Page({
     //   introImage:"/icons/none_img.png",
     //   body:"/icons/none_img.png"
     // })
-    wx.showToast({
-      title: "提交成功",
-      duration: 1500,
-      mask: true,
-    });
   },
 
   // 储存图片至云端

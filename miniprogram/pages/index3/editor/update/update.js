@@ -210,7 +210,7 @@ Page({
     //     pushTime:pushTime
     //   }
     // })
-    if(this.data.flag==0){
+    if(this.data.flag==1){
       db.collection("User")
       .where({
         _openid: openid,

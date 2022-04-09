@@ -61,6 +61,21 @@ Page({
         rand:this.data.sentence[index]
       })
   },
+  cdUpdate(){
+    if (app.globalData.isLogin){
+      wx.navigateTo({
+        url: '/pages/index3/editor/update/update',
+      })
+    }
+    // 否则提示要登录
+    else {
+      wx.showToast({
+        title: '请先登录',
+        icon: 'none',
+        duration: 1500
+      })
+    }
+  },
   surprise(){
     let k = Math.floor(Math.random()*this.data.surpriseList.length);
     wx.showToast({

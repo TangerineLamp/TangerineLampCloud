@@ -41,6 +41,15 @@
     display: flex;
     align-items: center;
   }
+
+  .bigTitle1 {
+    margin-bottom: 20rpx;
+    margin-top: 20rpx;
+    color:var(--orange3);
+    display: flex;
+    align-items: center;
+    font-size: 30rpx;
+  }
   
   .add {
     margin-left:30rpx;

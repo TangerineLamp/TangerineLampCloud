@@ -1,10 +1,7 @@
 <!-- pages/index3/editor/editor.wxml -->
 <view class="background">
-    <view bindtap="modifyName">树洞昵称<text class="nick">{{nickName}}</text></view>
+    <view class="" bindtap="cdUpdate">修改树洞头像和昵称</view>
     <view bindtap="clear">清空缓存</view>
     <view bindtap="surprise">每日一句<text class="sentence">{{rand}}</text></view>
     <view bindtap="version">版本号  1.0.0</view>
-    <view class="" hover-class="none" hover-stop-propagation="false">
-        <navigator url="/pages/index3/editor/update/update">修改树洞头像和昵称</navigator>
-    </view>
 </view>

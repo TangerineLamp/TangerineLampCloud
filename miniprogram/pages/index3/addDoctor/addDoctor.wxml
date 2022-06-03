@@ -1,0 +1,14 @@
+<view>
+  <!-- 姓名 -->
+  <view class="bigTitle">心理咨询师姓名</view>
+  <view><textarea class="titleInput" value="{{certiName}}" bindinput="handleName" placeholder="{{certiName}}"
+      maxlength="-1"></textarea></view>
+  <!-- 所在机构 -->
+  <view class="bigTitle">心理咨询师的openid</view>
+  <textarea class="titleInput" value="{{openid}}" bindinput="handleOpenid" placeholder="{{openid}}"
+    maxlength="-1"></textarea>
+  <!-- 提交部分 -->
+  <view class="bottom">
+    <view class="test" bindtap="showPopup"><text>更新</text></view>
+  </view>
+</view>

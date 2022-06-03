@@ -68,7 +68,8 @@
     "pages/index3/adviceTimeList/adviceTimeList",
     "pages/index3/certification/student_questionnaire/student_questionnaire",
     "pages/index3/certification/poorStudent/poorStudent",
-    "pages/index3/editor/update/update"
+    "pages/index3/editor/update/update",
+    "pages/index3/addDoctor/addDoctor"
   ],
   "window": {
     "backgroundTextStyle": "light",

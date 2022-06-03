@@ -1,0 +1,38 @@
+/* 底部提交 */
+.bottom {
+  margin-top:30rpx;
+  border-top: solid 1rpx #bbbbbb;
+  width: 100%;
+  height:110rpx;
+  background-color: #fff;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+/* title */
+.bigTitle {
+  margin-bottom: 20rpx;
+  margin-top: 20rpx;
+  color:var(--orange2);
+}
+
+.titleInput {
+  border: 1rpx solid #888;
+  height: 100rpx;
+  width: 100%;
+}
+
+.bottom .test {
+  color:#ffffff;
+  background-color:var(--orange0);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height:80rpx;
+  margin-right: 15rpx;
+  border-radius: 10rpx;
+  flex:2;
+  font-size:35rpx;
+  letter-spacing: 2rpx;
+}

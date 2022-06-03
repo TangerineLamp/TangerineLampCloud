@@ -18,6 +18,7 @@
   <!-- <navigator url="">专业测评</navigator>
   <navigator url="">娱乐测评</navigator> -->
   <navigator url="/pages/index3/developer/trash/trash">垃圾回收</navigator>
+  <navigator url="/pages/index3/addDoctor/addDoctor">增加医生</navigator>
   
   <!-- <navigator url="/pages/index3/certification/authen/authen">验证通道</navigator> -->
 </block>

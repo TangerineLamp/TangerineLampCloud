@@ -6,7 +6,7 @@
     "autoAudits": false,
     "showShadowRootInWxmlPanel": true,
     "checkInvalidKey": true,
-    "compileHotReLoad": false,
+    "compileHotReLoad": true,
     "showES6CompileOption": false,
     "useStaticServer": true
   },
@@ -34,5 +34,6 @@
         }
       ]
     }
-  }
+  },
+  "projectname": "TangerineLamp"
 }
